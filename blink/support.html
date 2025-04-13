@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blink Support</title>
+  <style>
+    body {
+      background-color: #0A0E21;
+      color: #FFFFFF;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      color: #FFC93C;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      background: #1E1E2C;
+      border: 1px solid #FFC93C;
+      color: white;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00FFBF;
+      color: #0A0E21;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #00e6a7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Blink Support</h1>
+  <p>If you’re experiencing issues or have questions, feel free to send us a message below. We'll get back to you as soon as we can.</p>
+
+  <form action="mailto:bestlkh@me.com" method="POST" enctype="text/plain">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="6" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</body>
+</html>
