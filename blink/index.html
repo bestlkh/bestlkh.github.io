@@ -2,62 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blink – Tap the Tiles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #1c1c3c, #000000);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
       text-align: center;
+      padding: 4rem 2rem 2rem;
     }
 
     h1 {
+      font-family: 'Orbitron', sans-serif;
       font-size: 4rem;
-      margin-bottom: 0.5rem;
+      color: #00e0ff;
+      text-shadow: 0 0 20px #00e0ff, 0 0 40px #00e0ff;
+      animation: pulse 2s infinite;
     }
 
-    p {
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 20px #00e0ff; }
+      50% { text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff; }
+    }
+
+    p.description {
+      max-width: 600px;
+      margin: 1rem auto 2rem;
       font-size: 1.25rem;
-      max-width: 500px;
-      margin-bottom: 2rem;
+      color: #cccccc;
     }
 
-    .cta-button {
-      background-color: #00bcd4;
-      color: white;
+    .cta {
+      margin: 2rem 0;
+    }
+
+    .cta a {
+      background: #00e0ff;
+      color: #000;
       padding: 1rem 2rem;
-      font-size: 1.25rem;
-      border: none;
-      border-radius: 8px;
+      font-size: 1.2rem;
+      border-radius: 10px;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      box-shadow: 0 0 15px #00e0ff;
+      transition: background 0.3s ease;
     }
 
-    .cta-button:hover {
-      background-color: #0097a7;
+    .cta a:hover {
+      background: #00b8d4;
     }
 
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 10px rgba(0, 224, 255, 0.2);
+    }
+
+    .feature h3 {
+      font-size: 1.5rem;
+      color: #00e0ff;
+      margin-bottom: 1rem;
+    }
+
+    .feature p {
+      font-size: 1rem;
       color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <h1>Blink</h1>
-  <p>Test your memory. Tap the tiles. Beat the clock. Blink is the fast-paced memory game that gets harder as you go.</p>
-  <a href="https://apps.apple.com/us/app/blink-tap-the-tiles/id6744563595" class="cta-button" target="_blank" rel="noopener noreferrer">
-    Download on the App Store
-  </a>
-  <div class="footer">© 2025 Blink Game</div>
+  <header>
+    <h1>Blink</h1>
+    <p class="description">Think fast. Tap faster. Blink is a memory-speed game where every second counts.</p>
+    <div class="cta">
+      <a href="https://apps.apple.com/us/app/blink-tap-the-tiles/id6744563595" target="_blank" rel="noopener noreferrer">
+        Download on the App Store
+      </a>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="feature">
+      <h3>🔥 Fast-Paced Gameplay</h3>
+      <p>Tiles blink in a sequence — your job is to remember and tap them in order before time runs out.</p>
+    </div>
+    <div class="feature">
+      <h3>🎵 Responsive Sound</h3>
+      <p>Each tap triggers a crisp note — feel the rhythm and stay in sync with the speed.</p>
+    </div>
+    <div class="feature">
+      <h3>🧠 Brain Training</h3>
+      <p>Challenge your memory and reflexes as rounds get faster and patterns get trickier.</p>
+    </div>
+    <div class="feature">
+      <h3>🎮 Multiple Modes</h3>
+      <p>Try Shuffle or Linked Tiles mode — each round brings a new twist.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Blink Game. All rights reserved.
+  </footer>
 </body>
 </html>
