@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-07T14:38:35Z",
+  "updated_at": "2026-03-07T14:43:36Z",
   "equity": 151176.68,
   "daily_pnl": 0.0,
   "halted": false,
@@ -606,7 +606,6 @@
     "stage": "",
     "pct": 0,
     "log_tail": [
-      "2026-03-07 05:58:57,654 [INFO] ",
       "  SKIP Type 17 (RSI_DIVERGENCE) \u2014 only 0 train samples (need 100+)",
       "2026-03-07 05:58:57,655 [INFO] ",
       "======================================================================",
@@ -625,7 +624,8 @@
       "  --- XGB (60 trials, n=3,712) ---",
       "2026-03-07 06:36:16,955 [INFO]   XGB done in 63s | Val AUC: 0.8346",
       "2026-03-07 06:36:20,863 [INFO] ",
-      "  --- CatBoost (50 trials, n=3,712) ---"
+      "  --- CatBoost (50 trials, n=3,712) ---",
+      "2026-03-07 06:42:29,636 [INFO]   CB done in 458s | Val AUC: 0.8711"
     ]
   },
   "shadow_log": [
