@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-07T11:47:59Z",
+  "updated_at": "2026-03-07T11:53:00Z",
   "equity": 151176.68,
   "daily_pnl": 0.0,
   "halted": false,
@@ -606,9 +606,6 @@
     "stage": "",
     "pct": 0,
     "log_tail": [
-      "  === TYPE 12 (MORNING_EVENING_STAR) SUMMARY ===",
-      "2026-03-07 02:47:09,583 [INFO]      LGB: AUC=0.7496 (1939s)",
-      "2026-03-07 02:47:09,583 [INFO]      XGB: AUC=0.7476 (35s)",
       "2026-03-07 02:47:09,583 [INFO]       CB: AUC=0.7565 (157s) *** BEST",
       "2026-03-07 02:47:09,583 [INFO]     LSTM: AUC=0.4729 (4s)",
       "2026-03-07 02:47:09,585 [INFO] ",
@@ -625,7 +622,10 @@
       "  --- CatBoost (50 trials, n=12,788) ---",
       "2026-03-07 03:45:09,712 [INFO]   LGB done in 3514s | Val AUC: 0.7499",
       "2026-03-07 03:46:58,580 [INFO] ",
-      "  --- XGB (60 trials, n=12,788) ---"
+      "  --- XGB (60 trials, n=12,788) ---",
+      "2026-03-07 03:48:26,022 [INFO]   XGB done in 87s | Val AUC: 0.7607",
+      "2026-03-07 03:48:30,208 [INFO] ",
+      "  --- CatBoost (50 trials, n=12,788) ---"
     ]
   },
   "shadow_log": [
