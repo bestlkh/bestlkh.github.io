@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-03-07T14:28:33Z",
+  "updated_at": "2026-03-07T14:33:34Z",
   "equity": 151176.68,
   "daily_pnl": 0.0,
   "halted": false,
-  "rth": false,
+  "rth": true,
   "ws_connected": true,
   "dry_run": false,
   "session_type": "MARKET_CLOSED",
@@ -606,7 +606,6 @@
     "stage": "",
     "pct": 0,
     "log_tail": [
-      "2026-03-07 05:54:58,240 [INFO] ",
       "  --- LGB (80 trials, n=3,712) ---",
       "2026-03-07 05:56:56,475 [INFO]   CB done in 571s | Val AUC: 0.7198",
       "2026-03-07 05:58:57,639 [INFO] ",
@@ -625,7 +624,8 @@
       "2026-03-07 05:58:57,656 [INFO] [31894s] TYPE 18 (ATR_BREAKOUT) \u2014 train=3712, val=432, oos=96",
       "2026-03-07 05:58:57,656 [INFO] ======================================================================",
       "2026-03-07 05:58:57,735 [INFO] ",
-      "  --- LGB (80 trials, n=3,712) ---"
+      "  --- LGB (80 trials, n=3,712) ---",
+      "2026-03-07 06:29:06,213 [INFO]   LGB done in 1808s | Val AUC: 0.8139"
     ]
   },
   "shadow_log": [
