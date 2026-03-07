@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-07T18:29:22Z",
+  "updated_at": "2026-03-07T18:34:23Z",
   "equity": 151176.68,
   "daily_pnl": 0.0,
   "halted": false,
@@ -606,7 +606,6 @@
     "stage": "",
     "pct": 0,
     "log_tail": [
-      "2026-03-07 09:59:30,289 [INFO]     LSTM temperature: 1.5000",
       "2026-03-07 09:59:30,290 [INFO] ",
       "  === TYPE 27 (GAP_REVERSAL) SUMMARY ===",
       "2026-03-07 09:59:30,290 [INFO]      LGB: AUC=0.8933 (1252s)",
@@ -625,7 +624,8 @@
       "2026-03-07 09:59:30,557 [INFO]   Dropping 10 all-neutral LSTM columns from meta input (LSTM inactive)",
       "2026-03-07 09:59:30,568 [INFO]   Meta training: 19341 samples, Meta val: 8289 samples",
       "2026-03-07 09:59:30,568 [INFO] ",
-      "  --- Meta-LGB (100 trials) ---"
+      "  --- Meta-LGB (100 trials) ---",
+      "2026-03-07 10:31:17,105 [INFO]   Meta-LGB done in 1986s | Val AUC: 0.7347"
     ]
   },
   "shadow_log": [
