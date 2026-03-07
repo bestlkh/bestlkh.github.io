@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DawnaiBot Backtest Report</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0f1117; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 20px; min-width: 1200px; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    .card { background: #1a1d27; border-radius: 10px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    .card h2 { color: #4a9eff; font-size: 17px; margin-bottom: 14px; font-weight: 600; }
+    .dim { color: #888; font-size: 12px; }
+    .nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; padding: 12px; background: #1a1d27; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); }
+    .chart-wrap { position: relative; height: 380px; }
+    .chart-wrap-tall { position: relative; height: 500px; }
+    .cards-row { display: flex; gap: 16px; margin-bottom: 20px; }
+    a { color: #4a9eff; }
+    .header { text-align: center; margin-bottom: 24px; }
+    .header h1 { font-size: 28px; color: #e0e0e0; font-weight: 700; }
+    .header .sub { color: #888; font-size: 13px; margin-top: 4px; }
+    .footer { text-align: center; padding: 24px; color: #555; font-size: 12px; margin-top: 20px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+    <h1>DawnaiBot Backtest Report</h1>
+    <div class="sub">Generated: 2026-03-06 19:09:56 &bull; V6 ML Gate &bull; 874 gated trades / 219 days &bull; OOS Period: 2025-04-15 to 2026-02-23</div>
+</div>
+
+<!-- Nav -->
+<div class="nav"><a href="#stats" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Quick Stats</a> <a href="#equity" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Equity Curve</a> <a href="#drawdown" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Drawdown</a> <a href="#rolling" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Rolling WR</a> <a href="#monthly" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Monthly Returns</a> <a href="#attribution" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Signal Attribution</a> <a href="#tod" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Time of Day</a> <a href="#distribution" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">PnL Distribution</a> <a href="#threshold" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Threshold Sensitivity</a> <a href="#streaks" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Streaks</a> <a href="#quant" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Quant Metrics</a> <a href="#experiments" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Experiments</a> <a href="#live" style="color:#4a9eff;text-decoration:none;padding:4px 10px;border-radius:4px;font-size:13px;background:rgba(74,158,255,0.08)">Live Trades</a></div>
+
+<!-- Section 1: Quick Stats -->
+<div id="stats" class="cards-row">
+    
+        <div class="card" style="flex:1;border-top:3px solid #888">
+            <h3 style="color:#888;margin:0 0 12px 0;font-size:15px">No Gate (All Signals)</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:13px">
+                <div><span class="dim">Total PnL</span><br><b style="color:#ef5350;font-size:18px">-$12,464</b></div>
+                <div><span class="dim">Win Rate</span><br><b>28.88%</b></div>
+                <div><span class="dim">Profit Factor</span><br><b>0.62</b></div>
+                <div><span class="dim">Sharpe</span><br><b>-4.9</b></div>
+                <div><span class="dim">Max DD</span><br><b style="color:#ef5350">-$12,546</b></div>
+                <div><span class="dim">Trades/Day</span><br><b>4.0</b></div>
+            </div>
+        </div>
+        
+    
+        <div class="card" style="flex:1;border-top:3px solid #ff9800">
+            <h3 style="color:#ff9800;margin:0 0 12px 0;font-size:15px">Gate @ 0.50 (Old)</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:13px">
+                <div><span class="dim">Total PnL</span><br><b style="color:#4caf50;font-size:18px">$27,107</b></div>
+                <div><span class="dim">Win Rate</span><br><b>65.3%</b></div>
+                <div><span class="dim">Profit Factor</span><br><b>2.91</b></div>
+                <div><span class="dim">Sharpe</span><br><b>11.89</b></div>
+                <div><span class="dim">Max DD</span><br><b style="color:#ef5350">-$346</b></div>
+                <div><span class="dim">Trades/Day</span><br><b>4.0</b></div>
+            </div>
+        </div>
+        
+    
+        <div class="card" style="flex:1;border-top:3px solid #4a9eff">
+            <h3 style="color:#4a9eff;margin:0 0 12px 0;font-size:15px">Per-Type Gate (1 contract)</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:13px">
+                <div><span class="dim">Total PnL</span><br><b style="color:#4caf50;font-size:18px">$28,881</b></div>
+                <div><span class="dim">Win Rate</span><br><b>70.71%</b></div>
+                <div><span class="dim">Profit Factor</span><br><b>3.55</b></div>
+                <div><span class="dim">Sharpe</span><br><b>14.06</b></div>
+                <div><span class="dim">Max DD</span><br><b style="color:#ef5350">-$268</b></div>
+                <div><span class="dim">Trades/Day</span><br><b>4.0</b></div>
+            </div>
+        </div>
+        
+    
+        <div class="card" style="flex:1;border-top:3px solid #00e676">
+            <h3 style="color:#00e676;margin:0 0 12px 0;font-size:15px">Dynamic Sizing (Live Bot · avg 4.3× contracts)</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:13px">
+                <div><span class="dim">Total PnL</span><br><b style="color:#4caf50;font-size:18px">$111,145</b></div>
+                <div><span class="dim">Win Rate</span><br><b>70.71%</b></div>
+                <div><span class="dim">Profit Factor</span><br><b>3.08</b></div>
+                <div><span class="dim">Sharpe</span><br><b>11.98</b></div>
+                <div><span class="dim">Max DD</span><br><b style="color:#ef5350">-$1,717</b></div>
+                <div><span class="dim">Trades/Day</span><br><b>4.0</b></div>
+            </div>
+        </div>
+        
+</div>
+
+<!-- Section 2: Equity Curve -->
+<div id="equity" class="card">
+    <h2>Daily Equity Curve</h2>
+    <div class="chart-wrap-tall"><canvas id="equityChart"></canvas></div>
+</div>
+
+<!-- Section 3: Drawdown -->
+<div id="drawdown" class="card">
+    <h2>Drawdown (Underwater Curve)</h2>
+    <div class="chart-wrap"><canvas id="ddChart"></canvas></div>
+</div>
+
+<!-- Section 4: Rolling WR -->
+<div id="rolling" class="card">
+    <h2>Rolling 20-Day Win Rate (Per-Type Scenario)</h2>
+    <div class="chart-wrap"><canvas id="rollingWrChart"></canvas></div>
+</div>
+
+<!-- Section 5: Monthly Returns -->
+<div id="monthly" class="card">
+    <h2>Monthly Returns Heatmap (Per-Type Scenario)</h2>
+    
+    <table style='width:100%;border-collapse:collapse;font-size:13px'>
+        <thead><tr><th style='padding:6px 10px;color:#aaa'>Month</th><th style='padding:6px 10px;color:#aaa'>MNQ</th><th style='padding:6px 10px;color:#aaa'>MES</th><th style='padding:6px 10px;color:#aaa'>MYM</th><th style='padding:6px 10px;color:#aaa'>M2K</th><th style='padding:6px 10px;color:#aaa'>Total</th></tr></thead>
+        <tbody><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2025-04</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.10);color:#e0e0e0'>$571</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.13);color:#e0e0e0'>$749</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.07);color:#e0e0e0'>$385</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.02);color:#e0e0e0'>$126</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.32);color:#e0e0e0'>$1,831</td></tr><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2025-05</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.30);color:#e0e0e0'>$1,725</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.26);color:#e0e0e0'>$1,499</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.12);color:#e0e0e0'>$663</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.02);color:#e0e0e0'>$128</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.70);color:#e0e0e0'>$4,015</td></tr><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2025-06</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.15);color:#e0e0e0'>$860</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.14);color:#e0e0e0'>$779</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.07);color:#e0e0e0'>$409</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.06);color:#e0e0e0'>$341</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.42);color:#e0e0e0'>$2,390</td></tr><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2025-07</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.06);color:#e0e0e0'>$366</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.13);color:#e0e0e0'>$756</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.10);color:#e0e0e0'>$550</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.06);color:#e0e0e0'>$330</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.35);color:#e0e0e0'>$2,002</td></tr><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2025-08</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.09);color:#e0e0e0'>$513</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.08);color:#e0e0e0'>$473</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.04);color:#e0e0e0'>$249</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.04);color:#e0e0e0'>$223</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.25);color:#e0e0e0'>$1,457</td></tr><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2025-09</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.09);color:#e0e0e0'>$522</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.16);color:#e0e0e0'>$901</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.05);color:#e0e0e0'>$295</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.06);color:#e0e0e0'>$345</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.36);color:#e0e0e0'>$2,063</td></tr><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2025-10</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.15);color:#e0e0e0'>$881</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.21);color:#e0e0e0'>$1,192</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.14);color:#e0e0e0'>$811</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.10);color:#e0e0e0'>$577</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.60);color:#e0e0e0'>$3,461</td></tr><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2025-11</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.35);color:#e0e0e0'>$2,022</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.10);color:#e0e0e0'>$547</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.09);color:#e0e0e0'>$524</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.07);color:#e0e0e0'>$411</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.61);color:#e0e0e0'>$3,504</td></tr><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2025-12</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.12);color:#e0e0e0'>$710</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.12);color:#e0e0e0'>$690</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.11);color:#e0e0e0'>$632</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.08);color:#e0e0e0'>$451</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.43);color:#e0e0e0'>$2,483</td></tr><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2026-01</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.33);color:#e0e0e0'>$1,905</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.21);color:#e0e0e0'>$1,182</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.07);color:#e0e0e0'>$381</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.01);color:#e0e0e0'>$69</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.62);color:#e0e0e0'>$3,537</td></tr><tr><td style='padding:6px 10px;color:#ccc;font-weight:600'>2026-02</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.11);color:#e0e0e0'>$659</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.13);color:#e0e0e0'>$771</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.08);color:#e0e0e0'>$445</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.05);color:#e0e0e0'>$260</td><td style='padding:6px 10px;text-align:right;background:rgba(76,175,80,0.37);color:#e0e0e0'>$2,136</td></tr></tbody>
+    </table>
+    
+</div>
+
+<!-- Section 6: Signal Attribution -->
+<div id="attribution" class="card">
+    <h2>Signal Type Attribution (Per-Type Scenario)</h2>
+    <div class="chart-wrap-tall"><canvas id="attrChart"></canvas></div>
+</div>
+
+<!-- Section 7: Time of Day -->
+<div id="tod" class="card">
+    <h2>Time-of-Day Performance (Per-Type Scenario)</h2>
+    <div class="chart-wrap"><canvas id="todChart"></canvas></div>
+</div>
+
+<!-- Section 8: PnL Distribution -->
+<div id="distribution" class="card">
+    <h2>Trade PnL Distribution (Per-Type Scenario)</h2>
+    <div class="chart-wrap"><canvas id="distChart"></canvas></div>
+</div>
+
+<!-- Section 9: Threshold Sensitivity -->
+<div id="threshold" class="card">
+    <h2>Threshold Sensitivity Analysis</h2>
+    <div class="chart-wrap"><canvas id="thrChart"></canvas></div>
+</div>
+
+<!-- Section 10: Streaks -->
+<div id="streaks" class="card">
+    <h2>Consecutive Streak Analysis (Per-Type Scenario)</h2>
+    <div class="chart-wrap"><canvas id="streakChart"></canvas></div>
+</div>
+
+<!-- Section 11: Quant Metrics -->
+<div id="quant" class="card">
+    <h2>Quant Metrics Deep Dive (Per-Type Scenario)</h2>
+    <table style='width:100%;border-collapse:collapse;font-size:14px'><tr><td style='padding:6px 12px;color:#aaa'>Sharpe Ratio (ann.)</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>14.06</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Sortino Ratio</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>31.75</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Calmar Ratio</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>124.04</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Recovery Factor</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>107.80</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Profit Factor</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>3.55</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Expectancy</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>$33</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Average Win</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>$65</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Average Loss</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>-$44</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Win/Loss Ratio</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>1.47</td></tr><tr><td style='padding:6px 12px;color:#aaa'>MAE Proxy (avg loss ATR mult)</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>2.02x</td></tr><tr><td style='padding:6px 12px;color:#aaa'>MFE Proxy (avg win ATR mult)</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>3.50x</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Best Day</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>$706</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Worst Day</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>-$268</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Longest Win Streak</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>16</td></tr><tr><td style='padding:6px 12px;color:#aaa'>Longest Loss Streak</td><td style='padding:6px 12px;color:#e0e0e0;font-weight:600;text-align:right'>6</td></tr></table>
+</div>
+
+<!-- Section 12: Experiments -->
+<div id="experiments" class="card">
+    <h2>Evolution Loop Experiments (Top 10 by Sharpe)</h2>
+    <table style='width:100%;border-collapse:collapse;font-size:13px'><thead><tr><th style='padding:5px 8px;color:#aaa;text-align:left'>ID</th><th style='padding:5px 8px;color:#aaa;text-align:right'>WR</th><th style='padding:5px 8px;color:#aaa;text-align:right'>PF</th><th style='padding:5px 8px;color:#aaa;text-align:right'>Sharpe</th><th style='padding:5px 8px;color:#aaa;text-align:right'>Net PnL</th><th style='padding:5px 8px;color:#aaa;text-align:right'>Max DD</th><th style='padding:5px 8px;color:#aaa;text-align:right'>Trades/Day</th><th style='padding:5px 8px;color:#aaa;text-align:right'>Params</th></tr></thead><tbody><tr style='background:transparent'><td style='padding:5px 8px;color:#aaa;font-size:12px'>exp_20260304_6076b8</td><td style='padding:5px 8px;text-align:right'>67.5%</td><td style='padding:5px 8px;text-align:right'>8.37</td><td style='padding:5px 8px;text-align:right;color:#4a9eff;font-weight:600'>27.99</td><td style='padding:5px 8px;text-align:right'>$397,054</td><td style='padding:5px 8px;text-align:right;color:#ef5350'>-$556</td><td style='padding:5px 8px;text-align:right'>636.0</td><td style='padding:5px 8px;color:#888;font-size:11px'>{&quot;tp_mult&quot;: 3.0, &quot;sl_mult&quot;: 0.75, &quot;max_hold&quot;: 10, &quot;threshold_long&quot;: 0.45, &quot;thres</td></tr><tr style='background:transparent'><td style='padding:5px 8px;color:#aaa;font-size:12px'>exp_20260303_d7c50d</td><td style='padding:5px 8px;text-align:right'>73.3%</td><td style='padding:5px 8px;text-align:right'>11.11</td><td style='padding:5px 8px;text-align:right;color:#4a9eff;font-weight:600'>27.66</td><td style='padding:5px 8px;text-align:right'>$380,831</td><td style='padding:5px 8px;text-align:right;color:#ef5350'>-$1,150</td><td style='padding:5px 8px;text-align:right'>545.0</td><td style='padding:5px 8px;color:#888;font-size:11px'>{&quot;tp_mult&quot;: 3.0, &quot;sl_mult&quot;: 0.75, &quot;max_hold&quot;: 20, &quot;threshold_long&quot;: 0.55, &quot;thres</td></tr><tr style='background:transparent'><td style='padding:5px 8px;color:#aaa;font-size:12px'>exp_20260303_d917d2</td><td style='padding:5px 8px;text-align:right'>67.5%</td><td style='padding:5px 8px;text-align:right'>6.97</td><td style='padding:5px 8px;text-align:right;color:#4a9eff;font-weight:600'>27.55</td><td style='padding:5px 8px;text-align:right'>$321,897</td><td style='padding:5px 8px;text-align:right;color:#ef5350'>-$643</td><td style='padding:5px 8px;text-align:right'>636.0</td><td style='padding:5px 8px;color:#888;font-size:11px'>{&quot;tp_mult&quot;: 2.5, &quot;sl_mult&quot;: 0.75, &quot;max_hold&quot;: 10, &quot;threshold_long&quot;: 0.45, &quot;thres</td></tr><tr style='background:transparent'><td style='padding:5px 8px;color:#aaa;font-size:12px'>exp_20260306_714bff</td><td style='padding:5px 8px;text-align:right'>67.5%</td><td style='padding:5px 8px;text-align:right'>6.28</td><td style='padding:5px 8px;text-align:right;color:#4a9eff;font-weight:600'>27.24</td><td style='padding:5px 8px;text-align:right'>$379,092</td><td style='padding:5px 8px;text-align:right;color:#ef5350'>-$915</td><td style='padding:5px 8px;text-align:right'>636.0</td><td style='padding:5px 8px;color:#888;font-size:11px'>{&quot;tp_mult&quot;: 3.0, &quot;sl_mult&quot;: 1.0, &quot;max_hold&quot;: 20, &quot;threshold_long&quot;: 0.45, &quot;thresh</td></tr><tr style='background:transparent'><td style='padding:5px 8px;color:#aaa;font-size:12px'>exp_20260303_0b6d19</td><td style='padding:5px 8px;text-align:right'>73.3%</td><td style='padding:5px 8px;text-align:right'>9.26</td><td style='padding:5px 8px;text-align:right;color:#4a9eff;font-weight:600'>27.23</td><td style='padding:5px 8px;text-align:right'>$311,083</td><td style='padding:5px 8px;text-align:right;color:#ef5350'>-$1,200</td><td style='padding:5px 8px;text-align:right'>545.0</td><td style='padding:5px 8px;color:#888;font-size:11px'>{&quot;tp_mult&quot;: 2.5, &quot;sl_mult&quot;: 0.75, &quot;max_hold&quot;: 10, &quot;threshold_long&quot;: 0.6, &quot;thresh</td></tr><tr style='background:transparent'><td style='padding:5px 8px;color:#aaa;font-size:12px'>exp_20260303_41668a</td><td style='padding:5px 8px;text-align:right'>73.3%</td><td style='padding:5px 8px;text-align:right'>8.34</td><td style='padding:5px 8px;text-align:right;color:#4a9eff;font-weight:600'>26.94</td><td style='padding:5px 8px;text-align:right'>$368,278</td><td style='padding:5px 8px;text-align:right;color:#ef5350'>-$1,632</td><td style='padding:5px 8px;text-align:right'>545.0</td><td style='padding:5px 8px;color:#888;font-size:11px'>{&quot;tp_mult&quot;: 3.0, &quot;sl_mult&quot;: 1.0, &quot;max_hold&quot;: 20, &quot;threshold_long&quot;: 0.65, &quot;thresh</td></tr><tr style='background:transparent'><td style='padding:5px 8px;color:#aaa;font-size:12px'>exp_20260305_2e88ae</td><td style='padding:5px 8px;text-align:right'>71.8%</td><td style='padding:5px 8px;text-align:right'>8.66</td><td style='padding:5px 8px;text-align:right;color:#4a9eff;font-weight:600'>26.91</td><td style='padding:5px 8px;text-align:right'>$304,103</td><td style='padding:5px 8px;text-align:right;color:#ef5350'>-$1,577</td><td style='padding:5px 8px;text-align:right'>556.9</td><td style='padding:5px 8px;color:#888;font-size:11px'>{&quot;tp_mult&quot;: 2.5, &quot;sl_mult&quot;: 0.75, &quot;max_hold&quot;: 15, &quot;threshold_long&quot;: 0.55, &quot;thres</td></tr><tr style='background:transparent'><td style='padding:5px 8px;color:#aaa;font-size:12px'>exp_20260304_fc713b</td><td style='padding:5px 8px;text-align:right'>67.5%</td><td style='padding:5px 8px;text-align:right'>5.58</td><td style='padding:5px 8px;text-align:right;color:#4a9eff;font-weight:600'>26.82</td><td style='padding:5px 8px;text-align:right'>$246,741</td><td style='padding:5px 8px;text-align:right;color:#ef5350'>-$730</td><td style='padding:5px 8px;text-align:right'>636.0</td><td style='padding:5px 8px;color:#888;font-size:11px'>{&quot;tp_mult&quot;: 2.0, &quot;sl_mult&quot;: 0.75, &quot;max_hold&quot;: 20, &quot;threshold_long&quot;: 0.45, &quot;thres</td></tr><tr style='background:transparent'><td style='padding:5px 8px;color:#aaa;font-size:12px'>exp_20260304_ab49a3</td><td style='padding:5px 8px;text-align:right'>71.8%</td><td style='padding:5px 8px;text-align:right'>7.80</td><td style='padding:5px 8px;text-align:right;color:#4a9eff;font-weight:600'>26.61</td><td style='padding:5px 8px;text-align:right'>$359,632</td><td style='padding:5px 8px;text-align:right;color:#ef5350'>-$2,102</td><td style='padding:5px 8px;text-align:right'>556.9</td><td style='padding:5px 8px;color:#888;font-size:11px'>{&quot;tp_mult&quot;: 3.0, &quot;sl_mult&quot;: 1.0, &quot;max_hold&quot;: 20, &quot;threshold_long&quot;: 0.55, &quot;thresh</td></tr><tr style='background:transparent'><td style='padding:5px 8px;color:#aaa;font-size:12px'>exp_20260306_25a680</td><td style='padding:5px 8px;text-align:right'>67.5%</td><td style='padding:5px 8px;text-align:right'>5.23</td><td style='padding:5px 8px;text-align:right;color:#4a9eff;font-weight:600'>26.55</td><td style='padding:5px 8px;text-align:right'>$303,935</td><td style='padding:5px 8px;text-align:right;color:#ef5350'>-$1,002</td><td style='padding:5px 8px;text-align:right'>636.0</td><td style='padding:5px 8px;color:#888;font-size:11px'>{&quot;tp_mult&quot;: 2.5, &quot;sl_mult&quot;: 1.0, &quot;max_hold&quot;: 10, &quot;threshold_long&quot;: 0.45, &quot;thresh</td></tr></tbody></table>
+</div>
+
+<!-- Section 13: Live Trades -->
+<div id="live" class="card">
+    <h2>Live Trades History</h2>
+    <div class="chart-wrap"><canvas id="liveChart"></canvas></div>
+    <div style="margin-top:16px">
+        <h3 style="color:#aaa;font-size:14px;margin-bottom:8px">Recent 30 Trades</h3>
+        <table style='width:100%;border-collapse:collapse;font-size:13px'><thead><tr><th style='padding:4px 8px;color:#aaa;text-align:left'>Date</th><th style='padding:4px 8px;color:#aaa;text-align:left'>Inst</th><th style='padding:4px 8px;color:#aaa;text-align:left'>Side</th><th style='padding:4px 8px;color:#aaa;text-align:left'>PnL</th><th style='padding:4px 8px;color:#aaa;text-align:left'>Exit Reason</th><th style='padding:4px 8px;color:#aaa;text-align:left'>Bucket</th></tr></thead><tbody><tr><td style='padding:4px 8px;color:#aaa'>2026-03-06</td><td style='padding:4px 8px'>MYMH6</td><td style='padding:4px 8px'>short</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$222</td><td style='padding:4px 8px;color:#888'>loss</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-06</td><td style='padding:4px 8px'>MCLJ6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#4caf50;font-weight:600;text-align:right'>$379</td><td style='padding:4px 8px;color:#888'>win</td><td style='padding:4px 8px;color:#888'>OVERNIGHT</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-06</td><td style='padding:4px 8px'>MNGJ6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$20</td><td style='padding:4px 8px;color:#888'>TIME_EXIT</td><td style='padding:4px 8px;color:#888'>OVERNIGHT</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-06</td><td style='padding:4px 8px'>MGCJ6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$347</td><td style='padding:4px 8px;color:#888'>TIME_EXIT</td><td style='padding:4px 8px;color:#888'>OVERNIGHT</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-05</td><td style='padding:4px 8px'>MYMH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$8</td><td style='padding:4px 8px;color:#888'>VWAP_thesis_fail</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-05</td><td style='padding:4px 8px'>MNQH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#4caf50;font-weight:600;text-align:right'>$2</td><td style='padding:4px 8px;color:#888'>VWAP_thesis_fail</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-05</td><td style='padding:4px 8px'>MYMH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$32</td><td style='padding:4px 8px;color:#888'>VWAP_thesis_fail</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-05</td><td style='padding:4px 8px'>MYMH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$7</td><td style='padding:4px 8px;color:#888'>VWAP_thesis_fail</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-05</td><td style='padding:4px 8px'>MNQH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$592</td><td style='padding:4px 8px;color:#888'>loss</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-05</td><td style='padding:4px 8px'>MNQH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#4caf50;font-weight:600;text-align:right'>$1,126</td><td style='padding:4px 8px;color:#888'>win</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-05</td><td style='padding:4px 8px'>MCLJ6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$251</td><td style='padding:4px 8px;color:#888'>loss</td><td style='padding:4px 8px;color:#888'>OVERNIGHT</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-05</td><td style='padding:4px 8px'>MNGJ6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$86</td><td style='padding:4px 8px;color:#888'>TIME_EXIT</td><td style='padding:4px 8px;color:#888'>OVERNIGHT</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-05</td><td style='padding:4px 8px'>MGCJ6</td><td style='padding:4px 8px'>short</td><td style='padding:4px 8px;color:#4caf50;font-weight:600;text-align:right'>$883</td><td style='padding:4px 8px;color:#888'>win</td><td style='padding:4px 8px;color:#888'>OVERNIGHT</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-04</td><td style='padding:4px 8px'>MESH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#4caf50;font-weight:600;text-align:right'>$7</td><td style='padding:4px 8px;color:#888'>TIME_EXIT</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-04</td><td style='padding:4px 8px'>MNQH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$112</td><td style='padding:4px 8px;color:#888'>loss</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-04</td><td style='padding:4px 8px'>MYMH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#4caf50;font-weight:600;text-align:right'>$68</td><td style='padding:4px 8px;color:#888'>win</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-04</td><td style='padding:4px 8px'>M2KH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$52</td><td style='padding:4px 8px;color:#888'>loss</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-04</td><td style='padding:4px 8px'>MYMH6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$74</td><td style='padding:4px 8px;color:#888'>loss</td><td style='padding:4px 8px;color:#888'>ORB_TREND</td></tr><tr><td style='padding:4px 8px;color:#aaa'>2026-03-04</td><td style='padding:4px 8px'>MGCJ6</td><td style='padding:4px 8px'>long</td><td style='padding:4px 8px;color:#ef5350;font-weight:600;text-align:right'>-$1,007</td><td style='padding:4px 8px;color:#888'>loss</td><td style='padding:4px 8px;color:#888'>OVERNIGHT</td></tr></tbody></table>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    Powered by V6 ML Gate + Per-Type Thresholds &bull; DawnaiBot &copy; 2026
+</div>
+
+</div>
+
+<script>
+Chart.defaults.color = '#e0e0e0';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+
+
+    new Chart(document.getElementById('equityChart'), {
+        type: 'line',
+        data: {
+            labels: ["2025-04-15", "2025-04-16", "2025-04-17", "2025-04-21", "2025-04-22", "2025-04-23", "2025-04-24", "2025-04-25", "2025-04-28", "2025-04-29", "2025-04-30", "2025-05-01", "2025-05-02", "2025-05-05", "2025-05-06", "2025-05-07", "2025-05-08", "2025-05-09", "2025-05-12", "2025-05-13", "2025-05-14", "2025-05-15", "2025-05-16", "2025-05-19", "2025-05-20", "2025-05-21", "2025-05-22", "2025-05-23", "2025-05-26", "2025-05-27", "2025-05-28", "2025-05-29", "2025-05-30", "2025-06-02", "2025-06-03", "2025-06-04", "2025-06-05", "2025-06-06", "2025-06-09", "2025-06-10", "2025-06-11", "2025-06-12", "2025-06-13", "2025-06-16", "2025-06-17", "2025-06-18", "2025-06-19", "2025-06-23", "2025-06-24", "2025-06-25", "2025-06-26", "2025-06-27", "2025-06-30", "2025-07-01", "2025-07-02", "2025-07-03", "2025-07-04", "2025-07-07", "2025-07-08", "2025-07-09", "2025-07-10", "2025-07-11", "2025-07-14", "2025-07-15", "2025-07-16", "2025-07-17", "2025-07-18", "2025-07-21", "2025-07-22", "2025-07-23", "2025-07-24", "2025-07-25", "2025-07-28", "2025-07-29", "2025-07-30", "2025-07-31", "2025-08-01", "2025-08-04", "2025-08-05", "2025-08-06", "2025-08-07", "2025-08-08", "2025-08-11", "2025-08-12", "2025-08-13", "2025-08-14", "2025-08-15", "2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22", "2025-08-25", "2025-08-26", "2025-08-27", "2025-08-28", "2025-08-29", "2025-09-01", "2025-09-02", "2025-09-03", "2025-09-04", "2025-09-05", "2025-09-08", "2025-09-09", "2025-09-10", "2025-09-11", "2025-09-12", "2025-09-15", "2025-09-16", "2025-09-17", "2025-09-18", "2025-09-22", "2025-09-23", "2025-09-24", "2025-09-25", "2025-09-26", "2025-09-29", "2025-09-30", "2025-10-01", "2025-10-02", "2025-10-03", "2025-10-06", "2025-10-07", "2025-10-08", "2025-10-09", "2025-10-10", "2025-10-13", "2025-10-14", "2025-10-15", "2025-10-16", "2025-10-17", "2025-10-20", "2025-10-21", "2025-10-22", "2025-10-23", "2025-10-24", "2025-10-27", "2025-10-28", "2025-10-29", "2025-10-30", "2025-10-31", "2025-11-03", "2025-11-04", "2025-11-05", "2025-11-06", "2025-11-07", "2025-11-10", "2025-11-11", "2025-11-12", "2025-11-13", "2025-11-14", "2025-11-17", "2025-11-18", "2025-11-19", "2025-11-20", "2025-11-21", "2025-11-24", "2025-11-25", "2025-11-26", "2025-11-27", "2025-11-28", "2025-12-01", "2025-12-02", "2025-12-03", "2025-12-04", "2025-12-05", "2025-12-08", "2025-12-09", "2025-12-10", "2025-12-11", "2025-12-12", "2025-12-15", "2025-12-16", "2025-12-17", "2025-12-18", "2025-12-22", "2025-12-23", "2025-12-24", "2025-12-26", "2025-12-29", "2025-12-30", "2025-12-31", "2026-01-02", "2026-01-05", "2026-01-06", "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-12", "2026-01-13", "2026-01-14", "2026-01-15", "2026-01-16", "2026-01-19", "2026-01-20", "2026-01-21", "2026-01-22", "2026-01-23", "2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30", "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06", "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13", "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-23"],
+            datasets: [
+                {
+                    label: 'Dynamic Sizing (Live Bot)',
+                    data: [150467.57, 150883.41, 149760.67, 150695.04, 149511.71, 152069.92, 153001.94, 153203.64, 154616.73, 155881.48, 156522.82, 158687.79, 159514.0, 160585.36, 161764.9, 162652.91, 162360.14, 162273.7, 163329.86, 163692.89, 164597.4, 165653.24, 166860.57, 167450.74, 167420.27, 168684.99, 170452.15, 170183.08, 170041.76, 170584.78, 170356.96, 171101.03, 171793.47, 172995.01, 173558.56, 174494.93, 174440.72, 175271.74, 174948.27, 174794.46, 175432.31, 176151.61, 177390.89, 177677.87, 177162.65, 177176.64, 177446.83, 177505.65, 178604.94, 179020.77, 179812.48, 180408.05, 180979.93, 181815.49, 182109.29, 182420.13, 182248.55, 183150.39, 183197.08, 183219.72, 183109.99, 183733.06, 183714.53, 184624.1, 185748.13, 186378.76, 186423.05, 186108.08, 187196.1, 187194.26, 187123.18, 187296.88, 187155.59, 187708.19, 188225.82, 188233.97, 189280.93, 189986.81, 190359.38, 191308.69, 192413.08, 192786.67, 193273.23, 194418.86, 194859.07, 194343.78, 193957.61, 193813.61, 194669.89, 194579.15, 194187.25, 194186.81, 194719.49, 194022.61, 194348.82, 193449.22, 193657.38, 193625.79, 194510.96, 194216.14, 193975.97, 194986.62, 195982.41, 196640.49, 196801.67, 197239.61, 196865.34, 197394.32, 197797.64, 197979.66, 197586.48, 197612.67, 198140.82, 198882.07, 199938.26, 199762.69, 199665.57, 200826.18, 200929.4, 200555.68, 201450.15, 201254.27, 201659.1, 201910.3, 201911.72, 203168.59, 204270.43, 205313.68, 206410.26, 206432.65, 208602.06, 209278.88, 209978.78, 211011.72, 211699.34, 212659.42, 213035.77, 213317.81, 213916.4, 213545.31, 214068.36, 214111.91, 214852.18, 215525.92, 216244.9, 217092.76, 217677.1, 218582.57, 218283.59, 219577.56, 220329.67, 221754.61, 221040.0, 222065.26, 223849.94, 226252.68, 228018.75, 229195.3, 228921.85, 229163.63, 229524.48, 230617.08, 231270.72, 231074.81, 230881.27, 230954.99, 231459.37, 231509.58, 232743.25, 233960.77, 235114.07, 235446.57, 235431.22, 235079.52, 236821.76, 236602.61, 237374.68, 237440.32, 238045.27, 238623.12, 239315.51, 239425.37, 240739.83, 241188.59, 241208.01, 241997.87, 242748.53, 243812.33, 244047.8, 245330.1, 246776.14, 248297.67, 248341.48, 248196.33, 247293.05, 248206.75, 249420.98, 249602.45, 249666.03, 249928.23, 250452.33, 251714.0, 253117.69, 253767.67, 254803.01, 254254.56, 257179.43, 256082.4, 256978.7, 257767.67, 259153.44, 260341.35, 259328.98, 260254.2, 261491.45, 261049.99, 261686.11, 261729.66, 261145.06],
+                    borderColor: '#00e676',
+                    backgroundColor: 'transparent',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    yAxisID: 'y',
+                    order: 0,
+                },
+                {
+                    label: 'Per-Type Gate (1 contract)',
+                    data: [150142.77, 150208.73, 150051.38, 150287.87, 150019.96, 150693.48, 150928.15, 151056.17, 151388.71, 151618.92, 151830.92, 152319.55, 152558.98, 152851.17, 153129.72, 153348.32, 153356.07, 153325.25, 153597.52, 153697.3, 153860.74, 154125.24, 154417.72, 154570.16, 154613.05, 154913.07, 155344.13, 155360.18, 155352.38, 155485.78, 155464.14, 155663.69, 155846.2, 156157.11, 156294.38, 156519.62, 156560.99, 156763.15, 156694.72, 156658.02, 156835.69, 156967.46, 157270.71, 157322.39, 157207.51, 157241.97, 157321.5, 157364.22, 157628.05, 157742.82, 157944.03, 158086.34, 158236.0, 158439.92, 158520.19, 158577.33, 158543.36, 158760.87, 158806.95, 158847.87, 158859.79, 159006.69, 159045.93, 159258.34, 159478.4, 159637.59, 159670.51, 159622.55, 159879.11, 159910.36, 159920.18, 159949.51, 159916.57, 160051.17, 160191.87, 160237.93, 160509.98, 160672.32, 160775.62, 161012.1, 161283.21, 161352.54, 161442.96, 161741.41, 161865.15, 161795.82, 161707.21, 161672.46, 161872.72, 161845.11, 161756.11, 161782.35, 161880.14, 161734.82, 161818.2, 161625.66, 161695.38, 161692.81, 161903.04, 161895.69, 161868.43, 162110.13, 162350.01, 162524.52, 162588.74, 162698.39, 162619.09, 162747.81, 162844.92, 162915.13, 162906.98, 162929.88, 163066.93, 163248.2, 163450.02, 163464.1, 163485.21, 163758.56, 163826.01, 163773.34, 163989.51, 163992.43, 164067.18, 164135.98, 164175.9, 164413.9, 164693.77, 164943.6, 165203.51, 165273.54, 165797.72, 165953.96, 166139.03, 166384.4, 166577.77, 166813.98, 166923.17, 167016.61, 167128.65, 167122.44, 167219.97, 167280.97, 167503.44, 167700.48, 167832.55, 167986.73, 168091.26, 168259.9, 168188.97, 168511.21, 168713.01, 168975.34, 168796.93, 168985.35, 169414.66, 170013.43, 170337.26, 170668.1, 170596.26, 170658.0, 170724.29, 170933.21, 171108.9, 171068.06, 171019.77, 171076.97, 171205.76, 171251.95, 171532.05, 171763.13, 172031.45, 172077.07, 172162.68, 172162.52, 172551.0, 172548.92, 172744.92, 172789.2, 172901.63, 173057.86, 173187.76, 173207.78, 173522.77, 173676.95, 173712.1, 173915.52, 174121.72, 174407.83, 174494.88, 174798.34, 175078.86, 175433.64, 175470.81, 175440.54, 175237.81, 175504.91, 175729.91, 175816.74, 175864.75, 175937.93, 176081.24, 176391.49, 176744.73, 176895.42, 177169.43, 177029.64, 177735.78, 177543.19, 177746.54, 177947.56, 178288.63, 178573.46, 178501.12, 178735.37, 178972.27, 178871.65, 178975.39, 178961.85, 178880.78],
+                    borderColor: '#4a9eff',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    yAxisID: 'y',
+                    order: 1,
+                },
+                {
+                    label: 'Gate @ 0.50',
+                    data: [150187.92, 150343.68, 150186.34, 150381.91, 150649.73, 151323.25, 151461.78, 151409.21, 151645.58, 151875.79, 152087.8, 152576.51, 152596.98, 152914.04, 153064.79, 153324.49, 153332.24, 153301.96, 153574.23, 153674.01, 153837.45, 154062.83, 154306.23, 154458.66, 154695.61, 154640.66, 155071.71, 155106.07, 155192.1, 155325.99, 155308.11, 155155.5, 155338.01, 155648.92, 155841.71, 155982.09, 156037.11, 156336.99, 156333.97, 156369.15, 156599.46, 156737.76, 156803.4, 156896.25, 156785.39, 156816.79, 156836.95, 157276.02, 157546.13, 157546.55, 157747.77, 157879.27, 158063.75, 158242.55, 158283.81, 158512.35, 158604.88, 158829.79, 158801.18, 158842.1, 158876.56, 158980.51, 159032.74, 159177.98, 159291.9, 159385.07, 159332.13, 159354.32, 159610.88, 159594.97, 159626.85, 159657.68, 159620.66, 159486.02, 159664.7, 159686.09, 159640.23, 159779.12, 159806.54, 160039.83, 160085.28, 160199.0, 160111.25, 160405.54, 160530.52, 160461.19, 160408.09, 160520.5, 160720.76, 160693.13, 160586.0, 160623.95, 160721.74, 160576.42, 160745.63, 160658.46, 160791.73, 160790.15, 160790.55, 160849.6, 160770.91, 161024.2, 161068.41, 161268.26, 161333.43, 161417.07, 161393.38, 161532.83, 161457.6, 161572.76, 161564.61, 161665.26, 161661.11, 161731.68, 161867.48, 161912.28, 161926.12, 162196.99, 162518.94, 162343.82, 162559.98, 162782.65, 162881.11, 162949.91, 162932.5, 162780.79, 163050.24, 163243.99, 163531.55, 163842.71, 164366.9, 164532.08, 164717.16, 164911.79, 164998.95, 165122.49, 165301.49, 165394.94, 165340.5, 165177.36, 165049.01, 165112.44, 165273.17, 165521.25, 165757.7, 166071.97, 166176.49, 166343.86, 166668.8, 166636.96, 166991.08, 167253.41, 166985.92, 167310.2, 167596.5, 168195.28, 168519.1, 168987.45, 168915.61, 168907.8, 168970.24, 169319.7, 169508.14, 169467.3, 169512.59, 169510.15, 169462.74, 169432.61, 169637.58, 169996.46, 170193.71, 170170.19, 170609.42, 170450.8, 170863.76, 170918.66, 171184.74, 171173.96, 171286.39, 171442.62, 171441.56, 171461.59, 171801.67, 171966.85, 171878.38, 172081.8, 172290.93, 172662.63, 172831.48, 173134.95, 173416.44, 173771.23, 173688.36, 173648.14, 173539.03, 173712.3, 174169.32, 174272.32, 174320.27, 174393.45, 174393.7, 174727.51, 175071.8, 175366.25, 175226.11, 175323.57, 176029.72, 175946.79, 176269.26, 176557.42, 176898.5, 177085.49, 176922.11, 177156.36, 177379.76, 177335.94, 177435.21, 177265.11, 177106.78],
+                    borderColor: '#ff9800',
+                    backgroundColor: 'transparent',
+                    borderWidth: 1.5,
+                    pointRadius: 0,
+                    yAxisID: 'y',
+                    order: 2,
+                },
+                {
+                    label: 'No Gate',
+                    data: [150081.9, 149771.59, 149676.09, 149379.62, 149113.43, 149360.3, 149113.87, 148893.98, 148741.78, 148819.84, 148504.85, 148274.52, 148047.01, 148043.32, 147816.09, 147717.29, 147688.92, 147921.17, 147784.18, 147601.24, 147536.91, 147367.76, 147561.79, 147418.24, 147495.1, 147551.09, 147275.02, 147097.42, 147024.1, 146980.2, 146843.01, 146825.05, 146767.29, 146834.44, 146821.98, 146730.52, 146525.51, 146514.15, 146694.02, 146728.7, 146949.27, 147010.01, 146795.43, 146590.73, 146730.67, 146600.7, 146439.88, 146165.87, 146284.01, 146161.76, 146362.88, 146247.27, 146239.27, 146282.93, 146468.39, 146388.8, 146437.35, 146432.73, 146347.55, 146263.8, 146210.4, 146119.23, 146107.35, 145930.62, 145767.73, 145637.87, 145721.65, 145754.01, 145722.93, 145578.7, 145496.21, 145423.51, 145309.95, 145255.93, 145377.15, 145400.94, 145093.2, 144959.62, 144883.79, 145050.78, 144946.31, 144840.73, 144766.11, 144726.32, 144660.63, 144496.53, 144684.14, 144593.28, 144624.7, 144447.51, 144215.82, 144432.01, 144386.18, 144235.08, 144477.47, 144408.14, 144253.97, 144185.88, 143919.46, 143792.26, 144029.28, 144278.8, 144340.34, 144203.89, 144426.72, 144259.53, 144136.54, 144072.5, 143939.89, 143873.81, 143781.96, 143712.93, 143649.25, 143492.44, 143737.18, 143533.63, 143436.65, 143575.13, 143643.59, 143473.34, 143340.1, 143144.59, 143236.31, 143156.38, 143006.19, 142911.68, 142584.78, 142798.92, 142578.11, 142889.99, 142888.71, 142888.53, 142724.03, 142655.41, 142474.94, 142255.98, 142236.39, 142429.78, 142294.86, 141992.97, 141850.54, 141740.69, 141454.2, 141360.09, 141140.16, 141464.58, 141362.65, 141254.77, 141077.97, 141060.94, 140694.4, 140496.32, 140358.51, 140067.81, 139684.01, 140273.38, 140428.03, 140188.97, 140042.98, 140011.22, 140133.21, 139872.02, 140058.28, 139978.24, 140080.39, 139929.99, 139883.34, 139777.99, 139842.99, 139750.19, 139844.47, 139591.0, 139409.88, 139152.79, 139507.92, 139534.24, 139717.66, 139668.83, 139773.19, 139690.82, 139685.62, 139680.82, 139962.18, 139844.0, 139733.61, 139648.06, 139409.44, 139336.39, 139108.13, 139186.77, 139012.55, 139469.8, 139265.04, 139150.49, 139147.38, 138865.67, 138701.22, 138493.33, 138387.32, 138212.07, 138416.57, 138147.46, 138401.2, 138285.3, 138122.97, 137764.55, 138528.02, 138189.12, 138666.01, 138419.57, 138137.5, 137996.11, 138625.08, 138643.45, 138317.26, 137998.84, 138098.5, 137810.68, 137535.54],
+                    borderColor: '#888',
+                    backgroundColor: 'transparent',
+                    borderWidth: 1,
+                    pointRadius: 0,
+                    yAxisID: 'y',
+                    order: 3,
+                },
+                {
+                    label: 'VIX',
+                    data: [30.1200008392334, 32.63999938964844, 29.649999618530273, 33.81999969482422, 30.56999969482422, 28.450000762939453, 26.469999313354492, 24.84000015258789, 25.149999618530273, 24.170000076293945, 24.700000762939453, 24.600000381469727, 22.68000030517578, 23.639999389648438, 24.760000228881836, 23.549999237060547, 22.479999542236328, 21.899999618530273, 18.389999389648438, 18.219999313354492, 18.6200008392334, 17.829999923706055, 17.239999771118164, 18.139999389648438, 18.09000015258789, 20.8700008392334, 20.280000686645508, 22.290000915527344, null, 18.959999084472656, 19.309999465942383, 19.18000030517578, 18.56999969482422, 18.360000610351562, 17.690000534057617, 17.610000610351562, 18.479999542236328, 16.770000457763672, 17.15999984741211, 16.950000762939453, 17.260000228881836, 18.020000457763672, 20.81999969482422, 19.110000610351562, 21.600000381469727, 20.139999389648438, null, 19.829999923706055, 17.479999542236328, 16.760000228881836, 16.59000015258789, 16.31999969482422, 16.729999542236328, 16.829999923706055, 16.639999389648438, 16.3799991607666, null, 17.790000915527344, 16.809999465942383, 15.9399995803833, 15.779999732971191, 16.399999618530273, 17.200000762939453, 17.3799991607666, 17.15999984741211, 16.520000457763672, 16.40999984741211, 16.649999618530273, 16.5, 15.369999885559082, 15.390000343322754, 14.930000305175781, 15.029999732971191, 15.979999542236328, 15.479999542236328, 16.719999313354492, 20.3799991607666, 17.520000457763672, 17.850000381469727, 16.770000457763672, 16.56999969482422, 15.149999618530273, 16.25, 14.729999542236328, 14.489999771118164, 14.829999923706055, 15.09000015258789, 14.989999771118164, 15.569999694824219, 15.6899995803833, 16.600000381469727, 14.220000267028809, 14.789999961853027, 14.619999885559082, 14.850000381469727, 14.430000305175781, 15.359999656677246, null, 17.170000076293945, 16.350000381469727, 15.300000190734863, 15.180000305175781, 15.109999656677246, 15.039999961853027, 15.350000381469727, 14.710000038146973, 14.760000228881836, 15.6899995803833, 16.360000610351562, 15.720000267028809, 15.699999809265137, 16.100000381469727, 16.639999389648438, 16.18000030517578, 16.739999771118164, 15.289999961853027, 16.1200008392334, 16.280000686645508, 16.290000915527344, 16.6299991607666, 16.649999618530273, 16.3700008392334, 17.239999771118164, 16.299999237060547, 16.43000030517578, 21.65999984741211, 19.030000686645508, 20.809999465942383, 20.639999389648438, 25.309999465942383, 20.780000686645508, 18.229999542236328, 17.8700008392334, 18.600000381469727, 17.299999237060547, 16.3700008392334, 15.789999961853027, 16.420000076293945, 16.920000076293945, 16.90999984741211, 17.440000534057617, 17.170000076293945, 19.0, 18.010000228881836, 19.5, 19.079999923706055, 17.600000381469727, 17.280000686645508, 17.510000228881836, 20.0, 19.829999923706055, 22.3799991607666, 24.690000534057617, 23.65999984741211, 26.420000076293945, 23.43000030517578, 20.520000457763672, 18.559999465942383, 17.190000534057617, null, 16.350000381469727, 17.239999771118164, 16.59000015258789, 16.079999923706055, 15.779999732971191, 15.40999984741211, 16.65999984741211, 16.93000030517578, 15.770000457763672, 14.850000381469727, 15.739999771118164, 16.5, 16.479999542236328, 17.6200008392334, 16.8700008392334, 14.079999923706055, 14.0, 13.470000267028809, 13.600000381469727, 14.199999809265137, 14.329999923706055, 14.949999809265137, 14.510000228881836, 14.899999618530273, 14.75, 15.380000114440918, 15.449999809265137, 14.489999771118164, 15.119999885559082, 15.979999542236328, 16.75, 15.84000015258789, 15.859999656677246, null, 20.09000015258789, 16.899999618530273, 15.640000343322754, 16.09000015258789, 16.149999618530273, 16.350000381469727, 16.350000381469727, 16.8799991607666, 17.440000534057617, 16.34000015258789, 18.0, 18.639999389648438, 21.770000457763672, 20.3700008392334, 17.360000610351562, 17.790000915527344, 17.649999618530273, 20.81999969482422, 20.600000381469727, null, 20.290000915527344, 19.6200008392334, 20.229999542236328, 19.09000015258789, 21.010000228881836],
+                    borderColor: 'rgba(255,255,255,0.15)',
+                    backgroundColor: 'rgba(255,255,255,0.04)',
+                    borderWidth: 1,
+                    pointRadius: 0,
+                    fill: true,
+                    yAxisID: 'y1',
+                    order: 4,
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: { legend: { labels: { color: '#e0e0e0' } } },
+            scales: {
+                x: { ticks: { color: '#888', maxTicksLimit: 20 }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y: { position: 'left', ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'Equity ($)', color: '#e0e0e0' } },
+                y1: { position: 'right', ticks: { color: '#888' }, grid: { drawOnChartArea: false }, title: { display: true, text: 'VIX', color: '#888' } }
+            }
+        }
+    });
+    
+
+    new Chart(document.getElementById('ddChart'), {
+        type: 'line',
+        data: {
+            labels: ["2025-04-15", "2025-04-16", "2025-04-17", "2025-04-21", "2025-04-22", "2025-04-23", "2025-04-24", "2025-04-25", "2025-04-28", "2025-04-29", "2025-04-30", "2025-05-01", "2025-05-02", "2025-05-05", "2025-05-06", "2025-05-07", "2025-05-08", "2025-05-09", "2025-05-12", "2025-05-13", "2025-05-14", "2025-05-15", "2025-05-16", "2025-05-19", "2025-05-20", "2025-05-21", "2025-05-22", "2025-05-23", "2025-05-26", "2025-05-27", "2025-05-28", "2025-05-29", "2025-05-30", "2025-06-02", "2025-06-03", "2025-06-04", "2025-06-05", "2025-06-06", "2025-06-09", "2025-06-10", "2025-06-11", "2025-06-12", "2025-06-13", "2025-06-16", "2025-06-17", "2025-06-18", "2025-06-19", "2025-06-23", "2025-06-24", "2025-06-25", "2025-06-26", "2025-06-27", "2025-06-30", "2025-07-01", "2025-07-02", "2025-07-03", "2025-07-04", "2025-07-07", "2025-07-08", "2025-07-09", "2025-07-10", "2025-07-11", "2025-07-14", "2025-07-15", "2025-07-16", "2025-07-17", "2025-07-18", "2025-07-21", "2025-07-22", "2025-07-23", "2025-07-24", "2025-07-25", "2025-07-28", "2025-07-29", "2025-07-30", "2025-07-31", "2025-08-01", "2025-08-04", "2025-08-05", "2025-08-06", "2025-08-07", "2025-08-08", "2025-08-11", "2025-08-12", "2025-08-13", "2025-08-14", "2025-08-15", "2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22", "2025-08-25", "2025-08-26", "2025-08-27", "2025-08-28", "2025-08-29", "2025-09-01", "2025-09-02", "2025-09-03", "2025-09-04", "2025-09-05", "2025-09-08", "2025-09-09", "2025-09-10", "2025-09-11", "2025-09-12", "2025-09-15", "2025-09-16", "2025-09-17", "2025-09-18", "2025-09-22", "2025-09-23", "2025-09-24", "2025-09-25", "2025-09-26", "2025-09-29", "2025-09-30", "2025-10-01", "2025-10-02", "2025-10-03", "2025-10-06", "2025-10-07", "2025-10-08", "2025-10-09", "2025-10-10", "2025-10-13", "2025-10-14", "2025-10-15", "2025-10-16", "2025-10-17", "2025-10-20", "2025-10-21", "2025-10-22", "2025-10-23", "2025-10-24", "2025-10-27", "2025-10-28", "2025-10-29", "2025-10-30", "2025-10-31", "2025-11-03", "2025-11-04", "2025-11-05", "2025-11-06", "2025-11-07", "2025-11-10", "2025-11-11", "2025-11-12", "2025-11-13", "2025-11-14", "2025-11-17", "2025-11-18", "2025-11-19", "2025-11-20", "2025-11-21", "2025-11-24", "2025-11-25", "2025-11-26", "2025-11-27", "2025-11-28", "2025-12-01", "2025-12-02", "2025-12-03", "2025-12-04", "2025-12-05", "2025-12-08", "2025-12-09", "2025-12-10", "2025-12-11", "2025-12-12", "2025-12-15", "2025-12-16", "2025-12-17", "2025-12-18", "2025-12-22", "2025-12-23", "2025-12-24", "2025-12-26", "2025-12-29", "2025-12-30", "2025-12-31", "2026-01-02", "2026-01-05", "2026-01-06", "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-12", "2026-01-13", "2026-01-14", "2026-01-15", "2026-01-16", "2026-01-19", "2026-01-20", "2026-01-21", "2026-01-22", "2026-01-23", "2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30", "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06", "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13", "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-23"],
+            datasets: [
+                { label: 'Dynamic Sizing', data: [0.0, 0.0, -0.74, -0.12, -0.91, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.18, -0.23, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.02, 0.0, 0.0, -0.16, -0.24, 0.0, -0.13, 0.0, 0.0, 0.0, 0.0, 0.0, -0.03, 0.0, -0.18, -0.27, 0.0, 0.0, 0.0, 0.0, -0.29, -0.28, -0.13, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.09, 0.0, 0.0, 0.0, -0.06, 0.0, -0.01, 0.0, 0.0, 0.0, 0.0, -0.17, 0.0, -0.0, -0.04, 0.0, -0.08, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.26, -0.46, -0.54, -0.1, -0.14, -0.34, -0.34, -0.07, -0.43, -0.26, -0.72, -0.62, -0.63, -0.18, -0.33, -0.45, 0.0, 0.0, 0.0, 0.0, 0.0, -0.19, 0.0, 0.0, 0.0, -0.2, -0.19, 0.0, 0.0, 0.0, -0.09, -0.14, 0.0, 0.0, -0.19, 0.0, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.17, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.14, 0.0, 0.0, 0.0, -0.32, 0.0, 0.0, 0.0, 0.0, 0.0, -0.12, -0.01, 0.0, 0.0, 0.0, -0.08, -0.17, -0.14, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.01, -0.16, 0.0, -0.09, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.06, -0.42, -0.05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.22, 0.0, -0.43, -0.08, 0.0, 0.0, 0.0, -0.39, -0.03, 0.0, -0.17, 0.0, 0.0, -0.22], borderColor: '#00e676', backgroundColor: 'rgba(0,230,118,0.08)', fill: true, borderWidth: 2.5, pointRadius: 0 },
+                { label: 'Per-Type Gate', data: [0.0, 0.0, -0.1, 0.0, -0.18, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.01, 0.0, -0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.04, -0.07, 0.0, 0.0, 0.0, 0.0, -0.07, -0.05, -0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.03, 0.0, 0.0, 0.0, 0.0, -0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.04, -0.1, -0.12, 0.0, -0.02, -0.07, -0.06, 0.0, -0.09, -0.04, -0.16, -0.11, -0.12, 0.0, -0.0, -0.02, 0.0, 0.0, 0.0, 0.0, 0.0, -0.05, 0.0, 0.0, 0.0, -0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.04, 0.0, 0.0, 0.0, -0.11, 0.0, 0.0, 0.0, 0.0, 0.0, -0.04, -0.01, 0.0, 0.0, 0.0, -0.02, -0.05, -0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.02, -0.13, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.08, 0.0, -0.11, 0.0, 0.0, 0.0, 0.0, -0.04, 0.0, 0.0, -0.06, 0.0, -0.01, -0.05], borderColor: '#4a9eff', backgroundColor: 'rgba(74,158,255,0.06)', fill: true, borderWidth: 1.5, pointRadius: 0 },
+                { label: 'Gate @ 0.50', data: [0.0, 0.0, -0.1, 0.0, 0.0, 0.0, 0.0, -0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.04, 0.0, 0.0, 0.0, 0.0, -0.01, -0.11, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.07, -0.05, -0.04, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.03, -0.02, 0.0, -0.01, 0.0, 0.0, -0.02, -0.11, 0.0, 0.0, -0.03, 0.0, 0.0, 0.0, 0.0, 0.0, -0.05, 0.0, 0.0, -0.04, -0.08, -0.01, 0.0, -0.02, -0.08, -0.06, 0.0, -0.09, 0.0, -0.05, 0.0, -0.0, -0.0, 0.0, -0.05, 0.0, 0.0, 0.0, 0.0, 0.0, -0.01, 0.0, -0.05, 0.0, -0.01, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.11, 0.0, 0.0, 0.0, 0.0, -0.01, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.03, -0.13, -0.21, -0.17, -0.07, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.02, 0.0, 0.0, -0.16, 0.0, 0.0, 0.0, 0.0, 0.0, -0.04, -0.05, -0.01, 0.0, 0.0, -0.02, 0.0, -0.0, -0.03, -0.05, 0.0, 0.0, 0.0, -0.01, 0.0, -0.09, 0.0, 0.0, 0.0, -0.01, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, -0.05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.05, -0.07, -0.13, -0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.08, -0.02, 0.0, -0.05, 0.0, 0.0, 0.0, 0.0, -0.09, 0.0, 0.0, -0.02, 0.0, -0.1, -0.19], borderColor: '#ff9800', backgroundColor: 'rgba(255,152,0,0.04)', fill: true, borderWidth: 1, pointRadius: 0 },
+                { label: 'No Gate', data: [0.0, -0.21, -0.27, -0.47, -0.65, -0.48, -0.65, -0.79, -0.89, -0.84, -1.05, -1.2, -1.36, -1.36, -1.51, -1.58, -1.59, -1.44, -1.53, -1.65, -1.7, -1.81, -1.68, -1.77, -1.72, -1.69, -1.87, -1.99, -2.04, -2.07, -2.16, -2.17, -2.21, -2.16, -2.17, -2.23, -2.37, -2.38, -2.26, -2.23, -2.09, -2.05, -2.19, -2.33, -2.23, -2.32, -2.43, -2.61, -2.53, -2.61, -2.48, -2.56, -2.56, -2.53, -2.41, -2.46, -2.43, -2.43, -2.49, -2.54, -2.58, -2.64, -2.65, -2.77, -2.87, -2.96, -2.91, -2.88, -2.9, -3.0, -3.06, -3.1, -3.18, -3.22, -3.13, -3.12, -3.32, -3.41, -3.46, -3.35, -3.42, -3.49, -3.54, -3.57, -3.61, -3.72, -3.6, -3.66, -3.64, -3.75, -3.91, -3.76, -3.8, -3.9, -3.73, -3.78, -3.88, -3.93, -4.11, -4.19, -4.03, -3.87, -3.83, -3.92, -3.77, -3.88, -3.96, -4.0, -4.09, -4.14, -4.2, -4.24, -4.29, -4.39, -4.23, -4.36, -4.43, -4.34, -4.29, -4.4, -4.49, -4.62, -4.56, -4.61, -4.71, -4.78, -5.0, -4.85, -5.0, -4.79, -4.79, -4.79, -4.9, -4.95, -5.07, -5.21, -5.23, -5.1, -5.19, -5.39, -5.48, -5.56, -5.75, -5.81, -5.96, -5.74, -5.81, -5.88, -6.0, -6.01, -6.25, -6.39, -6.48, -6.67, -6.93, -6.54, -6.43, -6.59, -6.69, -6.71, -6.63, -6.8, -6.68, -6.73, -6.66, -6.76, -6.8, -6.87, -6.82, -6.88, -6.82, -6.99, -7.11, -7.28, -7.05, -7.03, -6.91, -6.94, -6.87, -6.92, -6.93, -6.93, -6.74, -6.82, -6.9, -6.95, -7.11, -7.16, -7.31, -7.26, -7.38, -7.07, -7.21, -7.28, -7.29, -7.47, -7.58, -7.72, -7.79, -7.91, -7.77, -7.95, -7.78, -7.86, -7.97, -8.21, -7.7, -7.92, -7.61, -7.77, -7.96, -8.05, -7.63, -7.62, -7.84, -8.05, -7.98, -8.18, -8.36], borderColor: '#ef5350', backgroundColor: 'rgba(239,83,80,0.03)', fill: true, borderWidth: 1, pointRadius: 0 }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: { legend: { labels: { color: '#e0e0e0' } } },
+            scales: {
+                x: { ticks: { color: '#888', maxTicksLimit: 20 }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y: { ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'Drawdown (%)', color: '#e0e0e0' } }
+            }
+        }
+    });
+    
+
+    new Chart(document.getElementById('rollingWrChart'), {
+        type: 'line',
+        data: {
+            labels: ["2025-04-15", "2025-04-16", "2025-04-17", "2025-04-21", "2025-04-22", "2025-04-23", "2025-04-24", "2025-04-25", "2025-04-28", "2025-04-29", "2025-04-30", "2025-05-01", "2025-05-02", "2025-05-05", "2025-05-06", "2025-05-07", "2025-05-08", "2025-05-09", "2025-05-12", "2025-05-13", "2025-05-14", "2025-05-15", "2025-05-16", "2025-05-19", "2025-05-20", "2025-05-21", "2025-05-22", "2025-05-23", "2025-05-26", "2025-05-27", "2025-05-28", "2025-05-29", "2025-05-30", "2025-06-02", "2025-06-03", "2025-06-04", "2025-06-05", "2025-06-06", "2025-06-09", "2025-06-10", "2025-06-11", "2025-06-12", "2025-06-13", "2025-06-16", "2025-06-17", "2025-06-18", "2025-06-19", "2025-06-23", "2025-06-24", "2025-06-25", "2025-06-26", "2025-06-27", "2025-06-30", "2025-07-01", "2025-07-02", "2025-07-03", "2025-07-04", "2025-07-07", "2025-07-08", "2025-07-09", "2025-07-10", "2025-07-11", "2025-07-14", "2025-07-15", "2025-07-16", "2025-07-17", "2025-07-18", "2025-07-21", "2025-07-22", "2025-07-23", "2025-07-24", "2025-07-25", "2025-07-28", "2025-07-29", "2025-07-30", "2025-07-31", "2025-08-01", "2025-08-04", "2025-08-05", "2025-08-06", "2025-08-07", "2025-08-08", "2025-08-11", "2025-08-12", "2025-08-13", "2025-08-14", "2025-08-15", "2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22", "2025-08-25", "2025-08-26", "2025-08-27", "2025-08-28", "2025-08-29", "2025-09-01", "2025-09-02", "2025-09-03", "2025-09-04", "2025-09-05", "2025-09-08", "2025-09-09", "2025-09-10", "2025-09-11", "2025-09-12", "2025-09-15", "2025-09-16", "2025-09-17", "2025-09-18", "2025-09-22", "2025-09-23", "2025-09-24", "2025-09-25", "2025-09-26", "2025-09-29", "2025-09-30", "2025-10-01", "2025-10-02", "2025-10-03", "2025-10-06", "2025-10-07", "2025-10-08", "2025-10-09", "2025-10-10", "2025-10-13", "2025-10-14", "2025-10-15", "2025-10-16", "2025-10-17", "2025-10-20", "2025-10-21", "2025-10-22", "2025-10-23", "2025-10-24", "2025-10-27", "2025-10-28", "2025-10-29", "2025-10-30", "2025-10-31", "2025-11-03", "2025-11-04", "2025-11-05", "2025-11-06", "2025-11-07", "2025-11-10", "2025-11-11", "2025-11-12", "2025-11-13", "2025-11-14", "2025-11-17", "2025-11-18", "2025-11-19", "2025-11-20", "2025-11-21", "2025-11-24", "2025-11-25", "2025-11-26", "2025-11-27", "2025-11-28", "2025-12-01", "2025-12-02", "2025-12-03", "2025-12-04", "2025-12-05", "2025-12-08", "2025-12-09", "2025-12-10", "2025-12-11", "2025-12-12", "2025-12-15", "2025-12-16", "2025-12-17", "2025-12-18", "2025-12-22", "2025-12-23", "2025-12-24", "2025-12-26", "2025-12-29", "2025-12-30", "2025-12-31", "2026-01-02", "2026-01-05", "2026-01-06", "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-12", "2026-01-13", "2026-01-14", "2026-01-15", "2026-01-16", "2026-01-19", "2026-01-20", "2026-01-21", "2026-01-22", "2026-01-23", "2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30", "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06", "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13", "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-23"],
+            datasets: [
+                { label: 'Rolling 20d WR%', data: [null, null, null, null, 50.0, 58.33, 64.29, 65.62, 69.44, 70.0, 70.45, 72.92, 73.08, 75.0, 76.67, 76.56, 75.0, 73.61, 73.68, 73.75, 72.5, 76.25, 80.0, 80.0, 82.5, 81.25, 81.25, 80.0, 77.5, 78.75, 78.75, 77.5, 76.25, 75.0, 75.0, 76.25, 77.5, 80.0, 77.5, 76.25, 76.25, 75.0, 75.0, 72.5, 71.25, 71.25, 68.75, 70.0, 72.5, 71.25, 71.25, 72.5, 73.75, 75.0, 73.75, 71.25, 67.5, 67.5, 70.0, 70.0, 70.0, 71.25, 70.0, 72.5, 75.0, 76.25, 76.25, 73.75, 73.75, 73.75, 73.75, 71.25, 70.0, 70.0, 70.0, 70.0, 73.75, 73.75, 73.75, 75.0, 76.25, 73.75, 73.75, 73.75, 73.75, 70.0, 70.0, 71.25, 71.25, 70.0, 67.5, 68.75, 70.0, 65.0, 65.0, 62.5, 61.25, 57.92, 57.92, 56.67, 55.42, 56.67, 57.92, 56.67, 56.67, 60.42, 59.17, 61.67, 60.42, 60.42, 61.67, 61.67, 61.67, 66.67, 66.67, 69.17, 69.17, 72.5, 72.5, 72.5, 73.75, 72.5, 70.0, 70.0, 70.0, 68.75, 72.5, 72.5, 73.75, 75.0, 77.5, 78.75, 78.75, 78.75, 78.75, 81.25, 82.5, 81.25, 81.25, 81.25, 78.75, 80.0, 81.25, 81.25, 80.0, 77.5, 75.0, 73.75, 71.25, 71.25, 70.0, 68.75, 67.5, 66.25, 67.5, 66.25, 66.25, 67.5, 66.25, 68.75, 67.5, 66.25, 66.25, 65.0, 65.0, 67.5, 68.75, 68.75, 71.25, 71.25, 72.5, 71.25, 72.5, 71.25, 71.25, 71.25, 71.25, 70.0, 70.0, 68.75, 71.25, 70.0, 70.0, 71.25, 72.5, 72.5, 72.5, 71.25, 70.0, 71.25, 70.0, 72.5, 72.5, 71.25, 67.5, 67.5, 66.25, 66.25, 66.25, 66.25, 65.0, 68.75, 68.75, 70.0, 70.0, 68.75, 70.0, 70.0, 71.25, 70.0, 70.0, 70.0, 68.75, 72.5, 73.75, 71.25, 70.0, 68.75, 68.75], borderColor: '#4a9eff', borderWidth: 2, pointRadius: 0, fill: false },
+                { label: 'Mean (70.98%)', data: Array(219).fill(70.98), borderColor: '#ff9800', borderWidth: 1, borderDash: [6,3], pointRadius: 0, fill: false }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#e0e0e0' } } },
+            scales: {
+                x: { ticks: { color: '#888', maxTicksLimit: 20 }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y: { min: 0, max: 100, ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'Win Rate (%)', color: '#e0e0e0' } }
+            }
+        }
+    });
+    
+
+    new Chart(document.getElementById('attrChart'), {
+        type: 'bar',
+        data: {
+            labels: ["T27 ADAPTIVE", "T9 BREAKOUT", "T16 ORDER_FLOW", "T7 MOMENTUM", "T10 PULLBACK", "T15 VOL_SQUEEZE", "T18 MICRO_STRUCT", "T19 CORR_DIVERGE", "T11 TREND_FOLLOW", "T21 INTERMARKET", "T8 MEAN_REV", "T4 ORB_RETEST", "T20 SECTOR_ROT", "T13 GAP_FILL", "T3 SD_BAND", "T2 VWAP_REV"],
+            datasets: [{
+                label: 'Total PnL ($)',
+                data: [56.0, 65.0, 89.0, 98.0, 170.0, 191.0, 192.0, 378.0, 671.0, 845.0, 866.0, 920.0, 931.0, 2355.0, 4904.0, 16152.0],
+                backgroundColor: ["#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50", "#4caf50"],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        afterLabel: function(ctx) {
+                            var meta = ["4t / 75.0% WR", "5t / 80.0% WR", "6t / 83.3% WR", "5t / 80.0% WR", "4t / 100.0% WR", "13t / 69.2% WR", "3t / 66.7% WR", "12t / 91.7% WR", "25t / 80.0% WR", "21t / 76.2% WR", "36t / 80.6% WR", "27t / 59.3% WR", "25t / 88.0% WR", "56t / 91.1% WR", "56t / 92.9% WR", "576t / 64.2% WR"];
+                            return meta[ctx.dataIndex];
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: { ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'Total PnL ($)', color: '#e0e0e0' } },
+                y: { ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+        }
+    });
+    
+
+    new Chart(document.getElementById('todChart'), {
+        type: 'bar',
+        data: {
+            labels: ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+            datasets: [
+                { label: 'WR%', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 67.3, 68.8, 62.5, 58.1, 84.1, 76.7, 33.3, 0, 0, 100.0, 0, 0, 0, 0, 0], backgroundColor: ["rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.7)", "rgba(74,158,255,0.7)", "rgba(74,158,255,0.7)", "rgba(74,158,255,0.7)", "rgba(74,158,255,0.7)", "rgba(74,158,255,0.7)", "rgba(74,158,255,0.7)", "rgba(74,158,255,0.7)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)", "rgba(74,158,255,0.25)"], yAxisID: 'y' },
+                { label: 'Avg PnL ($)', data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 42.36, 32.27, 23.71, 18.54, 30.92, 33.6, -3.18, 0.0, 0.0, 47.59, 0.0, 0.0, 0.0, 0.0, 0.0], backgroundColor: ["rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.7)", "rgba(76,175,80,0.7)", "rgba(76,175,80,0.7)", "rgba(76,175,80,0.7)", "rgba(76,175,80,0.7)", "rgba(76,175,80,0.7)", "rgba(76,175,80,0.7)", "rgba(76,175,80,0.7)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)", "rgba(76,175,80,0.25)"], yAxisID: 'y1' }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#e0e0e0' } } },
+            scales: {
+                x: { ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y: { position: 'left', min: 0, max: 100, ticks: { color: '#e0e0e0' }, title: { display: true, text: 'WR%', color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y1: { position: 'right', ticks: { color: '#888' }, title: { display: true, text: 'Avg PnL ($)', color: '#888' }, grid: { drawOnChartArea: false } }
+            }
+        }
+    });
+    
+
+    new Chart(document.getElementById('distChart'), {
+        type: 'bar',
+        data: {
+            labels: ["-252", "-237", "-221", "-205", "-189", "-174", "-158", "-142", "-126", "-111", "-95", "-79", "-64", "-48", "-32", "-16", "-1", "15", "31", "47", "62", "78", "94", "109", "125", "141", "157", "172", "188", "204", "220", "235", "251", "267", "282", "298", "314", "330", "345", "361"],
+            datasets: [
+                {
+                    label: 'Trade PnL',
+                    data: [1, 1, 1, 1, 1, 2, 3, 6, 7, 7, 10, 17, 14, 40, 93, 52, 25, 122, 147, 103, 63, 30, 30, 28, 21, 12, 7, 5, 3, 6, 8, 1, 3, 1, 1, 0, 0, 0, 0, 2],
+                    backgroundColor: 'rgba(74,158,255,0.5)',
+                    borderColor: '#4a9eff',
+                    borderWidth: 1,
+                    order: 2,
+                },
+                {
+                    label: 'Normal Fit',
+                    data: [0.0, 0.1, 0.2, 0.3, 0.7, 1.4, 2.6, 4.5, 7.5, 11.9, 17.9, 25.7, 35.1, 45.5, 56.0, 65.7, 73.2, 77.5, 78.1, 74.8, 68.1, 58.9, 48.5, 38.0, 28.3, 20.0, 13.4, 8.6, 5.2, 3.0, 1.7, 0.9, 0.4, 0.2, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    type: 'line',
+                    borderColor: '#ff9800',
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    fill: false,
+                    order: 1,
+                }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+                legend: { labels: { color: '#e0e0e0' } },
+                annotation: {
+                    annotations: {
+                        meanLine: {
+                            type: 'line',
+                            xMin: 19,
+                            xMax: 19,
+                            borderColor: '#4caf50',
+                            borderWidth: 2,
+                            borderDash: [5,3],
+                            label: { display: true, content: 'Mean: $33.04', color: '#4caf50', position: 'start' }
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: { ticks: { color: '#888', maxTicksLimit: 15 }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'PnL ($)', color: '#e0e0e0' } },
+                y: { ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'Count', color: '#e0e0e0' } }
+            }
+        }
+    });
+    
+
+    new Chart(document.getElementById('thrChart'), {
+        type: 'line',
+        data: {
+            labels: ["0.35", "0.40", "0.45", "0.50", "0.55", "0.60", "0.65", "0.70", "0.75", "0.80", "0.85", "0.90"],
+            datasets: [
+                { label: 'WR%', data: [67.02, 69.28, 70.2, 73.94, 74.72, 77.95, 82.25, 83.2, 87.38, 88.17, 90.09, 93.19], borderColor: '#4a9eff', borderWidth: 2, pointRadius: 4, yAxisID: 'y', fill: false },
+                { label: 'Trades', data: [148236, 137149, 132353, 113498, 109839, 93132, 72059, 67504, 49932, 45512, 36411, 22973], borderColor: '#ff9800', borderWidth: 2, pointRadius: 4, yAxisID: 'y1', fill: false }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: { legend: { labels: { color: '#e0e0e0' } } },
+            scales: {
+                x: { ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'Threshold', color: '#e0e0e0' } },
+                y: { position: 'left', min: 40, max: 100, ticks: { color: '#e0e0e0' }, title: { display: true, text: 'WR%', color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y1: { position: 'right', ticks: { color: '#888' }, title: { display: true, text: 'N Trades', color: '#888' }, grid: { drawOnChartArea: false } }
+            }
+        }
+    });
+    
+
+    new Chart(document.getElementById('streakChart'), {
+        type: 'bar',
+        data: {
+            labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+            datasets: [
+                { label: 'Win Streaks', data: [36, 35, 20, 21, 13, 14, 8, 8, 2, 4, 1, 0, 0, 1, 0, 1], backgroundColor: 'rgba(76,175,80,0.6)', borderColor: '#4caf50', borderWidth: 1 },
+                { label: 'Loss Streaks', data: [106, 34, 15, 5, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], backgroundColor: 'rgba(239,83,80,0.6)', borderColor: '#ef5350', borderWidth: 1 }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#e0e0e0' } } },
+            scales: {
+                x: { ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'Streak Length', color: '#e0e0e0' } },
+                y: { ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'Frequency', color: '#e0e0e0' } }
+            }
+        }
+    });
+    
+
+    new Chart(document.getElementById('liveChart'), {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Trade PnL',
+                data: [{"x": "2026-03-04", "y": -1006.86}, {"x": "2026-03-04", "y": -74.35}, {"x": "2026-03-04", "y": -51.85}, {"x": "2026-03-04", "y": 68.15}, {"x": "2026-03-04", "y": -111.85}, {"x": "2026-03-04", "y": 6.76}, {"x": "2026-03-05", "y": 883.14}, {"x": "2026-03-05", "y": -85.86}, {"x": "2026-03-05", "y": -250.56}, {"x": "2026-03-05", "y": 1125.65}, {"x": "2026-03-05", "y": -591.85}, {"x": "2026-03-05", "y": -6.85}, {"x": "2026-03-05", "y": -31.85}, {"x": "2026-03-05", "y": 2.26}, {"x": "2026-03-05", "y": -7.74}, {"x": "2026-03-06", "y": -346.86}, {"x": "2026-03-06", "y": -19.86}, {"x": "2026-03-06", "y": 379.44}, {"x": "2026-03-06", "y": -221.85}],
+                backgroundColor: ["#ef5350", "#ef5350", "#ef5350", "#4caf50", "#ef5350", "#4caf50", "#4caf50", "#ef5350", "#ef5350", "#4caf50", "#ef5350", "#ef5350", "#ef5350", "#4caf50", "#ef5350", "#ef5350", "#ef5350", "#4caf50", "#ef5350"],
+                pointRadius: 4,
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { type: 'category', labels: ["2026-03-04", "2026-03-05", "2026-03-06"], ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y: { ticks: { color: '#e0e0e0' }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: 'PnL ($)', color: '#e0e0e0' } }
+            }
+        }
+    });
+    
+</script>
+</body>
+</html>
