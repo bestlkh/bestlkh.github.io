@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-03-08T21:58:13Z",
+  "updated_at": "2026-03-08T22:03:15Z",
   "equity": 151176.68,
   "daily_pnl": 0.0,
   "halted": false,
   "rth": false,
   "ws_connected": true,
   "dry_run": false,
-  "session_type": "MARKET_CLOSED",
-  "market_closed": true,
+  "session_type": "OFF_HOURS",
+  "market_closed": false,
   "strategy_version": "v3.0",
   "ml_version": "live",
   "in_trade": false,
@@ -95,6 +95,16 @@
       "rsi": null,
       "group": "METALS"
     },
+    "SILH6": {
+      "in_trade": false,
+      "trades_today": 0,
+      "halted": false,
+      "price": null,
+      "atr": null,
+      "adx": null,
+      "rsi": null,
+      "group": "METALS"
+    },
     "MHGH6": {
       "in_trade": false,
       "trades_today": 0,
@@ -104,6 +114,26 @@
       "adx": null,
       "rsi": null,
       "group": "METALS"
+    },
+    "MCLJ6": {
+      "in_trade": false,
+      "trades_today": 0,
+      "halted": false,
+      "price": null,
+      "atr": null,
+      "adx": null,
+      "rsi": null,
+      "group": "ENERGY"
+    },
+    "MNGJ6": {
+      "in_trade": false,
+      "trades_today": 0,
+      "halted": false,
+      "price": null,
+      "atr": null,
+      "adx": null,
+      "rsi": null,
+      "group": "ENERGY"
     }
   },
   "model": {
