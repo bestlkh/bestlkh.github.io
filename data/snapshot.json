@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-03-08T12:38:05Z",
+  "updated_at": "2026-03-08T20:42:57Z",
   "equity": 151176.68,
   "daily_pnl": 0.0,
   "halted": false,
   "rth": false,
-  "ws_connected": true,
+  "ws_connected": false,
   "dry_run": false,
   "session_type": "MARKET_CLOSED",
   "market_closed": true,
@@ -605,28 +605,7 @@
     "running": false,
     "stage": "",
     "pct": 0,
-    "log_tail": [
-      "2026-03-07 10:57:07,195 [INFO]   Report saved to /home/dawnai/projects/topstepx-bot/research/highfreq_v8/report.md",
-      "2026-03-07 10:57:07,213 [INFO]   Summary saved to /home/dawnai/projects/topstepx-bot/research/highfreq_v8/model_summary.json",
-      "Traceback (most recent call last):",
-      "  File \"/home/dawnai/projects/topstepx-bot/research/highfreq_v8/train_pipeline_v8.py\", line 1564, in <module>",
-      "    oos_results_df['entry_close'] = oos_df['entry_close'].values",
-      "    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^",
-      "  File \"/home/dawnai/projects/topstepx-bot/venv/lib/python3.14/site-packages/pandas/core/frame.py\", line 4322, in __setitem__",
-      "    self._set_item(key, value)",
-      "    ~~~~~~~~~~~~~~^^^^^^^^^^^^",
-      "  File \"/home/dawnai/projects/topstepx-bot/venv/lib/python3.14/site-packages/pandas/core/frame.py\", line 4535, in _set_item",
-      "    value, refs = self._sanitize_column(value)",
-      "                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^",
-      "  File \"/home/dawnai/projects/topstepx-bot/venv/lib/python3.14/site-packages/pandas/core/frame.py\", line 5288, in _sanitize_column",
-      "    com.require_length_match(value, self.index)",
-      "    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^",
-      "  File \"/home/dawnai/projects/topstepx-bot/venv/lib/python3.14/site-packages/pandas/core/common.py\", line 573, in require_length_match",
-      "    raise ValueError(",
-      "    ...<4 lines>...",
-      "    )",
-      "ValueError: Length of values (27630) does not match length of index (8289)"
-    ]
+    "log_tail": []
   },
   "shadow_log": [
     {
