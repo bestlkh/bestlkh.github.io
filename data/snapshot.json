@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-09T21:18:06Z",
+  "updated_at": "2026-03-09T21:23:08Z",
   "equity": 153580.88,
   "daily_pnl": 2412.35,
   "halted": false,
@@ -120,10 +120,10 @@
       "in_trade": false,
       "trades_today": 3,
       "halted": false,
-      "price": 24958.75,
+      "price": 24958.25,
       "atr": 9.857142857142858,
       "adx": 17.50461739236785,
-      "rsi": 51.12531267230014,
+      "rsi": 50.86672006847532,
       "group": "EQUITY"
     },
     "MESH6": {
@@ -140,10 +140,10 @@
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 47731,
+      "price": 47733,
       "atr": 15.5,
       "adx": 18.469657793332434,
-      "rsi": 59.652559604350074,
+      "rsi": 60.46410704525402,
       "group": "EQUITY"
     },
     "M2KH6": {
@@ -160,10 +160,10 @@
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 5148.2,
+      "price": 5148.3,
       "atr": 2.1714285714285455,
       "adx": 16.011283117186686,
-      "rsi": 53.50329103458144,
+      "rsi": 53.82051917389699,
       "group": "METALS"
     },
     "MHGH6": {
