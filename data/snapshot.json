@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-09T21:58:18Z",
+  "updated_at": "2026-03-09T22:04:27Z",
   "equity": 153580.88,
   "daily_pnl": 2412.35,
   "halted": false,
@@ -94,6 +94,13 @@
   },
   "prev_sessions": [
     {
+      "date": "2026-03-09",
+      "wins": 5,
+      "losses": 0,
+      "net_pnl": 2412.35,
+      "wr": 1.0
+    },
+    {
       "date": "2026-03-06",
       "wins": 1,
       "losses": 3,
@@ -120,60 +127,60 @@
       "in_trade": false,
       "trades_today": 3,
       "halted": false,
-      "price": 24958.25,
-      "atr": 9.857142857142858,
-      "adx": 17.50461739236785,
-      "rsi": 50.86672006847532,
+      "price": 24938.5,
+      "atr": 13.446428571428571,
+      "adx": 18.08108969233465,
+      "rsi": 42.3622687647869,
       "group": "EQUITY"
     },
     "MESH6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 6794.25,
-      "atr": 2.5,
-      "adx": 15.840216353868524,
-      "rsi": 57.58894153434189,
+      "price": 6790.25,
+      "atr": 3.2142857142857144,
+      "adx": 17.63587041211832,
+      "rsi": 48.42654991726005,
       "group": "EQUITY"
     },
     "MYMH6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 47733,
-      "atr": 15.5,
-      "adx": 18.469657793332434,
-      "rsi": 60.46410704525402,
+      "price": 47715,
+      "atr": 18.5,
+      "adx": 21.701878399969754,
+      "rsi": 52.89681415798396,
       "group": "EQUITY"
     },
     "M2KH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2553.7,
-      "atr": 1.400000000000026,
-      "adx": 25.86033035260191,
-      "rsi": 59.014351895809895,
+      "price": 2549.3,
+      "atr": 1.8214285714286038,
+      "adx": 22.837338295965168,
+      "rsi": 43.28007048006631,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 5148.3,
-      "atr": 2.1714285714285455,
-      "adx": 16.011283117186686,
-      "rsi": 53.82051917389699,
+      "price": 5144.6,
+      "atr": 4.428571428571364,
+      "adx": 15.860772358175243,
+      "rsi": 44.79933050999666,
       "group": "METALS"
     },
     "MHGH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5.9,
-      "atr": 0.0033214285714287606,
-      "adx": 13.717910411640121,
-      "rsi": 53.62673778361409,
+      "price": 5.8955,
+      "atr": 0.005357142857142997,
+      "adx": 19.225833229784207,
+      "rsi": 46.47449163577927,
       "group": "METALS"
     }
   },
@@ -485,6 +492,47 @@
         "hypothesis": "Meta calibration leakage: calibration step fits on meta training data (86k OOS samples) and reports AUC on same data \u2192 artificially inflated calibrated AUC (0.9880) and Sharpe (400+). Fix: (1) calibrate on val set only, (2) train meta stacker on out-of-fold L1 predictions from pre-OOS period, not on OOS-period predictions, (3) evaluate threshold table on a separate held-out OOS slice not used in meta training.",
         "source": "v7.1_analysis_2026-03-06",
         "experiment": "fix_calibration_split_and_meta_training_data"
+      },
+      {
+        "id": "hyp_20260309_f459c3",
+        "status": "active",
+        "created": "2026-03-09T18:00:00-05:00",
+        "source": "dawnai_analysis",
+        "description": "Ph8 CHART_PATTERN signals (Triangle, Engulfing, BB_Squeeze) went 3/3 today with strong P&L. Hypothesis: increase conviction sizing multiplier for CHART_PATTERN bucket by 1.25x when 4H trend aligns \u2014 these patterns show directional discipline.",
+        "priority": "high"
+      },
+      {
+        "id": "hyp_20260309_493670",
+        "status": "active",
+        "created": "2026-03-09T18:00:00-05:00",
+        "source": "dawnai_analysis",
+        "description": "Overnight ORB (ASIAN_CONT/LONDON_ORB) live WR=25%, net=-$315.62 across 8 labels. Primary exit reason: TIME_EXIT. Hypothesis: reduce overnight ORB max_hold from 75min to 30min to cut losers earlier \u2014 these markets move in the first window or not at all.",
+        "priority": "high"
+      },
+      {
+        "id": "hyp_20260309_74e8cf",
+        "status": "active",
+        "created": "2026-03-09T18:00:00-05:00",
+        "source": "dawnai_analysis",
+        "description": "BB_Squeeze (Ph8_BB_SQUEEZE) fired with adx_regime=false but won +$543. Hypothesis: relax ADX gate for BB_Squeeze specifically \u2014 squeeze patterns have their own vol confirmation via band width, ADX filter is redundant and may be blocking good signals.",
+        "priority": "medium"
+      },
+      {
+        "id": "hyp_20260309_cbdd2e",
+        "status": "active",
+        "created": "2026-03-09T18:00:00-05:00",
+        "source": "dawnai_analysis",
+        "description": "All 4 RTH winners today were Shorts \u2014 4H trend was bearish and all Ph8 patterns aligned with it. Hypothesis: when 4H trend + 3+ Ph8 signals agree on direction within same hour, treat as high-conviction regime and allow up to 3 simultaneous positions instead of 2.",
+        "priority": "medium"
+      },
+      {
+        "id": "hyp_20260309_1b2551",
+        "status": "active",
+        "created": "2026-03-09T18:00:00-05:00",
+        "source": "dawnai_analysis",
+        "description": "live_labels.jsonl only captures type=1 ORB signals, missing CHART_PATTERN, HF_MR, MOMENTUM buckets which drove all 4 RTH wins today (+$2,231). Fix label writer to log all trade buckets \u2014 necessary for accurate live WR tracking and ML feedback loop.",
+        "priority": "high",
+        "tag": "infra"
       }
     ],
     "morning_summary": "{'generated_at': '2026-03-06T21:30:46.050558-05:00', 'experiments_run': 76, 'experiments_completed': 68, 'experiments_failed': 0, 'architecture_proposals': [{'id': 'exp_20260306_5691e4', 'description': 'Type exclusion: Types 3 (SD_BAND, 49.7% WR) and 5 (EMA_CROSS, 39.2% WR) have negative OOS edge \u2014'}, {'id': 'exp_20260306_4507c7', 'description': 'Recency weighting: Type 1 (ORB) has the best in-sample AUC (0.879) but 0 OOS passes at threshold 0.'}, {'id': 'exp_20260306_f1caa0', 'description': 'CB fix: CB (CatBoost) was set to 0.5 neutral in stacking due to inference bug \u2014 fixing C'}, {'id': 'exp_20260306_1358d7', 'description': 'LSTM subsample: LSTM was skipped for types 8, 15, 16 (>100K samples) but these are the highest-v'}, {'id': 'exp_20260306_1afed0', 'description': 'Type exclusion: Types 3 (SD_BAND, 49.7% WR) and 5 (EMA_CROSS, 39.2% WR) have negative OOS edge \u2014'}, {'id': 'exp_20260306_bc269a', 'description': 'Recency weighting: Type 1 (ORB) has the best in-sample AUC (0.879) but 0 OOS passes at threshold 0.'}, {'id': 'exp_20260306_109b82', 'description': 'CB fix: CB (CatBoost) was set to 0.5 neutral in stacking due to inference bug \u2014 fixing C'}, {'id': 'exp_20260306_a53114', 'description': 'LSTM subsample: LSTM was skipped for types 8, 15, 16 (>100K samples) but these are the highest-v'}], 'best_result': {'id': 'exp_20260306_5814b6', 'description': 'Bayesian exploit: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.65...', 'metrics': {'wr': 0.7817, 'pf': 14.629, 'sharpe': 23.386, 'net_pnl': 288450.5, 'max_dd': -1338.93, 'trades_per_day': 394.5, 'auc': 0.8018, 'n_trades': 17356}}, 'promoted': False, 'promoted_experiment': None, 'champion': {'version': 'v6+exp_20260303_a991b8+exp_20260304_5caf4e', 'metrics': {'wr': 0.7994, 'pf': 16.292, 'sharpe': 21.48, 'net_pnl': 265480.9, 'max_dd': -1057.34, 'trades_per_day': 353.9, 'auc': 0.8018, 'n_trades': 15570}}, 'top_3': [{'id': 'exp_20260306_5814b6', 'description': 'Bayesian exploit: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.65...', 'metrics': {'wr': 0.7817, 'pf': 14.629, 'sharpe': 23.386, 'net_pnl': 288450.5, 'max_dd': -1338.93, 'trades_per_day': 394.5, 'auc': 0.8018, 'n_trades': 17356}}, {'id': 'exp_20260306_9faa7f', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.6...', 'metrics': {'wr': 0.7586, 'pf': 12.973, 'sharpe': 25.03, 'net_pnl': 317736.54, 'max_dd': -1338.93, 'trades_per_day': 450.4, 'auc': 0.8018, 'n_trades': 19817}}, {'id': 'exp_20260306_00d19d', 'description': 'Grid search: tp_mult=2.5, sl_mult=0.75, max_hold=15, threshold_long=0.65...', 'metrics': {'wr': 0.7817, 'pf': 12.191, 'sharpe': 23.056, 'net_pnl': 236848.01, 'max_dd': -1338.93, 'trades_per_day': 394.5, 'auc': 0.8018, 'n_trades': 17356}}], 'worst_3': [{'id': 'exp_20260306_2e1d72', 'description': 'Bayesian exploit: tp_mult=1.5, sl_mult=1.25, max_hold=30, threshold_long=0.5...', 'metrics': {'wr': 0.7527, 'pf': 3.843, 'sharpe': 17.01, 'net_pnl': 113336.43, 'max_dd': -1279.59, 'trades_per_day': 405.0, 'auc': 0.8018, 'n_trades': 17821}}, {'id': 'exp_20260306_852c1a', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=15, threshold_long=0.55...', 'metrics': {'wr': 0.7496, 'pf': 3.71, 'sharpe': 18.724, 'net_pnl': 123378.15, 'max_dd': -1700.4, 'trades_per_day': 447.9, 'auc': 0.8018, 'n_trades': 19709}}, {'id': 'exp_20260306_289f06', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=20, threshold_long=0.5...', 'metrics': {'wr': 0.7157, 'pf': 3.09, 'sharpe': 21.032, 'net_pnl': 141290.17, 'max_dd': -2737.68, 'trades_per_day': 565.2, 'auc': 0.8018, 'n_trades': 24868}}], 'all_time_stats': {'total_experiments': 520, 'completed': 315, 'promoted': 5, 'promotion_rate': 0.0159, 'best_pf': 16.292, 'best_sharpe': 27.987, 'best_wr': 0.8331}, 'daily_trading': {'pnl': -209.13000000000002, 'trades': 4}, 'live_labels': {'total': 7, 'wr': 0.143, 'by_type': {'1': {'n': 7, 'wr': 0.143}}}, 'suggested_hypotheses': ['High TP mult (>=2.5) PF=8.48 >> low TP (<=1.5) PF=4.57 \u2014 explore even higher TP', 'Asymmetric thresholds PF=7.33 > symmetric PF=5.49'], 'next_version': 'v7', 'next_version_planned_experiments': 0, 'recommended_architecture_change': 'Type 3 (SD_BAND): OOS WR 49.7% \u2014 below breakeven, remove from V7'}",
