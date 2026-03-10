@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-10T13:45:09Z",
+  "updated_at": "2026-03-10T13:45:12Z",
   "equity": 153580.88,
   "daily_pnl": 1.76,
   "halted": false,
@@ -16,13 +16,13 @@
       "symbol": "MESH6",
       "side": "LONG",
       "contracts": 2,
-      "entry_price": null,
-      "current_price": 6790.0,
-      "unrealized_pnl": 0.0,
-      "sl_price": null,
-      "tp_price": null,
+      "entry_price": 6790.0,
+      "current_price": 6790.75,
+      "unrealized_pnl": 7.5,
+      "sl_price": 6781.5,
+      "tp_price": 6803.0,
       "phase": "Ph8_VWAP_REV",
-      "entry_time": "2026-03-10T13:45:09Z"
+      "entry_time": "2026-03-10T09:45:09.276875-04:00"
     }
   ],
   "todays_trades": [
@@ -503,50 +503,50 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 25029.5,
-      "atr": 39.839285714285715,
+      "price": 25033.25,
+      "atr": 40.089285714285715,
       "adx": 19.950826499895886,
-      "rsi": 55.693528427769586,
+      "rsi": 56.43209225290004,
       "group": "EQUITY"
     },
     "MESH6": {
       "in_trade": true,
       "trades_today": 2,
       "halted": false,
-      "price": 6790.0,
-      "atr": 8.625,
+      "price": 6790.75,
+      "atr": 8.696428571428571,
       "adx": 20.992974045099633,
-      "rsi": 50.319404750355666,
+      "rsi": 51.03577945091289,
       "group": "EQUITY"
     },
     "MYMH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 47652,
-      "atr": 69.0,
-      "adx": 20.649448939353043,
-      "rsi": 45.022762376867476,
+      "price": 47659,
+      "atr": 70.21428571428571,
+      "adx": 20.464940287319468,
+      "rsi": 45.98375798153018,
       "group": "EQUITY"
     },
     "M2KH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2545.8,
-      "atr": 5.242857142857117,
+      "price": 2546.0,
+      "atr": 5.278571428571403,
       "adx": 35.51333655319864,
-      "rsi": 48.76521161829783,
+      "rsi": 49.093553532854834,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5218.5,
+      "price": 5218.2,
       "atr": 5.21428571428565,
       "adx": 24.671234112230817,
-      "rsi": 46.067851419652214,
+      "rsi": 45.609177081273806,
       "group": "METALS"
     },
     "MHGH6": {
