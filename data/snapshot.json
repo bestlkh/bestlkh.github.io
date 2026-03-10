@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-03-10T01:34:19Z",
+  "updated_at": "2026-03-10T01:39:20Z",
   "equity": 153580.88,
   "daily_pnl": 2412.35,
   "halted": false,
   "rth": false,
-  "ws_connected": true,
+  "ws_connected": false,
   "dry_run": false,
   "session_type": "ASIAN_CONT",
   "market_closed": false,
@@ -127,60 +127,60 @@
       "in_trade": false,
       "trades_today": 3,
       "halted": false,
-      "price": 24958.5,
-      "atr": 10.071428571428571,
-      "adx": 24.42757479014195,
-      "rsi": 54.282917267717494,
+      "price": 24948.75,
+      "atr": 11.928571428571429,
+      "adx": 26.306061771716095,
+      "rsi": 48.058294611898965,
       "group": "EQUITY"
     },
     "MESH6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 6785.25,
-      "atr": 2.1607142857142856,
-      "adx": 18.214932299038804,
-      "rsi": 49.72576433862323,
+      "price": 6783.5,
+      "atr": 2.517857142857143,
+      "adx": 19.661786495701953,
+      "rsi": 46.151801726360155,
       "group": "EQUITY"
     },
     "MYMH6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 47662,
-      "atr": 13.714285714285714,
-      "adx": 12.550675779537034,
-      "rsi": 47.677785840608436,
+      "price": 47651,
+      "atr": 14.5,
+      "adx": 12.906039317090343,
+      "rsi": 45.33722797928093,
       "group": "EQUITY"
     },
     "M2KH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2543.2,
-      "atr": 1.2071428571427987,
-      "adx": 15.306914804444375,
-      "rsi": 52.22010085389429,
+      "price": 2542.4,
+      "atr": 1.2999999999998895,
+      "adx": 17.631984409570247,
+      "rsi": 48.94334088702874,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 5165.2,
-      "atr": 4.80714285714287,
-      "adx": 20.625136489914876,
-      "rsi": 57.00267114950972,
+      "price": 5171.0,
+      "atr": 4.528571428571597,
+      "adx": 19.86856450664291,
+      "rsi": 60.67620169646901,
       "group": "METALS"
     },
     "MHGH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5.8885,
-      "atr": 0.006357142857142823,
-      "adx": 15.803715984819705,
-      "rsi": 46.91266340346073,
+      "price": 5.901,
+      "atr": 0.006750000000000002,
+      "adx": 15.410350312083652,
+      "rsi": 55.03410809488451,
       "group": "METALS"
     }
   },
@@ -195,21 +195,20 @@
     "history": []
   },
   "autopilot": {
-    "current_version": "v6",
-    "deployed_version": "v6",
+    "current_version": "v7",
+    "deployed_version": "v7",
     "pipeline_status": "deployed",
     "current_phase": "05_evaluate",
-    "last_run": "2026-03-02",
+    "last_run": "2026-03-09",
     "last_metrics": {
-      "auc": 0.843,
-      "pf": 4.14,
-      "wr": 0.701,
-      "trades_per_day": 645.3,
-      "threshold": 0.5,
-      "optimal_threshold": 0.35,
-      "threshold_note": "conservative 0.50 chosen; OOS optimal=0.35; types 3,4,5 masked",
-      "oos_months": 11,
-      "trained_types": 21
+      "auc": 0.988,
+      "pf": 16.292,
+      "wr": 0.7994,
+      "trades_per_day": 353.9,
+      "threshold": 0.65,
+      "threshold_note": "V7 deployed at conservative 0.65; OOS AUC 0.9880",
+      "oos_months": 2,
+      "trained_types": 19
     },
     "version_history": [
       {
@@ -246,6 +245,15 @@
         "wr": 0.701,
         "trades_per_day": 645.3,
         "date": "2026-03-02",
+        "status": "retired"
+      },
+      {
+        "version": "v7",
+        "auc": 0.988,
+        "pf": 16.292,
+        "wr": 0.7994,
+        "trades_per_day": 353.9,
+        "date": "2026-03-06",
         "status": "live"
       }
     ],
@@ -280,8 +288,8 @@
     "databento_spent_usd": 0.0,
     "databento_alert_at_usd": 5.0,
     "data_collection_enabled": true,
-    "next_version_queued": "v7",
-    "next_version_dir": "/home/dawnai/projects/topstepx-bot/research/highfreq_v7",
+    "next_version_queued": "v8",
+    "next_version_dir": "/home/dawnai/projects/topstepx-bot/research/highfreq_v8",
     "auto_version": true,
     "version_lineage": [
       {
