@@ -587,6 +587,7 @@ function switchTab(id) {
   panels.forEach(p => p.classList.toggle('active', p.id === 'tab-' + id));
   localStorage.setItem('activeTab', id);
   activeTab = id;
+  if (id === 'trades' && typeof renderTrades === 'function') renderTrades();
 }
 tabs.forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
 switchTab(activeTab);
@@ -848,8 +849,9 @@ function renderTrades() {
         <td class="${pnlClass(pnl)}">${fmtPnl(pnl)}</td>
         <td class="${pnlClass(r)}">${r != null ? (r > 0 ? '+' : '') + r.toFixed(2) + 'R' : '—'}</td>
         <td>${esc(t.phase || '—')}</td>
+        <td style="font-size:11px;color:var(--text-dim)">${esc(t.exit_reason || t.result || '—')}</td>
       </tr>`;
-    }).join('') : '<tr><td colspan="10" class="empty-state">No trade details</td></tr>';
+    }).join('') : '<tr><td colspan="11" class="empty-state">No trade details</td></tr>';
     return `
     <div class="session-row" onclick="toggleSession(this)">
       <div class="session-summary">
@@ -861,7 +863,7 @@ function renderTrades() {
       </div>
       <div class="session-trades" style="display:none">
         <table class="data-table" style="font-size:12px">
-          <thead><tr><th>Time</th><th>Sym</th><th>Dir</th><th>Entry</th><th>SL</th><th>TP</th><th>Exit</th><th>P&L</th><th>R</th><th>Phase</th></tr></thead>
+          <thead><tr><th>Time</th><th>Sym</th><th>Dir</th><th>Entry</th><th>SL</th><th>TP</th><th>Exit</th><th>P&L</th><th>R</th><th>Phase</th><th>Exit Reason</th></tr></thead>
           <tbody>${tradesHtml}</tbody>
         </table>
       </div>
