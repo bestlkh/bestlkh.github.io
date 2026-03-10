@@ -793,6 +793,7 @@ function renderLive() {
 
 // ── TRADES Tab ────────────────────────────────────────────────────────────────
 function renderTrades() {
+  if (!snapshot) return;
   const stats = snapshot.trade_stats || {};
   const wins = stats.wins ?? 0;
   const losses = stats.losses ?? 0;
