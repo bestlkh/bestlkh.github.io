@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-10T01:27:19Z",
+  "updated_at": "2026-03-10T01:34:19Z",
   "equity": 153580.88,
   "daily_pnl": 2412.35,
   "halted": false,
@@ -127,60 +127,60 @@
       "in_trade": false,
       "trades_today": 3,
       "halted": false,
-      "price": 24968.75,
-      "atr": 11.142857142857142,
-      "adx": 28.57175866624444,
-      "rsi": 62.08969811212519,
+      "price": 24958.5,
+      "atr": 10.071428571428571,
+      "adx": 24.42757479014195,
+      "rsi": 54.282917267717494,
       "group": "EQUITY"
     },
     "MESH6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 6788.0,
-      "atr": 2.75,
-      "adx": 21.453951586753483,
-      "rsi": 56.62118043748495,
+      "price": 6785.25,
+      "atr": 2.1607142857142856,
+      "adx": 18.214932299038804,
+      "rsi": 49.72576433862323,
       "group": "EQUITY"
     },
     "MYMH6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 47683,
-      "atr": 16.142857142857142,
-      "adx": 14.694432822406531,
-      "rsi": 53.10151072325068,
+      "price": 47662,
+      "atr": 13.714285714285714,
+      "adx": 12.550675779537034,
+      "rsi": 47.677785840608436,
       "group": "EQUITY"
     },
     "M2KH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2544.7,
-      "atr": 1.421428571428578,
-      "adx": 18.122773193628603,
-      "rsi": 58.55261728173024,
+      "price": 2543.2,
+      "atr": 1.2071428571427987,
+      "adx": 15.306914804444375,
+      "rsi": 52.22010085389429,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 5174.8,
-      "atr": 4.6428571428570775,
-      "adx": 28.172002717916598,
-      "rsi": 78.26291225979773,
+      "price": 5165.2,
+      "atr": 4.80714285714287,
+      "adx": 20.625136489914876,
+      "rsi": 57.00267114950972,
       "group": "METALS"
     },
     "MHGH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5.907,
-      "atr": 0.005392857142857009,
-      "adx": 20.74349929646497,
-      "rsi": 66.80691991252397,
+      "price": 5.8885,
+      "atr": 0.006357142857142823,
+      "adx": 15.803715984819705,
+      "rsi": 46.91266340346073,
       "group": "METALS"
     }
   },
@@ -535,8 +535,8 @@
         "tag": "infra"
       }
     ],
-    "morning_summary": "{'generated_at': '2026-03-06T21:30:46.050558-05:00', 'experiments_run': 76, 'experiments_completed': 68, 'experiments_failed': 0, 'architecture_proposals': [{'id': 'exp_20260306_5691e4', 'description': 'Type exclusion: Types 3 (SD_BAND, 49.7% WR) and 5 (EMA_CROSS, 39.2% WR) have negative OOS edge \u2014'}, {'id': 'exp_20260306_4507c7', 'description': 'Recency weighting: Type 1 (ORB) has the best in-sample AUC (0.879) but 0 OOS passes at threshold 0.'}, {'id': 'exp_20260306_f1caa0', 'description': 'CB fix: CB (CatBoost) was set to 0.5 neutral in stacking due to inference bug \u2014 fixing C'}, {'id': 'exp_20260306_1358d7', 'description': 'LSTM subsample: LSTM was skipped for types 8, 15, 16 (>100K samples) but these are the highest-v'}, {'id': 'exp_20260306_1afed0', 'description': 'Type exclusion: Types 3 (SD_BAND, 49.7% WR) and 5 (EMA_CROSS, 39.2% WR) have negative OOS edge \u2014'}, {'id': 'exp_20260306_bc269a', 'description': 'Recency weighting: Type 1 (ORB) has the best in-sample AUC (0.879) but 0 OOS passes at threshold 0.'}, {'id': 'exp_20260306_109b82', 'description': 'CB fix: CB (CatBoost) was set to 0.5 neutral in stacking due to inference bug \u2014 fixing C'}, {'id': 'exp_20260306_a53114', 'description': 'LSTM subsample: LSTM was skipped for types 8, 15, 16 (>100K samples) but these are the highest-v'}], 'best_result': {'id': 'exp_20260306_5814b6', 'description': 'Bayesian exploit: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.65...', 'metrics': {'wr': 0.7817, 'pf': 14.629, 'sharpe': 23.386, 'net_pnl': 288450.5, 'max_dd': -1338.93, 'trades_per_day': 394.5, 'auc': 0.8018, 'n_trades': 17356}}, 'promoted': False, 'promoted_experiment': None, 'champion': {'version': 'v6+exp_20260303_a991b8+exp_20260304_5caf4e', 'metrics': {'wr': 0.7994, 'pf': 16.292, 'sharpe': 21.48, 'net_pnl': 265480.9, 'max_dd': -1057.34, 'trades_per_day': 353.9, 'auc': 0.8018, 'n_trades': 15570}}, 'top_3': [{'id': 'exp_20260306_5814b6', 'description': 'Bayesian exploit: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.65...', 'metrics': {'wr': 0.7817, 'pf': 14.629, 'sharpe': 23.386, 'net_pnl': 288450.5, 'max_dd': -1338.93, 'trades_per_day': 394.5, 'auc': 0.8018, 'n_trades': 17356}}, {'id': 'exp_20260306_9faa7f', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.6...', 'metrics': {'wr': 0.7586, 'pf': 12.973, 'sharpe': 25.03, 'net_pnl': 317736.54, 'max_dd': -1338.93, 'trades_per_day': 450.4, 'auc': 0.8018, 'n_trades': 19817}}, {'id': 'exp_20260306_00d19d', 'description': 'Grid search: tp_mult=2.5, sl_mult=0.75, max_hold=15, threshold_long=0.65...', 'metrics': {'wr': 0.7817, 'pf': 12.191, 'sharpe': 23.056, 'net_pnl': 236848.01, 'max_dd': -1338.93, 'trades_per_day': 394.5, 'auc': 0.8018, 'n_trades': 17356}}], 'worst_3': [{'id': 'exp_20260306_2e1d72', 'description': 'Bayesian exploit: tp_mult=1.5, sl_mult=1.25, max_hold=30, threshold_long=0.5...', 'metrics': {'wr': 0.7527, 'pf': 3.843, 'sharpe': 17.01, 'net_pnl': 113336.43, 'max_dd': -1279.59, 'trades_per_day': 405.0, 'auc': 0.8018, 'n_trades': 17821}}, {'id': 'exp_20260306_852c1a', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=15, threshold_long=0.55...', 'metrics': {'wr': 0.7496, 'pf': 3.71, 'sharpe': 18.724, 'net_pnl': 123378.15, 'max_dd': -1700.4, 'trades_per_day': 447.9, 'auc': 0.8018, 'n_trades': 19709}}, {'id': 'exp_20260306_289f06', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=20, threshold_long=0.5...', 'metrics': {'wr': 0.7157, 'pf': 3.09, 'sharpe': 21.032, 'net_pnl': 141290.17, 'max_dd': -2737.68, 'trades_per_day': 565.2, 'auc': 0.8018, 'n_trades': 24868}}], 'all_time_stats': {'total_experiments': 520, 'completed': 315, 'promoted': 5, 'promotion_rate': 0.0159, 'best_pf': 16.292, 'best_sharpe': 27.987, 'best_wr': 0.8331}, 'daily_trading': {'pnl': -209.13000000000002, 'trades': 4}, 'live_labels': {'total': 7, 'wr': 0.143, 'by_type': {'1': {'n': 7, 'wr': 0.143}}}, 'suggested_hypotheses': ['High TP mult (>=2.5) PF=8.48 >> low TP (<=1.5) PF=4.57 \u2014 explore even higher TP', 'Asymmetric thresholds PF=7.33 > symmetric PF=5.49'], 'next_version': 'v7', 'next_version_planned_experiments': 0, 'recommended_architecture_change': 'Type 3 (SD_BAND): OOS WR 49.7% \u2014 below breakeven, remove from V7'}",
-    "experiments_today": 0
+    "morning_summary": "{'generated_at': '2026-03-09T21:30:39.226625-04:00', 'experiments_run': 30, 'experiments_completed': 26, 'experiments_failed': 0, 'architecture_proposals': [{'id': 'exp_20260309_5db5f4', 'description': 'Type exclusion: Types 3 (SD_BAND, 49.7% WR) and 5 (EMA_CROSS, 39.2% WR) have negative OOS edge \u2014'}, {'id': 'exp_20260309_698e80', 'description': 'Recency weighting: Type 1 (ORB) has the best in-sample AUC (0.879) but 0 OOS passes at threshold 0.'}, {'id': 'exp_20260309_22a0d3', 'description': 'CB fix: CB (CatBoost) was set to 0.5 neutral in stacking due to inference bug \u2014 fixing C'}, {'id': 'exp_20260309_2e4f6b', 'description': 'LSTM subsample: LSTM was skipped for types 8, 15, 16 (>100K samples) but these are the highest-v'}], 'best_result': {'id': 'exp_20260309_69a435', 'description': 'Grid search: tp_mult=2.5, sl_mult=0.75, max_hold=10, threshold_long=0.65...', 'metrics': {'wr': 0.8178, 'pf': 15.668, 'sharpe': 19.211, 'net_pnl': 192087.58, 'max_dd': -389.55, 'trades_per_day': 302.7, 'auc': 0.8018, 'n_trades': 13317}}, 'promoted': False, 'promoted_experiment': None, 'champion': {'version': 'v6+exp_20260303_a991b8+exp_20260304_5caf4e', 'metrics': {'wr': 0.7994, 'pf': 16.292, 'sharpe': 21.48, 'net_pnl': 265480.9, 'max_dd': -1057.34, 'trades_per_day': 353.9, 'auc': 0.8018, 'n_trades': 15570}}, 'top_3': [{'id': 'exp_20260309_69a435', 'description': 'Grid search: tp_mult=2.5, sl_mult=0.75, max_hold=10, threshold_long=0.65...', 'metrics': {'wr': 0.8178, 'pf': 15.668, 'sharpe': 19.211, 'net_pnl': 192087.58, 'max_dd': -389.55, 'trades_per_day': 302.7, 'auc': 0.8018, 'n_trades': 13317}}, {'id': 'exp_20260309_0738cb', 'description': 'Bayesian exploit: tp_mult=2.5, sl_mult=0.75, max_hold=20, threshold_long=0.65...', 'metrics': {'wr': 0.7817, 'pf': 12.191, 'sharpe': 23.056, 'net_pnl': 236848.01, 'max_dd': -1338.93, 'trades_per_day': 394.5, 'auc': 0.8018, 'n_trades': 17356}}, {'id': 'exp_20260309_8445c1', 'description': 'Grid search: tp_mult=2.5, sl_mult=0.75, max_hold=30, threshold_long=0.65...', 'metrics': {'wr': 0.7779, 'pf': 11.941, 'sharpe': 23.161, 'net_pnl': 240617.19, 'max_dd': -1338.93, 'trades_per_day': 402.3, 'auc': 0.8018, 'n_trades': 17700}}], 'worst_3': [{'id': 'exp_20260309_c82a2f', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.0, max_hold=15, threshold_long=0.55...', 'metrics': {'wr': 0.7371, 'pf': 4.344, 'sharpe': 22.117, 'net_pnl': 142455.18, 'max_dd': -1657.12, 'trades_per_day': 496.3, 'auc': 0.8018, 'n_trades': 21839}}, {'id': 'exp_20260309_99d41d', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.0, max_hold=20, threshold_long=0.55...', 'metrics': {'wr': 0.7184, 'pf': 3.898, 'sharpe': 23.009, 'net_pnl': 153358.84, 'max_dd': -2160.46, 'trades_per_day': 556.9, 'auc': 0.8018, 'n_trades': 24503}}, {'id': 'exp_20260309_691a7a', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=10, threshold_long=0.65...', 'metrics': {'wr': 0.7501, 'pf': 3.609, 'sharpe': 19.119, 'net_pnl': 129237.77, 'max_dd': -2951.42, 'trades_per_day': 462.8, 'auc': 0.8018, 'n_trades': 20364}}], 'all_time_stats': {'total_experiments': 550, 'completed': 341, 'promoted': 5, 'promotion_rate': 0.0147, 'best_pf': 16.292, 'best_sharpe': 27.987, 'best_wr': 0.8331}, 'daily_trading': {'pnl': 2412.35, 'trades': 6}, 'live_labels': {'total': 8, 'wr': 0.25, 'by_type': {'1': {'n': 8, 'wr': 0.25}}}, 'suggested_hypotheses': ['High TP mult (>=2.5) PF=8.70 >> low TP (<=1.5) PF=4.77 \u2014 explore even higher TP'], 'next_version': 'v7', 'next_version_planned_experiments': 0, 'recommended_architecture_change': None}",
+    "experiments_today": 30
   },
   "research_reports": [
     {
