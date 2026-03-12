@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-12T22:38:07Z",
+  "updated_at": "2026-03-12T22:43:08Z",
   "equity": 153111.54,
   "daily_pnl": 0.0,
   "halted": false,
@@ -362,60 +362,60 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 24595.0,
-      "atr": 6.446428571428571,
-      "adx": 30.69094553989109,
-      "rsi": 77.40964314525205,
+      "price": 24590.25,
+      "atr": 6.946428571428571,
+      "adx": 34.42982680443393,
+      "rsi": 65.87074853154762,
       "group": "EQUITY"
     },
     "MESH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6691.75,
-      "atr": 1.5178571428571428,
-      "adx": 30.83899805082934,
-      "rsi": 79.04634727800358,
+      "price": 6691.0,
+      "atr": 1.5892857142857142,
+      "adx": 36.58931068859973,
+      "rsi": 69.13453071910835,
       "group": "EQUITY"
     },
     "MYMH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 46825,
-      "atr": 10.428571428571429,
-      "adx": 35.79800020877584,
-      "rsi": 79.31622368504628,
+      "price": 46821,
+      "atr": 10.785714285714286,
+      "adx": 44.19235831963944,
+      "rsi": 71.02240264340205,
       "group": "EQUITY"
     },
     "M2KH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2498.1,
-      "atr": 1.0857142857143052,
-      "adx": 19.325743004919072,
-      "rsi": 71.64536496753757,
+      "price": 2497.3,
+      "atr": 1.328571428571422,
+      "adx": 24.81952100455925,
+      "rsi": 60.35977479889482,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5089.7,
-      "atr": 2.942857142857,
-      "adx": 20.57657379619395,
-      "rsi": 64.68810219314344,
+      "price": 5093.3,
+      "atr": 2.3714285714284933,
+      "adx": 27.365811100936725,
+      "rsi": 69.8164059453093,
       "group": "METALS"
     },
     "SILH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 84.1,
-      "atr": 0.10142857142857054,
-      "adx": 17.581533191006848,
-      "rsi": 57.451472261066165,
+      "price": 84.21,
+      "atr": 0.09000000000000037,
+      "adx": 17.650033215252314,
+      "rsi": 62.193778321194365,
       "group": "METALS"
     },
     "MHGH6": {
@@ -423,29 +423,29 @@
       "trades_today": 0,
       "halted": false,
       "price": 5.8285,
-      "atr": 0.0019285714285714381,
-      "adx": 24.161406580205316,
-      "rsi": 70.96528253141116,
+      "atr": 0.0018214285714286405,
+      "adx": 27.349627884472515,
+      "rsi": 68.8275006444174,
       "group": "METALS"
     },
     "MCLJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 96.48,
-      "atr": 0.16571428571428523,
-      "adx": 19.741726976625806,
-      "rsi": 56.14499540245929,
+      "price": 96.49,
+      "atr": 0.18714285714285644,
+      "adx": 18.959569110106337,
+      "rsi": 56.53185256005264,
       "group": "ENERGY"
     },
     "MNGJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 3.25,
-      "atr": 0.004785714285714298,
-      "adx": 19.049677559758972,
-      "rsi": 56.39177022353255,
+      "price": 3.236,
+      "atr": 0.0054285714285714015,
+      "adx": 15.954250153418496,
+      "rsi": 42.007848444270536,
       "group": "ENERGY"
     }
   },
@@ -1089,6 +1089,42 @@
             0.6
           ]
         }
+      },
+      {
+        "id": "hyp_20260312_RTH0",
+        "type": "signal_filter",
+        "description": "RTH had 0 equity trades today despite 4 instruments active. ML gate at 0.75 may be over-filtering. Evaluate lowering per-type threshold for ORB signal types to 0.65 to restore trade flow without sacrificing edge.",
+        "priority": 1,
+        "evidence": "RTH trades=0 today (2026-03-12), 0 equity entries across MNQH6/MESH6/MYMH6/M2KH6",
+        "status": "active",
+        "created_at": "2026-03-12T15:42:53.550087"
+      },
+      {
+        "id": "hyp_20260312_SHORT1",
+        "type": "threshold_adjustment",
+        "description": "Short ORB signals outperform Long significantly (WR=50% vs 20% live). Apply asymmetric thresholds: lower threshold for Short entries (0.60), maintain or raise for Long entries (0.80).",
+        "priority": 1,
+        "evidence": "Live labels 15 total: Short WR=50% n=2, Long WR=20% n=5, overall Type1 WR=26.7%",
+        "status": "active",
+        "created_at": "2026-03-12T15:42:53.550090"
+      },
+      {
+        "id": "hyp_20260312_OVERNIGHT1",
+        "type": "time_filter",
+        "description": "LONDON_ORB MCLJ6 fired successfully both nights this week (Mar 11 loss, Mar 12 win at same entry 80.22). Two consecutive entries at identical price suggest a structural range setup. Investigate whether MCLJ6 overnight entries cluster at key levels and add range-level confirmation gate.",
+        "priority": 2,
+        "evidence": "Mar 11: MCLJ6 short 80.22 \u2192 -27 | Mar 12: MCLJ6 short 80.22 \u2192 +94 | Same entry price both nights",
+        "status": "active",
+        "created_at": "2026-03-12T15:42:53.550092"
+      },
+      {
+        "id": "hyp_20260312_LABLIVE",
+        "type": "training_config",
+        "description": "Live label retraining collapsed V8 AUC to 0.6336 (from V7 0.9880) with only 15 labels (all Type1). Gate live retraining behind: minimum 50 labels per type before including in training, or weight live samples at 0.1x vs historical. Run ablation to confirm.",
+        "priority": 1,
+        "evidence": "V8 AUC=0.6336 with 15 live labels (all Type1 ORB). V7 AUC=0.9880 without live labels. Live WR=26.7% poisoning model.",
+        "status": "active",
+        "created_at": "2026-03-12T15:42:53.550093"
       }
     ],
     "morning_summary": "{'generated_at': '2026-03-11T21:44:56.329112-04:00', 'experiments_run': 142, 'experiments_completed': 122, 'experiments_failed': 0, 'architecture_proposals': [{'id': 'exp_20260310_94ae6c', 'description': 'Hypothesis: '}, {'id': 'exp_20260310_41a064', 'description': 'Hypothesis: '}, {'id': 'exp_20260310_85d9e5', 'description': 'Hypothesis: '}, {'id': 'exp_20260310_dc2002', 'description': 'Type exclusion: Types 3 (SD_BAND, 49.7% WR) and 5 (EMA_CROSS, 39.2% WR) have negative OOS edge \u2014'}, {'id': 'exp_20260310_4d5bad', 'description': 'Recency weighting: Type 1 (ORB) has the best in-sample AUC (0.879) but 0 OOS passes at threshold 0.'}, {'id': 'exp_20260310_0e7a9d', 'description': 'CB fix: CB (CatBoost) was set to 0.5 neutral in stacking due to inference bug \u2014 fixing C'}, {'id': 'exp_20260310_4af07b', 'description': 'LSTM subsample: LSTM was skipped for types 8, 15, 16 (>100K samples) but these are the highest-v'}, {'id': 'exp_20260311_3c5a2a', 'description': 'Hypothesis: '}, {'id': 'exp_20260311_557678', 'description': 'Hypothesis: '}, {'id': 'exp_20260311_de1876', 'description': 'Hypothesis: '}, {'id': 'exp_20260311_e6dfd7', 'description': 'Type exclusion: Types 3 (SD_BAND, 49.7% WR) and 5 (EMA_CROSS, 39.2% WR) have negative OOS edge \u2014'}, {'id': 'exp_20260311_af6718', 'description': 'Recency weighting: Type 1 (ORB) has the best in-sample AUC (0.879) but 0 OOS passes at threshold 0.'}, {'id': 'exp_20260311_dab92c', 'description': 'CB fix: CB (CatBoost) was set to 0.5 neutral in stacking due to inference bug \u2014 fixing C'}, {'id': 'exp_20260311_8bb091', 'description': 'LSTM subsample: LSTM was skipped for types 8, 15, 16 (>100K samples) but these are the highest-v'}, {'id': 'exp_20260311_9fe7ee', 'description': 'Feature Add experiment'}, {'id': 'exp_20260311_b7b979', 'description': 'Feature Add experiment'}, {'id': 'exp_20260311_0d0bed', 'description': 'Feature Add experiment'}, {'id': 'exp_20260311_9a4cb5', 'description': 'Feature Add experiment'}, {'id': 'exp_20260311_db29e8', 'description': 'Feature Add experiment'}, {'id': 'exp_20260311_55fa31', 'description': 'Feature Add experiment'}], 'best_result': {'id': 'exp_20260310_b1b69c', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=20, threshold_long=0.65...', 'metrics': {'wr': 0.8178, 'pf': 18.802, 'sharpe': 19.442, 'net_pnl': 233124.19, 'max_dd': -389.55, 'trades_per_day': 302.7, 'auc': 0.8018, 'n_trades': 13317}}, 'promoted': False, 'promoted_experiment': None, 'champion': {'version': 'v6+exp_20260304_5caf4e+exp_20260310_b1b69c', 'metrics': {'wr': 0.8178, 'pf': 18.802, 'sharpe': 19.442, 'net_pnl': 233124.19, 'max_dd': -389.55, 'trades_per_day': 302.7, 'auc': 0.8018, 'n_trades': 13317}}, 'top_3': [{'id': 'exp_20260310_b1b69c', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=20, threshold_long=0.65...', 'metrics': {'wr': 0.8178, 'pf': 18.802, 'sharpe': 19.442, 'net_pnl': 233124.19, 'max_dd': -389.55, 'trades_per_day': 302.7, 'auc': 0.8018, 'n_trades': 13317}}, {'id': 'exp_20260311_14cd82', 'description': 'Bayesian exploit: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.65...', 'metrics': {'wr': 0.7994, 'pf': 16.292, 'sharpe': 21.48, 'net_pnl': 265480.9, 'max_dd': -1057.34, 'trades_per_day': 353.9, 'auc': 0.8018, 'n_trades': 15570}}, {'id': 'exp_20260311_a0bf9a', 'description': 'Bayesian exploit: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.6...', 'metrics': {'wr': 0.7875, 'pf': 15.61, 'sharpe': 20.821, 'net_pnl': 257721.68, 'max_dd': -531.76, 'trades_per_day': 350.8, 'auc': 0.8018, 'n_trades': 15434}}], 'worst_3': [{'id': 'exp_20260310_f066f4', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.0, max_hold=30, threshold_long=0.45...', 'metrics': {'wr': 0.6928, 'pf': 3.398, 'sharpe': 18.939, 'net_pnl': 132747.88, 'max_dd': -1095.22, 'trades_per_day': 527.1, 'auc': 0.8018, 'n_trades': 23192}}, {'id': 'exp_20260311_04af5c', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.0, max_hold=30, threshold_long=0.45...', 'metrics': {'wr': 0.6882, 'pf': 3.334, 'sharpe': 20.79, 'net_pnl': 141063.34, 'max_dd': -1016.92, 'trades_per_day': 567.7, 'auc': 0.8018, 'n_trades': 24978}}, {'id': 'exp_20260310_5ccc13', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=20, threshold_long=0.45...', 'metrics': {'wr': 0.6931, 'pf': 2.735, 'sharpe': 14.593, 'net_pnl': 107705.57, 'max_dd': -2933.44, 'trades_per_day': 475.9, 'auc': 0.8018, 'n_trades': 20939}}], 'all_time_stats': {'total_experiments': 725, 'completed': 489, 'promoted': 6, 'promotion_rate': 0.0123, 'best_pf': 18.802, 'best_sharpe': 27.987, 'best_wr': 0.8331}, 'daily_trading': {'pnl': -526.56, 'trades': 1}, 'live_labels': {'total': 14, 'wr': 0.214, 'by_type': {'1': {'n': 14, 'wr': 0.214}}}, 'suggested_hypotheses': ['High TP mult (>=2.5) PF=9.63 >> low TP (<=1.5) PF=4.81 \u2014 explore even higher TP'], 'next_version': 'v7', 'next_version_planned_experiments': 0, 'recommended_architecture_change': None, 'research_summary': '39 trades over last 7d: WR=33% PF=1.33 | Best: unknown (40%) | Worst: ORB (21%) | 9 hypotheses generated', 'signal_analysis': {'1': {'n': 14, 'wr': 0.2143, 'pf': 0.139, 'name': 'ORB'}, 'unknown': {'n': 25, 'wr': 0.4, 'pf': 1.985, 'name': 'unknown'}}, 'worst_performing_type': 'ORB: WR=21%', 'best_performing_type': 'unknown: WR=40%', 'top_hypotheses': [{'id': 'hyp_20260311_DIR1', 'type': 'threshold_adjustment', 'description': 'LONG trades significantly underperform: WR=26% vs SHORT WR=62%. Increase long threshold or add trend filter for long entries.', 'priority': 1, 'evidence': 'Long WR=26% (n=31) | Short WR=62% (n=8)'}, {'id': 'hyp_20260311_S1', 'type': 'threshold_adjustment', 'description': 'Signal type ORB (type 1) has low WR=21% (n=14). Increase ML threshold for this type, or consider masking it in the current regime.', 'priority': 1, 'evidence': 'ORB: WR=21% n=14 PF=0.14'}, {'id': 'hyp_20260311_TIME1', 'type': 'risk_param', 'description': 'TIME_EXIT trades have low WR (20%, n=10). Reduce max hold time to avoid holding losers too long, or add momentum-based exit trigger.', 'priority': 2, 'evidence': 'TIME_EXIT trades: WR=20% (n=10)'}, {'id': 'hyp_20260311_Sunknown', 'type': 'threshold_adjustment', 'description': 'Signal type unknown (type unknown) has low WR=40% (n=25). Increase ML threshold for this type, or consider masking it in the current regime.', 'priority': 2, 'evidence': 'unknown: WR=40% n=25 PF=1.99'}, {'id': 'hyp_20260311_TPRE', 'type': 'time_filter', 'description': 'Trades during pre_market (00:00-09:30 ET) have poor WR=31% (n=13). Add time blackout for this window.', 'priority': 2, 'evidence': 'pre_market: WR=31% n=13 PF=0.74'}], 'v8_training': {'version': 'v8', 'parent': 'v7', 'status': 'complete', 'auc': 0.6336, 'wr': 0.6249, 'pf': 1.666, 'completed_types': 19, 'skipped_types': 0, 'live_labels_used': 14, 'training_time_min': 1.0, 'per_type_results': {'1': {}, '2': {}, '4': {}, '7': {}, '8': {}, '9': {}, '10': {}, '11': {}, '12': {}, '13': {}, '14': {}, '15': {}, '16': {}, '18': {}, '19': {}, '20': {}, '21': {}, '26': {}, '27': {}}, 'gpu': {'lgb': 'gpu', 'xgb': 'cuda', 'cb': 'GPU', 'torch': True}, 'arch_proposals_applied': [\"Experiment(id='exp_20260311_9a4cb5', description='Feature Add experiment', hypothesis='Live WR 21.4% below expected 91.8% \u2014 tighten threshold to 0.75', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-03-11T21:43:17.214161-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260311_db29e8', description='Feature Add experiment', hypothesis='Type 1 live WR 21.4% < 40% \u2014 mask it', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-03-11T21:43:17.214186-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260311_55fa31', description='Feature Add experiment', hypothesis='Estimated live PF 0.54 \u2014 try tighter SL (0.7x) and wider TP (2.5x)', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-03-11T21:43:17.214201-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\"], 'trained_at': '2026-03-11T18:44:52'}}",
