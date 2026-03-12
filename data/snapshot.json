@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-03-12T08:14:38Z",
+  "updated_at": "2026-03-12T08:15:04Z",
   "equity": 152717.1,
-  "daily_pnl": 0.0,
+  "daily_pnl": 394.44,
   "halted": false,
   "rth": false,
   "ws_connected": true,
@@ -10,28 +10,33 @@
   "market_closed": false,
   "strategy_version": "v3.0",
   "ml_version": "live",
-  "in_trade": true,
-  "open_positions": [
+  "in_trade": false,
+  "open_positions": [],
+  "todays_trades": [
     {
       "symbol": "MCLJ6",
       "side": "SHORT",
       "contracts": 3,
       "entry_price": 80.22,
-      "current_price": 80.22,
-      "unrealized_pnl": -0.0,
+      "exit_price": 91.03000000000002,
+      "pnl": 394.44,
+      "r_multiple": null,
+      "ml_prob": null,
+      "phase": "OVERNIGHT",
+      "entry_time": "2026-03-12T04:15:04.898184-04:00",
+      "exit_time": "2026-03-12T04:15:04.898184-04:00",
+      "exit_reason": "TIME_EXIT",
       "sl_price": 82.4,
       "tp_price": 76.95,
-      "phase": "LONDON_ORB",
-      "entry_time": "2026-03-12T03:00:01.440941-04:00"
+      "signal_type": ""
     }
   ],
-  "todays_trades": [],
   "trade_stats": {
-    "wins": 0,
+    "wins": 1,
     "losses": 0,
-    "wr": 0.0,
-    "net_pnl": 0,
-    "profit_factor": 0.0,
+    "wr": 1.0,
+    "net_pnl": 394.44,
+    "profit_factor": 39444.0,
     "avg_r": 0.0
   },
   "prev_sessions": [
@@ -578,7 +583,7 @@
       "group": "METALS"
     },
     "MCLJ6": {
-      "in_trade": true,
+      "in_trade": false,
       "trades_today": 1,
       "halted": false,
       "price": 80.22,
