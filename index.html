@@ -474,6 +474,17 @@ code, .mono { font-family: var(--mono); }
       <div id="model-training-content"><div class="empty-state" style="color:var(--text-dim)">No training in progress</div></div>
     </div>
 
+    <!-- V9 Walk-Forward Results -->
+    <div class="card" id="v9-card" style="display:none;border-left:3px solid var(--green)">
+      <div class="card-title">🧬 V9 — Ready to Deploy <span style="font-size:11px;padding:2px 8px;background:rgba(0,255,136,.15);color:var(--green);border-radius:4px;margin-left:8px;font-weight:600">PROPER WALK-FORWARD OOS</span></div>
+      <div id="v9-summary" style="font-family:var(--mono);font-size:13px;padding:8px 12px;background:var(--bg);border-radius:6px;margin-bottom:10px"></div>
+      <div style="cursor:pointer;font-size:12px;color:var(--blue)" onclick="const d=document.getElementById('v9-detail');d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Show details ▸':'Hide details ▾'">Show details ▸</div>
+      <div id="v9-detail" style="display:none;margin-top:12px">
+        <div style="font-size:12px;color:var(--text-dim);margin-bottom:8px">14 monthly OOS folds (Jan 2025–Feb 2026), 5-day embargo between train/test</div>
+        <div id="v9-threshold-table"></div>
+      </div>
+    </div>
+
     <!-- Model History -->
     <div class="card">
       <div class="card-title">📈 Model History</div>
@@ -920,7 +931,7 @@ function renderModels() {
 
   // Deployed model card
   const deployedEl = $('model-deployed-content');
-  if (!model.version) {
+  if (!model.version || model.version === '—') {
     deployedEl.innerHTML = '<div class="empty-state">No model data</div>';
   } else {
     const wr = model.wr != null ? (model.wr < 1 ? (model.wr * 100).toFixed(1) : model.wr.toFixed(1)) + '%' : '—';
@@ -937,7 +948,8 @@ function renderModels() {
       <div class="stat-item"><span class="stat-label">Trades/Day</span><span class="stat-value">${tpd}</span></div>
       <div class="stat-item"><span class="stat-label">Deployed</span><span class="stat-value" style="font-size:13px">${esc(deployedAt)}</span></div>
     </div>
-    ${model.description ? `<div style="font-size:13px;color:var(--text-dim);line-height:1.6">${esc(model.description)}</div>` : ''}`;
+    ${model.description ? `<div style="font-size:13px;color:var(--text-dim);line-height:1.6">${esc(model.description)}</div>` : ''}
+    ${model.observe_only ? `<div style="margin-top:10px;padding:8px 12px;background:rgba(255,165,0,.1);border-left:3px solid var(--amber);border-radius:4px;font-size:12px;color:var(--amber)">⏸️ <b>Observe-only mode</b> — ${model.live_trades||0}/${model.min_live_trades||200} live trades before next promotion</div>` : ''}`;
   }
 
   // Training card
@@ -976,6 +988,29 @@ function renderModels() {
         <td style="font-size:11px;color:var(--text-dim)">${esc(h.note || h.description || '')}</td>
       </tr>`;
     }).join('');
+  }
+
+  // V9 walk-forward card
+  const v9 = model.v9 || {};
+  if (v9.available) {
+    const v9card = document.getElementById('v9-card');
+    if (v9card) v9card.style.display = 'block';
+    const v9sum = $('v9-summary');
+    if (v9sum) v9sum.innerHTML =
+      `WF (14 folds): AUC <b>${(v9.wf_auc||0).toFixed(4)}</b> · WR <b>${((v9.wf_wr||0)*100).toFixed(1)}%</b> · PF <b>${(v9.wf_pf||0).toFixed(2)}</b> &nbsp;|&nbsp; Holdout AUC: <b>${(v9.holdout_auc||0).toFixed(4)}</b>`;
+    const thrEl = $('v9-threshold-table');
+    if (thrEl && v9.threshold_table && v9.threshold_table.length) {
+      const best = v9.threshold_table.reduce((a,b) => (b.sharpe||0)>(a.sharpe||0)?b:a, v9.threshold_table[0]);
+      let rows = v9.threshold_table.map(r => {
+        const isBest = r.threshold === best.threshold;
+        return `<tr style="${isBest?'background:rgba(0,255,136,.08)':''}">
+          <td style="font-family:var(--mono);font-weight:${isBest?700:400}">${r.threshold.toFixed(2)}${isBest?' ★':''}</td>
+          <td>${((r.wr||0)*100).toFixed(1)}%</td><td>${(r.pf||0).toFixed(2)}</td>
+          <td>${(r.sharpe||0).toFixed(2)}</td><td style="color:var(--text-dim)">${(r.n_trades||0).toLocaleString()}</td></tr>`;
+      }).join('');
+      thrEl.innerHTML = `<div style="font-size:11px;font-weight:600;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Threshold Analysis (Feb–Mar 2026 Holdout)</div>
+        <table class="data-table"><thead><tr><th>Threshold</th><th>WR</th><th>PF</th><th>Sharpe</th><th>Trades/mo</th></tr></thead><tbody>${rows}</tbody></table>`;
+    }
   }
 
   // Shadow gate table
