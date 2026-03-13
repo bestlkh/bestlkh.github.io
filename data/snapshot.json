@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-13T04:15:19Z",
+  "updated_at": "2026-03-13T04:15:50Z",
   "equity": 153109.68,
   "daily_pnl": 0.0,
   "halted": false,
@@ -17,8 +17,8 @@
       "side": "LONG",
       "contracts": 3,
       "entry_price": 5118.8,
-      "current_price": 5117.4,
-      "unrealized_pnl": -42.0,
+      "current_price": 5117.3,
+      "unrealized_pnl": -45.0,
       "sl_price": 5093.1,
       "tp_price": 5150.9,
       "phase": "ASIAN_CONT",
@@ -376,8 +376,8 @@
       "trades_today": 0,
       "halted": false,
       "price": 24607.25,
-      "atr": 6.089285714285714,
-      "adx": 20.660565558004794,
+      "atr": 6.303571428571429,
+      "adx": 20.98770309046564,
       "rsi": 39.59067181220556,
       "group": "EQUITY"
     },
@@ -385,10 +385,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6698.0,
-      "atr": 1.2321428571428572,
+      "price": 6698.25,
+      "atr": 1.25,
       "adx": 19.065826904643384,
-      "rsi": 39.29394669930972,
+      "rsi": 40.89531544470108,
       "group": "EQUITY"
     },
     "MYMH6": {
@@ -396,7 +396,7 @@
       "trades_today": 0,
       "halted": false,
       "price": 46899,
-      "atr": 5.571428571428571,
+      "atr": 5.714285714285714,
       "adx": 21.85391795884845,
       "rsi": 35.8013282672797,
       "group": "EQUITY"
@@ -405,20 +405,20 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2507.4,
+      "price": 2507.2,
       "atr": 0.43571428571424675,
       "adx": 17.819350397280008,
-      "rsi": 45.90312536618824,
+      "rsi": 43.67551197554549,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": true,
       "trades_today": 1,
       "halted": false,
-      "price": 5117.4,
+      "price": 5117.3,
       "atr": 1.6928571428571948,
       "adx": 20.07595208184094,
-      "rsi": 47.44830832997827,
+      "rsi": 47.017309703613286,
       "group": "METALS"
     },
     "SILH6": {
@@ -445,10 +445,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 95.52,
-      "atr": 0.07499999999999878,
-      "adx": 9.267303648494272,
-      "rsi": 48.698590571428745,
+      "price": 95.37,
+      "atr": 0.08714285714285605,
+      "adx": 11.377569633101787,
+      "rsi": 36.644850445589725,
       "group": "ENERGY"
     },
     "MNGJ6": {
