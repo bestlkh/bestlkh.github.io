@@ -1130,7 +1130,7 @@ function renderAutopilot() {
     hypList.innerHTML = '<div class="empty-state">No hypotheses queued</div>';
   } else {
     hypList.innerHTML = hypotheses.map(h => {
-      const pri = (h.priority || 'LOW').toUpperCase();
+      const pri = (String(h.priority || 'LOW')).toUpperCase().replace(/^[0-9]+$/, p => (['','HIGH','MED','LOW','LOW','LOW'][parseInt(p)] || 'MED'));
       const status = (h.status || 'queued').toLowerCase();
       return `
       <div class="hyp-card">
