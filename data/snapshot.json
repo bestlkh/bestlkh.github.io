@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-13T06:09:58Z",
+  "updated_at": "2026-03-13T06:13:12Z",
   "equity": 152879.82,
   "daily_pnl": -229.86,
   "halted": false,
@@ -380,102 +380,328 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 24590.25,
-      "atr": 7.821428571428571,
-      "adx": 18.26760008352053,
-      "rsi": 60.619116949627625,
+      "price": 24591.0,
+      "atr": 7.589285714285714,
+      "adx": 17.109308731517523,
+      "rsi": 60.34363062708232,
       "group": "EQUITY"
     },
     "MESH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6694.0,
+      "price": 6694.25,
       "atr": 1.625,
-      "adx": 18.54264129818463,
-      "rsi": 57.15075403848975,
+      "adx": 16.567289587586156,
+      "rsi": 57.796853158822564,
       "group": "EQUITY"
     },
     "MYMH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 46881,
-      "atr": 8.714285714285714,
-      "adx": 15.749249339349873,
-      "rsi": 56.76877303722205,
+      "price": 46877.0,
+      "atr": 9.142857142857142,
+      "adx": 12.85769009731052,
+      "rsi": 52.44452700304562,
       "group": "EQUITY"
     },
     "M2KH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2506.0,
-      "atr": 0.6714285714286105,
-      "adx": 14.523725806618476,
-      "rsi": 68.07701281567255,
+      "price": 2505.3,
+      "atr": 0.6714285714285779,
+      "adx": 17.319820347566196,
+      "rsi": 61.43923460425369,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 5108.9,
-      "atr": 2.8714285714286234,
-      "adx": 19.862303856166672,
-      "rsi": 52.97286982463928,
-      "group": "METALS"
-    },
-    "SILH6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 83.87,
-      "atr": 0.15999999999999964,
-      "adx": 24.28625417065039,
-      "rsi": 52.51813583326779,
+      "price": 5110.3,
+      "atr": 2.407142857142844,
+      "adx": 16.29719241773633,
+      "rsi": 56.20484175206902,
       "group": "METALS"
     },
     "MHGH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5.808,
-      "atr": 0.002392857142857276,
-      "adx": 25.168156451332695,
-      "rsi": 46.63483150691092,
+      "price": null,
+      "atr": null,
+      "adx": null,
+      "rsi": null,
       "group": "METALS"
-    },
-    "MCLJ6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 94.91,
-      "atr": 0.1671428571428574,
-      "adx": 23.826030548403214,
-      "rsi": 37.315128265101784,
-      "group": "ENERGY"
-    },
-    "MNGJ6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 3.263,
-      "atr": 0.004428571428571512,
-      "adx": 24.917322299073334,
-      "rsi": 43.266958275691536,
-      "group": "ENERGY"
     }
   },
   "model": {
-    "version": "\u2014",
+    "version": "v6+exp_20260304_5caf4e+exp_20260310_b1b69c",
     "auc": 0.8018,
     "wr": 0.8178,
     "pf": 18.802,
     "trades_per_day": 302.7,
     "deployed_at": null,
     "description": "",
-    "history": []
+    "history": [
+      {
+        "version": "v1",
+        "auc": 0.7429,
+        "wr": 0.6,
+        "pf": 2.25,
+        "trades_per_day": 6.4,
+        "status": "retired",
+        "note": "",
+        "deployed": false
+      },
+      {
+        "version": "v2",
+        "auc": 0.7513,
+        "wr": 0.62,
+        "pf": 2.323,
+        "trades_per_day": 22.3,
+        "status": "retired",
+        "note": "",
+        "deployed": false
+      },
+      {
+        "version": "v3",
+        "auc": 0.7842,
+        "wr": 0.705,
+        "pf": 3.398,
+        "trades_per_day": 34.3,
+        "status": "retired",
+        "note": "",
+        "deployed": false
+      },
+      {
+        "version": "v6",
+        "auc": 0.843,
+        "wr": 0.701,
+        "pf": 4.14,
+        "trades_per_day": 645.3,
+        "status": "Deployed",
+        "note": "",
+        "deployed": true
+      },
+      {
+        "version": "v7",
+        "auc": 0.988,
+        "wr": 0.7994,
+        "pf": 16.292,
+        "trades_per_day": 353.9,
+        "status": "live",
+        "note": "",
+        "deployed": false
+      }
+    ],
+    "sharpe": 19.442,
+    "promoted_at": "2026-03-10T21:48:57.840473-04:00",
+    "v9": {
+      "available": true,
+      "wf_auc": 0.6786,
+      "wf_wr": 0.6653,
+      "wf_pf": 1.9879,
+      "wf_n_folds": 14,
+      "holdout_auc": 0.621,
+      "meta_val_auc": 0.8188,
+      "threshold_table": [
+        {
+          "threshold": 0.4,
+          "n_trades": 18302,
+          "wr": 0.5292,
+          "pf": 1.1242,
+          "sharpe": 0.9297
+        },
+        {
+          "threshold": 0.45,
+          "n_trades": 16871,
+          "wr": 0.5341,
+          "pf": 1.1464,
+          "sharpe": 1.0855
+        },
+        {
+          "threshold": 0.5,
+          "n_trades": 13699,
+          "wr": 0.5601,
+          "pf": 1.2733,
+          "sharpe": 1.9225
+        },
+        {
+          "threshold": 0.55,
+          "n_trades": 12482,
+          "wr": 0.5675,
+          "pf": 1.3119,
+          "sharpe": 2.1615
+        },
+        {
+          "threshold": 0.6,
+          "n_trades": 10388,
+          "wr": 0.5837,
+          "pf": 1.4018,
+          "sharpe": 2.6939
+        },
+        {
+          "threshold": 0.65,
+          "n_trades": 8136,
+          "wr": 0.6136,
+          "pf": 1.5878,
+          "sharpe": 3.7025
+        },
+        {
+          "threshold": 0.7,
+          "n_trades": 6959,
+          "wr": 0.6314,
+          "pf": 1.7131,
+          "sharpe": 4.3242
+        },
+        {
+          "threshold": 0.75,
+          "n_trades": 4725,
+          "wr": 0.6675,
+          "pf": 2.0076,
+          "sharpe": 5.6446
+        },
+        {
+          "threshold": 0.8,
+          "n_trades": 3092,
+          "wr": 0.7293,
+          "pf": 2.6941,
+          "sharpe": 8.1924
+        }
+      ],
+      "folds": [
+        {
+          "fold": "2025-01",
+          "n_train": 897395,
+          "n_test": 23828,
+          "auc": 0.6898,
+          "wr_055": 0.7291,
+          "pf": 2.692,
+          "n_trades": 5335
+        },
+        {
+          "fold": "2025-02",
+          "n_train": 918385,
+          "n_test": 22500,
+          "auc": 0.6786,
+          "wr_055": 0.6774,
+          "pf": 2.0998,
+          "n_trades": 7610
+        },
+        {
+          "fold": "2025-03",
+          "n_train": 941281,
+          "n_test": 23788,
+          "auc": 0.6213,
+          "wr_055": 0.5575,
+          "pf": 1.2599,
+          "n_trades": 8522
+        },
+        {
+          "fold": "2025-04",
+          "n_train": 967531,
+          "n_test": 25226,
+          "auc": 0.7543,
+          "wr_055": 0.7374,
+          "pf": 2.8074,
+          "n_trades": 8243
+        },
+        {
+          "fold": "2025-05",
+          "n_train": 992619,
+          "n_test": 25159,
+          "auc": 0.6665,
+          "wr_055": 0.6157,
+          "pf": 1.602,
+          "n_trades": 8238
+        },
+        {
+          "fold": "2025-06",
+          "n_train": 1016454,
+          "n_test": 22627,
+          "auc": 0.7365,
+          "wr_055": 0.7283,
+          "pf": 2.6807,
+          "n_trades": 7424
+        },
+        {
+          "fold": "2025-07",
+          "n_train": 1040369,
+          "n_test": 25828,
+          "auc": 0.6536,
+          "wr_055": 0.6449,
+          "pf": 1.8159,
+          "n_trades": 8335
+        },
+        {
+          "fold": "2025-08",
+          "n_train": 1065077,
+          "n_test": 23983,
+          "auc": 0.6816,
+          "wr_055": 0.667,
+          "pf": 2.0031,
+          "n_trades": 7868
+        },
+        {
+          "fold": "2025-09",
+          "n_train": 1090228,
+          "n_test": 23141,
+          "auc": 0.6816,
+          "wr_055": 0.6367,
+          "pf": 1.7525,
+          "n_trades": 9207
+        },
+        {
+          "fold": "2025-10",
+          "n_train": 1113308,
+          "n_test": 26002,
+          "auc": 0.7722,
+          "wr_055": 0.7844,
+          "pf": 3.6372,
+          "n_trades": 8602
+        },
+        {
+          "fold": "2025-11",
+          "n_train": 1136918,
+          "n_test": 21891,
+          "auc": 0.6979,
+          "wr_055": 0.6669,
+          "pf": 2.0022,
+          "n_trades": 8340
+        },
+        {
+          "fold": "2025-12",
+          "n_train": 1162154,
+          "n_test": 23217,
+          "auc": 0.67,
+          "wr_055": 0.6814,
+          "pf": 2.1391,
+          "n_trades": 7606
+        },
+        {
+          "fold": "2026-01",
+          "n_train": 1184611,
+          "n_test": 24202,
+          "auc": 0.7174,
+          "wr_055": 0.0,
+          "pf": Infinity,
+          "n_trades": 0
+        },
+        {
+          "fold": "2026-02",
+          "n_train": 1207371,
+          "n_test": 23116,
+          "auc": 0.6018,
+          "wr_055": 0.564,
+          "pf": 1.2937,
+          "n_trades": 8941
+        }
+      ],
+      "status": "Ready"
+    }
   },
   "autopilot": {
     "current_version": "v6",
