@@ -734,8 +734,7 @@ async function fetchSnapshot() {
     const resp = await fetch(url, {cache: 'no-store'});
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const raw = await resp.text();
-    snapshot = JSON.parse(raw.replace(/: Infinity/g, ': null').replace(/: -Infinity/g, ': null').replace(/: NaN([,
-}])/g, ': null$1'));
+    snapshot = JSON.parse(raw.replace(/: Infinity\b/g, ': null').replace(/: -Infinity\b/g, ': null').replace(/: NaN\b/g, ': null'));
     lastFetchOk = true;
     $('error-banner').classList.remove('visible');
     $('footer-dot').className = 'footer-dot live';
