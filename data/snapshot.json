@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-15T22:07:47Z",
+  "updated_at": "2026-03-15T22:12:48Z",
   "equity": 152796.97,
   "daily_pnl": 0.0,
   "halted": false,
@@ -1912,7 +1912,7 @@
     }
   ],
   "training": {
-    "running": true,
+    "running": false,
     "stage": "",
     "pct": 0,
     "log_tail": []
