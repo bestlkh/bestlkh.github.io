@@ -886,9 +886,8 @@ function render() {
   renderTrades();
   renderModels();
   renderResearch();
-  if (activeTab === 'backtest') renderBacktest();
   renderAutopilot();
-  renderBacktest();
+  if (activeTab === 'backtest') renderBacktest();
 }
 
 // ── Header ────────────────────────────────────────────────────────────────────
@@ -1440,7 +1439,7 @@ let _btData = null;
 async function loadBacktestData() {
   if (_btData) return _btData;
   try {
-    const r = await fetch('/data/backtest.json?t=' + Date.now(), {cache: 'no-store'});
+    const r = await fetch('/data/backtest.json', {cache: 'force-cache'});
     if (r.ok) _btData = await r.json();
   } catch(e) { console.warn('backtest fetch failed', e); }
   return _btData;
