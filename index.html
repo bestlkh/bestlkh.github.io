@@ -410,6 +410,7 @@ code, .mono { font-family: var(--mono); }
   <button class="tab-btn" data-tab="live">Live</button>
   <button class="tab-btn" data-tab="trades">Trades</button>
   <button class="tab-btn" data-tab="models">Models</button>
+  <button class="tab-btn" data-tab="backtest">Backtest</button>
   <button class="tab-btn" data-tab="research">Research</button>
   <button class="tab-btn" data-tab="autopilot">Autopilot</button>
   <button class="tab-btn" data-tab="backtest">Backtest</button>
@@ -549,6 +550,45 @@ code, .mono { font-family: var(--mono); }
 </div>
 
 <!-- ═══ TAB: AUTOPILOT ═══ -->
+<div class="tab-content" id="tab-backtest">
+  <div class="main">
+
+    <!-- Sentiment Banner -->
+    <div id="bt-sentiment-banner" class="card" style="margin-bottom:14px;border-left:3px solid var(--amber)">
+      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center">
+        <div><span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-dim)">Live Sentiment</span></div>
+        <div class="stat-item"><span class="stat-label">VIX</span><span class="stat-value" id="bt-vix">—</span></div>
+        <div class="stat-item"><span class="stat-label">Fear & Greed</span><span class="stat-value" id="bt-fg">—</span></div>
+        <div class="stat-item"><span class="stat-label">Direction Bias</span><span class="stat-value" id="bt-bias">—</span></div>
+        <div class="stat-item"><span class="stat-label">Regime</span><span class="stat-value" id="bt-regime">—</span></div>
+        <div class="stat-item"><span class="stat-label">Composite Risk</span><span class="stat-value" id="bt-risk">—</span></div>
+      </div>
+    </div>
+
+    <!-- Period Comparison -->
+    <div class="card">
+      <div class="card-title">📊 Backtest: V9 vs V10 vs Raw (threshold=0.55)</div>
+      <div style="font-size:12px;color:var(--text-dim);margin-bottom:12px">
+        ⚠️ In-Sample = model was trained on this data (inflated). ✅ WF OOS & Holdout = honest uncontaminated results.
+      </div>
+      <div id="bt-period-table"><div class="empty-state">Loading…</div></div>
+    </div>
+
+    <!-- Monthly Breakdown -->
+    <div class="card">
+      <div class="card-title">📅 Monthly OOS Breakdown — V9 vs V10 (Jan 2025–Mar 2026)</div>
+      <div id="bt-monthly-table"><div class="empty-state">Loading…</div></div>
+    </div>
+
+    <!-- Equity Curve -->
+    <div class="card">
+      <div class="card-title">📈 Equity Curve — WF OOS (daily cumulative PnL)</div>
+      <div id="bt-equity-table"><div class="empty-state">Loading…</div></div>
+    </div>
+
+  </div>
+</div>
+
 <div class="tab-content" id="tab-autopilot">
   <div class="main">
     <!-- Stats Bar -->
@@ -652,6 +692,7 @@ function switchTab(id) {
   localStorage.setItem('activeTab', id);
   activeTab = id;
   if (id === 'trades' && typeof renderTrades === 'function') renderTrades();
+  if (id === 'backtest' && typeof renderBacktest === 'function') renderBacktest();
 }
 tabs.forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
 switchTab(activeTab);
@@ -845,6 +886,7 @@ function render() {
   renderTrades();
   renderModels();
   renderResearch();
+  if (activeTab === 'backtest') renderBacktest();
   renderAutopilot();
   renderBacktest();
 }
@@ -1389,6 +1431,130 @@ function checkPin() {
   } else {
     document.getElementById('auth-err').textContent = 'Incorrect PIN';
     document.getElementById('auth-pin').value = '';
+  }
+}
+
+
+// ── BACKTEST Tab ──────────────────────────────────────────────────────────────
+let _btData = null;
+async function loadBacktestData() {
+  if (_btData) return _btData;
+  try {
+    const r = await fetch('/data/backtest.json?t=' + Date.now(), {cache: 'no-store'});
+    if (r.ok) _btData = await r.json();
+  } catch(e) { console.warn('backtest fetch failed', e); }
+  return _btData;
+}
+
+async function renderBacktest() {
+  const bt = await loadBacktestData();
+  if (!bt) return;
+
+  // Sentiment banner
+  const sent = bt.current_sentiment || {};
+  const snapshotSent = (snapshot && snapshot.sentiment) ? snapshot.sentiment : {};
+  const vix = snapshotSent.vix_close || sent.vix || '—';
+  const fg = snapshotSent.fg_score != null ? snapshotSent.fg_score : (sent.fg_score != null ? sent.fg_score : '—');
+  const bias = snapshotSent.direction_bias || sent.direction_bias || '—';
+  const regime = snapshotSent.vix_regime != null ? ['Calm','Normal','Elevated','Crisis'][snapshotSent.vix_regime] || '—' : (sent.vix_regime || '—');
+  const risk = snapshotSent.composite_risk != null ? snapshotSent.composite_risk.toFixed(1) : '—';
+  const biasColor = bias === 'short' ? 'var(--red)' : bias === 'long' ? 'var(--green)' : 'var(--amber)';
+  $('bt-vix').textContent = typeof vix === 'number' ? vix.toFixed(1) : vix;
+  $('bt-fg').textContent = fg !== '—' ? fg + ' / 100' : '—';
+  $('bt-bias').innerHTML = `<span style="color:${biasColor};font-weight:700;text-transform:uppercase">${bias}</span>`;
+  $('bt-regime').textContent = regime;
+  $('bt-risk').textContent = risk !== '—' ? risk + ' / 100' : '—';
+
+  const btBanner = $('bt-sentiment-banner');
+  if (bias === 'short') btBanner.style.borderLeftColor = 'var(--red)';
+  else if (bias === 'long') btBanner.style.borderLeftColor = 'var(--green)';
+
+  // Period comparison table
+  const periods = bt.periods || {};
+  const periodOrder = ['in_sample', 'wf_oos', 'holdout'];
+  const periodLabels = {
+    in_sample: '⚠️ In-Sample (train) 2022–2024',
+    wf_oos: '✅ Walk-Forward OOS 2025–Feb 2026',
+    holdout: '✅ Holdout Mar 2026'
+  };
+  const periodBorders = { in_sample: 'var(--amber)', wf_oos: 'var(--green)', holdout: 'var(--green)' };
+
+  let periodHtml = '';
+  for (const pk of periodOrder) {
+    const p = periods[pk];
+    if (!p) continue;
+    const bcolor = periodBorders[pk];
+    periodHtml += `<div style="margin-bottom:16px;border-left:3px solid ${bcolor};padding-left:12px">
+      <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:${bcolor}">${periodLabels[pk]}</div>
+      <div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
+        <thead><tr><th>Model</th><th>Trades</th><th>WR</th><th>PF</th><th>Sharpe</th><th>$/Trade</th><th>Total PnL</th><th>Max DD</th></tr></thead>
+        <tbody>`;
+    for (const [mk, mlabel] of [['v9','V9'],['v10','V10 +Sentiment'],['raw','Raw (no ML)']]) {
+      const m = p[mk];
+      if (!m) continue;
+      const isV10 = mk === 'v10';
+      const pnlCls = (m.total_pnl || 0) >= 0 ? 'td-pos' : 'td-neg';
+      periodHtml += `<tr ${isV10 ? 'style="background:rgba(63,185,80,.06)"' : ''}>
+        <td style="font-weight:${isV10?700:400}">${mlabel}</td>
+        <td style="font-family:var(--mono)">${(m.n_trades||0).toLocaleString()}</td>
+        <td class="${(m.wr||0)>=0.6?'td-pos':''}">${((m.wr||0)*100).toFixed(1)}%</td>
+        <td class="${(m.pf||0)>=1.5?'td-pos':''}">${(m.pf||0).toFixed(2)}</td>
+        <td>${(m.sharpe||0).toFixed(2)}</td>
+        <td>$${(m.avg_pnl_per_trade||0).toFixed(2)}</td>
+        <td class="${pnlCls}">$${Math.round(m.total_pnl||0).toLocaleString()}</td>
+        <td class="td-neg">$${Math.round(m.max_dd||0).toLocaleString()}</td>
+      </tr>`;
+    }
+    periodHtml += '</tbody></table></div></div>';
+  }
+  $('bt-period-table').innerHTML = periodHtml;
+
+  // Monthly breakdown
+  const mb = bt.monthly_breakdown || {};
+  const v9m = mb.v9 || [], v10m = mb.v10 || [];
+  if (v9m.length) {
+    const monthMap = {};
+    v9m.forEach(r => monthMap[r.month] = {v9: r});
+    v10m.forEach(r => { if(!monthMap[r.month]) monthMap[r.month]={v9:{}}; monthMap[r.month].v10 = r; });
+    const months = Object.keys(monthMap).sort();
+    let rows = months.map(mo => {
+      const v9 = monthMap[mo].v9 || {}, v10 = monthMap[mo].v10 || {};
+      const v9pnl = v9.net_pnl || 0, v10pnl = v10.net_pnl || 0;
+      const winner = v10pnl > v9pnl ? '<span style="color:var(--green)">V10</span>' : '<span style="color:var(--text-dim)">V9</span>';
+      return `<tr>
+        <td style="font-family:var(--mono)">${mo}</td>
+        <td>${(v9.n_trades||0).toLocaleString()}</td><td class="${(v9.wr||0)>=0.6?'td-pos':''}">${((v9.wr||0)*100).toFixed(1)}%</td><td>${(v9.pf||0).toFixed(2)}</td><td class="${v9pnl>=0?'td-pos':'td-neg'}">$${Math.round(v9pnl).toLocaleString()}</td>
+        <td>${(v10.n_trades||0).toLocaleString()}</td><td class="${(v10.wr||0)>=0.6?'td-pos':''}">${((v10.wr||0)*100).toFixed(1)}%</td><td>${(v10.pf||0).toFixed(2)}</td><td class="${v10pnl>=0?'td-pos':'td-neg'}">$${Math.round(v10pnl).toLocaleString()}</td>
+        <td>${winner}</td>
+      </tr>`;
+    }).join('');
+    $('bt-monthly-table').innerHTML = `<div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
+      <thead><tr><th>Month</th><th colspan="4" style="color:var(--text-dim)">V9</th><th colspan="4" style="color:var(--green)">V10 +Sentiment</th><th>Winner</th></tr>
+      <tr><th></th><th>Trades</th><th>WR</th><th>PF</th><th>PnL</th><th>Trades</th><th>WR</th><th>PF</th><th>PnL</th><th></th></tr></thead>
+      <tbody>${rows}</tbody></table></div>`;
+  }
+
+  // Equity curve — show last 60 trading days
+  const ec = bt.equity_curve || {};
+  const v9ec = ec.v9 || [], v10ec = ec.v10 || [];
+  if (v9ec.length) {
+    const last60 = v9ec.slice(-60);
+    const v10map = {};
+    (v10ec).forEach(r => v10map[r.date] = r.cumulative_pnl);
+    let ecRows = last60.map(r => {
+      const v10pnl = v10map[r.date];
+      const diff = v10pnl != null ? v10pnl - r.cumulative_pnl : null;
+      return `<tr>
+        <td style="font-family:var(--mono);font-size:11px">${r.date}</td>
+        <td class="${r.cumulative_pnl>=0?'td-pos':'td-neg'}">$${Math.round(r.cumulative_pnl).toLocaleString()}</td>
+        <td class="${(v10pnl||0)>=0?'td-pos':'td-neg'}">${v10pnl!=null?'$'+Math.round(v10pnl).toLocaleString():'—'}</td>
+        <td class="${(diff||0)>0?'td-pos':(diff||0)<0?'td-neg':''}">${diff!=null?(diff>0?'+':'')+' $'+Math.round(diff).toLocaleString():'—'}</td>
+      </tr>`;
+    }).join('');
+    $('bt-equity-table').innerHTML = `<div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
+      <thead><tr><th>Date</th><th>V9 Cum. PnL</th><th>V10 Cum. PnL</th><th>V10 Edge</th></tr></thead>
+      <tbody>${ecRows}</tbody></table></div>
+      <div style="font-size:11px;color:var(--text-dim);margin-top:8px">Showing last 60 OOS trading days. 1 contract per signal, 0.55 threshold.</div>`;
   }
 }
 
