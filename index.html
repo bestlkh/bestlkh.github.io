@@ -565,9 +565,20 @@ code, .mono { font-family: var(--mono); }
       </div>
     </div>
 
+    <!-- Disclaimer -->
+    <div class="backtest-note" style="margin-bottom:14px;padding:10px 14px;border-radius:6px;background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.25);font-size:11px;color:var(--text-dim)">
+      Position-aware sim: avg 25-bar hold, $3.50/RT commission, 1 pos/instrument, group limits (equity=2, metals=2, energy=1) matching live bot. M2K=$5/pt.
+    </div>
+
+    <!-- Mode Toggle -->
+    <div style="display:flex;gap:8px;margin-bottom:14px">
+      <button class="tab-btn active" id="bt-mode-signal" onclick="switchBtMode('signal_level')" style="font-size:12px;padding:6px 14px">📊 Signal Quality (all ML-passing)</button>
+      <button class="tab-btn" id="bt-mode-pos" onclick="switchBtMode('position_aware')" style="font-size:12px;padding:6px 14px">🎯 Realistic Simulation (position-aware)</button>
+    </div>
+
     <!-- Period Comparison -->
     <div class="card">
-      <div class="card-title">📊 Backtest: V9 vs V10 vs Raw (threshold=0.55)</div>
+      <div class="card-title" id="bt-period-title">📊 Signal Quality — V9 vs V10 vs Raw (threshold=0.55)</div>
       <div style="font-size:12px;color:var(--text-dim);margin-bottom:12px">
         ⚠️ In-Sample = model was trained on this data (inflated). ✅ WF OOS & Holdout = honest uncontaminated results.
       </div>
@@ -576,13 +587,13 @@ code, .mono { font-family: var(--mono); }
 
     <!-- Monthly Breakdown -->
     <div class="card">
-      <div class="card-title">📅 Monthly OOS Breakdown — V9 vs V10 (Jan 2025–Mar 2026)</div>
+      <div class="card-title" id="bt-monthly-title">📅 Monthly OOS Breakdown — V9 vs V10 (Jan 2025–Mar 2026)</div>
       <div id="bt-monthly-table"><div class="empty-state">Loading…</div></div>
     </div>
 
     <!-- Equity Curve -->
     <div class="card">
-      <div class="card-title">📈 Equity Curve — WF OOS (daily cumulative PnL)</div>
+      <div class="card-title" id="bt-equity-title">📈 Equity Curve — WF OOS (daily cumulative PnL)</div>
       <div id="bt-equity-table"><div class="empty-state">Loading…</div></div>
     </div>
 
@@ -629,39 +640,6 @@ code, .mono { font-family: var(--mono); }
   </div>
 </div>
 
-<!-- ═══ TAB: BACKTEST ═══ -->
-<div class="tab-content" id="tab-backtest">
-  <div class="main">
-    <div id="bt-sentiment-banner" class="bt-sentiment-banner"></div>
-
-    <div id="bt-periods"></div>
-
-    <div class="card" style="margin-bottom:16px">
-      <div class="card-title">Monthly OOS Breakdown — V9 vs V10</div>
-      <div class="card-content" style="overflow-x:auto">
-        <table class="data-table" id="bt-monthly-table">
-          <thead>
-            <tr>
-              <th>Month</th><th>V9 Trades</th><th>V9 WR</th><th>V9 PF</th><th>V9 PnL</th>
-              <th>V10 Trades</th><th>V10 WR</th><th>V10 PF</th><th>V10 PnL</th><th>Winner</th>
-            </tr>
-          </thead>
-          <tbody id="bt-monthly-body"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Cumulative Equity — OOS Period</div>
-      <div class="card-content" style="overflow-x:auto">
-        <table class="data-table" id="bt-equity-table">
-          <thead><tr><th>Month</th><th>V9 Cum PnL</th><th>V10 Cum PnL</th><th>Raw Cum PnL</th></tr></thead>
-          <tbody id="bt-equity-body"></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Footer -->
 <div class="footer">
@@ -765,119 +743,6 @@ function startCountdown() {
   tick();
 }
 
-// ── Backtest data ─────────────────────────────────────────────────────────────
-const BACKTEST_URL = 'https://bestlkh.github.io/data/backtest.json';
-let backtestData = null;
-
-async function fetchBacktest() {
-  try {
-    const r = await fetch(`${BACKTEST_URL}?t=${Date.now()}`);
-    if (r.ok) backtestData = await r.json();
-  } catch(e) { /* silent */ }
-}
-
-function renderBacktest() {
-  if (!backtestData) return;
-  const bt = backtestData;
-  const sent = bt.current_sentiment || {};
-
-  // Sentiment banner
-  const isFear = sent.direction_bias === 'short' || (sent.fg_score || 50) < 40;
-  const banner = document.getElementById('bt-sentiment-banner');
-  banner.className = 'bt-sentiment-banner ' + (isFear ? 'fear' : 'greed');
-  banner.innerHTML = `
-    <span class="sent-item"><span class="sent-label">VIX</span> ${sent.vix ?? '—'}</span>
-    <span class="sent-item"><span class="sent-label">F&G</span> ${sent.fg_score ?? '—'}</span>
-    <span class="sent-item"><span class="sent-label">Bias</span> ${(sent.direction_bias||'—').toUpperCase()}</span>
-    <span class="sent-item"><span class="sent-label">VIX Regime</span> ${sent.regime ?? '—'}</span>
-    <span class="sent-item"><span class="sent-label">Market</span> ${(sent.market_regime||'—').replace(/_/g,' ')}</span>
-    <span style="margin-left:auto;font-size:11px;color:var(--text-dim)">Threshold: ${bt.threshold}</span>
-  `;
-
-  // Period comparison cards
-  const periodsEl = document.getElementById('bt-periods');
-  let html = '';
-  const periodOrder = ['in_sample', 'wf_oos', 'holdout'];
-  for (const pk of periodOrder) {
-    const p = (bt.periods || {})[pk];
-    if (!p) continue;
-    const isCont = pk === 'in_sample';
-    const cls = isCont ? 'contaminated' : 'honest';
-    html += `<div class="bt-period-card ${cls}">
-      <div class="bt-period-header">${p.label}</div>
-      <div style="padding:0 16px 12px;overflow-x:auto">
-        <table class="data-table" style="margin-top:8px">
-          <thead><tr><th>Model</th><th>Trades</th><th>WR</th><th>PF</th><th>Sharpe</th><th>$/Trade</th><th>Total PnL</th><th>Max DD</th></tr></thead>
-          <tbody>`;
-    for (const [key, label] of [['v9','V9'],['v10','V10'],['raw','Raw']]) {
-      const m = p[key] || {};
-      const rowCls = key === 'v10' ? 'winner-v10' : key === 'v9' ? 'winner-v9' : 'winner-raw';
-      html += `<tr class="${rowCls}">
-        <td>${label}</td>
-        <td>${(m.n_trades||0).toLocaleString()}</td>
-        <td>${((m.wr||0)*100).toFixed(1)}%</td>
-        <td>${(m.pf||0).toFixed(2)}</td>
-        <td>${(m.sharpe||0).toFixed(2)}</td>
-        <td>$${(m.avg_pnl_per_trade||0).toFixed(2)}</td>
-        <td>$${(m.total_pnl||0).toLocaleString(undefined,{maximumFractionDigits:0})}</td>
-        <td style="color:var(--red)">$${(m.max_dd||0).toLocaleString(undefined,{maximumFractionDigits:0})}</td>
-      </tr>`;
-    }
-    html += `</tbody></table></div></div>`;
-  }
-  periodsEl.innerHTML = html;
-
-  // Monthly breakdown
-  const v9m = {};
-  const v10m = {};
-  for (const r of (bt.monthly_breakdown?.v9 || [])) v9m[r.month] = r;
-  for (const r of (bt.monthly_breakdown?.v10 || [])) v10m[r.month] = r;
-  const months = [...new Set([...Object.keys(v9m), ...Object.keys(v10m)])].sort();
-  const tbody = document.getElementById('bt-monthly-body');
-  let mhtml = '';
-  for (const mo of months) {
-    const a = v9m[mo] || {n_trades:0,wr:0,pf:0,net_pnl:0};
-    const b = v10m[mo] || {n_trades:0,wr:0,pf:0,net_pnl:0};
-    const w = b.net_pnl > a.net_pnl ? 'V10' : a.net_pnl > b.net_pnl ? 'V9' : 'Tie';
-    const wCls = w === 'V10' ? 'winner-v10' : w === 'V9' ? 'winner-v9' : '';
-    mhtml += `<tr>
-      <td>${mo}</td>
-      <td>${a.n_trades.toLocaleString()}</td><td>${(a.wr*100).toFixed(1)}%</td><td>${a.pf.toFixed(2)}</td>
-      <td style="color:${a.net_pnl>=0?'var(--green)':'var(--red)'}">$${a.net_pnl.toLocaleString(undefined,{maximumFractionDigits:0})}</td>
-      <td>${b.n_trades.toLocaleString()}</td><td>${(b.wr*100).toFixed(1)}%</td><td>${b.pf.toFixed(2)}</td>
-      <td style="color:${b.net_pnl>=0?'var(--green)':'var(--red)'}">$${b.net_pnl.toLocaleString(undefined,{maximumFractionDigits:0})}</td>
-      <td class="${wCls}">${w}</td>
-    </tr>`;
-  }
-  tbody.innerHTML = mhtml;
-
-  // Equity curve as monthly cumulative summary
-  const eqBody = document.getElementById('bt-equity-body');
-  let ehtml = '';
-  // Group equity by month
-  const eqByMonth = (arr) => {
-    const byM = {};
-    for (const pt of (arr || [])) {
-      const m = pt.date.slice(0,7);
-      byM[m] = pt.cumulative_pnl;
-    }
-    return byM;
-  };
-  const v9eq = eqByMonth(bt.equity_curve?.v9);
-  const v10eq = eqByMonth(bt.equity_curve?.v10);
-  const raweq = eqByMonth(bt.equity_curve?.raw);
-  const eqMonths = [...new Set([...Object.keys(v9eq),...Object.keys(v10eq),...Object.keys(raweq)])].sort();
-  for (const m of eqMonths) {
-    const v9v = v9eq[m] ?? 0, v10v = v10eq[m] ?? 0, rv = raweq[m] ?? 0;
-    ehtml += `<tr>
-      <td>${m}</td>
-      <td style="color:${v9v>=0?'var(--green)':'var(--red)'}">$${v9v.toLocaleString(undefined,{maximumFractionDigits:0})}</td>
-      <td style="color:${v10v>=0?'var(--green)':'var(--red)'}">$${v10v.toLocaleString(undefined,{maximumFractionDigits:0})}</td>
-      <td style="color:${rv>=0?'var(--green)':'var(--red)'}">$${rv.toLocaleString(undefined,{maximumFractionDigits:0})}</td>
-    </tr>`;
-  }
-  eqBody.innerHTML = ehtml;
-}
 
 // ── Main Render ───────────────────────────────────────────────────────────────
 function render() {
@@ -1377,7 +1242,7 @@ function toggleCollapsible(id) {
 
 // ── Auto-refresh ──────────────────────────────────────────────────────────────
 async function refresh() {
-  await Promise.all([fetchSnapshot(), fetchBacktest()]);
+  await fetchSnapshot();
   startCountdown();
   setTimeout(refresh, REFRESH_INTERVAL);
 }
@@ -1437,13 +1302,22 @@ function checkPin() {
 
 // ── BACKTEST Tab ──────────────────────────────────────────────────────────────
 let _btData = null;
+let _btMode = 'signal_level'; // or 'position_aware'
+
 async function loadBacktestData() {
   if (_btData) return _btData;
   try {
-    const r = await fetch('/data/backtest.json', {cache: 'force-cache'});
+    const r = await fetch('/backtest_results.json?t=' + Date.now(), {cache: 'no-store'});
     if (r.ok) _btData = await r.json();
   } catch(e) { console.warn('backtest fetch failed', e); }
   return _btData;
+}
+
+function switchBtMode(mode) {
+  _btMode = mode;
+  $('bt-mode-signal').classList.toggle('active', mode === 'signal_level');
+  $('bt-mode-pos').classList.toggle('active', mode === 'position_aware');
+  renderBacktest();
 }
 
 async function renderBacktest() {
@@ -1456,7 +1330,7 @@ async function renderBacktest() {
   const vix = snapshotSent.vix_close || sent.vix || '—';
   const fg = snapshotSent.fg_score != null ? snapshotSent.fg_score : (sent.fg_score != null ? sent.fg_score : '—');
   const bias = snapshotSent.direction_bias || sent.direction_bias || '—';
-  const regime = snapshotSent.vix_regime != null ? ['Calm','Normal','Elevated','Crisis'][snapshotSent.vix_regime] || '—' : (sent.vix_regime || '—');
+  const regime = snapshotSent.vix_regime != null ? ['Calm','Normal','Elevated','Crisis'][snapshotSent.vix_regime] || '—' : (sent.regime || '—');
   const risk = snapshotSent.composite_risk != null ? snapshotSent.composite_risk.toFixed(1) : '—';
   const biasColor = bias === 'short' ? 'var(--red)' : bias === 'long' ? 'var(--green)' : 'var(--amber)';
   $('bt-vix').textContent = typeof vix === 'number' ? vix.toFixed(1) : vix;
@@ -1469,8 +1343,18 @@ async function renderBacktest() {
   if (bias === 'short') btBanner.style.borderLeftColor = 'var(--red)';
   else if (bias === 'long') btBanner.style.borderLeftColor = 'var(--green)';
 
+  // Select data based on current mode
+  const modeData = bt[_btMode] || bt.signal_level || {};
+  const isPos = _btMode === 'position_aware';
+  const modeLabel = isPos ? '🎯 Realistic Simulation (position-aware)' : '📊 Signal Quality (all ML-passing signals)';
+  const modeNote = isPos ? ' — $3.50/RT, 25-bar hold, group limits' : ' — every ML-passing signal counted';
+
+  $('bt-period-title').textContent = modeLabel + ' (threshold=' + bt.threshold + ')';
+  $('bt-monthly-title').textContent = (isPos ? '🎯' : '📅') + ' Monthly OOS Breakdown' + modeNote;
+  $('bt-equity-title').textContent = (isPos ? '🎯' : '📈') + ' Equity Curve — WF OOS' + modeNote;
+
   // Period comparison table
-  const periods = bt.periods || {};
+  const periods = modeData.periods || {};
   const periodOrder = ['in_sample', 'wf_oos', 'holdout'];
   const periodLabels = {
     in_sample: '⚠️ In-Sample (train) 2022–2024',
@@ -1510,7 +1394,7 @@ async function renderBacktest() {
   $('bt-period-table').innerHTML = periodHtml;
 
   // Monthly breakdown
-  const mb = bt.monthly_breakdown || {};
+  const mb = modeData.monthly_breakdown || {};
   const v9m = mb.v9 || [], v10m = mb.v10 || [];
   if (v9m.length) {
     const monthMap = {};
@@ -1535,7 +1419,7 @@ async function renderBacktest() {
   }
 
   // Equity curve — show last 60 trading days
-  const ec = bt.equity_curve || {};
+  const ec = modeData.equity_curve || {};
   const v9ec = ec.v9 || [], v10ec = ec.v10 || [];
   if (v9ec.length) {
     const last60 = v9ec.slice(-60);
@@ -1554,7 +1438,7 @@ async function renderBacktest() {
     $('bt-equity-table').innerHTML = `<div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
       <thead><tr><th>Date</th><th>V9 Cum. PnL</th><th>V10 Cum. PnL</th><th>V10 Edge</th></tr></thead>
       <tbody>${ecRows}</tbody></table></div>
-      <div style="font-size:11px;color:var(--text-dim);margin-top:8px">Showing last 60 OOS trading days. 1 contract per signal, 0.55 threshold.</div>`;
+      <div style="font-size:11px;color:var(--text-dim);margin-top:8px">${isPos ? 'Position-aware: 1 pos/instrument, group limits, $3.50/RT, 25-bar hold.' : 'Signal-level: every ML-passing signal counted as independent trade.'} Threshold ${bt.threshold}.</div>`;
   }
 }
 
