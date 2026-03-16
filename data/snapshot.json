@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-16T21:14:26Z",
+  "updated_at": "2026-03-16T21:19:23Z",
   "equity": 152669.45,
   "daily_pnl": -212.06,
   "halted": false,
@@ -488,10 +488,10 @@
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 5011.8,
+      "price": 5012.0,
       "atr": 2.042857142857104,
       "adx": 25.850446511280882,
-      "rsi": 36.329474786461155,
+      "rsi": 36.90578222770637,
       "group": "METALS"
     },
     "MHGH6": {
