@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-03-16T16:53:31Z",
+  "updated_at": "2026-03-16T16:53:47Z",
   "equity": 152713.05,
-  "daily_pnl": -190.86,
+  "daily_pnl": -205.21,
   "halted": false,
   "rth": true,
   "ws_connected": true,
@@ -10,21 +10,8 @@
   "market_closed": false,
   "strategy_version": "v3.0",
   "ml_version": "live",
-  "in_trade": true,
-  "open_positions": [
-    {
-      "symbol": "MYMH6",
-      "side": "LONG",
-      "contracts": 5,
-      "entry_price": 46986,
-      "current_price": 46986,
-      "unrealized_pnl": 0.0,
-      "sl_price": 46945.0,
-      "tp_price": 47040.0,
-      "phase": "Ph2.5_IB",
-      "entry_time": "2026-03-16T12:53:28.473857-04:00"
-    }
-  ],
+  "in_trade": false,
+  "open_positions": [],
   "todays_trades": [
     {
       "symbol": "MGCJ6",
@@ -44,29 +31,29 @@
       "signal_type": ""
     },
     {
-      "symbol": "M2KH6",
-      "side": "SHORT",
+      "symbol": "MYMH6",
+      "side": "LONG",
       "contracts": 5,
-      "entry_price": 2505.4,
-      "exit_price": 2501.5,
-      "pnl": 110.65,
+      "entry_price": 46986,
+      "exit_price": 46984.0,
+      "pnl": -14.35,
       "r_multiple": null,
       "ml_prob": null,
       "phase": "ORB_TREND",
-      "entry_time": "2026-03-16T12:22:33.969184-04:00",
-      "exit_time": "2026-03-16T12:22:33.969184-04:00",
-      "exit_reason": "win",
-      "sl_price": 2505.3,
-      "tp_price": 2501.5,
+      "entry_time": "2026-03-16T12:53:47.678707-04:00",
+      "exit_time": "2026-03-16T12:53:47.678707-04:00",
+      "exit_reason": "VWAP_thesis_fail",
+      "sl_price": 46945.0,
+      "tp_price": 47040.0,
       "signal_type": ""
     }
   ],
   "trade_stats": {
-    "wins": 1,
-    "losses": 1,
-    "wr": 0.5,
-    "net_pnl": -80.21,
-    "profit_factor": 0.58,
+    "wins": 0,
+    "losses": 2,
+    "wr": 0.0,
+    "net_pnl": -205.21,
+    "profit_factor": 0.0,
     "avg_r": 0.0
   },
   "prev_sessions": [
@@ -445,8 +432,8 @@
       "trades_today": 0,
       "halted": false,
       "price": 24692.0,
-      "atr": 13.696428571428571,
-      "adx": 24.738698336092106,
+      "atr": 13.964285714285714,
+      "adx": 24.975233783157243,
       "rsi": 62.351080886144274,
       "group": "EQUITY"
     },
@@ -454,20 +441,20 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6703.0,
-      "atr": 3.482142857142857,
-      "adx": 24.631272124618647,
-      "rsi": 62.84108722976318,
+      "price": 6702.25,
+      "atr": 3.5535714285714284,
+      "adx": 24.873155125918807,
+      "rsi": 61.65343185351797,
       "group": "EQUITY"
     },
     "MYMH6": {
-      "in_trade": true,
+      "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 46986,
-      "atr": 27.214285714285715,
-      "adx": 21.138551283556325,
-      "rsi": 61.560843266916244,
+      "price": 46984,
+      "atr": 27.857142857142858,
+      "adx": 21.41395118488835,
+      "rsi": 61.15572554748534,
       "group": "EQUITY"
     },
     "M2KH6": {
@@ -484,20 +471,20 @@
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 4997.2,
-      "atr": 2.9071428571429743,
-      "adx": 19.29103401526013,
-      "rsi": 60.81344591684023,
+      "price": 4997.4,
+      "atr": 2.957142857142961,
+      "adx": 19.291034015260134,
+      "rsi": 61.13945453967474,
       "group": "METALS"
     },
     "MHGH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5.843,
-      "atr": 0.0022857142857142243,
-      "adx": 17.714346018098844,
-      "rsi": 56.99780761110487,
+      "price": 5.844,
+      "atr": 0.0022857142857142876,
+      "adx": 17.760480494624865,
+      "rsi": 58.72116803421685,
       "group": "METALS"
     }
   },
@@ -563,7 +550,7 @@
     ],
     "sharpe": 19.442,
     "promoted_at": "2026-03-10T21:48:57.840473-04:00",
-    "live_trades": 20,
+    "live_trades": 21,
     "min_live_trades": 200,
     "observe_only": true,
     "v9": {
