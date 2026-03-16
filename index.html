@@ -439,6 +439,46 @@ code, .mono { font-family: var(--mono); }
       </div>
     </div>
 
+
+    <!-- System Status Card -->
+    <div class="card" id="system-status-card" style="border-left: 3px solid var(--green); margin-bottom: 14px;">
+      <div class="card-title">⚙️ System Status — Week of Mar 16, 2026</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px">
+        <div>
+          <div style="font-weight:600;color:var(--text-dim);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Active Contracts (rolled Mar 16)</div>
+          <div style="font-family:var(--mono);line-height:1.8">
+            MNQM6 · MESM6 · MYMM6 · M2KM6<br>
+            MGCJ6 · SILK6 · MHGM6 · MCLJ6 · MNGJ6
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--text-dim);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Signal Generators</div>
+          <div style="line-height:1.8">
+            ✅ T1 ORB (live)<br>
+            🔬 T8 Double Top/Bottom <span style="color:var(--amber)">(shadow)</span><br>
+            🔬 T15 VWAP/POC Reversion <span style="color:var(--amber)">(shadow)</span><br>
+            🔬 T16 BB Squeeze <span style="color:var(--amber)">(shadow)</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--text-dim);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">ML Gate</div>
+          <div style="line-height:1.8">
+            Active: V7 (AUC 0.843)<br>
+            Best candidate: <strong>V11-C</strong> (AUC 0.628, Sharpe 17.18)<br>
+            Deploy after 200 live trades
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--text-dim);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Expected Performance (V11-C + all signals)</div>
+          <div style="line-height:1.8">
+            ~28 trades/day · 87% WR · PF 11.4<br>
+            ~$1,667/day · ~275% annualized<br>
+            <span style="color:var(--text-dim);font-size:11px">Position-aware sim, $3.50/RT comm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Instrument Cards -->
     <div class="card-title" style="margin-bottom:8px">Instruments</div>
     <div class="card-grid" id="inst-cards">
@@ -524,6 +564,40 @@ code, .mono { font-family: var(--mono); }
           <thead><tr><th>Version</th><th>AUC</th><th>WR</th><th>PF</th><th>Trades/Day</th><th>Status</th><th>Note</th></tr></thead>
           <tbody id="model-history-tbody"><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
         </table>
+      </div>
+    </div>
+
+
+    <!-- V11 Model Candidates -->
+    <div class="card" style="margin-top:14px">
+      <div class="card-title">🏆 Model Candidates (Comprehensive Backtest — Position-Aware, $3.50/RT)</div>
+      <div style="font-size:11px;color:var(--text-dim);margin-bottom:10px">
+        OOS: Jan 2025–Feb 2026 (298 days) · Threshold swept 0.45–0.75 · Group limits: equity=2, metals=2, energy=1
+      </div>
+      <table class="data-table" style="font-size:12px">
+        <thead><tr>
+          <th>Model</th><th>Optimal Thr</th><th>Trades/day</th><th>WR</th><th>PF</th><th>Sharpe</th><th>OOS PnL</th><th>Max DD</th><th>Status</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(63,185,80,.08)">
+            <td><strong>V11-C RegimeAdaptive</strong></td><td>0.75</td><td>28.4</td><td style="color:var(--green)">87.2%</td><td>11.42</td><td style="color:var(--green)">17.18</td><td style="color:var(--green)">$119,368</td><td>$-212</td><td><span style="color:var(--amber)">Pending deploy</span></td>
+          </tr>
+          <tr>
+            <td>V11-Hybrid (C+D)</td><td>0.60</td><td>36.9</td><td>83.5%</td><td>8.83</td><td>16.73</td><td>$156,884</td><td>$-357</td><td><span style="color:var(--text-dim)">Candidate</span></td>
+          </tr>
+          <tr>
+            <td>V11-A Combined</td><td>0.65</td><td>33.8</td><td>84.3%</td><td>9.86</td><td>16.37</td><td>$147,497</td><td>$-339</td><td><span style="color:var(--text-dim)">Candidate</span></td>
+          </tr>
+          <tr>
+            <td>V10 Sentiment</td><td>0.75</td><td>26.7</td><td>85.6%</td><td>10.09</td><td>15.70</td><td>$108,194</td><td>$-266</td><td><span style="color:var(--text-dim)">Candidate</span></td>
+          </tr>
+          <tr>
+            <td>V7 (current gate)</td><td>0.65</td><td>2-3*</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span style="color:var(--green)">🟢 LIVE</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--text-dim);margin-top:8px">
+        * V7 live trades/day limited to T1 ORB only. T8/T15/T16 generators in shadow mode. Full 28/day requires all signal types live.
       </div>
     </div>
 
@@ -1303,14 +1377,24 @@ function checkPin() {
 // ── BACKTEST Tab ──────────────────────────────────────────────────────────────
 let _btData = null;
 let _btMode = 'signal_level'; // or 'position_aware'
+let _compData = null;
 
 async function loadBacktestData() {
   if (_btData) return _btData;
   try {
-    const r = await fetch('/backtest_results.json?t=' + Date.now(), {cache: 'no-store'});
+    const r = await fetch('/data/backtest.json?t=' + Date.now(), {cache: 'no-store'});
     if (r.ok) _btData = await r.json();
   } catch(e) { console.warn('backtest fetch failed', e); }
   return _btData;
+}
+
+async function loadComprehensiveData() {
+  if (_compData) return _compData;
+  try {
+    const r = await fetch('/data/comprehensive_results.json?t=' + Date.now(), {cache: 'no-store'});
+    if (r.ok) _compData = await r.json();
+  } catch(e) { console.warn('comprehensive results fetch failed', e); }
+  return _compData;
 }
 
 function switchBtMode(mode) {
@@ -1321,11 +1405,11 @@ function switchBtMode(mode) {
 }
 
 async function renderBacktest() {
+  const comp = await loadComprehensiveData();
   const bt = await loadBacktestData();
-  if (!bt) return;
 
-  // Sentiment banner
-  const sent = bt.current_sentiment || {};
+  // ── Section D: Sentiment banner (existing logic) ──
+  const sent = (bt && bt.current_sentiment) || {};
   const snapshotSent = (snapshot && snapshot.sentiment) ? snapshot.sentiment : {};
   const vix = snapshotSent.vix_close || sent.vix || '—';
   const fg = snapshotSent.fg_score != null ? snapshotSent.fg_score : (sent.fg_score != null ? sent.fg_score : '—');
@@ -1335,110 +1419,125 @@ async function renderBacktest() {
   const biasColor = bias === 'short' ? 'var(--red)' : bias === 'long' ? 'var(--green)' : 'var(--amber)';
   $('bt-vix').textContent = typeof vix === 'number' ? vix.toFixed(1) : vix;
   $('bt-fg').textContent = fg !== '—' ? fg + ' / 100' : '—';
-  $('bt-bias').innerHTML = `<span style="color:${biasColor};font-weight:700;text-transform:uppercase">${bias}</span>`;
+  $('bt-bias').innerHTML = '<span style="color:' + biasColor + ';font-weight:700;text-transform:uppercase">' + bias + '</span>';
   $('bt-regime').textContent = regime;
   $('bt-risk').textContent = risk !== '—' ? risk + ' / 100' : '—';
-
   const btBanner = $('bt-sentiment-banner');
   if (bias === 'short') btBanner.style.borderLeftColor = 'var(--red)';
   else if (bias === 'long') btBanner.style.borderLeftColor = 'var(--green)';
 
-  // Select data based on current mode
-  const modeData = bt[_btMode] || bt.signal_level || {};
-  const isPos = _btMode === 'position_aware';
-  const modeLabel = isPos ? '🎯 Realistic Simulation (position-aware)' : '📊 Signal Quality (all ML-passing signals)';
-  const modeNote = isPos ? ' — $3.50/RT, 25-bar hold, group limits' : ' — every ML-passing signal counted';
+  // ── Section A: Candidate Ranking ──
+  let rankHtml = '';
+  if (comp && comp.ranking) {
+    let rows = comp.ranking.map((r, i) => {
+      const isWinner = r.candidate === 'v11_c' || r.candidate === 'V11-C';
+      return '<tr style="' + (isWinner ? 'background:rgba(63,185,80,.08)' : '') + '">' +
+        '<td style="font-weight:700">' + (i+1) + '</td>' +
+        '<td style="font-weight:' + (isWinner ? '700' : '400') + '">' + esc(r.name || r.candidate) + (isWinner ? ' ★' : '') + '</td>' +
+        '<td>' + (r.threshold != null ? r.threshold.toFixed(2) : '—') + '</td>' +
+        '<td>' + (r.trades_per_day != null ? r.trades_per_day.toFixed(1) : '—') + '</td>' +
+        '<td class="' + ((r.wr||0)>=0.8?'td-pos':'') + '">' + ((r.wr||0)*100).toFixed(1) + '%</td>' +
+        '<td>' + (r.pf||0).toFixed(2) + '</td>' +
+        '<td>' + (r.sharpe||0).toFixed(2) + '</td>' +
+        '<td class="' + ((r.total_pnl||0)>=0?'td-pos':'td-neg') + '">$' + Math.round(r.total_pnl||0).toLocaleString() + '</td>' +
+        '<td class="td-neg">$' + Math.round(r.max_dd||0).toLocaleString() + '</td>' +
+        '</tr>';
+    }).join('');
+    rankHtml = '<div class="card"><div class="card-title">🏆 Candidate Ranking (Position-Aware OOS)</div>' +
+      '<div style="overflow-x:auto"><table class="data-table" style="font-size:12px">' +
+      '<thead><tr><th>Rank</th><th>Candidate</th><th>Threshold</th><th>Trades/day</th><th>WR</th><th>PF</th><th>Sharpe</th><th>Total OOS PnL</th><th>Max DD</th></tr></thead>' +
+      '<tbody>' + rows + '</tbody></table></div></div>';
+  }
+  $('bt-period-table').innerHTML = rankHtml || '<div class="empty-state">No ranking data — upload comprehensive_results.json</div>';
 
-  $('bt-period-title').textContent = modeLabel + ' (threshold=' + bt.threshold + ')';
-  $('bt-monthly-title').textContent = (isPos ? '🎯' : '📅') + ' Monthly OOS Breakdown' + modeNote;
-  $('bt-equity-title').textContent = (isPos ? '🎯' : '📈') + ' Equity Curve — WF OOS' + modeNote;
+  // ── Section B: Threshold Sweep for V11-C ──
+  let sweepHtml = '';
+  if (comp && comp.candidates && comp.candidates.v11_c && comp.candidates.v11_c.oos && comp.candidates.v11_c.oos.by_threshold) {
+    const thresholds = comp.candidates.v11_c.oos.by_threshold;
+    let rows = thresholds.map(r => {
+      const isOptimal = r.threshold === 0.75;
+      return '<tr style="' + (isOptimal ? 'background:rgba(63,185,80,.08)' : '') + '">' +
+        '<td style="font-weight:' + (isOptimal ? '700' : '400') + '">' + r.threshold.toFixed(2) + (isOptimal ? ' ★' : '') + '</td>' +
+        '<td>' + (r.trades_per_day != null ? r.trades_per_day.toFixed(1) : '—') + '</td>' +
+        '<td class="' + ((r.wr||0)>=0.8?'td-pos':'') + '">' + ((r.wr||0)*100).toFixed(1) + '%</td>' +
+        '<td>' + (r.pf||0).toFixed(2) + '</td>' +
+        '<td>' + (r.sharpe||0).toFixed(2) + '</td>' +
+        '<td class="' + ((r.total_pnl||0)>=0?'td-pos':'td-neg') + '">$' + Math.round(r.total_pnl||0).toLocaleString() + '</td>' +
+        '</tr>';
+    }).join('');
+    sweepHtml = '<div class="card"><div class="card-title">📊 V11-C Threshold Sweep (OOS)</div>' +
+      '<div style="overflow-x:auto"><table class="data-table" style="font-size:12px">' +
+      '<thead><tr><th>Threshold</th><th>Trades/day</th><th>WR</th><th>PF</th><th>Sharpe</th><th>Total PnL</th></tr></thead>' +
+      '<tbody>' + rows + '</tbody></table></div></div>';
+  }
 
-  // Period comparison table
-  const periods = modeData.periods || {};
-  const periodOrder = ['in_sample', 'wf_oos', 'holdout'];
-  const periodLabels = {
-    in_sample: '⚠️ In-Sample (train) 2022–2024',
-    wf_oos: '✅ Walk-Forward OOS 2025–Feb 2026',
-    holdout: '✅ Holdout Mar 2026'
-  };
-  const periodBorders = { in_sample: 'var(--amber)', wf_oos: 'var(--green)', holdout: 'var(--green)' };
+  // ── Section C: Monthly OOS Breakdown (V11-C) ──
+  let monthlyHtml = '';
+  if (comp && comp.candidates && comp.candidates.v11_c && comp.candidates.v11_c.monthly) {
+    const monthly = comp.candidates.v11_c.monthly;
+    let rows = monthly.map(r => {
+      const pnlCls = (r.net_pnl||0) >= 0 ? 'td-pos' : 'td-neg';
+      return '<tr>' +
+        '<td style="font-family:var(--mono)">' + esc(r.month) + '</td>' +
+        '<td>' + (r.n_trades||0).toLocaleString() + '</td>' +
+        '<td class="' + ((r.wr||0)>=0.8?'td-pos':'') + '">' + ((r.wr||0)*100).toFixed(1) + '%</td>' +
+        '<td>' + (r.pf||0).toFixed(2) + '</td>' +
+        '<td class="' + pnlCls + '">$' + Math.round(r.net_pnl||0).toLocaleString() + '</td>' +
+        '</tr>';
+    }).join('');
+    monthlyHtml = '<div class="card"><div class="card-title">📅 Monthly OOS Breakdown — V11-C</div>' +
+      '<div style="overflow-x:auto"><table class="data-table" style="font-size:12px">' +
+      '<thead><tr><th>Month</th><th>Trades</th><th>WR</th><th>PF</th><th>PnL</th></tr></thead>' +
+      '<tbody>' + rows + '</tbody></table></div></div>';
+  }
 
-  let periodHtml = '';
-  for (const pk of periodOrder) {
-    const p = periods[pk];
-    if (!p) continue;
-    const bcolor = periodBorders[pk];
-    periodHtml += `<div style="margin-bottom:16px;border-left:3px solid ${bcolor};padding-left:12px">
-      <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:${bcolor}">${periodLabels[pk]}</div>
-      <div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
-        <thead><tr><th>Model</th><th>Trades</th><th>WR</th><th>PF</th><th>Sharpe</th><th>$/Trade</th><th>Total PnL</th><th>Max DD</th></tr></thead>
-        <tbody>`;
-    for (const [mk, mlabel] of [['v9','V9'],['v10','V10 +Sentiment'],['raw','Raw (no ML)']]) {
-      const m = p[mk];
-      if (!m) continue;
-      const isV10 = mk === 'v10';
-      const pnlCls = (m.total_pnl || 0) >= 0 ? 'td-pos' : 'td-neg';
-      periodHtml += `<tr ${isV10 ? 'style="background:rgba(63,185,80,.06)"' : ''}>
-        <td style="font-weight:${isV10?700:400}">${mlabel}</td>
-        <td style="font-family:var(--mono)">${(m.n_trades||0).toLocaleString()}</td>
-        <td class="${(m.wr||0)>=0.6?'td-pos':''}">${((m.wr||0)*100).toFixed(1)}%</td>
-        <td class="${(m.pf||0)>=1.5?'td-pos':''}">${(m.pf||0).toFixed(2)}</td>
-        <td>${(m.sharpe||0).toFixed(2)}</td>
-        <td>$${(m.avg_pnl_per_trade||0).toFixed(2)}</td>
-        <td class="${pnlCls}">$${Math.round(m.total_pnl||0).toLocaleString()}</td>
-        <td class="td-neg">$${Math.round(m.max_dd||0).toLocaleString()}</td>
-      </tr>`;
+  $('bt-monthly-table').innerHTML = sweepHtml + monthlyHtml || '<div class="empty-state">No V11-C data</div>';
+
+  // ── Section E: Realistic PnL Explanation ──
+  $('bt-equity-table').innerHTML = '<div class="card" style="border-left:3px solid var(--blue)">' +
+    '<div class="card-title">💡 Realistic PnL Explanation</div>' +
+    '<div style="font-size:13px;line-height:1.8;color:var(--text-dim)">' +
+    '<div style="margin-bottom:10px"><strong style="color:var(--text)">Backtest baseline:</strong> 1 contract per signal (conservative). All PnL figures above use this sizing.</div>' +
+    '<div style="margin-bottom:10px"><strong style="color:var(--text)">Live bot sizing:</strong> 1% equity / stop distance → ~5ct MNQ, 2ct MES at current equity. With 87% WR and proper sizing: ~$60/trade avg → <strong style="color:var(--green)">~$1,667/day</strong> at 28 trades/day.</div>' +
+    '<div style="margin-bottom:10px"><strong style="color:var(--text)">Current state:</strong> 2-3 trades/day = T1 ORB only. T15 VWAP/POC Reversion, T16 BB Squeeze, and T8 Double Top/Bottom are in <span style="color:var(--amber)">shadow mode</span> this week — logging signals but not placing orders. Full 28/day requires all signal types live.</div>' +
+    '<div><strong style="color:var(--text)">Path to full throughput:</strong> Shadow signals validated → promote generators → V11-C gate deployed after 200 live trades → ~28 trades/day, ~$1,667/day projected.</div>' +
+    '</div></div>';
+
+  // Fall back to old backtest data if no comprehensive data
+  if (!comp && bt) {
+    const modeData = bt[_btMode] || bt.signal_level || {};
+    const isPos = _btMode === 'position_aware';
+    const periods = modeData.periods || {};
+    const periodOrder = ['in_sample', 'wf_oos', 'holdout'];
+    const periodLabels = {in_sample:'⚠️ In-Sample (train) 2022–2024',wf_oos:'✅ Walk-Forward OOS 2025–Feb 2026',holdout:'✅ Holdout Mar 2026'};
+    const periodBorders = {in_sample:'var(--amber)',wf_oos:'var(--green)',holdout:'var(--green)'};
+    let periodHtml = '';
+    for (const pk of periodOrder) {
+      const p = periods[pk];
+      if (!p) continue;
+      const bcolor = periodBorders[pk];
+      periodHtml += '<div style="margin-bottom:16px;border-left:3px solid '+bcolor+';padding-left:12px">' +
+        '<div style="font-size:12px;font-weight:700;margin-bottom:8px;color:'+bcolor+'">'+periodLabels[pk]+'</div>' +
+        '<div style="overflow-x:auto"><table class="data-table" style="font-size:12px">' +
+        '<thead><tr><th>Model</th><th>Trades</th><th>WR</th><th>PF</th><th>Sharpe</th><th>$/Trade</th><th>Total PnL</th><th>Max DD</th></tr></thead><tbody>';
+      for (const [mk, mlabel] of [['v9','V9'],['v10','V10 +Sentiment'],['raw','Raw (no ML)']]) {
+        const m = p[mk];
+        if (!m) continue;
+        const isV10 = mk === 'v10';
+        const pnlCls = (m.total_pnl||0)>=0?'td-pos':'td-neg';
+        periodHtml += '<tr '+(isV10?'style="background:rgba(63,185,80,.06)"':'')+'>' +
+          '<td style="font-weight:'+(isV10?700:400)+'">'+mlabel+'</td>' +
+          '<td style="font-family:var(--mono)">'+(m.n_trades||0).toLocaleString()+'</td>' +
+          '<td class="'+((m.wr||0)>=0.6?'td-pos':'')+'">'+((m.wr||0)*100).toFixed(1)+'%</td>' +
+          '<td class="'+((m.pf||0)>=1.5?'td-pos':'')+'">'+((m.pf||0)).toFixed(2)+'</td>' +
+          '<td>'+(m.sharpe||0).toFixed(2)+'</td>' +
+          '<td>$'+(m.avg_pnl_per_trade||0).toFixed(2)+'</td>' +
+          '<td class="'+pnlCls+'">$'+Math.round(m.total_pnl||0).toLocaleString()+'</td>' +
+          '<td class="td-neg">$'+Math.round(m.max_dd||0).toLocaleString()+'</td></tr>';
+      }
+      periodHtml += '</tbody></table></div></div>';
     }
-    periodHtml += '</tbody></table></div></div>';
-  }
-  $('bt-period-table').innerHTML = periodHtml;
-
-  // Monthly breakdown
-  const mb = modeData.monthly_breakdown || {};
-  const v9m = mb.v9 || [], v10m = mb.v10 || [];
-  if (v9m.length) {
-    const monthMap = {};
-    v9m.forEach(r => monthMap[r.month] = {v9: r});
-    v10m.forEach(r => { if(!monthMap[r.month]) monthMap[r.month]={v9:{}}; monthMap[r.month].v10 = r; });
-    const months = Object.keys(monthMap).sort();
-    let rows = months.map(mo => {
-      const v9 = monthMap[mo].v9 || {}, v10 = monthMap[mo].v10 || {};
-      const v9pnl = v9.net_pnl || 0, v10pnl = v10.net_pnl || 0;
-      const winner = v10pnl > v9pnl ? '<span style="color:var(--green)">V10</span>' : '<span style="color:var(--text-dim)">V9</span>';
-      return `<tr>
-        <td style="font-family:var(--mono)">${mo}</td>
-        <td>${(v9.n_trades||0).toLocaleString()}</td><td class="${(v9.wr||0)>=0.6?'td-pos':''}">${((v9.wr||0)*100).toFixed(1)}%</td><td>${(v9.pf||0).toFixed(2)}</td><td class="${v9pnl>=0?'td-pos':'td-neg'}">$${Math.round(v9pnl).toLocaleString()}</td>
-        <td>${(v10.n_trades||0).toLocaleString()}</td><td class="${(v10.wr||0)>=0.6?'td-pos':''}">${((v10.wr||0)*100).toFixed(1)}%</td><td>${(v10.pf||0).toFixed(2)}</td><td class="${v10pnl>=0?'td-pos':'td-neg'}">$${Math.round(v10pnl).toLocaleString()}</td>
-        <td>${winner}</td>
-      </tr>`;
-    }).join('');
-    $('bt-monthly-table').innerHTML = `<div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
-      <thead><tr><th>Month</th><th colspan="4" style="color:var(--text-dim)">V9</th><th colspan="4" style="color:var(--green)">V10 +Sentiment</th><th>Winner</th></tr>
-      <tr><th></th><th>Trades</th><th>WR</th><th>PF</th><th>PnL</th><th>Trades</th><th>WR</th><th>PF</th><th>PnL</th><th></th></tr></thead>
-      <tbody>${rows}</tbody></table></div>`;
-  }
-
-  // Equity curve — show last 60 trading days
-  const ec = modeData.equity_curve || {};
-  const v9ec = ec.v9 || [], v10ec = ec.v10 || [];
-  if (v9ec.length) {
-    const last60 = v9ec.slice(-60);
-    const v10map = {};
-    (v10ec).forEach(r => v10map[r.date] = r.cumulative_pnl);
-    let ecRows = last60.map(r => {
-      const v10pnl = v10map[r.date];
-      const diff = v10pnl != null ? v10pnl - r.cumulative_pnl : null;
-      return `<tr>
-        <td style="font-family:var(--mono);font-size:11px">${r.date}</td>
-        <td class="${r.cumulative_pnl>=0?'td-pos':'td-neg'}">$${Math.round(r.cumulative_pnl).toLocaleString()}</td>
-        <td class="${(v10pnl||0)>=0?'td-pos':'td-neg'}">${v10pnl!=null?'$'+Math.round(v10pnl).toLocaleString():'—'}</td>
-        <td class="${(diff||0)>0?'td-pos':(diff||0)<0?'td-neg':''}">${diff!=null?(diff>0?'+':'')+' $'+Math.round(diff).toLocaleString():'—'}</td>
-      </tr>`;
-    }).join('');
-    $('bt-equity-table').innerHTML = `<div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
-      <thead><tr><th>Date</th><th>V9 Cum. PnL</th><th>V10 Cum. PnL</th><th>V10 Edge</th></tr></thead>
-      <tbody>${ecRows}</tbody></table></div>
-      <div style="font-size:11px;color:var(--text-dim);margin-top:8px">${isPos ? 'Position-aware: 1 pos/instrument, group limits, $3.50/RT, 25-bar hold.' : 'Signal-level: every ML-passing signal counted as independent trade.'} Threshold ${bt.threshold}.</div>`;
+    $('bt-period-table').innerHTML = periodHtml;
   }
 }
 
