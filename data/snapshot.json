@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-16T06:10:31Z",
+  "updated_at": "2026-03-16T06:13:22Z",
   "equity": 152604.25,
   "daily_pnl": -190.86,
   "halted": false,
@@ -410,95 +410,65 @@
     }
   ],
   "instruments": {
-    "MNQH6": {
+    "MNQM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 24558.75,
-      "atr": 5.089285714285714,
-      "adx": 35.609511424320424,
-      "rsi": 60.84840239911712,
+      "price": 24775.75,
+      "atr": 4.625,
+      "adx": 46.818667152168146,
+      "rsi": 61.72370104919008,
       "group": "EQUITY"
     },
-    "MESH6": {
+    "MESM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6678.75,
-      "atr": 1.1071428571428572,
-      "adx": 48.240392797708076,
-      "rsi": 65.12829541395942,
+      "price": 6729.25,
+      "atr": 1.0535714285714286,
+      "adx": 46.752878423810344,
+      "rsi": 64.60130505023994,
       "group": "EQUITY"
     },
-    "MYMH6": {
+    "MYMM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 46829,
-      "atr": 6.428571428571429,
-      "adx": 36.34758421639931,
-      "rsi": 59.07161468051769,
+      "price": 47132.0,
+      "atr": 5.642857142857143,
+      "adx": 40.34038304892425,
+      "rsi": 60.72054430013429,
       "group": "EQUITY"
     },
-    "M2KH6": {
+    "M2KM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2506.3,
-      "atr": 1.021428571428682,
-      "adx": 32.48133170832453,
-      "rsi": 59.117528897144894,
+      "price": 2521.8,
+      "atr": 0.4999999999999026,
+      "adx": 38.31542492050256,
+      "rsi": 61.00187632347519,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 5025.8,
-      "atr": 2.3357142857142725,
-      "adx": 15.568136833467738,
-      "rsi": 66.69200993717602,
+      "price": 5027.8,
+      "atr": 2.457142857142831,
+      "adx": 17.6658587474845,
+      "rsi": 68.64294962730483,
       "group": "METALS"
     },
-    "SILH6": {
+    "MHGM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 80.495,
-      "atr": 0.13392857142857345,
-      "adx": 20.2531688523218,
-      "rsi": 60.20460803110592,
+      "price": null,
+      "atr": null,
+      "adx": null,
+      "rsi": null,
       "group": "METALS"
-    },
-    "MHGH6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 5.774,
-      "atr": 0.0028928571428571254,
-      "adx": 34.08380678631132,
-      "rsi": 65.45134557351724,
-      "group": "METALS"
-    },
-    "MCLJ6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 98.89,
-      "atr": 0.1992857142857127,
-      "adx": 43.87123817739042,
-      "rsi": 54.45129006673107,
-      "group": "ENERGY"
-    },
-    "MNGJ6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 3.119,
-      "atr": 0.003642857142857186,
-      "adx": 21.0358308424828,
-      "rsi": 54.05064782046813,
-      "group": "ENERGY"
     }
   },
   "model": {
@@ -3342,8 +3312,8 @@
     "vix_regime": 2,
     "direction_bias": "short",
     "composite_risk": 13.1,
-    "fg_score": 16,
-    "date": "2026-03-13"
+    "fg_score": 23,
+    "date": "2026-03-15"
   },
   "bot_running": true
 }
