@@ -417,8 +417,39 @@ code, .mono { font-family: var(--mono); }
 </div>
 
 <!-- ═══ TAB: LIVE ═══ -->
-<div class="tab-content" id="tab-live">
-  <div class="main">
+<div class="tab-content" <div id="tab-live">
+  <div class="main">    <!-- ── System Status Banner ── -->
+    <div class="card" style="border-left:3px solid var(--amber);margin-bottom:14px">
+      <div class="card-title" style="margin-bottom:10px">⚙️ Bot Status — Week of Mar 17, 2026</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;font-size:12px">
+        <div>
+          <div style="font-weight:600;color:var(--text-dim);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px">Contracts</div>
+          <div style="font-family:var(--mono);line-height:1.9;font-size:11px">
+            MNQH6 · MESH6 · MYMH6 · M2KH6<br>
+            MGCJ6 · SILH6 · MHGH6<br>
+            MCLJ6 · MNGJ6 <span style="color:var(--amber);font-size:10px">(H6 exp Mar 21)</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--text-dim);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px">ML Gate</div>
+          <div style="line-height:1.9;font-size:11px">
+            <span style="color:var(--green)">🟢 V7 active</span> (thr=0.65, cap 0.85)<br>
+            <span style="color:var(--amber)">⚙️ V11-C deploying</span> (Sharpe 17.18)<br>
+            <span style="color:var(--text-dim)">Sentiment: SHORT bias, VIX=27</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--text-dim);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px">Signal Generators</div>
+          <div style="line-height:1.9;font-size:11px">
+            ✅ T1 ORB (live, thr=0.65)<br>
+            ✅ T2 VWAP_REV · T15 VWAP_POC<br>
+            🔬 T8 · T15 · T16 <span style="color:var(--amber)">(shadow mode)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Status Panel -->
     <div class="status-panel" id="status-panel">
       <div class="sp-stat">
@@ -441,8 +472,7 @@ code, .mono { font-family: var(--mono); }
 
 
     <!-- System Status Card -->
-    <div class="card" id="system-status-card" style="border-left: 3px solid var(--green); margin-bottom: 14px;">
-      <div class="card-title">⚙️ System Status — Week of Mar 16, 2026</div>
+    </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px">
         <div>
           <div style="font-weight:600;color:var(--text-dim);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Active Contracts (rolled Mar 16)</div>
@@ -609,6 +639,26 @@ code, .mono { font-family: var(--mono); }
           <thead><tr><th>Time</th><th>Sym</th><th>Signal</th><th>Prob</th><th>Pass @0.35</th><th>Pass @0.50</th><th>Pass @0.65</th><th>Outcome</th></tr></thead>
           <tbody id="shadow-tbody"><tr><td colspan="8" class="empty-state">Loading…</td></tr></tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Model Candidates from Comprehensive Backtest -->
+      <div class="card" style="margin-top:14px">
+        <div class="card-title">🏆 Model Candidates — Position-Aware Backtest (OOS Jan 2025–Feb 2026)</div>
+        <div style="font-size:11px;color:var(--text-dim);margin-bottom:8px">$3.50/RT · 25-bar hold · group limits equity=2 metals=2 energy=1</div>
+        <div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
+          <thead><tr><th>Model</th><th>Threshold</th><th>Trades/day</th><th>WR</th><th>PF</th><th>Sharpe</th><th>OOS PnL</th><th>Max DD</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr style="background:rgba(63,185,80,.08)"><td><strong>V11-C RegimeAdaptive</strong></td><td>0.75</td><td>28</td><td style="color:var(--green)">87.2%</td><td style="color:var(--green)">11.42</td><td style="color:var(--green)">17.18</td><td style="color:var(--green)">$119,368</td><td>$212</td><td><span style="color:var(--amber)">⚙️ Deploying</span></td></tr>
+            <tr><td>V11-Hybrid (C+D)</td><td>0.60</td><td>37</td><td>83.5%</td><td>8.83</td><td>16.73</td><td>$156,884</td><td>$357</td><td><span style="color:var(--text-dim)">Candidate</span></td></tr>
+            <tr><td>V11-A Combined</td><td>0.65</td><td>34</td><td>84.3%</td><td>9.86</td><td>16.37</td><td>$147,497</td><td>$339</td><td><span style="color:var(--text-dim)">Candidate</span></td></tr>
+            <tr><td>V10 Sentiment</td><td>0.75</td><td>27</td><td>85.6%</td><td>10.09</td><td>15.70</td><td>$108,194</td><td>$266</td><td><span style="color:var(--text-dim)">Candidate</span></td></tr>
+            <tr style="background:rgba(63,185,80,.04)"><td>V7 LSTM+Tabular</td><td>0.65</td><td>2-3*</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span style="color:var(--green)">🟢 Live</span></td></tr>
+          </tbody>
+        </table></div>
+        <div style="font-size:11px;color:var(--text-dim);margin-top:6px">* V7 limited to T1 ORB signals. T8/T15/T16 in shadow mode. Live WR 20% = extreme fear regime (VIX 27) + only 17 trades sample.</div>
       </div>
     </div>
   </div>
