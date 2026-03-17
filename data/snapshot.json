@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-17T21:20:31Z",
+  "updated_at": "2026-03-17T21:25:32Z",
   "equity": 152669.45,
   "daily_pnl": 0.0,
   "halted": false,
@@ -372,20 +372,20 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6774.5,
+      "price": 6774.25,
       "atr": 0.9821428571428571,
       "adx": 14.035502197008745,
-      "rsi": 51.984411584048765,
+      "rsi": 50.170980600022204,
       "group": "EQUITY"
     },
     "MYMH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 47341,
-      "atr": 6.285714285714286,
-      "adx": 23.814515236762997,
-      "rsi": 38.594495839029186,
+      "price": 47342,
+      "atr": 6.357142857142857,
+      "adx": 23.551868231952714,
+      "rsi": 39.91713866234842,
       "group": "EQUITY"
     },
     "M2KH6": {
