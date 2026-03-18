@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-03-17T23:58:15Z",
+  "updated_at": "2026-03-18T00:03:16Z",
   "equity": 152669.45,
   "daily_pnl": 0.0,
   "halted": false,
   "rth": false,
   "ws_connected": true,
   "dry_run": false,
-  "session_type": "OFF_HOURS",
+  "session_type": "ASIAN_CONT",
   "market_closed": false,
   "strategy_version": "v3.0",
   "ml_version": "live",
@@ -362,50 +362,50 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 25003.75,
-      "atr": 3.9642857142857144,
-      "adx": 32.63348348108362,
-      "rsi": 55.40052271823683,
+      "price": 25013.5,
+      "atr": 5.5,
+      "adx": 30.1384269971104,
+      "rsi": 61.51715928296656,
       "group": "EQUITY"
     },
     "MESH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6766.25,
-      "atr": 0.8214285714285714,
-      "adx": 34.872987082276246,
-      "rsi": 54.64540140957447,
+      "price": 6768.5,
+      "atr": 1.1428571428571428,
+      "adx": 30.81629003664741,
+      "rsi": 62.25053091432235,
       "group": "EQUITY"
     },
     "MYMH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 47280,
-      "atr": 5.214285714285714,
-      "adx": 15.824862138686953,
-      "rsi": 48.732587293640876,
+      "price": 47297,
+      "atr": 6.571428571428571,
+      "adx": 17.691557867836412,
+      "rsi": 61.42298777161234,
       "group": "EQUITY"
     },
     "M2KH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2533.5,
-      "atr": 0.38571428571419475,
-      "adx": 14.253754756311098,
-      "rsi": 48.503704700534314,
+      "price": 2534.0,
+      "atr": 0.6571428571428442,
+      "adx": 14.318907685523456,
+      "rsi": 52.47668550713965,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5005.9,
-      "atr": 0.6571428571428442,
-      "adx": 9.964288506926097,
-      "rsi": 50.9596706352531,
+      "price": 5005.4,
+      "atr": 0.8785714285715065,
+      "adx": 10.586376390968175,
+      "rsi": 45.754224948658035,
       "group": "METALS"
     },
     "MHGH6": {
@@ -413,9 +413,9 @@
       "trades_today": 0,
       "halted": false,
       "price": 5.763,
-      "atr": 0.0010357142857141558,
+      "atr": 0.0012142857142856123,
       "adx": 25.0,
-      "rsi": 34.7317133488183,
+      "rsi": 37.73962610906641,
       "group": "METALS"
     }
   },
@@ -2002,7 +2002,7 @@
       }
     ],
     "morning_summary": "{'generated_at': '2026-03-17T19:03:37.002108-04:00', 'experiments_run': 76, 'experiments_completed': 65, 'experiments_failed': 0, 'architecture_proposals': [{'id': 'exp_20260316_3a8ed5', 'description': 'Feature Add experiment'}, {'id': 'exp_20260316_1dfa12', 'description': 'Feature Add experiment'}, {'id': 'exp_20260316_199236', 'description': 'Feature Add experiment'}, {'id': 'exp_20260316_6f3b61', 'description': 'Hypothesis: Conviction score recalibration \u2014 current weights are counterproductive'}, {'id': 'exp_20260316_f53a3b', 'description': 'Hypothesis: Conviction score recalibration \u2014 current weights are counterproductive'}, {'id': 'exp_20260316_5feeef', 'description': 'Hypothesis: Conviction score recalibration \u2014 current weights are counterproductive'}, {'id': 'exp_20260317_72a0a1', 'description': 'Feature Add experiment'}, {'id': 'exp_20260317_1691ad', 'description': 'Feature Add experiment'}, {'id': 'exp_20260317_e68beb', 'description': 'Feature Add experiment'}, {'id': 'exp_20260317_07acff', 'description': 'Hypothesis: Conviction score recalibration \u2014 current weights are counterproductive'}, {'id': 'exp_20260317_9d765c', 'description': 'Hypothesis: Conviction score recalibration \u2014 current weights are counterproductive'}], 'best_result': {'id': 'exp_20260317_c7bb49', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=20, threshold_long=0.6...', 'metrics': {'wr': 0.7393, 'pf': 11.666, 'sharpe': 24.912, 'net_pnl': 1465251.2, 'max_dd': -1338.93, 'trades_per_day': 436.8, 'auc': 0.7861, 'n_trades': 95662}}, 'promoted': False, 'promoted_experiment': None, 'champion': {'version': 'v6+exp_20260304_5caf4e+exp_20260310_b1b69c', 'metrics': {'wr': 0.8178, 'pf': 18.802, 'sharpe': 19.442, 'net_pnl': 233124.19, 'max_dd': -389.55, 'trades_per_day': 302.7, 'auc': 0.8018, 'n_trades': 13317}}, 'top_3': [{'id': 'exp_20260317_c7bb49', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=20, threshold_long=0.6...', 'metrics': {'wr': 0.7393, 'pf': 11.666, 'sharpe': 24.912, 'net_pnl': 1465251.2, 'max_dd': -1338.93, 'trades_per_day': 436.8, 'auc': 0.7861, 'n_trades': 95662}}, {'id': 'exp_20260316_83eb91', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=20, threshold_long=0.5...', 'metrics': {'wr': 0.7427, 'pf': 11.573, 'sharpe': 25.522, 'net_pnl': 1504538.5, 'max_dd': -1105.48, 'trades_per_day': 452.1, 'auc': 0.7861, 'n_trades': 99002}}, {'id': 'exp_20260316_070394', 'description': 'Grid search: tp_mult=3.0, sl_mult=1.0, max_hold=20, threshold_long=0.6...', 'metrics': {'wr': 0.7773, 'pf': 10.637, 'sharpe': 22.19, 'net_pnl': 1194572.49, 'max_dd': -1022.27, 'trades_per_day': 347.6, 'auc': 0.7861, 'n_trades': 76129}}], 'worst_3': [{'id': 'exp_20260317_759bed', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.0, max_hold=10, threshold_long=0.45...', 'metrics': {'wr': 0.6743, 'pf': 3.111, 'sharpe': 23.456, 'net_pnl': 725483.43, 'max_dd': -1342.96, 'trades_per_day': 622.5, 'auc': 0.7861, 'n_trades': 136332}}, {'id': 'exp_20260316_34f71a', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=15, threshold_long=0.6...', 'metrics': {'wr': 0.7031, 'pf': 2.938, 'sharpe': 18.165, 'net_pnl': 594558.36, 'max_dd': -3244.22, 'trades_per_day': 505.0, 'auc': 0.7861, 'n_trades': 110594}}, {'id': 'exp_20260316_b7675f', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=20, threshold_long=0.45...', 'metrics': {'wr': 0.7125, 'pf': 2.9, 'sharpe': 19.267, 'net_pnl': 593987.67, 'max_dd': -2517.53, 'trades_per_day': 512.2, 'auc': 0.7861, 'n_trades': 112172}}], 'all_time_stats': {'total_experiments': 953, 'completed': 684, 'promoted': 6, 'promotion_rate': 0.0088, 'best_pf': 18.802, 'best_sharpe': 27.987, 'best_wr': 0.8331}, 'daily_trading': {'pnl': 0.0, 'trades': 0}, 'live_labels': {'total': 23, 'wr': 0.174, 'by_type': {'1': {'n': 15, 'wr': 0.267}, '27': {'n': 2, 'wr': 0.0}, '2': {'n': 2, 'wr': 0.0}, '11': {'n': 1, 'wr': 0.0}, '4': {'n': 3, 'wr': 0.0}}}, 'suggested_hypotheses': ['High TP mult (>=2.5) PF=8.12 >> low TP (<=1.5) PF=4.16 \u2014 explore even higher TP'], 'next_version': 'v7', 'next_version_planned_experiments': 0, 'recommended_architecture_change': None, 'research_summary': '34 trades over last 7d: WR=15% PF=0.34 | Best: ORB (27%) | Worst: unknown (9%) | 9 hypotheses generated', 'signal_analysis': {'1': {'n': 15, 'wr': 0.2667, 'pf': 0.436, 'name': 'ORB'}, '27': {'n': 2, 'wr': 0.0, 'pf': 0.0, 'name': 'TYPE_27'}, '2': {'n': 2, 'wr': 0.0, 'pf': 0.0, 'name': 'VWAP_TREND'}, '11': {'n': 1, 'wr': 0.0, 'pf': 0.0, 'name': 'TYPE_11'}, '4': {'n': 3, 'wr': 0.0, 'pf': 0.0, 'name': 'MOMENTUM'}, 'unknown': {'n': 11, 'wr': 0.0909, 'pf': 0.377, 'name': 'unknown'}}, 'worst_performing_type': 'unknown: WR=9%', 'best_performing_type': 'ORB: WR=27%', 'top_hypotheses': [{'id': 'hyp_20260317_S1', 'type': 'threshold_adjustment', 'description': 'Signal type ORB (type 1) has low WR=27% (n=15). Increase ML threshold for this type, or consider masking it in the current regime.', 'priority': 1, 'evidence': 'ORB: WR=27% n=15 PF=0.44'}, {'id': 'hyp_20260317_Sunknown', 'type': 'threshold_adjustment', 'description': 'Signal type unknown (type unknown) has low WR=9% (n=11). Increase ML threshold for this type, or consider masking it in the current regime.', 'priority': 1, 'evidence': 'unknown: WR=9% n=11 PF=0.38'}, {'id': 'hyp_20260317_CONV', 'type': 'feature_change', 'description': 'Conviction score is INVERSELY correlated with WR: low conviction WR=17% > high conviction WR=0%. Recalibrate conviction weights \u2014 they may be backwards.', 'priority': 1, 'evidence': 'Low conv (0.3-0.5): WR=17% | High conv (0.7-1.0): WR=0%'}, {'id': 'hyp_20260317_TIME1', 'type': 'risk_param', 'description': 'TIME_EXIT trades have low WR (25%, n=12). Reduce max hold time to avoid holding losers too long, or add momentum-based exit trigger.', 'priority': 2, 'evidence': 'TIME_EXIT trades: WR=25% (n=12)'}, {'id': 'hyp_20260317_TPRE', 'type': 'time_filter', 'description': 'Trades during pre_market (00:00-09:30 ET) have poor WR=25% (n=12). Add time blackout for this window.', 'priority': 2, 'evidence': 'pre_market: WR=25% n=12 PF=0.41'}], 'v8_training': {'version': 'v8', 'parent': 'v7', 'status': 'complete', 'auc': 0.6336, 'wr': 0.6249, 'pf': 1.666, 'completed_types': 19, 'skipped_types': 0, 'live_labels_used': 23, 'training_time_min': 1.1, 'per_type_results': {'1': {}, '2': {}, '4': {}, '7': {}, '8': {}, '9': {}, '10': {}, '11': {}, '12': {}, '13': {}, '14': {}, '15': {}, '16': {}, '18': {}, '19': {}, '20': {}, '21': {}, '26': {}, '27': {}}, 'gpu': {'lgb': 'gpu', 'xgb': 'cuda', 'cb': 'GPU', 'torch': True}, 'arch_proposals_applied': [\"Experiment(id='exp_20260317_72a0a1', description='Feature Add experiment', hypothesis='Live WR 17.4% below expected 91.8% \u2014 tighten threshold to 0.75', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-03-17T19:00:45.465750-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260317_1691ad', description='Feature Add experiment', hypothesis='Type 1 live WR 26.7% < 40% \u2014 mask it', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-03-17T19:00:45.465776-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260317_e68beb', description='Feature Add experiment', hypothesis='Estimated live PF 0.42 \u2014 try tighter SL (0.7x) and wider TP (2.5x)', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-03-17T19:00:45.465795-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260317_07acff', description='Hypothesis: Conviction score recalibration \u2014 current weights are counterproductive', hypothesis='Conviction score recalibration \u2014 current weights are counterproductive', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Hypothesis: Conviction score recalibration \u2014 current weights are counterproductive'}, created_at='2026-03-17T19:00:45.465875-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260317_9d765c', description='Hypothesis: Conviction score recalibration \u2014 current weights are counterproductive', hypothesis='Conviction score recalibration \u2014 current weights are counterproductive', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Hypothesis: Conviction score recalibration \u2014 current weights are counterproductive'}, created_at='2026-03-17T19:00:45.468196-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\"], 'trained_at': '2026-03-17T16:03:34'}}",
-    "experiments_today": 76
+    "experiments_today": 0
   },
   "research_reports": [
     {
