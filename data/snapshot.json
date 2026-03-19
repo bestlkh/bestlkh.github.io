@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-03-18T23:40:44Z",
+  "updated_at": "2026-03-19T01:31:59Z",
   "equity": 152665.21,
   "daily_pnl": 0.0,
   "halted": false,
   "rth": false,
   "ws_connected": true,
   "dry_run": false,
-  "session_type": "OFF_HOURS",
+  "session_type": "ASIAN_CONT",
   "market_closed": false,
   "strategy_version": "v3.0",
   "ml_version": "live",
@@ -362,90 +362,90 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 24623.25,
-      "atr": 4.214285714285714,
-      "adx": 29.84616031615288,
-      "rsi": 64.68094267026004,
+      "price": 24626.75,
+      "atr": 5.892857142857143,
+      "adx": 11.993810416927104,
+      "rsi": 59.493053587909536,
       "group": "EQUITY"
     },
     "MESH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6671.75,
-      "atr": 0.9464285714285714,
-      "adx": 33.79394791138825,
-      "rsi": 66.18365927648057,
+      "price": 6672.25,
+      "atr": 1.3214285714285714,
+      "adx": 15.09012106544537,
+      "rsi": 62.533139693836446,
       "group": "EQUITY"
     },
     "MYMH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 46481,
-      "atr": 7.214285714285714,
-      "adx": 23.632525030543405,
-      "rsi": 65.09936297459289,
+      "price": 46483,
+      "atr": 7.928571428571429,
+      "adx": 15.158115874576684,
+      "rsi": 63.24038583103247,
       "group": "EQUITY"
     },
     "M2KH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2492.0,
-      "atr": 0.5214285714285519,
-      "adx": 27.6300229586738,
-      "rsi": 69.76118492653559,
+      "price": 2489.0,
+      "atr": 0.7357142857143637,
+      "adx": 14.708666252081537,
+      "rsi": 57.727123808951035,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 4841.2,
-      "atr": 2.800000000000052,
-      "adx": 25.975769535279913,
-      "rsi": 60.09057640317202,
+      "price": 4834.8,
+      "atr": 4.242857142857052,
+      "adx": 11.951573424009611,
+      "rsi": 37.73263781975824,
       "group": "METALS"
     },
     "SILH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 76.165,
-      "atr": 0.07285714285714359,
-      "adx": 26.981585703297405,
-      "rsi": 64.21805323362233,
+      "price": 75.5,
+      "atr": 0.20035714285714537,
+      "adx": 28.20649461241172,
+      "rsi": 28.388807605260794,
       "group": "METALS"
     },
     "MHGH6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5.5085,
-      "atr": 0.0010357142857142193,
-      "adx": 37.03407807506041,
-      "rsi": 62.74671953391478,
+      "price": 5.514,
+      "atr": 0.004892857142857159,
+      "adx": 18.676862444425787,
+      "rsi": 40.21943207230655,
       "group": "METALS"
     },
     "MCLJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 97.95,
-      "atr": 0.12928571428571445,
-      "adx": 19.004519231772697,
-      "rsi": 35.28164341260984,
+      "price": 98.03,
+      "atr": 0.15928571428571356,
+      "adx": 22.75085869084369,
+      "rsi": 43.09325272467343,
       "group": "ENERGY"
     },
     "MNGJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 3.193,
-      "atr": 0.0027857142857142963,
-      "adx": 18.27990838999468,
-      "rsi": 45.52790442744195,
+      "price": 3.243,
+      "atr": 0.004928571428571552,
+      "adx": 24.76234695006779,
+      "rsi": 42.32605823509912,
       "group": "ENERGY"
     }
   },
@@ -723,7 +723,7 @@
     "deployed_version": "v6",
     "pipeline_status": "deployed",
     "current_phase": "05_evaluate",
-    "last_run": "2026-03-17",
+    "last_run": "2026-03-18",
     "last_metrics": {
       "wr": 0.8178,
       "pf": 18.802,
@@ -861,6 +861,165 @@
     ],
     "last_run_result": "1/40 succeeded (meta_info.json missing \u2014 fixed)",
     "hypotheses": [
+      {
+        "id": "hyp_20260318_S1",
+        "type": "threshold_adjustment",
+        "description": "Signal type ORB (type 1) has low WR=27% (n=15). Increase ML threshold for this type, or consider masking it in the current regime.",
+        "evidence": "ORB: WR=27% n=15 PF=0.44",
+        "proposed_change": {
+          "param": "threshold_type_1",
+          "direction": "increase",
+          "magnitude": "large"
+        },
+        "priority": 1,
+        "experiment_type": "param_search",
+        "params": {
+          "threshold_long": 0.586665,
+          "threshold_short": 0.586665
+        },
+        "hypothesis": "Higher threshold for underperforming signal type ORB",
+        "created_at": "2026-03-18T21:30:03.811768-04:00",
+        "status": "queued"
+      },
+      {
+        "id": "hyp_20260318_Sunknown",
+        "type": "threshold_adjustment",
+        "description": "Signal type unknown (type unknown) has low WR=10% (n=10). Increase ML threshold for this type, or consider masking it in the current regime.",
+        "evidence": "unknown: WR=10% n=10 PF=0.76",
+        "proposed_change": {
+          "param": "threshold_type_unknown",
+          "direction": "increase",
+          "magnitude": "large"
+        },
+        "priority": 1,
+        "experiment_type": "param_search",
+        "params": {
+          "threshold_long": 0.5950000000000001,
+          "threshold_short": 0.5950000000000001
+        },
+        "hypothesis": "Higher threshold for underperforming signal type unknown",
+        "created_at": "2026-03-18T21:30:03.811768-04:00",
+        "status": "queued"
+      },
+      {
+        "id": "hyp_20260318_CONV",
+        "type": "feature_change",
+        "description": "Conviction score is INVERSELY correlated with WR: low conviction WR=20% > high conviction WR=0%. Recalibrate conviction weights \u2014 they may be backwards.",
+        "evidence": "Low conv (0.3-0.5): WR=20% | High conv (0.7-1.0): WR=0%",
+        "proposed_change": {
+          "param": "conviction_weights",
+          "direction": "recalibrate",
+          "magnitude": "large"
+        },
+        "priority": 1,
+        "experiment_type": "feature_change",
+        "hypothesis": "Conviction score recalibration \u2014 current weights are counterproductive",
+        "created_at": "2026-03-18T21:30:03.811768-04:00",
+        "status": "queued"
+      },
+      {
+        "id": "hyp_20260318_TIME1",
+        "type": "risk_param",
+        "description": "TIME_EXIT trades have low WR (27%, n=11). Reduce max hold time to avoid holding losers too long, or add momentum-based exit trigger.",
+        "evidence": "TIME_EXIT trades: WR=27% (n=11)",
+        "proposed_change": {
+          "param": "max_hold_minutes",
+          "direction": "decrease",
+          "magnitude": "medium"
+        },
+        "priority": 2,
+        "experiment_type": "param_search",
+        "params": {
+          "max_hold": 10
+        },
+        "hypothesis": "Reducing max hold time improves WR by cutting TIME_EXIT losers",
+        "created_at": "2026-03-18T21:30:03.811768-04:00",
+        "status": "queued"
+      },
+      {
+        "id": "hyp_20260318_TPRE",
+        "type": "time_filter",
+        "description": "Trades during pre_market (00:00-09:30 ET) have poor WR=27% (n=11). Add time blackout for this window.",
+        "evidence": "pre_market: WR=27% n=11 PF=0.53",
+        "proposed_change": {
+          "param": "blackout_pre_market",
+          "direction": "enable",
+          "magnitude": "medium"
+        },
+        "priority": 2,
+        "experiment_type": "param_search",
+        "hypothesis": "Block trading during pre_market window where edge is negative",
+        "created_at": "2026-03-18T21:30:03.811768-04:00",
+        "status": "queued"
+      },
+      {
+        "id": "hyp_20260318_TFIR",
+        "type": "time_filter",
+        "description": "Trades during first_hour (09:30-11:00 ET) have poor WR=7% (n=14). Add time blackout for this window.",
+        "evidence": "first_hour: WR=7% n=14 PF=0.00",
+        "proposed_change": {
+          "param": "blackout_first_hour",
+          "direction": "enable",
+          "magnitude": "medium"
+        },
+        "priority": 2,
+        "experiment_type": "param_search",
+        "hypothesis": "Block trading during first_hour window where edge is negative",
+        "created_at": "2026-03-18T21:30:03.811768-04:00",
+        "status": "queued"
+      },
+      {
+        "id": "hyp_20260318_TPOW",
+        "type": "time_filter",
+        "description": "Trades during power_hour (14:00-16:00 ET) have poor WR=20% (n=5). Add time blackout for this window.",
+        "evidence": "power_hour: WR=20% n=5 PF=0.06",
+        "proposed_change": {
+          "param": "blackout_power_hour",
+          "direction": "enable",
+          "magnitude": "medium"
+        },
+        "priority": 2,
+        "experiment_type": "param_search",
+        "hypothesis": "Block trading during power_hour window where edge is negative",
+        "created_at": "2026-03-18T21:30:03.811768-04:00",
+        "status": "queued"
+      },
+      {
+        "id": "hyp_20260318_REXP",
+        "type": "risk_param",
+        "description": "Low expectancy (-0.247R): avg winner=0.21R, avg loser=-0.34R. Consider wider TP (increase TP mult) or tighter SL to improve R:R ratio.",
+        "evidence": "Expectancy=-0.247R | Avg win=0.21R | Avg loss=-0.34R | n=23",
+        "proposed_change": {
+          "param": "tp_mult",
+          "direction": "increase",
+          "magnitude": "medium"
+        },
+        "priority": 2,
+        "experiment_type": "param_search",
+        "params": {
+          "tp_mult": 2.5,
+          "sl_mult": 0.85
+        },
+        "hypothesis": "Improve R:R by widening TP target",
+        "created_at": "2026-03-18T21:30:03.811768-04:00",
+        "status": "queued"
+      },
+      {
+        "id": "hyp_20260318_TF01",
+        "type": "feature_change",
+        "description": "THESIS_FAIL exit accounts for 20 trades (WR=10%). Review VWAP thesis invalidation logic \u2014 too aggressive, cutting winners.",
+        "evidence": "THESIS_FAIL: WR=10% n=20",
+        "proposed_change": {
+          "param": "vwap_thesis_sensitivity",
+          "direction": "decrease",
+          "magnitude": "small"
+        },
+        "priority": 3,
+        "experiment_type": "feature_add",
+        "hypothesis": "VWAP thesis invalidation threshold adjustment",
+        "created_at": "2026-03-18T21:30:03.811768-04:00",
+        "status": "queued"
+      },
       {
         "id": "hyp_20260317_S1",
         "type": "threshold_adjustment",
