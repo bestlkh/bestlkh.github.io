@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-23T18:55:59Z",
+  "updated_at": "2026-03-23T19:01:01Z",
   "equity": 152487.81,
   "daily_pnl": -173.7,
   "halted": false,
@@ -397,90 +397,90 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 24510.0,
-      "atr": 14.0,
-      "adx": 14.467789031558908,
-      "rsi": 54.85206468533918,
+      "price": 24499.5,
+      "atr": 12.642857142857142,
+      "adx": 12.746498566610162,
+      "rsi": 47.28786146499723,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6666.0,
-      "atr": 3.357142857142857,
-      "adx": 12.798801572975993,
-      "rsi": 54.290663762876655,
+      "price": 6663.75,
+      "atr": 3.125,
+      "adx": 11.098216156928123,
+      "rsi": 47.50920929042966,
       "group": "EQUITY"
     },
     "MYMM6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 46757,
-      "atr": 23.357142857142858,
-      "adx": 13.450206660239283,
-      "rsi": 52.089341435505844,
+      "price": 46733,
+      "atr": 21.357142857142858,
+      "adx": 12.806200992234194,
+      "rsi": 44.91672555308893,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 2529.4,
-      "atr": 1.8428571428571234,
-      "adx": 14.569071680632122,
-      "rsi": 48.32996839515858,
+      "price": 2529.0,
+      "atr": 1.7357142857142338,
+      "adx": 12.395527651570742,
+      "rsi": 46.773878519858506,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 4454.2,
-      "atr": 5.921428571428676,
-      "adx": 26.77839560846386,
-      "rsi": 53.06371702729397,
+      "price": 4448.5,
+      "atr": 5.557142857143065,
+      "adx": 18.850282618472136,
+      "rsi": 46.05262762411461,
       "group": "METALS"
     },
     "SILK6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 70.09,
-      "atr": 0.10857142857142829,
-      "adx": 16.55023065691763,
-      "rsi": 46.20165801701699,
+      "price": 69.885,
+      "atr": 0.11785714285714123,
+      "adx": 13.99885797311407,
+      "rsi": 35.696894993896066,
       "group": "METALS"
     },
     "MHGK6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5.507,
-      "atr": 0.0025000000000000738,
-      "adx": 33.909271584146836,
-      "rsi": 55.28775779240439,
+      "price": 5.5055,
+      "atr": 0.002035714285714363,
+      "adx": 32.17294005615746,
+      "rsi": 50.00150500996626,
       "group": "METALS"
     },
     "MCLJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 87.53,
-      "atr": 0.2035714285714312,
-      "adx": 12.388882079153523,
-      "rsi": 49.24140546251569,
+      "price": 87.77,
+      "atr": 0.19142857142857395,
+      "adx": 12.210639577176291,
+      "rsi": 56.86646887476572,
       "group": "ENERGY"
     },
     "MNGJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2.895,
-      "atr": 0.00392857142857144,
-      "adx": 17.172775790830936,
-      "rsi": 53.0479738558125,
+      "price": 2.893,
+      "atr": 0.003357142857142868,
+      "adx": 14.867003260373403,
+      "rsi": 50.47953433371549,
       "group": "ENERGY"
     }
   },
@@ -896,6 +896,166 @@
     ],
     "last_run_result": "1/40 succeeded (meta_info.json missing \u2014 fixed)",
     "hypotheses": [
+      {
+        "id": "hyp_20260323_FIX1",
+        "type": "bug_fix",
+        "description": "CRITICAL: Feature engineering bug \u2014 vol_ratio, momentum_10bar, bar_range_ratio, day_range_pct, vwap_slope, gap_pct all stuck at default values. indicators() does not compute them. Fix in bot.py:2079.",
+        "evidence": "All 12 labeled trades with features show vol_ratio=1.0, momentum_10bar=0.0, bar_range_ratio=1.0 \u2014 hardcoded defaults, not computed. ML prob distribution is discretized (~15 values) confirming model receives near-identical feature vectors.",
+        "proposed_change": {
+          "param": "indicators_method",
+          "action": "add_missing_features"
+        },
+        "priority": 1,
+        "expected_impact": "ML probs shift from discrete clusters to continuous distribution. Gate pass rate increases from ~12% to ~40-60%.",
+        "risk": "Model may still not perform well if training data regime differs from current market",
+        "hypothesis": "Computing 8+ missing features in indicators() will fix ML gate probability distributions",
+        "created_at": "2026-03-23T14:00:00-04:00",
+        "status": "new"
+      },
+      {
+        "id": "hyp_20260323_GATE1",
+        "type": "gate_disable",
+        "description": "Disable ML gate V7 entirely \u2014 feature bug makes all gate decisions unreliable. Switch to logging-only mode for 2 weeks to collect labels.",
+        "evidence": "1154 BLOCK vs 242 PASS (83% blocked). 7 consecutive zero-trade days. Feature bug means model input is garbage.",
+        "proposed_change": {
+          "param": "ml_gate_block",
+          "action": "disable_or_log_only"
+        },
+        "priority": 1,
+        "expected_impact": "5-15 trades/day, collect 50+ labels in 1 week for retraining.",
+        "risk": "Increased losses from unfiltered signals. Mitigate with 1-2 contract max.",
+        "hypothesis": "Disabling ML gate unblocks trading and enables label collection for model improvement",
+        "created_at": "2026-03-23T14:00:00-04:00",
+        "status": "new"
+      },
+      {
+        "id": "hyp_20260323_RSI1",
+        "type": "bug_fix",
+        "description": "Fix multi-timeframe RSI \u2014 feat_rsi_5m and feat_rsi_15m are identical to 1m RSI. Should compute from 5m/15m bars (available from MTF context).",
+        "evidence": "bot.py:5659-5660 sets rsi_5m and rsi_15m to same _ind_g.get(\"rsi\") value. Live labels confirm all three RSI values are identical.",
+        "proposed_change": {
+          "param": "rsi_computation",
+          "action": "use_mtf_bars"
+        },
+        "priority": 2,
+        "expected_impact": "Moderate \u2014 gives model actual multi-timeframe regime context",
+        "risk": "Low",
+        "hypothesis": "Separate RSI computation per timeframe improves signal quality assessment",
+        "created_at": "2026-03-23T14:00:00-04:00",
+        "status": "new"
+      },
+      {
+        "id": "hyp_20260323_PEER1",
+        "type": "filter_adjustment",
+        "description": "Soften peer confirm filter from hard block to conviction penalty. Currently blocking 223 signals that pass ML gate.",
+        "evidence": "Log shows M2KM6 repeatedly passing ML gate (prob=0.646) then blocked by \"No peer confirm for SHORT\". In trending markets, not all equities align.",
+        "proposed_change": {
+          "param": "equity_confirm",
+          "action": "penalty_instead_of_block"
+        },
+        "priority": 1,
+        "expected_impact": "+223 signals/day reach execution. Even at 25% WR, generates critical label data.",
+        "risk": "Lower conviction trades. Mitigate by reducing size for non-confirmed trades.",
+        "hypothesis": "Converting peer confirm from hard block to soft penalty increases trade flow without excessive risk",
+        "created_at": "2026-03-23T14:00:00-04:00",
+        "status": "new"
+      },
+      {
+        "id": "hyp_20260323_TIME1",
+        "type": "time_filter",
+        "description": "Blackout first hour (9:30-10:30 ET) \u2014 catastrophic 9.1% WR (1/11 trades). This window accounts for 46% of losses.",
+        "evidence": "First-hour trades: 11 trades, 1 win (9.1% WR). Other windows are less bad. Large sample relative to total (11/24).",
+        "proposed_change": {
+          "param": "time_blackout",
+          "action": "block_0930_1030"
+        },
+        "priority": 2,
+        "expected_impact": "Eliminate ~46% of losses while losing ~9% of wins",
+        "risk": "Small sample size (n=11). May miss occasional first-hour winners.",
+        "hypothesis": "First-hour blackout eliminates the worst-performing time window",
+        "created_at": "2026-03-23T14:00:00-04:00",
+        "status": "new"
+      },
+      {
+        "id": "hyp_20260323_THR1",
+        "type": "threshold_adjustment",
+        "description": "Lower all ML thresholds by 0.15 (temporary while features are broken). Probs cluster 0.15-0.25 below threshold due to feature defaults.",
+        "evidence": "Most BLOCK decisions: prob gaps of 0.14-0.43 below threshold. Pattern: 0.608 vs 0.75, 0.458 vs 0.60, 0.045 vs 0.65.",
+        "proposed_change": {
+          "param": "type_thresholds",
+          "action": "lower_all_by_0.15"
+        },
+        "priority": 2,
+        "expected_impact": "Pass rate increases from ~12% to ~35-40%. Alternative to full gate disable.",
+        "risk": "Higher loss rate if low-confidence predictions are genuinely bad.",
+        "hypothesis": "Lowering thresholds compensates for systematically depressed probabilities from broken features",
+        "created_at": "2026-03-23T14:00:00-04:00",
+        "status": "new"
+      },
+      {
+        "id": "hyp_20260323_ZN1",
+        "type": "bug_fix",
+        "description": "Fix ZN/macro features \u2014 zn_atr and zn_vol_ratio hardcoded to 0.0/1.0 at bot.py:5676. Should compute from ZN bar data.",
+        "evidence": "Hardcoded: \"zn_atr\": 0.0, \"zn_vol_ratio\": 1.0. ZN data available in research/databento/bars_ZN_1m.parquet.",
+        "proposed_change": {
+          "param": "zn_features",
+          "action": "compute_from_bars"
+        },
+        "priority": 3,
+        "expected_impact": "Small \u2014 2 of 50 features. But ZN data was meaningful in training.",
+        "risk": "Low",
+        "hypothesis": "Computing real ZN features improves macro-aware signal quality",
+        "created_at": "2026-03-23T14:00:00-04:00",
+        "status": "new"
+      },
+      {
+        "id": "hyp_20260323_HOLD1",
+        "type": "risk_param",
+        "description": "Reduce max hold time from 20 to 10 minutes. TIME_EXIT trades have 22% WR with avg loss of -6.4.",
+        "evidence": "9 TIME_EXIT trades: 2 wins (22%), avg loss -6.4 vs VWAP_fail avg loss -8.1.",
+        "proposed_change": {
+          "param": "max_hold",
+          "action": "reduce_to_10"
+        },
+        "priority": 3,
+        "expected_impact": "Faster exits on losers, smaller drawdowns",
+        "risk": "May cut some winners short before reaching TP",
+        "hypothesis": "Shorter max hold time reduces exposure to TIME_EXIT losers",
+        "created_at": "2026-03-23T14:00:00-04:00",
+        "status": "new"
+      },
+      {
+        "id": "hyp_20260323_SIZE1",
+        "type": "risk_param",
+        "description": "Add conviction-based position sizing: 1 contract at conviction 0.3, 2 at 0.5, 3 at 0.7+. Currently always 5 contracts.",
+        "evidence": "M2KM6 conviction=0.45 lost -34 (5 contracts). At 2 contracts: would be -3.7. MYMM6 conviction=0.7 lost -9 (5 contracts).",
+        "proposed_change": {
+          "param": "position_sizing",
+          "action": "scale_with_conviction"
+        },
+        "priority": 3,
+        "expected_impact": "Reduce avg loss by 40-60% on low-conviction trades",
+        "risk": "Reduces profit on winning low-conviction trades",
+        "hypothesis": "Scaling position size with conviction reduces outsized losses on weak signals",
+        "created_at": "2026-03-23T14:00:00-04:00",
+        "status": "new"
+      },
+      {
+        "id": "hyp_20260323_RETRAIN1",
+        "type": "model_retrain",
+        "description": "Retrain V10 model after fixing feature engineering and collecting 200+ live labels. Current V9 OOS AUC=0.6091 (massive overfit from Val AUC=0.8155).",
+        "evidence": "V9 AUC gap: 0.8155 (val) vs 0.6091 (OOS) = -0.2064 drop. Live WR 17% is even worse than OOS suggests.",
+        "proposed_change": {
+          "param": "model_version",
+          "action": "retrain_v10_with_live_data"
+        },
+        "priority": 2,
+        "expected_impact": "Better calibrated probabilities. Target OOS AUC > 0.65.",
+        "risk": "Need 200+ labels \u2014 requires ~2 weeks of trading with gate disabled.",
+        "hypothesis": "Retraining on live feature distribution and current regime improves model accuracy",
+        "created_at": "2026-03-23T14:00:00-04:00",
+        "status": "new"
+      },
       {
         "id": "hyp_20260320_S1",
         "type": "threshold_adjustment",
