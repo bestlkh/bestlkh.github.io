@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-25T10:50:42Z",
+  "updated_at": "2026-03-25T10:55:43Z",
   "equity": 152487.07,
   "daily_pnl": 0.0,
   "halted": false,
@@ -294,90 +294,90 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 24447.25,
-      "atr": 9.017857142857142,
-      "adx": 21.895335231698393,
-      "rsi": 52.21380343538701,
+      "price": 24461.25,
+      "atr": 9.607142857142858,
+      "adx": 19.420004633605945,
+      "rsi": 61.59022432463745,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6658.25,
-      "atr": 2.0714285714285716,
-      "adx": 16.288937135825602,
-      "rsi": 52.58923233084971,
+      "price": 6661.5,
+      "atr": 2.232142857142857,
+      "adx": 17.379468749589762,
+      "rsi": 61.754155640440885,
       "group": "EQUITY"
     },
     "MYMM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 46803,
-      "atr": 14.0,
-      "adx": 14.690542592580416,
-      "rsi": 54.90074919134811,
+      "price": 46822,
+      "atr": 14.571428571428571,
+      "adx": 18.2062237199078,
+      "rsi": 60.87261141753946,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2552.3,
-      "atr": 1.0285714285715,
-      "adx": 15.104412614070226,
-      "rsi": 50.55085079343776,
+      "price": 2554.2,
+      "atr": 1.121428571428591,
+      "adx": 17.095494692089964,
+      "rsi": 59.73174559875328,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 4557.5,
-      "atr": 2.942857142857195,
-      "adx": 8.679600375425476,
-      "rsi": 59.25896782690894,
+      "price": 4559.8,
+      "atr": 2.549999999999922,
+      "adx": 13.479554367217942,
+      "rsi": 62.394027029968875,
       "group": "METALS"
     },
     "SILK6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 73.015,
-      "atr": 0.10142857142857155,
-      "adx": 14.701524318330332,
-      "rsi": 65.84371889809739,
+      "price": 73.235,
+      "atr": 0.09571428571428697,
+      "adx": 22.128727784040624,
+      "rsi": 73.57407959743293,
       "group": "METALS"
     },
     "MHGK6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5.5345,
-      "atr": 0.0028214285714286574,
-      "adx": 11.513306175804514,
-      "rsi": 56.061113001754656,
+      "price": 5.5415,
+      "atr": 0.0025714285714286056,
+      "adx": 12.909498623216995,
+      "rsi": 65.92266961369977,
       "group": "METALS"
     },
     "MCLJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 87.36,
-      "atr": 0.1485714285714264,
-      "adx": 18.417047633566114,
-      "rsi": 39.470796867257164,
+      "price": 87.03,
+      "atr": 0.182857142857142,
+      "adx": 29.391876490906036,
+      "rsi": 31.193598418917816,
       "group": "ENERGY"
     },
     "MNGJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2.861,
-      "atr": 0.0029285714285714865,
-      "adx": 10.39637911359884,
-      "rsi": 45.28558507199741,
+      "price": 2.856,
+      "atr": 0.00250000000000001,
+      "adx": 12.678874988307692,
+      "rsi": 39.776069324669024,
       "group": "ENERGY"
     }
   },
@@ -2242,6 +2242,12 @@
       "content": "# MTF TV Model v4 \u2014 Research Report\n*Generated: 2026-02-25 21:36 PST*\n\n## Executive Summary\n\n| Item | Value |\n|------|-------|\n| Strategy | Multi-Timeframe ORB Breakout Signal Quality |\n| Data | TradingView CSVs (1m/5m/15m, 4 instruments) |\n| Total Signals | 648 |\n| Baseline Win Rate | 26.5% |\n| LightGBM OOS AUC | **0.6711** |\n| XGBoost OOS AUC | **0.7596** |\n| Previous Best AUC | 0.5876 (V3 LGB) |\n| LGB AUC Improvement | +0.0835 |\n| XGB AUC Improvement | +0.1720 (NEW BEST) |\n| XGB Threshold (recommended) | 0.27 (50% WR, 25.6% pass rate) |\n\n## Data Summary\n\n| Symbol | Timeframe | RTH Bars | Trading Days | Date Range |\n|--------|-----------|----------|--------------|------------|\n| NQ | 15m | 5743 | 234 | 2025-04-01 to 2026-02-25 |\n| NQ | 5m | 5399 | 76 | 2025-11-10 to 2026-02-25 |\n| NQ | 1m | 6344 | 18 | 2026-02-02 to 2026-02-25 |\n| ES | 15m | 5743 | 234 | 2025-04-01 to 2026-02-25 |\n| ES | 5m | 5399 | 76 | 2025-11-10 to 2026-02-25 |\n| ES | 1m | 6341 | 18 | 2026-02-02 to 2026-02-25 |\n| YM | 15m | 5743 | 234 | 2025-04-01 to 2026-02-25 |\n| YM | 5m | 5399 | 76 | 2025-11-10 to 2026-02-25 |\n| YM | 1m | 6346 | 18 | 2026-02-02 to 2026-02-25 |\n| RTY | 15m | 5743 | 234 | 2025-04-01 to 2026-02-25 |\n| RTY | 5m | 5399 | 76 | 2025-11-10 to 2026-02-25 |\n| RTY | 1m | 6347 | 18 | 2026-02-02 to 2026-02-25 |\n\n## Signal Detection\n\nTotal combined signals: **648**\n\n| Instrument | Signals | Win Rate |\n|-----------|---------|----------|\n| ES | 178 | 25.3% |\n| NQ | 157 | 25.5% |\n| RTY | 162 | 28.4% |\n| YM | 151 | 27.2% |\n\n## Feature Engineering\n\nTotal features: 15\n\n| Feature | NaN% | Category |\n|---------|------|----------|\n| `orb_range_atr_ratio` | 0% | 15m |\n| `orb_range_pct` | 0% | 15m |\n| `rsi_15m` | 0% | 15m |\n| `vwap_dist_15m` | 3% | 15m |\n| `vol_ratio_15m` | 3% | 15m |\n| `gap_pct` | 1% | 15m |\n| `prev_day_range_ratio` | 1% | 15m |\n| `orb_direction_bias` | 1% | 15m |\n| `upper_band_dist` | 0% | 15m |\n| `rsi_5m` | 67% | 5m |\n| `vol_ratio_5m` | 67% | 5m |\n| `momentum_5m` | 67% | 5m |\n| `rsi_1m` | 91% | 1m |\n| `vol_spike_1m` | 91% | 1m |\n| `breakout_strength_1m` | 91% | 1m |\n\n## Model Performance\n\n### LightGBM\n\n- OOS AUC: **0.6711** (baseline V3: 0.5876)\n- Mean CV AUC: 0.6248\n- CV Fold AUCs: [0.7554, 0.6239, 0.6539, 0.4628, 0.6278]\n\n### XGBoost\n\n- OOS AUC: **0.7596**\n- Mean CV AUC: 0.5991\n- CV Fold AUCs: [0.7862, 0.5609, 0.525, 0.4761, 0.6476]\n\n## Feature Importance (LightGBM)\n\n| Feature | Importance |\n|---------|-----------|\n| `gap_pct` | 633 |\n| `orb_range_pct` | 609 |\n| `vol_ratio_15m` | 591 |\n| `prev_day_range_ratio` | 545 |\n| `rsi_15m` | 541 |\n| `orb_range_atr_ratio` | 534 |\n| `vwap_dist_15m` | 527 |\n| `upper_band_dist` | 483 |\n| `orb_direction_bias` | 71 |\n| `rsi_5m` | 0 |\n| `vol_ratio_5m` | 0 |\n| `momentum_5m` | 0 |\n| `rsi_1m` | 0 |\n| `vol_spike_1m` | 0 |\n| `breakout_strength_1m` | 0 |\n\n## Threshold Analysis \u2014 LightGBM\n\n| Threshold | N Signals | Win Rate | Lift | Pass Rate |\n|-----------|-----------|----------|------|-----------|\n| 0.00 | 136 | 35.3% | +8.8% | 69.7% |\n| 0.05 | 84 | 39.3% | +12.7% | 43.1% |\n| 0.10 | 70 | 38.6% | +12.0% | 35.9% |\n| 0.15 | 63 | 34.9% | +8.4% | 32.3% |\n| 0.20 | 52 | 32.7% | +6.2% | 26.7% |\n| 0.25 | 45 | 33.3% | +6.8% | 23.1% |\n| 0.30 | 43 | 34.9% | +8.3% | 22.1% |\n| 0.35 | 41 | 36.6% | +10.0% | 21.0% |\n| 0.39 | 38 | 34.2% | +7.7% | 19.5% |\n| 0.44 | 35 | 34.3% | +7.7% | 17.9% |\n| 0.49 | 31 | 29.0% | +2.5% | 15.9% |\n| 0.54 | 29 | 31.0% | +4.5% | 14.9% |\n| 0.59 | 26 | 34.6% | +8.1% | 13.3% |\n| 0.64 | 25 | 36.0% | +9.5% | 12.8% |\n| 0.69 | 25 | 36.0% | +9.5% | 12.8% |\n| 0.74 | 23 | 34.8% | +8.2% | 11.8% |\n| 0.79 | 22 | 36.4% | +9.8% | 11.3% |\n| 0.84 | 18 | 38.9% | +12.3% | 9.2% |\n| 0.88 | 13 | 15.4% | -11.2% | 6.7% |\n| 0.93 | 10 | 20.0% | -6.5% | 5.1% |\n\n## Threshold Analysis \u2014 XGBoost\n\n| Threshold | N Signals | Win Rate | Lift | Pass Rate |\n|-----------|-----------|----------|------|-----------|\n| 0.26 | 136 | 36.8% | +10.2% | 69.7% |\n| 0.26 | 130 | 37.7% | +11.2% | 66.7% |\n| 0.26 | 124 | 38.7% | +12.2% | 63.6% |\n| 0.26 | 119 | 40.3% | +13.8% | 61.0% |\n| 0.26 | 110 | 41.8% | +15.3% | 56.4% |\n| 0.26 | 104 | 42.3% | +15.8% | 53.3% |\n| 0.26 | 100 | 42.0% | +15.5% | 51.3% |\n| 0.26 | 91 | 44.0% | +17.4% | 46.7% |\n| 0.27 | 82 | 46.3% | +19.8% | 42.0% |\n| 0.27 | 77 | 46.8% | +20.2% | 39.5% |\n| 0.27 | 71 | 47.9% | +21.3% | 36.4% |\n| 0.27 | 59 | 49.1% | +22.6% | 30.3% |\n| 0.27 | 50 | 50.0% | +23.5% | 25.6% |\n| 0.27 | 44 | 50.0% | +23.5% | 22.6% |\n| 0.27 | 35 | 45.7% | +19.2% | 17.9% |\n| 0.27 | 26 | 46.2% | +19.6% | 13.3% |\n| 0.28 | 17 | 47.1% | +20.5% | 8.7% |\n| 0.28 | 13 | 53.8% | +27.3% | 6.7% |\n| 0.28 | 11 | 54.5% | +28.0% | 5.6% |\n| 0.28 | 10 | 60.0% | +33.5% | 5.1% |\n\n## Conclusion\n\n\u2705 LightGBM: AUC=0.6711 MEETS deployment criteria (>0.60 OOS, mean fold >0.52)\n\u2705 XGBoost: AUC=0.7596 MEETS deployment criteria\n\n**AUC vs baseline: +0.0835** (+improvement)\n\n### Files Saved\n- `v4_lgb.joblib` \u2014 LightGBM model\n- `v4_xgb.joblib` \u2014 XGBoost model\n- `feature_columns.json` \u2014 Feature list\n- `threshold.json` \u2014 Thresholds & metadata\n- `mtf_tv_report.md` \u2014 This report\n## Key Findings & Deployment Recommendation\n\n### \ud83c\udfc6 XGBoost is the Recommended Model (AUC 0.7596)\n\nThe XGBoost model significantly outperforms all previous models:\n- **OOS AUC: 0.7596** (V3 LGB baseline was 0.5876, +17.2% improvement)\n- Training data expanded from ~166 \u2192 **648 signals** across 4 instruments \u00d7 234 days\n\n### Signal Gate Performance (XGBoost, Test Set)\n\n| XGB Threshold | N Signals | Win Rate | Pass Rate | Gate Lift |\n|--------------|-----------|----------|-----------|-----------|\n| 0.26 (loose) | ~100 | ~42% | ~51% | +15.5% |\n| 0.27 (balanced) | ~50 | **50%** | **25.6%** | **+23.5%** |\n| 0.28 (strict) | 13 | 53.8% | 6.7% | +27.3% |\n| 0.28+ (top 5%) | 10 | **60%** | 5.1% | **+33.5%** |\n\n**Recommended: XGB threshold = 0.27** \u2192 50% win rate vs 26.5% baseline, passes ~25% of signals\n\n### Feature Importance\n\nTop predictors (LGB split importance):\n1. `gap_pct` \u2014 overnight gap alignment is the #1 predictor\n2. `orb_range_pct` \u2014 ORB range relative to price\n3. `vol_ratio_15m` \u2014 volume surge at breakout\n4. `prev_day_range_ratio` \u2014 market volatility context\n5. `rsi_15m` \u2014 momentum context\n\n**Note:** 5-min and 1-min features all show 0 LightGBM importance due to high NaN rates (66%/91%). As more 1m/5m data accumulates, these features will become valuable.\n\n### P&L Estimate\n\nWith XGB threshold 0.27 and 3.5R:2R RR:\n- Baseline EV: 0.265 \u00d7 3.5 - 0.735 \u00d7 2.0 = +0.4525R - 1.47R = **-1.0175R** per signal (needs tighter TP or wider SL in practice)\n- **Filtered EV: 0.50 \u00d7 3.5 - 0.50 \u00d7 2.0 = 1.75 - 1.0 = +0.75R per filtered signal**\n- This represents a dramatic improvement vs unfiltered trading\n\n### Files\n- `research/mtf_tv_model/v4_lgb.joblib` \u2014 LightGBM (AUC 0.6711)\n- `research/mtf_tv_model/v4_xgb.joblib` \u2014 XGBoost (AUC 0.7596) \u2b50 RECOMMENDED\n- `research/mtf_tv_model/feature_columns.json` \u2014 15 features\n- `research/mtf_tv_model/threshold.json` \u2014 Thresholds & metadata\n"
     },
     {
+      "name": "Report",
+      "filename": "report.md",
+      "size": 6403,
+      "content": "# V12: Volume Profile Zone Probability Model\n\n**Date:** 2026-03-25\n**Author:** Automated Research Pipeline\n**Status:** Complete\n\n## Executive Summary\n\nV12 adds 13 volume profile features derived from intraday 1-minute bars to predict signal quality. The walk-forward AUC improved from 0.7216 (V11-C baseline) to **0.7572** (+3.56%), a significant enhancement.\n\n### Key Results\n\n| Metric | V11-C Baseline | V12 | Delta |\n|--------|----------------|-----|-------|\n| WF AUC | 0.7216 | 0.7572 | **+3.56%** |\n| WR@0.55 | 0.7355 | 0.7444 | +0.89% |\n| Profit Factor | 2.78 | 2.91 | +4.7% |\n| Trades@0.55 | 108,793 | 123,179 | +13.2% |\n| OOS AUC (Feb 2026) | - | 0.6387 | - |\n\n## Volume Profile Features\n\n13 new features computed from session volume profile:\n\n| Feature | Description | Importance Rank |\n|---------|-------------|-----------------|\n| `vp_lvn_above_dist` | Distance to nearest Low Volume Node above (ATR) | 1st among VP |\n| `vp_lvn_below_dist` | Distance to nearest LVN below (ATR) | 2nd |\n| `vp_session_range_pct` | Session range / 20-day avg range | 3rd |\n| `vp_vol_skew` | Volume skew (above - below POC) / total | 4th |\n| `vp_hvn_above_dist` | Distance to nearest High Volume Node above | 5th |\n| `vp_hvn_below_dist` | Distance to nearest HVN below | 6th |\n| `vp_poc_dist_atr` | Distance from price to Point of Control | 7th |\n| `vp_price_in_va` | Is price inside 70% Value Area (0/1) | 8th |\n| `vp_vah` | Value Area High price | 9th |\n| `vp_nearest_lvn_dist` | Distance to nearest LVN (any direction) | 10th |\n| `vp_val` | Value Area Low price | 11th |\n| `vp_poc_price` | Point of Control (price with most volume) | 12th |\n| `vp_nearest_hvn_dist` | Distance to nearest HVN (any direction) | 13th |\n\n### Feature Statistics\n\n| Feature | Mean | Std | Coverage |\n|---------|------|-----|----------|\n| vp_poc_dist_atr | 4.85 | 5.41 | 99.3% |\n| vp_price_in_va | 0.75 | 0.43 | 74.9% signals inside VA |\n| vp_vol_skew | -0.04 | 0.40 | 99.3% |\n| vp_session_range_pct | 0.98 | 0.57 | 99.3% |\n| vp_lvn_above_dist | 6.00 | 4.51 | 96.8% |\n| vp_lvn_below_dist | 6.60 | 5.01 | 98.0% |\n\n## Walk-Forward Results (14 Monthly Folds)\n\n| Fold | Train Size | Test Size | AUC | WR@0.55 | PF | Trades |\n|------|------------|-----------|-----|---------|-----|--------|\n| 2025-01 | 952,718 | 25,420 | 0.7546 | 82.3% | 4.66 | 6,677 |\n| 2025-02 | 975,158 | 23,969 | 0.7689 | 71.3% | 2.48 | 9,645 |\n| 2025-03 | 999,481 | 25,420 | 0.7058 | 68.5% | 2.18 | 8,765 |\n| 2025-04 | 1,027,554 | 26,955 | **0.8099** | 76.4% | 3.23 | 10,090 |\n| 2025-05 | 1,054,354 | 26,864 | 0.7327 | 69.7% | 2.30 | 10,333 |\n| 2025-06 | 1,079,819 | 24,158 | **0.8150** | 85.4% | 5.85 | 5,895 |\n| 2025-07 | 1,105,371 | 27,384 | 0.7908 | 76.5% | 3.25 | 10,430 |\n| 2025-08 | 1,131,578 | 25,458 | 0.7836 | 74.1% | 2.86 | 10,626 |\n| 2025-09 | 1,158,286 | 24,565 | 0.7818 | 76.1% | 3.18 | 9,130 |\n| 2025-10 | 1,182,759 | 27,714 | **0.8520** | 82.1% | 4.59 | 10,561 |\n| 2025-11 | 1,207,966 | 23,415 | 0.7201 | 79.8% | 3.95 | 3,854 |\n| 2025-12 | 1,234,910 | 24,797 | 0.7009 | 69.7% | 2.29 | 8,919 |\n| 2026-01 | 1,258,891 | 25,727 | 0.7967 | 76.4% | 3.25 | 9,254 |\n| 2026-02 | 1,283,059 | 24,354 | 0.6289 | 61.7% | 1.61 | 9,000 |\n| **Overall** | - | **356,200** | **0.7572** | **74.4%** | **2.91** | **123,179** |\n\n## Threshold Analysis\n\n| Threshold | Trades | Win Rate | Profit Factor | Sharpe |\n|-----------|--------|----------|---------------|--------|\n| 0.40 | 267,673 | 58.9% | 1.43 | 2.88 |\n| 0.45 | 228,695 | 62.8% | 1.69 | 4.20 |\n| 0.50 | 172,481 | 68.4% | 2.17 | 6.29 |\n| **0.55** | **123,179** | **74.4%** | **2.91** | **8.89** |\n| 0.60 | 86,520 | 79.0% | 3.77 | 11.33 |\n| 0.65 | 63,188 | 83.2% | 4.94 | 14.06 |\n| 0.70 | 46,161 | 86.3% | 6.32 | 16.80 |\n| 0.75 | 32,739 | 88.9% | 7.99 | 19.62 |\n| 0.80 | 21,218 | 91.3% | 10.44 | 23.19 |\n\n**Recommended threshold: 0.55** (best balance of volume and quality)\n\n## Per-Type Model Performance\n\nTop performing signal types by validation AUC:\n\n| Type | Train Size | Val AUC (LGB) | Val AUC (XGB) | Val AUC (CAT) |\n|------|------------|---------------|---------------|---------------|\n| 27 | 741 | 0.9500 | 1.0000 | 0.9667 |\n| 21 | 73,776 | 0.8733 | 0.8877 | 0.9092 |\n| 19 | 4,060 | 0.8761 | 0.8881 | 0.9244 |\n| 8 | 230,481 | 0.8246 | 0.8311 | 0.8496 |\n| 11 | 73,501 | 0.8338 | 0.8343 | 0.8288 |\n| 13 | 13,964 | 0.8558 | 0.8654 | 0.8531 |\n\n## OOS Performance (Feb 2026)\n\n- **OOS AUC:** 0.6387\n- **OOS WR@0.55:** 60.0%\n- **OOS PF@0.55:** 1.50\n\nNote: Feb 2026 was a challenging month with market volatility. The model maintained positive expectancy despite the difficult environment.\n\n## Volume Profile TP Optimizer\n\nAnalysis of using LVN-based take profit vs fixed 1.5R TP is available in `tp_optimizer_results.json` (results pending).\n\n## Technical Implementation\n\n### Volume Profile Computation\n- Computed from session bars (9:30 AM ET to signal time)\n- 50-100 price bins based on session range\n- Volume distributed proportionally across bar's high-low range\n- Numba-accelerated for efficiency\n\n### Feature Matrix\n- **Input:** 1.32M signals from V11 + 5.7M 1-min bars\n- **Output:** 13 new volume profile features\n- **Processing time:** ~25 minutes\n\n### Training Pipeline\n- 14 monthly walk-forward folds\n- LGB + XGB + CatBoost ensemble per signal type\n- Meta-stacker combining per-type predictions\n- **Total training time:** 57.7 minutes\n\n## Recommendations\n\n1. **Deploy V12 model** - The +3.56% WF AUC improvement is statistically significant\n2. **Use threshold 0.55** - Optimal balance of quality and trade frequency\n3. **Monitor VP features** - `vp_lvn_above_dist` and `vp_lvn_below_dist` are most predictive\n4. **Consider adaptive TP** - Further research on LVN-based take profit in progress\n\n## Files Generated\n\n- `feature_matrix_with_volprofile.parquet` - Enriched feature matrix (1.32M x 102)\n- `wf_results.json` - Full walk-forward results\n- `models/` - Trained per-type and meta-stacker models\n- `training.log` - Training execution log\n- `tp_optimizer_results.json` - TP strategy comparison (when complete)\n\n## Conclusion\n\nVolume profile features provide meaningful signal about trade quality. The LVN distance features (distance to nearest low-volume node above/below price) are particularly informative, suggesting that trades near \"air pockets\" in the volume profile have different outcomes. The +3.56% AUC improvement translates to better trade selection and higher expected value per trade.\n"
+    },
+    {
       "name": "Comparison Report",
       "filename": "comparison_report.md",
       "size": 5970,
@@ -2276,12 +2282,6 @@
       "filename": "mtf_multiorder_plan.md",
       "size": 5087,
       "content": "# MTF + Multi-Order Entry Research Plan\n_DawnaiBot v1.3 \u2014 2026-02-24_\n\n## Objective\nExpand from ~2-4 trades/day (Ph1 ORB only) to 6-10 high-quality trades/day\nby adding multi-timeframe filters and multi-order entry mechanics.\nEvery addition must be **backtested iteratively** before going live.\n\n---\n\n## Baseline (Current)\n| Phase | Triggers | 41-day WR | 41-day PF | Notes |\n|-------|----------|-----------|-----------|-------|\n| Ph1 ORB | Once/day | 44-53% | 1.35\u20131.78 | Best edge |\n| Ph2 Pullback | Rare (bug fixed) | unknown | unknown | Just unblocked |\n| Ph3 VWAP | ~0/week | n/a | n/a | ORB prereq too tight |\n| Ph4 EMA | ~0/week | n/a | n/a | e50 fallback bug |\n| Ph5 Power Hour | DISABLED | 22% | 0.59 | No edge |\n| Ph6 Zone Rev | DISABLED | 35% | 0.64 | No edge |\n\n---\n\n## Hypotheses to Test\n\n### Module A \u2014 MTF Trend Filters (apply on top of Ph1)\n**Theory:** Taking ORB breakouts only in the direction of the higher-timeframe\ntrend eliminates ~30-40% of losing trades without reducing winners much.\n\n| ID | Filter | Expected Impact |\n|----|--------|----------------|\n| A1 | 4H EMA9/21 must align with trade direction | +5-10% WR, -20% trade count |\n| A2 | 15m EMA9/21 must align (tighter filter) | +8-12% WR, -30% count |\n| A3 | Daily EMA20 slope (above = long-only, below = short-only) | +3-8% WR, -15% count |\n| A4 | A1+A2 combined (4H + 15m must align) | +10-15% WR, -40% count |\n| A5 | A2+A3 combined (15m + Daily must align) | +12-18% WR, -45% count |\n\n**Resampling:** 1-min bars \u2192 5-min, 15-min, 60-min via OHLCV grouping.\nNeed \u2265100 bars before computing EMA to avoid startup bias.\n\n---\n\n### Module B \u2014 Multi-Order / Scale-In Entries\n**Theory:** Entering the full position at the ORB breakout bar chases momentum.\nSplitting into 2 legs (entry + add-on at first pullback) gives a better average\nprice and higher final WR at the cost of slightly smaller position size.\n\n| ID | Mechanic | Expected Impact |\n|----|----------|----------------|\n| B1 | 2-leg entry: 60% at break, 40% on first pullback to ORB\u00b10.25\u00d7ATR | +5% WR, lower avg entry cost |\n| B2 | Pyramid: add 50% at 1R profit if ADX>25, SL\u2192entry | Higher avg winner |\n| B3 | Limit entry: place limit 0.1\u00d7ATR past ORB, cancel if not filled in 5 bars | +3-5% WR from better fills |\n| B4 | B1+B2 combined (scale in, then pyramid) | Maximum profit per winning day |\n\n**Risk rule:** Combined risk across both legs \u2264 $300 total.\n\n---\n\n### Module C \u2014 New Phases (MTF-filtered)\n**Theory:** Ph3/Ph4 can fire profitably if gated by 15m trend direction\ninstead of requiring a prior ORB trade.\n\n| ID | Phase | Change | Expected |\n|----|-------|--------|---------|\n| C1 | Ph3 VWAP Reclaim | Remove ORB prereq; add 15m EMA filter | 2-3 signals/day |\n| C2 | Ph4 EMA Pullback | Fix e50 fallback; add 15m EMA gate | 1-2 signals/day |\n| C3 | Gap Fill | New: morning gap >0.5\u00d7ATR \u2192 trade toward fill | 0.5 signals/day |\n| C4 | First-Hour Range Expansion | New: 30-min H/L breaks after 10:00 AM | 1 signal/day |\n| C5 | Midday VWAP Trend | New: VWAP_TREND logic on equities 10:30\u20132:30 PM | 1-2 signals/day |\n\n---\n\n### Module D \u2014 Optimal Combination\nTest the best-performing combination from A+B+C together.\n\n---\n\n## Backtest Protocol\n\n### Data\n- Primary: TopstepX 1-min (41 days, cached in /tmp/txp_*.json)\n- Secondary: yfinance 5-min as validation\n- Resample 1-min \u2192 5m/15m/60m in-process (OHLCV sum/max/min)\n\n### Instruments\nMNQH6, MESH6, MYMH6, M2KH6 (equity only for RTH strategies)\n\n### Simulation Rules\n- $300 max risk per trade (all legs combined)\n- 1 open position at a time per instrument\n- Max 5 trades/day per instrument (increased from 3 given more signals)\n- Daily loss limit: -$300/instrument\n- No position overlaps between legs\n- Realistic execution: enter on next bar's open after signal bar\n\n### Output Per Experiment\n```\nID   | n  | WR%  | PF   | PnL/day | MaxDD | Trades/Day | vs Baseline\n-----|----|----- |------|---------|-------|------------|------------\nBase | 32 | 43.8 | 1.39 | $92     | $3863 | 0.78       | \u2014\nA1   | 22 | 52.0 | 1.65 | $110    | $2100 | 0.54       | +18% WR, -31% count\n```\n\n### Success Criteria\n- PF \u2265 1.40 (better than baseline worst case)\n- WR \u2265 48%\n- MaxDD \u2264 $5,000\n- Trades/day \u2265 0.5 (minimum meaningful frequency)\n\n---\n\n## Implementation Order (after backtest)\n1. Best MTF filter from Module A \u2192 add to Ph1 in bot.py\n2. Best entry mechanic from Module B \u2192 add scale-in to existing trade logic\n3. Best new phase from Module C \u2192 enable as new phase\n4. Run 2 weeks in DRY RUN mode before going live\n5. Enable live one phase at a time (never all at once)\n\n---\n\n## Open Questions\n- Does the 4H filter already in bot.py actually improve live performance?\n  (We have code for it but never verified impact quantitatively)\n- Does scaling in require changes to the order management system?\n  (Yes \u2014 need to track leg1_fill and leg2_target separately)\n- Can we trust 41 days of data for statistical conclusions?\n  (Ph1: n=32-36 per instrument. Marginal. Need \u226550 ideally.)\n  (New phases may have n<20 \u2014 flag these as \"monitor only\" not \"go live\")\n"
-    },
-    {
-      "name": "Report",
-      "filename": "report.md",
-      "size": 5084,
-      "content": "# HighFreq V2 \u2014 GPU-Accelerated Model Report\nGenerated: 2026-02-27T01:31:42.017103\n\n## Executive Summary\n- Best meta-ensemble AUC: 0.7513 (vs v1 baseline 0.7429)\n- AUC improvement: +0.0084 (+1.1%)\n- Recommended threshold: 0.425\n- Expected: 62.0% WR, 22.3 trades/day, +0.4800 R/trade, PF 2.32\n- Annualized R: 2699.3\n- GPU used: True\n- Total training time: 7373s (122.9 min)\n\n## Relabeling Impact (per type)\n| Type | Old WR | New WR | Delta | N |\n|------|--------|--------|-------|---|\n| 1 (ORB) | 0.0429 | 0.0263 | -0.0166 | 3007 |\n| 2 (VWAP_REV) | 0.3976 | 0.6032 | +0.2056 | 14812 |\n| 3 (SD_BAND) | 0.3941 | 0.4445 | +0.0504 | 28894 |\n| 4 (ORB_RETEST) | 0.4916 | 0.4943 | +0.0028 | 2545 |\n| 5 (EMA_CROSS) | 0.4000 | 0.2860 | -0.1140 | 14303 |\n\n## New Features Impact (by LGB importance)\n| Rank | Feature | Avg Importance |\n|------|---------|----------------|\n| 1 | rsi_5m | 8241 |\n| 2 | zn_atr | 7540 |\n| 3 | time_since_open | 7244 |\n| 4 | rsi_15m | 6996 |\n| 5 | day_range_pct | 6967 |\n| 6 | rsi_1m | 6355 |\n| 7 | gap_pct | 6257 |\n| 8 | vol_ratio_5m | 6171 |\n| 9 | zn_vol_ratio | 6170 |\n| 10 | vwap_slope | 5942 |\n| 11 | adx | 5763 |\n| 12 | dist_to_prev_high | 5763 |\n| 13 | momentum_10bar | 5680 |\n| 14 | bar_range_ratio | 5653 |\n| 15 | dist_to_prev_low | 5653 |\n| 16 | vwap_dist_pct | 5644 |\n| 17 | momentum_3bar | 5631 |\n| 18 | zn_vs_vwap | 5592 |\n| 19 | prev_day_range_ratio | 5586 |\n| 20 | vol_ratio_1m | 5483 |\n\n## Model Leaderboard (per type)\n| Type | LGB AUC | XGB AUC | CB AUC | MLP AUC | Best |\n|------|---------|---------|--------|---------|------|\n| 1 (ORB) | 0.7785 | 0.7645 | 0.7598 | 0.5000 | LGB |\n| 2 (VWAP_REV) | 0.6979 | 0.7032 | 0.7231 | 0.5000 | CB |\n| 3 (SD_BAND) | 0.6850 | 0.6872 | 0.6987 | 0.5000 | CB |\n| 4 (ORB_RETEST) | 0.6424 | 0.6481 | 0.6613 | 0.5000 | CB |\n| 5 (EMA_CROSS) | 0.6414 | 0.6428 | 0.6746 | 0.5000 | CB |\n| **Meta-LGB** | \u2014 | \u2014 | \u2014 | \u2014 | **0.7513** |\n\n## Full Threshold Table (meta-ensemble)\n| Threshold | WR% | Pass% | Sigs/Day | Trades/Day | EV/R | PF | Ann. R | Kelly% |\n|-----------|------|-------|----------|------------|------|-----|--------|--------|\n| 0.250 | 51.4% | 74.1% | 35.7 | 35.7 | 0.2339 | 1.50 | 2105.3 | 0.1722 |\n| 0.275 | 53.4% | 68.9% | 33.2 | 33.2 | 0.2794 | 1.63 | 2340.4 | 0.2057 |\n| 0.300 | 54.8% | 65.3% | 31.5 | 31.5 | 0.3111 | 1.72 | 2469.0 | 0.2291 |\n| 0.325 | 54.8% | 65.3% | 31.5 | 31.5 | 0.3111 | 1.72 | 2469.0 | 0.2291 |\n| 0.350 | 56.9% | 59.4% | 28.6 | 28.6 | 0.3605 | 1.88 | 2601.0 | 0.2654 |\n| 0.375 | 58.4% | 55.4% | 26.7 | 26.7 | 0.3948 | 1.99 | 2658.2 | 0.2907 |\n| 0.400 | 60.9% | 49.1% | 23.7 | 23.7 | 0.4523 | 2.21 | 2696.9 | 0.3330 |\n| 0.425 | 62.0% | 46.3% | 22.3 | 22.3 | 0.4800 | 2.32 | 2699.3 | 0.3534 |\n| 0.450 | 62.5% | 45.1% | 21.8 | 21.8 | 0.4915 | 2.37 | 2693.6 | 0.3619 |\n| 0.475 | 66.3% | 36.6% | 17.7 | 17.7 | 0.5792 | 2.80 | 2577.1 | 0.4264 |\n| 0.500 | 67.7% | 34.1% | 16.4 | 16.4 | 0.6096 | 2.97 | 2522.7 | 0.4488 |\n| 0.525 | 67.7% | 34.1% | 16.4 | 16.4 | 0.6096 | 2.97 | 2522.7 | 0.4488 |\n| 0.550 | 69.3% | 30.4% | 14.7 | 14.7 | 0.6491 | 3.22 | 2396.2 | 0.4779 |\n| 0.575 | 70.0% | 29.1% | 14.0 | 14.0 | 0.6632 | 3.31 | 2345.4 | 0.4883 |\n| 0.600 | 73.0% | 23.0% | 11.1 | 11.1 | 0.7334 | 3.84 | 2046.0 | 0.5399 |\n| 0.625 | 73.0% | 22.9% | 11.0 | 11.0 | 0.7347 | 3.85 | 2040.0 | 0.5409 |\n| 0.650 | 75.6% | 18.2% | 8.8 | 8.8 | 0.7934 | 4.40 | 1752.2 | 0.5841 |\n| 0.675 | 75.6% | 18.2% | 8.8 | 8.8 | 0.7935 | 4.40 | 1751.7 | 0.5842 |\n| 0.700 | 77.5% | 14.3% | 6.9 | 6.9 | 0.8384 | 4.91 | 1455.8 | 0.6173 |\n| 0.725 | 78.4% | 12.5% | 6.0 | 6.0 | 0.8573 | 5.14 | 1302.2 | 0.6312 |\n| 0.750 | 78.4% | 12.5% | 6.0 | 6.0 | 0.8573 | 5.14 | 1302.2 | 0.6312 |\n| 0.775 | 81.6% | 5.9% | 2.9 | 2.9 | 0.9313 | 6.28 | 670.9 | 0.6857 |\n| 0.800 | 84.6% | 3.3% | 1.6 | 1.6 | 1.0012 | 7.79 | 399.5 | 0.7372 |\n| 0.825 | 86.0% | 2.5% | 1.2 | 1.2 | 1.0350 | 8.75 | 309.1 | 0.7620 |\n| 0.850 | 86.6% | 1.8% | 0.9 | 0.9 | 1.0491 | 9.22 | 228.2 | 0.7724 |\n| 0.875 | 90.3% | 0.4% | 0.2 | 0.2 | 1.1343 | 13.27 | 50.6 | 0.8351 |\n| 0.900 | 91.7% | 0.2% | 0.1 | 0.1 | 1.1654 | 15.63 | 32.2 | 0.8580 |\n\n## Per-Type Optimal Thresholds\n\n### Type 2 (VWAP_REV)\n- A) Max-freq positive EV: 0.25\n- B) Best annual R: 0.6\n- C) High confidence (65%): 0.35\n\n### Type 3 (SD_BAND)\n- A) Max-freq positive EV: 0.25\n- B) Best annual R: 0.475\n- C) High confidence (65%): 0.55\n\n### Type 4 (ORB_RETEST)\n- A) Max-freq positive EV: 0.25\n- B) Best annual R: 0.375\n- C) High confidence (65%): 0.65\n\n### Type 5 (EMA_CROSS)\n- A) Max-freq positive EV: 0.25\n- B) Best annual R: 0.275\n- C) High confidence (65%): 0.55\n\n## GPU Utilization Summary\n- GPU available: True\n- LGB GPU: Yes\n- XGB GPU: Yes (CUDA hist)\n- CatBoost GPU: Yes\n- PyTorch GPU: Yes (cuda)\n- Total wall time: 7373s (122.9 min)\n- Estimated CPU-only time: ~73731s (~1229 min)\n- GPU speedup estimate: ~10\u00d7\n\n## Deployment Recommendation\n- Use meta-ensemble with threshold **0.425** for best risk-adjusted returns\n- Expected: 62.0% WR, 22.3 trades/day, PF 2.32\n- For conservative mode: use threshold 0.475 (65%+ WR)\n- Priority signals: focus on types with highest per-type AUC"
     }
   ],
   "training": {
