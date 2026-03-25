@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-25T06:20:35Z",
+  "updated_at": "2026-03-25T06:26:15Z",
   "equity": 152487.81,
   "daily_pnl": 0.0,
   "halted": false,
@@ -294,90 +294,90 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 24364.0,
-      "atr": 8.553571428571429,
-      "adx": 34.244284487564684,
-      "rsi": 28.720590007639487,
+      "price": 24350.25,
+      "atr": 9.5,
+      "adx": 36.39820189188709,
+      "rsi": 25.413550420385647,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6644.5,
-      "atr": 1.9821428571428572,
-      "adx": 29.568986537930236,
-      "rsi": 30.94877948961006,
+      "price": 6642.25,
+      "atr": 2.267857142857143,
+      "adx": 30.322147427358136,
+      "rsi": 29.561591600978147,
       "group": "EQUITY"
     },
     "MYMM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 46731,
-      "atr": 11.928571428571429,
-      "adx": 25.50207974060552,
-      "rsi": 31.301345328137927,
+      "price": 46717,
+      "atr": 12.785714285714286,
+      "adx": 25.447651129504287,
+      "rsi": 30.20484107863757,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2550.2,
-      "atr": 1.1214285714285583,
-      "adx": 24.671005844856353,
-      "rsi": 35.1908835817854,
+      "price": 2549.2,
+      "atr": 1.078571428571422,
+      "adx": 24.335833221277966,
+      "rsi": 33.47612085024279,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 4541.1,
-      "atr": 4.22857142857148,
-      "adx": 28.10336258009712,
-      "rsi": 29.935444810424784,
+      "price": 4550.5,
+      "atr": 4.342857142857091,
+      "adx": 25.08824248249528,
+      "rsi": 46.57989166789417,
       "group": "METALS"
     },
     "SILK6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 73.13,
-      "atr": 0.12071428571428454,
-      "adx": 24.264026147482706,
-      "rsi": 42.41939120673223,
+      "price": 73.465,
+      "atr": 0.12392857142857139,
+      "adx": 20.842343563969287,
+      "rsi": 55.90284164795718,
       "group": "METALS"
     },
     "MHGK6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 5.5075,
-      "atr": 0.004250000000000119,
-      "adx": 27.57771702593752,
-      "rsi": 31.874131739225547,
+      "price": 5.5275,
+      "atr": 0.004892857142857159,
+      "adx": 23.632326687396443,
+      "rsi": 54.62056527911577,
       "group": "METALS"
     },
     "MCLJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 89.13,
-      "atr": 0.12142857142857164,
-      "adx": 26.433780841167597,
-      "rsi": 56.829454101865885,
+      "price": 89.12,
+      "atr": 0.12357142857142886,
+      "adx": 21.918543165583234,
+      "rsi": 55.192720248206705,
       "group": "ENERGY"
     },
     "MNGJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2.843,
-      "atr": 0.001785714285714343,
-      "adx": 15.223241501766685,
-      "rsi": 62.60151721254913,
+      "price": 2.84,
+      "atr": 0.002142857142857224,
+      "adx": 16.232339571961678,
+      "rsi": 54.145148392222254,
       "group": "ENERGY"
     }
   },
@@ -1993,53 +1993,70 @@
       {
         "id": "hyp_20260325_agent0",
         "type": "signal_mask",
-        "description": "Block all signal types not in the validated training set (types 1-5) from live trading",
-        "evidence": "Types 11 and 27 generated 3 trades with -$438 losses (-$146/trade avg); these types were never in the training data (model trained on types 1-5 only) so ML scores are meaningless for them",
+        "description": "Signal direction inversion \u2014 long/short signals are flipped, causing every trade to enter the wrong direction, fully explaining 0/24 WR",
+        "evidence": "0/24 WR is statistically impossible (p < 0.00001) if signals were random; consistent with 100% wrong-direction entry. A coin flip gives ~50% WR, so 0% implies systematic directional error.",
         "proposed_change": {
-          "param_change": "Add ALLOWED_SIGNAL_TYPES=[1,2,3,4,5] filter; reject any signal with type not in this whitelist before ML scoring"
+          "param_change": "Audit signal_type-to-side mapping in bot.py: verify that model prediction > threshold \u2192 BUY (not SELL) for long signals and vice versa. Check if sign convention flipped during V2 integration."
         },
         "priority": 1,
         "experiment_type": "signal_mask",
         "params": {},
-        "hypothesis": "Block all signal types not in the validated training set (types 1-5) from live trading",
-        "created_at": "2026-03-25T05:50:00.521Z",
+        "hypothesis": "Signal direction inversion \u2014 long/short signals are flipped, causing every trade to enter the wrong direction, fully explaining 0/24 WR",
+        "created_at": "2026-03-25T06:23:24.292Z",
         "status": "queued",
         "source": "agent_discussion",
-        "expected_metric": "Eliminate ~12% of trades that have zero model validity; reduce daily loss by ~$438 on days like today"
+        "expected_metric": "If confirmed and fixed, WR should jump from 0% to ~62% (matching backtest). This single bug explains all 24 losses."
       },
       {
         "id": "hyp_20260325_agent1",
-        "type": "other",
-        "description": "Audit and fix live TP/SL/fill logic to match backtest labeling assumptions exactly",
-        "evidence": "OOS WR=81.8% vs live WR=0% across ALL signal types is impossible from signal degradation alone; avg loser=-0.33R with avg winner=0.21R suggests TP is rarely hit while SL is hit consistently, pointing to entry price or spread assumptions differing between backtest and live",
+        "type": "signal_mask",
+        "description": "TP/SL assignment is swapped \u2014 take-profit is set below entry for longs (acting as tight SL) and stop-loss is set above (never hit), guaranteeing losses on every trade",
+        "evidence": "0/24 is consistent with TP being unreachable and SL always hit. If TP and SL price levels are reversed for one or both directions, every trade exits at loss regardless of market movement.",
         "proposed_change": {
-          "param_change": "Compare live entry_price source (last/mid/bid-ask) vs backtest assumption; compare live TP/SL distances vs backtest label distances; log and fix any discrepancies found in fill simulation"
+          "param_change": "Audit order construction in bot.py: verify that for BUY orders, TP > entry > SL and for SELL orders, SL > entry > TP. Log actual TP/SL prices vs entry price for each trade."
         },
-        "priority": 1,
-        "experiment_type": "other",
+        "priority": 2,
+        "experiment_type": "signal_mask",
         "params": {},
-        "hypothesis": "Audit and fix live TP/SL/fill logic to match backtest labeling assumptions exactly",
-        "created_at": "2026-03-25T05:50:00.521Z",
+        "hypothesis": "TP/SL assignment is swapped \u2014 take-profit is set below entry for longs (acting as tight SL) and stop-loss is set above (never hit), guaranteeing losses on every trade",
+        "created_at": "2026-03-25T06:23:24.292Z",
         "status": "queued",
         "source": "agent_discussion",
-        "expected_metric": "If mismatch is found and corrected, live WR should converge toward OOS WR range (60-80%); this is the most likely root cause of total failure"
+        "expected_metric": "If confirmed, fixing restores backtest WR (~62%). Partial swap (one direction only) would show ~0% WR on that direction, ~62% on the other."
       },
       {
         "id": "hyp_20260325_agent2",
         "type": "feature_engineer",
-        "description": "Add realistic spread and slippage penalty to backtest labeling and retrain models",
-        "evidence": "100% of live trades lost money including tiny-loss trades (Type 4 at -$7, -$14, -$17) suggesting even trades that nearly hit TP are flipped to losses by execution costs not modeled in backtest; MNQ typical spread is 0.25-0.75 points which on short holds can flip a marginal winner to a loser",
+        "description": "Stale or misaligned feature data at execution time \u2014 live features are computed from wrong bar offsets or timestamps, producing predictions uncorrelated with actual market state",
+        "evidence": "V2 model uses datetime64[us] bars vs datetime64[ns] signal_time (documented timezone/precision mismatch). If live feature pipeline doesn't replicate the exact merge_asof alignment used in training, predictions are effectively random noise \u2014 but biased noise from a miscalibrated model can produce 0% WR.",
         "proposed_change": {
-          "param_change": "Add SLIPPAGE_TICKS=1 and SPREAD_TICKS=1 to label generation; relabel training data with these costs; retrain all models on penalized labels"
+          "param_change": "Log the top-5 feature values at prediction time and compare against historical feature_matrix values for the same timestamp. Verify bar lookup uses consistent ns conversion (.values.astype('datetime64[ns]').view('int64'))."
         },
-        "priority": 2,
+        "priority": 3,
         "experiment_type": "feature_engineer",
         "params": {},
-        "hypothesis": "Add realistic spread and slippage penalty to backtest labeling and retrain models",
-        "created_at": "2026-03-25T05:50:00.521Z",
+        "hypothesis": "Stale or misaligned feature data at execution time \u2014 live features are computed from wrong bar offsets or timestamps, producing predictions uncorrelated with actual market state",
+        "created_at": "2026-03-25T06:23:24.292Z",
         "status": "queued",
         "source": "agent_discussion",
-        "expected_metric": "OOS WR will drop (likely to 55-65%) but should be realistic and match live performance; PF should remain >1.5 if signals have real edge"
+        "expected_metric": "If features are misaligned, fixing should restore WR to ~55-62%. Partial misalignment would show degraded but non-zero WR."
+      },
+      {
+        "id": "hyp_20260325_agent3",
+        "type": "signal_mask",
+        "description": "Threshold or probability output is inverted \u2014 model outputs P(loss) instead of P(win), so filtering for prob > 0.425 selects the highest-confidence LOSING trades",
+        "evidence": "0/24 WR with a model that backtests at AUC 0.7521 is consistent with selecting the bottom quantile of predictions instead of the top. If label encoding flipped (0=win, 1=loss vs expected), the model is well-calibrated but inverted.",
+        "proposed_change": {
+          "param_change": "Verify label encoding in training pipeline matches inference: check that target=1 means profitable trade. Log raw model probability for each trade and confirm high-prob trades correspond to historically winning setups."
+        },
+        "priority": 4,
+        "experiment_type": "signal_mask",
+        "params": {},
+        "hypothesis": "Threshold or probability output is inverted \u2014 model outputs P(loss) instead of P(win), so filtering for prob > 0.425 selects the highest-confidence LOSING trades",
+        "created_at": "2026-03-25T06:23:24.292Z",
+        "status": "queued",
+        "source": "agent_discussion",
+        "expected_metric": "If confirmed, inverting threshold (trade when prob < 0.575 instead of > 0.425) should restore WR to ~62% and PF ~2.37."
       }
     ],
     "morning_summary": "{'generated_at': '2026-03-24T22:18:36.758084-04:00', 'experiments_run': 76, 'experiments_completed': 64, 'experiments_failed': 0, 'architecture_proposals': [{'id': 'exp_20260324_14c5b3', 'description': 'Feature Add experiment'}, {'id': 'exp_20260324_9d35ba', 'description': 'Feature Add experiment'}, {'id': 'exp_20260324_7329fc', 'description': 'Feature Add experiment'}, {'id': 'exp_20260324_8c624b', 'description': 'Hypothesis: Computing 8+ missing features in indicators() will fix ML gate probability distr'}, {'id': 'exp_20260324_df5edc', 'description': 'Hypothesis: Disabling ML gate unblocks trading and enables label collection for model improv'}, {'id': 'exp_20260324_277150', 'description': 'Hypothesis: Converting peer confirm from hard block to soft penalty increases trade flow wit'}, {'id': 'exp_20260324_736f87', 'description': 'Feature Add experiment'}, {'id': 'exp_20260324_bca5ff', 'description': 'Feature Add experiment'}, {'id': 'exp_20260324_6b1d83', 'description': 'Feature Add experiment'}, {'id': 'exp_20260324_4ae936', 'description': 'Hypothesis: Computing 8+ missing features in indicators() will fix ML gate probability distr'}, {'id': 'exp_20260324_680c03', 'description': 'Hypothesis: Disabling ML gate unblocks trading and enables label collection for model improv'}, {'id': 'exp_20260324_12ac41', 'description': 'Hypothesis: Converting peer confirm from hard block to soft penalty increases trade flow wit'}], 'best_result': {'id': 'exp_20260324_007f9a', 'description': 'Bayesian exploit: tp_mult=3.0, sl_mult=0.75, max_hold=30, threshold_long=0.65...', 'metrics': {'wr': 0.7757, 'pf': 14.224, 'sharpe': 22.054, 'net_pnl': 1223784.89, 'max_dd': -1057.34, 'trades_per_day': 343.3, 'auc': 0.7861, 'n_trades': 75180}}, 'promoted': False, 'promoted_experiment': None, 'champion': {'version': 'v6+exp_20260304_5caf4e+exp_20260310_b1b69c', 'metrics': {'wr': 0.8178, 'pf': 18.802, 'sharpe': 19.442, 'net_pnl': 233124.19, 'max_dd': -389.55, 'trades_per_day': 302.7, 'auc': 0.8018, 'n_trades': 13317}}, 'top_3': [{'id': 'exp_20260324_007f9a', 'description': 'Bayesian exploit: tp_mult=3.0, sl_mult=0.75, max_hold=30, threshold_long=0.65...', 'metrics': {'wr': 0.7757, 'pf': 14.224, 'sharpe': 22.054, 'net_pnl': 1223784.89, 'max_dd': -1057.34, 'trades_per_day': 343.3, 'auc': 0.7861, 'n_trades': 75180}}, {'id': 'exp_20260324_6c2fbd', 'description': 'Grid search: tp_mult=3.0, sl_mult=1.0, max_hold=20, threshold_long=0.65...', 'metrics': {'wr': 0.7976, 'pf': 12.111, 'sharpe': 20.61, 'net_pnl': 1061871.13, 'max_dd': -1064.91, 'trades_per_day': 296.2, 'auc': 0.7861, 'n_trades': 64875}}, {'id': 'exp_20260324_7ed29d', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=20, threshold_long=0.55...', 'metrics': {'wr': 0.7464, 'pf': 11.842, 'sharpe': 25.227, 'net_pnl': 1476495.42, 'max_dd': -1020.24, 'trades_per_day': 441.1, 'auc': 0.7861, 'n_trades': 96608}}], 'worst_3': [{'id': 'exp_20260324_042f5e', 'description': 'Bayesian exploit: tp_mult=1.5, sl_mult=1.25, max_hold=30, threshold_long=0.55...', 'metrics': {'wr': 0.7464, 'pf': 3.553, 'sharpe': 19.765, 'net_pnl': 579371.07, 'max_dd': -1834.85, 'trades_per_day': 441.1, 'auc': 0.7861, 'n_trades': 96608}}, {'id': 'exp_20260324_d8b6fd', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=15, threshold_long=0.5...', 'metrics': {'wr': 0.6945, 'pf': 2.784, 'sharpe': 19.772, 'net_pnl': 631838.88, 'max_dd': -2737.68, 'trades_per_day': 562.4, 'auc': 0.7861, 'n_trades': 123162}}, {'id': 'exp_20260324_1390fa', 'description': 'Bayesian exploit: tp_mult=1.5, sl_mult=1.25, max_hold=20, threshold_long=0.45...', 'metrics': {'wr': 0.6993, 'pf': 2.755, 'sharpe': 20.575, 'net_pnl': 617360.03, 'max_dd': -1875.43, 'trades_per_day': 554.3, 'auc': 0.7861, 'n_trades': 121400}}], 'all_time_stats': {'total_experiments': 1219, 'completed': 915, 'promoted': 6, 'promotion_rate': 0.0066, 'best_pf': 18.802, 'best_sharpe': 27.987, 'best_wr': 0.8331}, 'daily_trading': {'pnl': 0.0, 'trades': 0}, 'live_labels': {'total': 24, 'wr': 0.167, 'by_type': {'1': {'n': 15, 'wr': 0.267}, '27': {'n': 2, 'wr': 0.0}, '2': {'n': 3, 'wr': 0.0}, '11': {'n': 1, 'wr': 0.0}, '4': {'n': 3, 'wr': 0.0}}}, 'suggested_hypotheses': ['High TP mult (>=2.5) PF=8.06 >> low TP (<=1.5) PF=4.66 \u2014 explore even higher TP'], 'next_version': 'v7', 'next_version_planned_experiments': 0, 'recommended_architecture_change': None, 'research_summary': '26 trades over last 7d: WR=15% PF=0.28 | Best: ORB (27%) | Worst: ORB (27%) | 6 hypotheses generated', 'signal_analysis': {'1': {'n': 15, 'wr': 0.2667, 'pf': 0.436, 'name': 'ORB'}, '27': {'n': 2, 'wr': 0.0, 'pf': 0.0, 'name': 'TYPE_27'}, '2': {'n': 3, 'wr': 0.0, 'pf': 0.0, 'name': 'VWAP_TREND'}, '11': {'n': 1, 'wr': 0.0, 'pf': 0.0, 'name': 'TYPE_11'}, '4': {'n': 3, 'wr': 0.0, 'pf': 0.0, 'name': 'MOMENTUM'}, 'unknown': {'n': 2, 'wr': 0.0, 'pf': 0.0, 'name': 'unknown'}}, 'worst_performing_type': 'ORB: WR=27%', 'best_performing_type': 'ORB: WR=27%', 'top_hypotheses': [{'id': 'hyp_20260324_S1', 'type': 'threshold_adjustment', 'description': 'Signal type ORB (type 1) has low WR=27% (n=15). Increase ML threshold for this type, or consider masking it in the current regime.', 'priority': 1, 'evidence': 'ORB: WR=27% n=15 PF=0.44'}, {'id': 'hyp_20260324_TIME1', 'type': 'risk_param', 'description': 'TIME_EXIT trades have low WR (25%, n=8). Reduce max hold time to avoid holding losers too long, or add momentum-based exit trigger.', 'priority': 2, 'evidence': 'TIME_EXIT trades: WR=25% (n=8)'}, {'id': 'hyp_20260324_TPRE', 'type': 'time_filter', 'description': 'Trades during pre_market (00:00-09:30 ET) have poor WR=25% (n=8). Add time blackout for this window.', 'priority': 2, 'evidence': 'pre_market: WR=25% n=8 PF=0.41'}, {'id': 'hyp_20260324_TFIR', 'type': 'time_filter', 'description': 'Trades during first_hour (09:30-11:00 ET) have poor WR=9% (n=11). Add time blackout for this window.', 'priority': 2, 'evidence': 'first_hour: WR=9% n=11 PF=0.00'}, {'id': 'hyp_20260324_REXP', 'type': 'risk_param', 'description': 'Low expectancy (-0.238R): avg winner=0.21R, avg loser=-0.33R. Consider wider TP (increase TP mult) or tighter SL to improve R:R ratio.', 'priority': 2, 'evidence': 'Expectancy=-0.238R | Avg win=0.21R | Avg loss=-0.33R | n=24'}], 'v8_training': {'version': 'v8', 'parent': 'v7', 'status': 'complete', 'auc': 0.6336, 'wr': 0.6249, 'pf': 1.666, 'completed_types': 19, 'skipped_types': 0, 'live_labels_used': 24, 'training_time_min': 46.6, 'per_type_results': {'1': {}, '2': {}, '4': {}, '7': {}, '8': {}, '9': {}, '10': {}, '11': {}, '12': {}, '13': {}, '14': {}, '15': {}, '16': {}, '18': {}, '19': {}, '20': {}, '21': {}, '26': {}, '27': {}}, 'gpu': {'lgb': 'gpu', 'xgb': 'cuda', 'cb': 'GPU', 'torch': True}, 'arch_proposals_applied': [\"Experiment(id='exp_20260324_736f87', description='Feature Add experiment', hypothesis='Live WR 16.7% below expected 91.8% \u2014 tighten threshold to 0.75', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-03-24T21:30:04.384825-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260324_bca5ff', description='Feature Add experiment', hypothesis='Type 1 live WR 26.7% < 40% \u2014 mask it', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-03-24T21:30:04.384856-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260324_6b1d83', description='Feature Add experiment', hypothesis='Estimated live PF 0.40 \u2014 try tighter SL (0.7x) and wider TP (2.5x)', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-03-24T21:30:04.384872-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260324_4ae936', description='Hypothesis: Computing 8+ missing features in indicators() will fix ML gate probability distr', hypothesis='Computing 8+ missing features in indicators() will fix ML gate probability distributions', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Hypothesis: Computing 8+ missing features in indicators() will fix ML gate probability distr'}, created_at='2026-03-24T21:30:04.387465-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260324_680c03', description='Hypothesis: Disabling ML gate unblocks trading and enables label collection for model improv', hypothesis='Disabling ML gate unblocks trading and enables label collection for model improvement', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Hypothesis: Disabling ML gate unblocks trading and enables label collection for model improv'}, created_at='2026-03-24T21:30:04.387480-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\"], 'trained_at': '2026-03-24T19:18:34'}}",
