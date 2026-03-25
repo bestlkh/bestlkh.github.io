@@ -1,0 +1,132 @@
+{
+  "updated_at": "2026-03-25T14:00:00Z",
+  "market_context": {
+    "vix": 22.3,
+    "spy_trend": "neutral",
+    "spy_above_vwap": false,
+    "qqq_trend": "bearish",
+    "market_regime": "choppy"
+  },
+  "sectors": {
+    "XLK": {"name": "Technology", "strength": 0.45},
+    "XLF": {"name": "Financials", "strength": -0.2},
+    "XLE": {"name": "Energy", "strength": 0.65},
+    "XLV": {"name": "Healthcare", "strength": 0.1},
+    "XLI": {"name": "Industrials", "strength": 0.3},
+    "XLC": {"name": "Communications", "strength": -0.35},
+    "XLY": {"name": "Consumer Disc", "strength": -0.15},
+    "XLP": {"name": "Consumer Staples", "strength": 0.25},
+    "XLU": {"name": "Utilities", "strength": 0.55},
+    "XLB": {"name": "Materials", "strength": 0.0},
+    "XLRE": {"name": "Real Estate", "strength": -0.4}
+  },
+  "watchlist": [
+    {
+      "symbol": "NVDA",
+      "bias": "bullish",
+      "strength": 0.75,
+      "trend": "uptrend",
+      "key_r": 135.00,
+      "key_s": 131.20,
+      "iv_rank": 45,
+      "rs_vs_spy": 2.3
+    },
+    {
+      "symbol": "TSLA",
+      "bias": "neutral",
+      "strength": 0.50,
+      "trend": "range",
+      "key_r": 280.00,
+      "key_s": 265.00,
+      "iv_rank": 62,
+      "rs_vs_spy": -0.5
+    },
+    {
+      "symbol": "AAPL",
+      "bias": "bearish",
+      "strength": 0.35,
+      "trend": "downtrend",
+      "key_r": 178.50,
+      "key_s": 172.00,
+      "iv_rank": 28,
+      "rs_vs_spy": -1.2
+    },
+    {
+      "symbol": "META",
+      "bias": "bullish",
+      "strength": 0.68,
+      "trend": "uptrend",
+      "key_r": 525.00,
+      "key_s": 505.00,
+      "iv_rank": 38,
+      "rs_vs_spy": 1.8
+    },
+    {
+      "symbol": "GOOGL",
+      "bias": "neutral",
+      "strength": 0.52,
+      "trend": "consolidation",
+      "key_r": 165.00,
+      "key_s": 158.00,
+      "iv_rank": 35,
+      "rs_vs_spy": 0.3
+    },
+    {
+      "symbol": "AMZN",
+      "bias": "bullish",
+      "strength": 0.62,
+      "trend": "uptrend",
+      "key_r": 195.00,
+      "key_s": 185.00,
+      "iv_rank": 42,
+      "rs_vs_spy": 1.1
+    },
+    {
+      "symbol": "AMD",
+      "bias": "bearish",
+      "strength": 0.40,
+      "trend": "downtrend",
+      "key_r": 125.00,
+      "key_s": 115.00,
+      "iv_rank": 55,
+      "rs_vs_spy": -2.1
+    },
+    {
+      "symbol": "PLTR",
+      "bias": "bullish",
+      "strength": 0.72,
+      "trend": "breakout",
+      "key_r": 28.00,
+      "key_s": 24.50,
+      "iv_rank": 68,
+      "rs_vs_spy": 3.5
+    }
+  ],
+  "options_ideas": [
+    {
+      "symbol": "NVDA",
+      "direction": "long",
+      "strike": 135,
+      "expiry": "2026-04-04",
+      "delta": 0.42,
+      "suggestion": "Call, target 138.5 on breakout above 133 POC"
+    },
+    {
+      "symbol": "PLTR",
+      "direction": "long",
+      "strike": 27,
+      "expiry": "2026-04-11",
+      "delta": 0.48,
+      "suggestion": "Call, momentum play on relative strength"
+    },
+    {
+      "symbol": "AMD",
+      "direction": "short",
+      "strike": 115,
+      "expiry": "2026-04-04",
+      "delta": -0.35,
+      "suggestion": "Put spread, target 112 support test"
+    }
+  ],
+  "morning_brief": "Market showing mixed signals with VIX elevated at 22.3. SPY below VWAP suggesting cautious stance. NVDA bullish above 133 POC with strong relative strength (+2.3% vs SPY). TSLA neutral, watch 275 level for direction. Energy sector XLE strongest with +0.65 strength. Avoid AAPL/AMD on weakness. Best setups: NVDA calls on breakout, PLTR momentum continuation. Risk off if VIX > 25."
+}

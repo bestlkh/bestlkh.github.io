@@ -385,6 +385,44 @@ code, .mono { font-family: var(--mono); }
 .pin-box button:hover { opacity: 0.9; }
 .pin-error { color: var(--red); font-size: 13px; margin-top: 10px; min-height: 20px; }
 
+/* Stocks Tab - Sector Heatmap */
+.sector-heatmap {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+.sector-cell {
+  background: rgba(107,122,153,0.2);
+  border-radius: var(--radius-sm);
+  padding: 14px 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  transition: all 0.2s;
+}
+.sector-cell.bullish { background: rgba(16,185,129,0.25); color: var(--green); }
+.sector-cell.bearish { background: rgba(239,68,68,0.25); color: var(--red); }
+.sector-cell.neutral { background: rgba(107,122,153,0.2); color: var(--text-dim); }
+.sector-cell.strong-bull { background: rgba(16,185,129,0.4); color: #10b981; font-weight: 700; }
+.sector-cell.strong-bear { background: rgba(239,68,68,0.4); color: #ef4444; font-weight: 700; }
+
+/* Stocks Tab - Bias Badges */
+.bias-bullish { color: var(--green); font-weight: 600; }
+.bias-bearish { color: var(--red); font-weight: 600; }
+.bias-neutral { color: var(--text-dim); }
+
+/* Stocks Tab - Strength Bar */
+.strength-bar {
+  width: 60px; height: 6px; background: rgba(30,45,74,0.6); border-radius: 3px; overflow: hidden;
+}
+.strength-fill {
+  height: 100%; background: var(--blue); transition: width 0.3s;
+}
+.strength-fill.high { background: var(--green); }
+.strength-fill.low { background: var(--red); }
+
 /* Footer */
 .footer { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 16px 28px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-dim); }
 .footer-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-dim); }
@@ -440,6 +478,7 @@ code, .mono { font-family: var(--mono); }
   <button class="tab-btn" data-tab="backtest">Backtest</button>
   <button class="tab-btn" data-tab="research">Research</button>
   <button class="tab-btn" data-tab="autopilot">Autopilot</button>
+  <button class="tab-btn" data-tab="stocks">Stocks</button>
 </div>
 
 <!-- TAB: LIVE -->
@@ -660,6 +699,65 @@ code, .mono { font-family: var(--mono); }
   </div>
 </div>
 
+<!-- TAB: STOCKS -->
+<div class="tab-content" id="tab-stocks">
+  <div class="main">
+    <!-- Morning Brief -->
+    <div class="card" id="stocks-morning-brief">
+      <div class="card-title">Morning Brief</div>
+      <div class="chat-bubble" id="stocks-brief-content">Loading...</div>
+    </div>
+
+    <!-- Market Context -->
+    <div class="stats-bar" id="stocks-market-context">
+      <div class="stat-card"><div class="stat-label">VIX</div><div class="stat-value" id="stocks-vix">&mdash;</div></div>
+      <div class="stat-card"><div class="stat-label">SPY Trend</div><div class="stat-value" id="stocks-spy-trend">&mdash;</div></div>
+      <div class="stat-card"><div class="stat-label">SPY vs VWAP</div><div class="stat-value" id="stocks-spy-vwap">&mdash;</div></div>
+      <div class="stat-card"><div class="stat-label">Last Updated</div><div class="stat-value" id="stocks-updated" style="font-size:12px">&mdash;</div></div>
+    </div>
+
+    <!-- Sector Heatmap -->
+    <div class="card">
+      <div class="card-title">Sector Heatmap</div>
+      <div class="sector-heatmap" id="stocks-sector-grid">
+        <div class="sector-cell" data-sector="XLK">Tech</div>
+        <div class="sector-cell" data-sector="XLF">Finance</div>
+        <div class="sector-cell" data-sector="XLE">Energy</div>
+        <div class="sector-cell" data-sector="XLV">Health</div>
+        <div class="sector-cell" data-sector="XLI">Industrial</div>
+        <div class="sector-cell" data-sector="XLC">Comms</div>
+        <div class="sector-cell" data-sector="XLY">Consumer</div>
+        <div class="sector-cell" data-sector="XLP">Staples</div>
+        <div class="sector-cell" data-sector="XLU">Utilities</div>
+        <div class="sector-cell" data-sector="XLB">Materials</div>
+        <div class="sector-cell" data-sector="XLRE">Real Est</div>
+      </div>
+    </div>
+
+    <!-- Watchlist Table -->
+    <div class="card">
+      <div class="card-title">Watchlist</div>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead><tr><th>Symbol</th><th>Bias</th><th>Strength</th><th>Trend</th><th>Key R</th><th>Key S</th><th>IV Rank</th><th>RS vs SPY</th></tr></thead>
+          <tbody id="stocks-watchlist-tbody"><tr><td colspan="8" class="empty-state">Loading...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Options Ideas -->
+    <div class="card">
+      <div class="card-title">Options Trade Ideas</div>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead><tr><th>Symbol</th><th>Direction</th><th>Strike</th><th>Expiry</th><th>Delta</th><th>Suggestion</th></tr></thead>
+          <tbody id="stocks-options-tbody"><tr><td colspan="6" class="empty-state">Loading...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Footer -->
 <div class="footer">
   <div class="footer-dot" id="footer-dot"></div>
@@ -692,6 +790,7 @@ function switchTab(id) {
   activeTab = id;
   if (id === 'trades' && snapshot) renderTrades();
   if (id === 'backtest' && snapshot) renderBacktest();
+  if (id === 'stocks') renderStocks();
 }
 tabs.forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
 switchTab(activeTab);
@@ -1603,9 +1702,121 @@ async function renderBacktest() {
   }
 }
 
+// ── StockScout Data ──────────────────────────────────────────────────────────
+const STOCKSCOUT_URL = 'https://bestlkh.github.io/data/stockscout.json';
+let stockscoutData = null;
+
+async function fetchStockscout() {
+  const url = STOCKSCOUT_URL + '?t=' + Date.now();
+  try {
+    const resp = await fetch(url, { cache: 'no-store' });
+    if (!resp.ok) return;
+    stockscoutData = await resp.json();
+    renderStocks();
+  } catch (e) {
+    console.warn('StockScout fetch failed:', e);
+  }
+}
+
+function renderStocks() {
+  if (!stockscoutData) {
+    $('stocks-brief-content').textContent = 'No data available. Run the morning analysis first.';
+    return;
+  }
+
+  const data = stockscoutData;
+
+  // Morning Brief
+  $('stocks-brief-content').textContent = data.morning_brief || 'No morning brief available.';
+
+  // Market Context
+  const ctx = data.market_context || {};
+  $('stocks-vix').textContent = ctx.vix != null ? ctx.vix.toFixed(1) : '\u2014';
+  $('stocks-vix').style.color = ctx.vix > 25 ? 'var(--red)' : ctx.vix > 20 ? 'var(--amber)' : 'var(--green)';
+
+  const spyTrend = ctx.spy_trend || 'neutral';
+  $('stocks-spy-trend').textContent = spyTrend.toUpperCase();
+  $('stocks-spy-trend').style.color = spyTrend === 'bullish' ? 'var(--green)' : spyTrend === 'bearish' ? 'var(--red)' : 'var(--text-dim)';
+
+  const aboveVwap = ctx.spy_above_vwap;
+  $('stocks-spy-vwap').textContent = aboveVwap === true ? 'ABOVE' : aboveVwap === false ? 'BELOW' : '\u2014';
+  $('stocks-spy-vwap').style.color = aboveVwap === true ? 'var(--green)' : aboveVwap === false ? 'var(--red)' : 'var(--text-dim)';
+
+  // Updated time
+  if (data.updated_at) {
+    const d = new Date(data.updated_at);
+    $('stocks-updated').textContent = d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/New_York' }) + ' ET';
+  }
+
+  // Sector heatmap (mock data - real data would come from stockscout)
+  const sectors = data.sectors || {};
+  document.querySelectorAll('.sector-cell').forEach(cell => {
+    const sector = cell.dataset.sector;
+    const sectorData = sectors[sector];
+    cell.classList.remove('bullish', 'bearish', 'neutral', 'strong-bull', 'strong-bear');
+    if (sectorData) {
+      const strength = sectorData.strength || 0;
+      if (strength > 0.7) cell.classList.add('strong-bull');
+      else if (strength > 0.3) cell.classList.add('bullish');
+      else if (strength < -0.7) cell.classList.add('strong-bear');
+      else if (strength < -0.3) cell.classList.add('bearish');
+      else cell.classList.add('neutral');
+    } else {
+      cell.classList.add('neutral');
+    }
+  });
+
+  // Watchlist Table
+  const watchlist = data.watchlist || [];
+  if (watchlist.length === 0) {
+    $('stocks-watchlist-tbody').innerHTML = '<tr><td colspan="8" class="empty-state">No watchlist data</td></tr>';
+  } else {
+    const rows = watchlist.map(s => {
+      const biasClass = s.bias === 'bullish' ? 'bias-bullish' : s.bias === 'bearish' ? 'bias-bearish' : 'bias-neutral';
+      const strength = s.strength || 0;
+      const strengthClass = strength > 0.6 ? 'high' : strength < 0.4 ? 'low' : '';
+      const strengthWidth = Math.round(strength * 100);
+      const rs = s.rs_vs_spy != null ? (s.rs_vs_spy > 0 ? '+' : '') + s.rs_vs_spy.toFixed(1) + '%' : '\u2014';
+      const rsClass = s.rs_vs_spy > 0 ? 'td-pos' : s.rs_vs_spy < 0 ? 'td-neg' : '';
+
+      return '<tr>' +
+        '<td style="font-weight:700;font-family:var(--mono)">' + esc(s.symbol) + '</td>' +
+        '<td class="' + biasClass + '">' + (s.bias || 'neutral').toUpperCase() + '</td>' +
+        '<td><div class="strength-bar"><div class="strength-fill ' + strengthClass + '" style="width:' + strengthWidth + '%"></div></div></td>' +
+        '<td>' + esc(s.trend || '\u2014') + '</td>' +
+        '<td style="font-family:var(--mono)">' + (s.key_r != null ? '$' + s.key_r.toFixed(2) : '\u2014') + '</td>' +
+        '<td style="font-family:var(--mono)">' + (s.key_s != null ? '$' + s.key_s.toFixed(2) : '\u2014') + '</td>' +
+        '<td>' + (s.iv_rank != null ? s.iv_rank + '%' : '\u2014') + '</td>' +
+        '<td class="' + rsClass + '">' + rs + '</td>' +
+      '</tr>';
+    }).join('');
+    $('stocks-watchlist-tbody').innerHTML = rows;
+  }
+
+  // Options Ideas Table
+  const options = data.options_ideas || [];
+  if (options.length === 0) {
+    $('stocks-options-tbody').innerHTML = '<tr><td colspan="6" class="empty-state">No options ideas</td></tr>';
+  } else {
+    const rows = options.map(o => {
+      const dirClass = o.direction === 'long' ? 'td-long' : o.direction === 'short' ? 'td-short' : '';
+      return '<tr>' +
+        '<td style="font-weight:700;font-family:var(--mono)">' + esc(o.symbol) + '</td>' +
+        '<td class="' + dirClass + '">' + (o.direction || '\u2014').toUpperCase() + '</td>' +
+        '<td style="font-family:var(--mono)">' + (o.strike != null ? '$' + o.strike : '\u2014') + '</td>' +
+        '<td>' + esc(o.expiry || '\u2014') + '</td>' +
+        '<td>' + (o.delta != null ? o.delta.toFixed(2) : '\u2014') + '</td>' +
+        '<td>' + esc(o.suggestion || '\u2014') + '</td>' +
+      '</tr>';
+    }).join('');
+    $('stocks-options-tbody').innerHTML = rows;
+  }
+}
+
 // ── Auto-refresh ─────────────────────────────────────────────────────────────
 async function refresh() {
   await fetchSnapshot();
+  await fetchStockscout();
   startCountdown();
   setTimeout(refresh, REFRESH_INTERVAL);
 }
