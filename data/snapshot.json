@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-03-25T18:24:33Z",
+  "updated_at": "2026-03-25T18:24:54Z",
   "equity": 152466.52,
-  "daily_pnl": -17.22,
+  "daily_pnl": -27.33,
   "halted": false,
   "rth": true,
   "ws_connected": true,
@@ -10,21 +10,8 @@
   "market_closed": false,
   "strategy_version": "v3.0",
   "ml_version": "live",
-  "in_trade": true,
-  "open_positions": [
-    {
-      "symbol": "MYMM6",
-      "side": "SHORT",
-      "contracts": 3,
-      "entry_price": 46786,
-      "current_price": 46774,
-      "unrealized_pnl": 18.0,
-      "sl_price": 46814.0,
-      "tp_price": 46748.0,
-      "phase": "Ph2.5_IB",
-      "entry_time": "2026-03-25T14:23:56.007506-04:00"
-    }
-  ],
+  "in_trade": false,
+  "open_positions": [],
   "todays_trades": [
     {
       "symbol": "MYMM6",
@@ -59,13 +46,30 @@
       "sl_price": 2558.0,
       "tp_price": 2551.3,
       "signal_type": ""
+    },
+    {
+      "symbol": "MYMM6",
+      "side": "SHORT",
+      "contracts": 3,
+      "entry_price": 46786,
+      "exit_price": 46788.0,
+      "pnl": -10.11,
+      "r_multiple": null,
+      "ml_prob": null,
+      "phase": "ORB_TREND",
+      "entry_time": "2026-03-25T14:24:54.672643-04:00",
+      "exit_time": "2026-03-25T14:24:54.672643-04:00",
+      "exit_reason": "VWAP_thesis_fail",
+      "sl_price": 46814.0,
+      "tp_price": 46748.0,
+      "signal_type": ""
     }
   ],
   "trade_stats": {
     "wins": 0,
-    "losses": 2,
+    "losses": 3,
     "wr": 0.0,
-    "net_pnl": -17.22,
+    "net_pnl": -27.33,
     "profit_factor": 0.0,
     "avg_r": 0.0
   },
@@ -342,60 +346,60 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 24434.5,
-      "atr": 10.892857142857142,
+      "price": 24439.5,
+      "atr": 11.089285714285714,
       "adx": 24.682702122142434,
-      "rsi": 50.568583458928465,
+      "rsi": 53.57166288211405,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6653.5,
-      "atr": 2.767857142857143,
+      "price": 6655.0,
+      "atr": 2.8035714285714284,
       "adx": 21.303937650881334,
-      "rsi": 44.895519809265686,
+      "rsi": 48.72307488254239,
       "group": "EQUITY"
     },
     "MYMM6": {
-      "in_trade": true,
+      "in_trade": false,
       "trades_today": 2,
       "halted": false,
-      "price": 46774,
-      "atr": 18.571428571428573,
+      "price": 46786,
+      "atr": 19.0,
       "adx": 26.734945765375038,
-      "rsi": 43.91061333802613,
+      "rsi": 48.25081262172409,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 2553.3,
-      "atr": 1.400000000000026,
+      "price": 2554.6,
+      "atr": 1.4428571428571948,
       "adx": 23.693128519280744,
-      "rsi": 48.32018849463457,
+      "rsi": 54.09449015889713,
       "group": "EQUITY"
     },
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 4550.4,
-      "atr": 3.2928571428572986,
-      "adx": 9.696865365716533,
-      "rsi": 50.78416797717649,
+      "price": 4552.8,
+      "atr": 3.3714285714286882,
+      "adx": 9.856381506578911,
+      "rsi": 56.1778424066088,
       "group": "METALS"
     },
     "SILK6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 72.54,
+      "price": 72.57,
       "atr": 0.09392857142857126,
       "adx": 15.095891977263758,
-      "rsi": 48.246383695212955,
+      "rsi": 50.52696237644923,
       "group": "METALS"
     },
     "MHGK6": {
@@ -412,20 +416,20 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 90.02,
+      "price": 89.99,
       "atr": 0.1821428571428549,
       "adx": 42.33167779708361,
-      "rsi": 38.937195644076816,
+      "rsi": 37.770274121855586,
       "group": "ENERGY"
     },
     "MNGJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2.913,
+      "price": 2.911,
       "atr": 0.002928571428571455,
       "adx": 16.708948036900626,
-      "rsi": 40.031097851446376,
+      "rsi": 37.46819762705374,
       "group": "ENERGY"
     }
   },
@@ -491,7 +495,7 @@
     ],
     "sharpe": 19.442,
     "promoted_at": "2026-03-10T21:48:57.840473-04:00",
-    "live_trades": 26,
+    "live_trades": 27,
     "min_live_trades": 200,
     "observe_only": true,
     "v9": {
