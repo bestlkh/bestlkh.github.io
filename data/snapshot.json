@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-03-27T21:36:26Z",
-  "equity": 152756.57,
+  "updated_at": "2026-03-27T21:41:27Z",
+  "equity": 0.0,
   "daily_pnl": -41.61,
-  "halted": false,
+  "halted": true,
   "rth": false,
-  "ws_connected": true,
+  "ws_connected": false,
   "dry_run": false,
   "session_type": "MARKET_CLOSED",
   "market_closed": true,
@@ -396,7 +396,7 @@
     "MNQM6": {
       "in_trade": false,
       "trades_today": 0,
-      "halted": false,
+      "halted": true,
       "price": 23254.0,
       "atr": 8.214285714285714,
       "adx": 10.389759625693939,
@@ -406,7 +406,7 @@
     "MESM6": {
       "in_trade": false,
       "trades_today": 0,
-      "halted": false,
+      "halted": true,
       "price": 6398.0,
       "atr": 1.8571428571428572,
       "adx": 11.240351724779028,
@@ -416,7 +416,7 @@
     "MYMM6": {
       "in_trade": false,
       "trades_today": 3,
-      "halted": false,
+      "halted": true,
       "price": 45309,
       "atr": 9.857142857142858,
       "adx": 10.91151202926233,
@@ -426,7 +426,7 @@
     "M2KM6": {
       "in_trade": false,
       "trades_today": 0,
-      "halted": false,
+      "halted": true,
       "price": 2456.3,
       "atr": 0.8071428571428702,
       "adx": 10.357380600236993,
@@ -436,7 +436,7 @@
     "MGCJ6": {
       "in_trade": false,
       "trades_today": 0,
-      "halted": false,
+      "halted": true,
       "price": 4489.0,
       "atr": 2.4714285714285325,
       "adx": 30.648662635283618,
@@ -446,7 +446,7 @@
     "SILK6": {
       "in_trade": false,
       "trades_today": 0,
-      "halted": false,
+      "halted": true,
       "price": 69.77,
       "atr": 0.06999999999999826,
       "adx": 29.529429379313907,
@@ -456,7 +456,7 @@
     "MHGK6": {
       "in_trade": false,
       "trades_today": 0,
-      "halted": false,
+      "halted": true,
       "price": 5.4565,
       "atr": 0.004250000000000246,
       "adx": 21.16360054207367,
@@ -466,7 +466,7 @@
     "MCLJ6": {
       "in_trade": false,
       "trades_today": 0,
-      "halted": false,
+      "halted": true,
       "price": 101.38,
       "atr": 0.18999999999999875,
       "adx": 21.964076505064245,
@@ -476,7 +476,7 @@
     "MNGJ6": {
       "in_trade": false,
       "trades_today": 0,
-      "halted": false,
+      "halted": true,
       "price": 3.041,
       "atr": 0.009928571428571445,
       "adx": 14.62733542024459,
