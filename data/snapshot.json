@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-28T01:52:44Z",
+  "updated_at": "2026-03-28T01:57:46Z",
   "equity": 152756.57,
   "daily_pnl": 0.0,
   "halted": false,
@@ -452,71 +452,71 @@
       "wf_wr": 0.6662,
       "wf_pf": 1.9955,
       "wf_n_folds": 14,
-      "holdout_auc": 0.6091,
-      "meta_val_auc": 0.8155,
+      "holdout_auc": 0.6301,
+      "meta_val_auc": 0.8095,
       "threshold_table": [
         {
           "threshold": 0.4,
-          "n_trades": 19866,
-          "wr": 0.518,
-          "pf": 1.0746,
-          "sharpe": 0.5709
+          "n_trades": 18127,
+          "wr": 0.5367,
+          "pf": 1.1585,
+          "sharpe": 1.1688
         },
         {
           "threshold": 0.45,
-          "n_trades": 16986,
-          "wr": 0.5279,
-          "pf": 1.1182,
-          "sharpe": 0.8873
+          "n_trades": 16496,
+          "wr": 0.5474,
+          "pf": 1.2095,
+          "sharpe": 1.5119
         },
         {
           "threshold": 0.5,
-          "n_trades": 13364,
-          "wr": 0.5562,
-          "pf": 1.2532,
-          "sharpe": 1.7955
+          "n_trades": 13244,
+          "wr": 0.5703,
+          "pf": 1.3272,
+          "sharpe": 2.2542
         },
         {
           "threshold": 0.55,
-          "n_trades": 12571,
-          "wr": 0.5639,
-          "pf": 1.2931,
-          "sharpe": 2.0461
+          "n_trades": 11817,
+          "wr": 0.587,
+          "pf": 1.4215,
+          "sharpe": 2.8061
         },
         {
           "threshold": 0.6,
-          "n_trades": 10708,
-          "wr": 0.5692,
-          "pf": 1.3213,
-          "sharpe": 2.2184
+          "n_trades": 10701,
+          "wr": 0.5935,
+          "pf": 1.46,
+          "sharpe": 3.0217
         },
         {
           "threshold": 0.65,
-          "n_trades": 8944,
-          "wr": 0.5881,
-          "pf": 1.4278,
-          "sharpe": 2.8417
+          "n_trades": 8373,
+          "wr": 0.6109,
+          "pf": 1.57,
+          "sharpe": 3.6106
         },
         {
           "threshold": 0.7,
-          "n_trades": 5822,
-          "wr": 0.6314,
-          "pf": 1.713,
-          "sharpe": 4.3237
+          "n_trades": 6604,
+          "wr": 0.6337,
+          "pf": 1.7301,
+          "sharpe": 4.4055
         },
         {
           "threshold": 0.75,
-          "n_trades": 4132,
-          "wr": 0.6522,
-          "pf": 1.8754,
-          "sharpe": 5.0739
+          "n_trades": 4453,
+          "wr": 0.6652,
+          "pf": 1.9866,
+          "sharpe": 5.5559
         },
         {
           "threshold": 0.8,
-          "n_trades": 2971,
-          "wr": 0.6799,
-          "pf": 2.1241,
-          "sharpe": 6.1218
+          "n_trades": 2908,
+          "wr": 0.6939,
+          "pf": 2.2674,
+          "sharpe": 6.6807
         }
       ],
       "folds": [
@@ -2477,7 +2477,7 @@
     }
   ],
   "training": {
-    "running": true,
+    "running": false,
     "stage": "",
     "pct": 0,
     "log_tail": []
