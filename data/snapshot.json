@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-29T20:10:01Z",
+  "updated_at": "2026-03-29T20:15:02Z",
   "equity": 152756.57,
   "daily_pnl": 0.0,
   "halted": false,
@@ -294,10 +294,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 23254.0,
+      "price": 23255.0,
       "atr": 8.214285714285714,
       "adx": 10.389759625693939,
-      "rsi": 41.87968442535014,
+      "rsi": 42.553056482102235,
       "group": "EQUITY"
     },
     "MESM6": {
@@ -314,10 +314,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 45309,
+      "price": 45308,
       "atr": 9.857142857142858,
       "adx": 10.91151202926233,
-      "rsi": 43.39954102893986,
+      "rsi": 42.77106618987418,
       "group": "EQUITY"
     },
     "M2KM6": {
@@ -334,20 +334,20 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 4489.0,
-      "atr": 2.4714285714285325,
-      "adx": 30.648662635283618,
-      "rsi": 33.2531578306271,
+      "price": 4522.5,
+      "atr": 4.7214285714285325,
+      "adx": 31.616197506236574,
+      "rsi": 74.18408684868058,
       "group": "METALS"
     },
     "SILK6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 69.77,
+      "price": 69.76,
       "atr": 0.06999999999999826,
       "adx": 29.529429379313907,
-      "rsi": 39.22556251269492,
+      "rsi": 37.926130755696576,
       "group": "METALS"
     },
     "MHGK6": {
@@ -374,10 +374,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 3.041,
-      "atr": 0.009928571428571445,
+      "price": 3.031,
+      "atr": 0.01057142857142858,
       "adx": 14.62733542024459,
-      "rsi": 61.274582791625335,
+      "rsi": 52.48754961972452,
       "group": "ENERGY"
     }
   },
