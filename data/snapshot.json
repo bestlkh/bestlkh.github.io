@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-30T21:02:28Z",
+  "updated_at": "2026-03-30T21:07:30Z",
   "equity": 152754.58,
   "daily_pnl": 0.0,
   "halted": false,
@@ -334,10 +334,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 4540.4,
+      "price": 4540.7,
       "atr": 1.7357142857141687,
       "adx": 23.952340485020066,
-      "rsi": 67.68591356565297,
+      "rsi": 68.79213809460111,
       "group": "METALS"
     },
     "SILK6": {
@@ -364,10 +364,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 105.02,
+      "price": 104.99,
       "atr": 0.12214285714285873,
       "adx": 21.1600504265696,
-      "rsi": 50.67837722284092,
+      "rsi": 48.86423343617627,
       "group": "ENERGY"
     },
     "MNGJ6": {
