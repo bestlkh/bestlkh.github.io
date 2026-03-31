@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-31T21:19:15Z",
+  "updated_at": "2026-03-31T21:24:17Z",
   "equity": 152352.52,
   "daily_pnl": -398.28,
   "halted": false,
@@ -366,20 +366,20 @@
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 46560,
+      "price": 46563,
       "atr": 9.357142857142858,
       "adx": 24.857863802573497,
-      "rsi": 40.00827785975128,
+      "rsi": 42.191049150083586,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 2511.2,
+      "price": 2511.1,
       "atr": 0.9142857142857922,
       "adx": 24.22911548001878,
-      "rsi": 44.5050005489001,
+      "rsi": 43.679966836917245,
       "group": "EQUITY"
     },
     "MGCM6": {
@@ -416,10 +416,10 @@
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 101.55,
+      "price": 101.52,
       "atr": 0.16000000000000064,
       "adx": 17.06878661857056,
-      "rsi": 52.09319782809069,
+      "rsi": 50.4714748767467,
       "group": "ENERGY"
     },
     "MNGK6": {
