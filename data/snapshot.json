@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-01T04:00:04Z",
+  "updated_at": "2026-04-01T04:00:06Z",
   "equity": 152352.52,
   "daily_pnl": 0.0,
   "halted": false,
@@ -17,8 +17,8 @@
       "side": "SHORT",
       "contracts": 3,
       "entry_price": 4707.7,
-      "current_price": 4707.4,
-      "unrealized_pnl": 9.0,
+      "current_price": 4707.9,
+      "unrealized_pnl": -6.0,
       "sl_price": 4737.7,
       "tp_price": 4660.3,
       "phase": "ASIAN_CONT",
@@ -27,14 +27,14 @@
     {
       "symbol": "MNGK6",
       "side": "LONG",
-      "contracts": 1,
-      "entry_price": null,
-      "current_price": 2.886,
-      "unrealized_pnl": 0.0,
-      "sl_price": null,
-      "tp_price": null,
+      "contracts": 3,
+      "entry_price": 2.886,
+      "current_price": 2.887,
+      "unrealized_pnl": 3.0,
+      "sl_price": 2.856,
+      "tp_price": 2.928,
       "phase": "ASIAN_CONT",
-      "entry_time": "2026-04-01T04:00:04Z"
+      "entry_time": "2026-04-01T00:00:04.161935-04:00"
     }
   ],
   "todays_trades": [],
@@ -319,20 +319,20 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 23984.5,
-      "atr": 4.910714285714286,
-      "adx": 17.185263250935748,
-      "rsi": 53.34061354104499,
+      "price": 23985.75,
+      "atr": 5.035714285714286,
+      "adx": 17.540012807837478,
+      "rsi": 55.222254546446436,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6581.25,
-      "atr": 1.0357142857142858,
-      "adx": 13.438051160932648,
-      "rsi": 53.19795493989226,
+      "price": 6581.5,
+      "atr": 1.0535714285714286,
+      "adx": 13.135785000035304,
+      "rsi": 54.89412661074061,
       "group": "EQUITY"
     },
     "MYMM6": {
@@ -359,10 +359,10 @@
       "in_trade": true,
       "trades_today": 1,
       "halted": false,
-      "price": 4707.4,
+      "price": 4707.9,
       "atr": 2.1642857142855974,
       "adx": 27.730397362839728,
-      "rsi": 40.971069229678186,
+      "rsi": 42.274516682141225,
       "group": "METALS"
     },
     "SILK6": {
@@ -399,10 +399,10 @@
       "in_trade": true,
       "trades_today": 1,
       "halted": false,
-      "price": 2.886,
+      "price": 2.887,
       "atr": 0.001357142857142803,
       "adx": 18.781432229772317,
-      "rsi": 59.32834325943843,
+      "rsi": 62.182312352747246,
       "group": "ENERGY"
     }
   },
