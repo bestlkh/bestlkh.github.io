@@ -1,30 +1,17 @@
 {
-  "updated_at": "2026-04-01T05:11:00Z",
+  "updated_at": "2026-04-01T05:11:23Z",
   "equity": 0.0,
-  "daily_pnl": 51.0,
+  "daily_pnl": 69.0,
   "halted": false,
   "rth": false,
-  "ws_connected": true,
+  "ws_connected": false,
   "dry_run": false,
   "session_type": "LONDON_ORB",
   "market_closed": false,
   "strategy_version": "v3.0",
   "ml_version": "live",
-  "in_trade": true,
-  "open_positions": [
-    {
-      "symbol": "MNGK6",
-      "side": "LONG",
-      "contracts": 3,
-      "entry_price": 2.886,
-      "current_price": 2.892,
-      "unrealized_pnl": 18.0,
-      "sl_price": 2.856,
-      "tp_price": 2.928,
-      "phase": "ASIAN_CONT",
-      "entry_time": "2026-04-01T00:00:04.161935-04:00"
-    }
-  ],
+  "in_trade": false,
+  "open_positions": [],
   "todays_trades": [
     {
       "symbol": "MGCM6",
@@ -42,14 +29,31 @@
       "sl_price": 4737.7,
       "tp_price": 4660.3,
       "signal_type": ""
+    },
+    {
+      "symbol": "MNGK6",
+      "side": "LONG",
+      "contracts": 3,
+      "entry_price": 2.886,
+      "exit_price": 2.892,
+      "pnl": 18.0,
+      "r_multiple": null,
+      "ml_prob": null,
+      "phase": "OVERNIGHT",
+      "entry_time": "2026-04-01T01:11:16.288766-04:00",
+      "exit_time": "2026-04-01T01:11:16.288766-04:00",
+      "exit_reason": "win",
+      "sl_price": 2.856,
+      "tp_price": 2.928,
+      "signal_type": ""
     }
   ],
   "trade_stats": {
-    "wins": 1,
+    "wins": 2,
     "losses": 0,
     "wr": 1.0,
-    "net_pnl": 51.0,
-    "profit_factor": 5100.0,
+    "net_pnl": 69.0,
+    "profit_factor": 6900.0,
     "avg_r": 0.0
   },
   "prev_sessions": [
@@ -402,7 +406,7 @@
       "group": "ENERGY"
     },
     "MNGK6": {
-      "in_trade": true,
+      "in_trade": false,
       "trades_today": 1,
       "halted": false,
       "price": 2.892,
