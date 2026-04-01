@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-04-01T05:10:29Z",
+  "updated_at": "2026-04-01T05:11:00Z",
   "equity": 0.0,
-  "daily_pnl": 0.0,
+  "daily_pnl": 51.0,
   "halted": false,
   "rth": false,
   "ws_connected": true,
@@ -12,18 +12,6 @@
   "ml_version": "live",
   "in_trade": true,
   "open_positions": [
-    {
-      "symbol": "MGCM6",
-      "side": "SHORT",
-      "contracts": 3,
-      "entry_price": 4707.7,
-      "current_price": 4706.0,
-      "unrealized_pnl": 51.0,
-      "sl_price": 4737.7,
-      "tp_price": 4660.3,
-      "phase": "ASIAN_CONT",
-      "entry_time": "2026-04-01T00:00:01.001010-04:00"
-    },
     {
       "symbol": "MNGK6",
       "side": "LONG",
@@ -37,13 +25,31 @@
       "entry_time": "2026-04-01T00:00:04.161935-04:00"
     }
   ],
-  "todays_trades": [],
+  "todays_trades": [
+    {
+      "symbol": "MGCM6",
+      "side": "SHORT",
+      "contracts": 3,
+      "entry_price": 4707.7,
+      "exit_price": 4706.0,
+      "pnl": 51.0,
+      "r_multiple": null,
+      "ml_prob": null,
+      "phase": "OVERNIGHT",
+      "entry_time": "2026-04-01T01:10:33.512854-04:00",
+      "exit_time": "2026-04-01T01:10:33.512854-04:00",
+      "exit_reason": "win",
+      "sl_price": 4737.7,
+      "tp_price": 4660.3,
+      "signal_type": ""
+    }
+  ],
   "trade_stats": {
-    "wins": 0,
+    "wins": 1,
     "losses": 0,
-    "wr": 0.0,
-    "net_pnl": 0,
-    "profit_factor": 0.0,
+    "wr": 1.0,
+    "net_pnl": 51.0,
+    "profit_factor": 5100.0,
     "avg_r": 0.0
   },
   "prev_sessions": [
@@ -356,7 +362,7 @@
       "group": "EQUITY"
     },
     "MGCM6": {
-      "in_trade": true,
+      "in_trade": false,
       "trades_today": 1,
       "halted": false,
       "price": 4706.0,
