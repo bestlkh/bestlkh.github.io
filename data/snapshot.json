@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-04-01T08:57:42Z",
+  "updated_at": "2026-04-01T08:57:58Z",
   "equity": 151350.52,
-  "daily_pnl": 69.0,
+  "daily_pnl": -673.56,
   "halted": false,
   "rth": false,
   "ws_connected": true,
@@ -10,21 +10,8 @@
   "market_closed": false,
   "strategy_version": "v3.0",
   "ml_version": "live",
-  "in_trade": true,
-  "open_positions": [
-    {
-      "symbol": "MCLK6",
-      "side": "SHORT",
-      "contracts": 3,
-      "entry_price": 96.54,
-      "current_price": 98.32,
-      "unrealized_pnl": -534.0,
-      "sl_price": 99.54,
-      "tp_price": 89.49,
-      "phase": "LONDON_ORB",
-      "entry_time": "2026-04-01T03:42:55.123800-04:00"
-    }
-  ],
+  "in_trade": false,
+  "open_positions": [],
   "todays_trades": [
     {
       "symbol": "MGCM6",
@@ -59,14 +46,31 @@
       "sl_price": 2.856,
       "tp_price": 2.928,
       "signal_type": ""
+    },
+    {
+      "symbol": "MCLK6",
+      "side": "SHORT",
+      "contracts": 3,
+      "entry_price": 96.54,
+      "exit_price": 99.07,
+      "pnl": -742.56,
+      "r_multiple": null,
+      "ml_prob": null,
+      "phase": "OVERNIGHT",
+      "entry_time": "2026-04-01T04:57:58.036673-04:00",
+      "exit_time": "2026-04-01T04:57:58.036673-04:00",
+      "exit_reason": "TIME_EXIT",
+      "sl_price": 99.54,
+      "tp_price": 89.49,
+      "signal_type": ""
     }
   ],
   "trade_stats": {
     "wins": 2,
-    "losses": 0,
-    "wr": 1.0,
-    "net_pnl": 69.0,
-    "profit_factor": 6900.0,
+    "losses": 1,
+    "wr": 0.6667,
+    "net_pnl": -673.56,
+    "profit_factor": 0.093,
     "avg_r": 0.0
   },
   "prev_sessions": [
@@ -409,7 +413,7 @@
       "group": "METALS"
     },
     "MCLK6": {
-      "in_trade": true,
+      "in_trade": false,
       "trades_today": 1,
       "halted": false,
       "price": 98.32,
@@ -491,7 +495,7 @@
     ],
     "sharpe": 19.442,
     "promoted_at": "2026-03-10T21:48:57.840473-04:00",
-    "live_trades": 29,
+    "live_trades": 30,
     "min_live_trades": 200,
     "observe_only": true,
     "v9": {
