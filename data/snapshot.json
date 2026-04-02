@@ -1,17 +1,42 @@
 {
-  "updated_at": "2026-04-02T03:57:55Z",
+  "updated_at": "2026-04-02T04:00:04Z",
   "equity": 150607.96,
   "daily_pnl": 0.0,
   "halted": false,
   "rth": false,
   "ws_connected": true,
   "dry_run": false,
-  "session_type": "ASIAN_CONT",
+  "session_type": "LONDON_ORB",
   "market_closed": false,
   "strategy_version": "v3.0",
   "ml_version": "live",
-  "in_trade": false,
-  "open_positions": [],
+  "in_trade": true,
+  "open_positions": [
+    {
+      "symbol": "MGCM6",
+      "side": "SHORT",
+      "contracts": 3,
+      "entry_price": 4748.2,
+      "current_price": 4748.2,
+      "unrealized_pnl": -0.0,
+      "sl_price": 4778.2,
+      "tp_price": 4700.8,
+      "phase": "ASIAN_CONT",
+      "entry_time": "2026-04-02T00:00:01.338840-04:00"
+    },
+    {
+      "symbol": "MNGK6",
+      "side": "LONG",
+      "contracts": 3,
+      "entry_price": null,
+      "current_price": 2.878,
+      "unrealized_pnl": 0.0,
+      "sl_price": null,
+      "tp_price": null,
+      "phase": "ASIAN_CONT",
+      "entry_time": "2026-04-02T04:00:04Z"
+    }
+  ],
   "todays_trades": [],
   "trade_stats": {
     "wins": 0,
@@ -348,8 +373,8 @@
       "group": "EQUITY"
     },
     "MGCM6": {
-      "in_trade": false,
-      "trades_today": 0,
+      "in_trade": true,
+      "trades_today": 1,
       "halted": false,
       "price": 4748.2,
       "atr": 5.421428571428611,
@@ -388,8 +413,8 @@
       "group": "ENERGY"
     },
     "MNGK6": {
-      "in_trade": false,
-      "trades_today": 0,
+      "in_trade": true,
+      "trades_today": 1,
       "halted": false,
       "price": 2.878,
       "atr": 0.003785714285714281,
