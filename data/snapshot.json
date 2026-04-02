@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-04-02T21:58:05Z",
+  "updated_at": "2026-04-02T22:03:07Z",
   "equity": 150732.52,
-  "daily_pnl": 128.28,
+  "daily_pnl": 0.0,
   "halted": false,
   "rth": false,
   "ws_connected": true,
@@ -12,51 +12,59 @@
   "ml_version": "live",
   "in_trade": false,
   "open_positions": [],
-  "todays_trades": [
-    {
-      "symbol": "MGCM6",
-      "side": "SHORT",
-      "contracts": 3,
-      "entry_price": 4748.2,
-      "exit_price": 4700.8,
-      "pnl": 100.14,
-      "r_multiple": null,
-      "ml_prob": null,
-      "phase": "OVERNIGHT",
-      "entry_time": "2026-04-02T00:05:45.899008-04:00",
-      "exit_time": "2026-04-02T00:05:45.899008-04:00",
-      "exit_reason": "win",
-      "sl_price": 4778.2,
-      "tp_price": 4700.8,
-      "signal_type": ""
-    },
-    {
-      "symbol": "MNGK6",
-      "side": "LONG",
-      "contracts": 3,
-      "entry_price": 2.878,
-      "exit_price": 2.874,
-      "pnl": 28.14,
-      "r_multiple": null,
-      "ml_prob": null,
-      "phase": "OVERNIGHT",
-      "entry_time": "2026-04-02T01:15:07.429986-04:00",
-      "exit_time": "2026-04-02T01:15:07.429986-04:00",
-      "exit_reason": "TIME_EXIT",
-      "sl_price": 2.848,
-      "tp_price": 2.92,
-      "signal_type": ""
-    }
-  ],
+  "todays_trades": [],
   "trade_stats": {
-    "wins": 2,
+    "wins": 0,
     "losses": 0,
-    "wr": 1.0,
-    "net_pnl": 128.28,
-    "profit_factor": 12828.0,
+    "wr": 0.0,
+    "net_pnl": 0,
+    "profit_factor": 0.0,
     "avg_r": 0.0
   },
   "prev_sessions": [
+    {
+      "date": "2026-04-02",
+      "wins": 2,
+      "losses": 0,
+      "net_pnl": 128.28,
+      "wr": 1.0,
+      "trades": [
+        {
+          "symbol": "MGCM6",
+          "side": "SHORT",
+          "contracts": 3,
+          "entry_price": 4748.2,
+          "exit_price": 4700.8,
+          "sl_price": 4778.2,
+          "tp_price": 4700.8,
+          "pnl": 100.14,
+          "r_multiple": null,
+          "ml_prob": null,
+          "phase": "OVERNIGHT",
+          "signal_type": "",
+          "entry_time": "2026-04-02T00:05:45.899008-04:00",
+          "exit_time": "2026-04-02T00:05:45.899008-04:00",
+          "exit_reason": "win"
+        },
+        {
+          "symbol": "MNGK6",
+          "side": "LONG",
+          "contracts": 3,
+          "entry_price": 2.878,
+          "exit_price": 2.874,
+          "sl_price": 2.848,
+          "tp_price": 2.92,
+          "pnl": 28.14,
+          "r_multiple": null,
+          "ml_prob": null,
+          "phase": "OVERNIGHT",
+          "signal_type": "",
+          "entry_time": "2026-04-02T01:15:07.429986-04:00",
+          "exit_time": "2026-04-02T01:15:07.429986-04:00",
+          "exit_reason": "TIME_EXIT"
+        }
+      ]
+    },
     {
       "date": "2026-04-01",
       "wins": 2,
@@ -262,83 +270,6 @@
           "exit_reason": "win"
         }
       ]
-    },
-    {
-      "date": "2026-03-25",
-      "wins": 0,
-      "losses": 4,
-      "net_pnl": -32.2,
-      "wr": 0.0,
-      "trades": [
-        {
-          "symbol": "MYMM6",
-          "side": "SHORT",
-          "contracts": 3,
-          "entry_price": 46803,
-          "exit_price": 46806.0,
-          "sl_price": 46841.0,
-          "tp_price": 46751.0,
-          "pnl": -10.11,
-          "r_multiple": null,
-          "ml_prob": null,
-          "phase": "ORB_TREND",
-          "signal_type": "",
-          "entry_time": "2026-03-25T13:48:03.749841-04:00",
-          "exit_time": "2026-03-25T13:48:03.749841-04:00",
-          "exit_reason": "VWAP_thesis_fail"
-        },
-        {
-          "symbol": "M2KM6",
-          "side": "SHORT",
-          "contracts": 3,
-          "entry_price": 2555.1,
-          "exit_price": 2555.3,
-          "sl_price": 2558.0,
-          "tp_price": 2551.3,
-          "pnl": -7.11,
-          "r_multiple": null,
-          "ml_prob": null,
-          "phase": "ORB_TREND",
-          "signal_type": "",
-          "entry_time": "2026-03-25T13:48:06.144435-04:00",
-          "exit_time": "2026-03-25T13:48:06.144435-04:00",
-          "exit_reason": "VWAP_thesis_fail"
-        },
-        {
-          "symbol": "MYMM6",
-          "side": "SHORT",
-          "contracts": 3,
-          "entry_price": 46786,
-          "exit_price": 46788.0,
-          "sl_price": 46814.0,
-          "tp_price": 46748.0,
-          "pnl": -10.11,
-          "r_multiple": null,
-          "ml_prob": null,
-          "phase": "ORB_TREND",
-          "signal_type": "",
-          "entry_time": "2026-03-25T14:24:54.672643-04:00",
-          "exit_time": "2026-03-25T14:24:54.672643-04:00",
-          "exit_reason": "VWAP_thesis_fail"
-        },
-        {
-          "symbol": "M2KM6",
-          "side": "SHORT",
-          "contracts": 1,
-          "entry_price": 2551.3,
-          "exit_price": 2552.0,
-          "sl_price": 2553.6,
-          "tp_price": 2548.3,
-          "pnl": -4.87,
-          "r_multiple": null,
-          "ml_prob": null,
-          "phase": "ORB_TREND",
-          "signal_type": "",
-          "entry_time": "2026-03-25T14:29:02.992493-04:00",
-          "exit_time": "2026-03-25T14:29:02.992493-04:00",
-          "exit_reason": "VWAP_thesis_fail"
-        }
-      ]
     }
   ],
   "instruments": {
@@ -384,7 +315,7 @@
     },
     "MGCM6": {
       "in_trade": false,
-      "trades_today": 1,
+      "trades_today": 0,
       "halted": false,
       "price": 4748.2,
       "atr": 5.421428571428611,
@@ -424,7 +355,7 @@
     },
     "MNGK6": {
       "in_trade": false,
-      "trades_today": 1,
+      "trades_today": 0,
       "halted": false,
       "price": 2.878,
       "atr": 0.003785714285714281,
