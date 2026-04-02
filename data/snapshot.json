@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-02T04:00:04Z",
+  "updated_at": "2026-04-02T04:00:07Z",
   "equity": 150607.96,
   "daily_pnl": 0.0,
   "halted": false,
@@ -28,13 +28,13 @@
       "symbol": "MNGK6",
       "side": "LONG",
       "contracts": 3,
-      "entry_price": null,
+      "entry_price": 2.878,
       "current_price": 2.878,
       "unrealized_pnl": 0.0,
-      "sl_price": null,
-      "tp_price": null,
+      "sl_price": 2.848,
+      "tp_price": 2.92,
       "phase": "ASIAN_CONT",
-      "entry_time": "2026-04-02T04:00:04Z"
+      "entry_time": "2026-04-02T00:00:04.784745-04:00"
     }
   ],
   "todays_trades": [],
