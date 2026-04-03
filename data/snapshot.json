@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-03T03:59:43Z",
+  "updated_at": "2026-04-03T04:04:44Z",
   "equity": 150732.52,
   "daily_pnl": 0.0,
   "halted": false,
   "rth": false,
   "ws_connected": true,
   "dry_run": false,
-  "session_type": "ASIAN_CONT",
+  "session_type": "LONDON_ORB",
   "market_closed": false,
   "strategy_version": "v3.0",
   "ml_version": "live",
@@ -313,16 +313,6 @@
       "rsi": 29.998020576783517,
       "group": "EQUITY"
     },
-    "MGCM6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 4748.2,
-      "atr": 5.421428571428611,
-      "adx": 18.75868557278773,
-      "rsi": 51.05567275521742,
-      "group": "METALS"
-    },
     "SILK6": {
       "in_trade": false,
       "trades_today": 0,
@@ -351,16 +341,6 @@
       "atr": 0.22214285714285914,
       "adx": 35.58152113282186,
       "rsi": 63.630372596344316,
-      "group": "ENERGY"
-    },
-    "MNGK6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 2.878,
-      "atr": 0.003785714285714281,
-      "adx": 24.663004945167362,
-      "rsi": 59.976118495728215,
       "group": "ENERGY"
     }
   },
