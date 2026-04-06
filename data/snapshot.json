@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-06T18:46:06Z",
+  "updated_at": "2026-04-06T18:46:37Z",
   "equity": 151756.68,
   "daily_pnl": 901.86,
   "halted": false,
@@ -529,40 +529,40 @@
       "in_trade": false,
       "trades_today": 5,
       "halted": false,
-      "price": 24343.0,
+      "price": 24340.25,
       "atr": 9.142857142857142,
       "adx": 30.927956891185634,
-      "rsi": 58.60917373854392,
+      "rsi": 56.902412872008135,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 5,
       "halted": false,
-      "price": 6644.5,
-      "atr": 2.267857142857143,
+      "price": 6643.75,
+      "atr": 2.3035714285714284,
       "adx": 24.47131765552805,
-      "rsi": 55.64472102156373,
+      "rsi": 53.1748183977004,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 4,
       "halted": false,
-      "price": 2557.5,
-      "atr": 1.1785714285714934,
+      "price": 2557.4,
+      "atr": 1.1857142857143768,
       "adx": 28.127749465307122,
-      "rsi": 54.905312028161475,
+      "rsi": 54.429767838346436,
       "group": "EQUITY"
     },
     "MGCM6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 4678.8,
-      "atr": 2.0928571428572207,
+      "price": 4678.0,
+      "atr": 2.1357142857143248,
       "adx": 32.91120672234261,
-      "rsi": 37.4684641201906,
+      "rsi": 35.31325965358644,
       "group": "METALS"
     },
     "SILM6": {
@@ -589,10 +589,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 112.32,
-      "atr": 0.17714285714286046,
-      "adx": 22.271328553137273,
-      "rsi": 42.51925244813921,
+      "price": 112.34,
+      "atr": 0.17928571428571768,
+      "adx": 22.271328553137277,
+      "rsi": 43.10880803214358,
       "group": "ENERGY"
     }
   },
