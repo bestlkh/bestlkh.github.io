@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-07T04:28:19Z",
+  "updated_at": "2026-04-07T04:28:51Z",
   "equity": 151751.85,
   "daily_pnl": 0.0,
   "halted": false,
@@ -17,8 +17,8 @@
       "side": "SHORT",
       "contracts": 3,
       "entry_price": 4674.5,
-      "current_price": 4675.2,
-      "unrealized_pnl": -21.0,
+      "current_price": 4675.9,
+      "unrealized_pnl": -42.0,
       "sl_price": 4704.5,
       "tp_price": 4623.9,
       "phase": "ASIAN_CONT",
@@ -477,10 +477,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 24225.5,
-      "atr": 7.517857142857143,
+      "price": 24227.0,
+      "atr": 7.607142857142857,
       "adx": 25.31541723250753,
-      "rsi": 60.463125193879534,
+      "rsi": 62.379699878044676,
       "group": "EQUITY"
     },
     "MESM6": {
@@ -488,7 +488,7 @@
       "trades_today": 0,
       "halted": false,
       "price": 6621.75,
-      "atr": 1.6785714285714286,
+      "atr": 1.7142857142857142,
       "adx": 26.0177040655634,
       "rsi": 57.73709034791881,
       "group": "EQUITY"
@@ -498,8 +498,8 @@
       "trades_today": 0,
       "halted": false,
       "price": 2535.8,
-      "atr": 0.8428571428571884,
-      "adx": 25.16467697385494,
+      "atr": 0.850000000000039,
+      "adx": 25.23929161851574,
       "rsi": 55.195369871659366,
       "group": "EQUITY"
     },
@@ -507,10 +507,10 @@
       "in_trade": true,
       "trades_today": 1,
       "halted": false,
-      "price": 4675.2,
-      "atr": 1.4357142857142466,
-      "adx": 10.406424234622117,
-      "rsi": 56.55115756826551,
+      "price": 4675.9,
+      "atr": 1.4857142857142338,
+      "adx": 10.85639983968012,
+      "rsi": 59.37528697136258,
       "group": "METALS"
     },
     "SILM6": {
@@ -537,10 +537,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 116.2,
-      "atr": 0.11071428571428348,
+      "price": 116.22,
+      "atr": 0.11357142857142577,
       "adx": 30.531763121802747,
-      "rsi": 52.286103449997405,
+      "rsi": 53.5266644631945,
       "group": "ENERGY"
     }
   },
