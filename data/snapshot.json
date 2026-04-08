@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-08T04:32:01Z",
+  "updated_at": "2026-04-08T04:32:33Z",
   "equity": 49998.38,
   "daily_pnl": 0.0,
   "halted": false,
@@ -17,8 +17,8 @@
       "side": "SHORT",
       "contracts": 1,
       "entry_price": 4826.9,
-      "current_price": 4832.4,
-      "unrealized_pnl": -550.0,
+      "current_price": 4832.5,
+      "unrealized_pnl": -560.0,
       "sl_price": 4856.9,
       "tp_price": 4756.1,
       "phase": "ASIAN_CONT",
@@ -579,10 +579,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 25149.5,
-      "atr": 5.964285714285714,
+      "price": 25149.0,
+      "atr": 6.214285714285714,
       "adx": 48.41524117577394,
-      "rsi": 67.49430328667259,
+      "rsi": 66.66292583952296,
       "group": "EQUITY"
     },
     "MESM6": {
@@ -590,9 +590,9 @@
       "trades_today": 0,
       "halted": false,
       "price": 6823.5,
-      "atr": 1.5,
-      "adx": 42.750460801944946,
-      "rsi": 67.2609568272452,
+      "atr": 1.4464285714285714,
+      "adx": 43.200483153505026,
+      "rsi": 67.26095682724521,
       "group": "EQUITY"
     },
     "M2KM6": {
@@ -600,7 +600,7 @@
       "trades_today": 0,
       "halted": false,
       "price": 2652.8,
-      "atr": 0.6000000000000715,
+      "atr": 0.6142857142857727,
       "adx": 40.32415332818872,
       "rsi": 63.24073067334385,
       "group": "EQUITY"
@@ -609,10 +609,10 @@
       "in_trade": true,
       "trades_today": 1,
       "halted": false,
-      "price": 4832.4,
-      "atr": 2.24999999999987,
-      "adx": 22.858801464126707,
-      "rsi": 66.00570422345942,
+      "price": 4832.5,
+      "atr": 2.292857142857039,
+      "adx": 22.79756292768198,
+      "rsi": 66.19039931350477,
       "group": "METALS"
     },
     "SILM6": {
@@ -639,10 +639,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 95.76,
-      "atr": 0.1471428571428573,
-      "adx": 23.23141910035537,
-      "rsi": 34.01908818182925,
+      "price": 95.71,
+      "atr": 0.14285714285714285,
+      "adx": 24.306489348606256,
+      "rsi": 32.415465435397365,
       "group": "ENERGY"
     }
   },
