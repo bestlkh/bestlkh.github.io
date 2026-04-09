@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-09T21:56:17Z",
+  "updated_at": "2026-04-09T22:02:34Z",
   "equity": 47859.36,
   "daily_pnl": -1106.2,
   "halted": true,
@@ -74,6 +74,66 @@
     "avg_r": 0.0
   },
   "prev_sessions": [
+    {
+      "date": "2026-04-09",
+      "wins": 0,
+      "losses": 3,
+      "net_pnl": -1106.2,
+      "wr": 0.0,
+      "trades": [
+        {
+          "symbol": "MNQM6",
+          "side": "SHORT",
+          "contracts": 3,
+          "entry_price": 25098.75,
+          "exit_price": 25098.75,
+          "sl_price": 25124.5,
+          "tp_price": 25034.75,
+          "pnl": -79.2,
+          "r_multiple": null,
+          "ml_prob": null,
+          "phase": "CHART_PATTERN",
+          "signal_type": "",
+          "entry_time": "2026-04-09T09:45:31.164509-04:00",
+          "exit_time": "2026-04-09T09:45:31.164509-04:00",
+          "exit_reason": "VWAP_thesis_fail"
+        },
+        {
+          "symbol": "MNQM6",
+          "side": "LONG",
+          "contracts": 3,
+          "entry_price": 25091.5,
+          "exit_price": 25082.0,
+          "sl_price": 25065.75,
+          "tp_price": 25156.0,
+          "pnl": -724.2,
+          "r_multiple": null,
+          "ml_prob": null,
+          "phase": "CHART_PATTERN",
+          "signal_type": "",
+          "entry_time": "2026-04-09T09:47:05.030902-04:00",
+          "exit_time": "2026-04-09T09:47:05.030902-04:00",
+          "exit_reason": "loss"
+        },
+        {
+          "symbol": "MESM6",
+          "side": "LONG",
+          "contracts": 2,
+          "entry_price": 6819.5,
+          "exit_price": 6816.5,
+          "sl_price": 6815.25,
+          "tp_price": 6829.75,
+          "pnl": -302.8,
+          "r_multiple": null,
+          "ml_prob": null,
+          "phase": "CHART_PATTERN",
+          "signal_type": "",
+          "entry_time": "2026-04-09T09:47:07.647280-04:00",
+          "exit_time": "2026-04-09T09:47:07.647280-04:00",
+          "exit_reason": "loss"
+        }
+      ]
+    },
     {
       "date": "2026-04-08",
       "wins": 0,
@@ -517,66 +577,6 @@
           "exit_reason": "TIME_EXIT"
         }
       ]
-    },
-    {
-      "date": "2026-04-01",
-      "wins": 2,
-      "losses": 1,
-      "net_pnl": -673.56,
-      "wr": 0.6667,
-      "trades": [
-        {
-          "symbol": "MGCM6",
-          "side": "SHORT",
-          "contracts": 3,
-          "entry_price": 4707.7,
-          "exit_price": 4706.0,
-          "sl_price": 4737.7,
-          "tp_price": 4660.3,
-          "pnl": 51.0,
-          "r_multiple": null,
-          "ml_prob": null,
-          "phase": "OVERNIGHT",
-          "signal_type": "",
-          "entry_time": "2026-04-01T01:10:33.512854-04:00",
-          "exit_time": "2026-04-01T01:10:33.512854-04:00",
-          "exit_reason": "win"
-        },
-        {
-          "symbol": "MNGK6",
-          "side": "LONG",
-          "contracts": 3,
-          "entry_price": 2.886,
-          "exit_price": 2.892,
-          "sl_price": 2.856,
-          "tp_price": 2.928,
-          "pnl": 18.0,
-          "r_multiple": null,
-          "ml_prob": null,
-          "phase": "OVERNIGHT",
-          "signal_type": "",
-          "entry_time": "2026-04-01T01:11:16.288766-04:00",
-          "exit_time": "2026-04-01T01:11:16.288766-04:00",
-          "exit_reason": "win"
-        },
-        {
-          "symbol": "MCLK6",
-          "side": "SHORT",
-          "contracts": 3,
-          "entry_price": 96.54,
-          "exit_price": 99.07,
-          "sl_price": 99.54,
-          "tp_price": 89.49,
-          "pnl": -742.56,
-          "r_multiple": null,
-          "ml_prob": null,
-          "phase": "OVERNIGHT",
-          "signal_type": "",
-          "entry_time": "2026-04-01T04:57:58.036673-04:00",
-          "exit_time": "2026-04-01T04:57:58.036673-04:00",
-          "exit_reason": "TIME_EXIT"
-        }
-      ]
     }
   ],
   "instruments": {
@@ -584,30 +584,30 @@
       "in_trade": false,
       "trades_today": 2,
       "halted": true,
-      "price": 25244.75,
-      "atr": 4.392857142857143,
-      "adx": 18.16534068851445,
-      "rsi": 49.58940817367781,
+      "price": 25232.75,
+      "atr": 5.678571428571429,
+      "adx": 22.780907554489286,
+      "rsi": 37.02526863940863,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": true,
-      "price": 6860.75,
-      "atr": 1.1785714285714286,
-      "adx": 16.87663130364898,
-      "rsi": 49.39438360961543,
+      "price": 6858.75,
+      "atr": 1.5357142857142858,
+      "adx": 21.551133712837895,
+      "rsi": 40.6262574997652,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": true,
-      "price": 2650.5,
-      "atr": 0.6071428571427921,
-      "adx": 16.002591708529646,
-      "rsi": 41.24579302811297,
+      "price": 2649.3,
+      "atr": 0.8357142857142402,
+      "adx": 18.88621045326667,
+      "rsi": 34.07563891524988,
       "group": "EQUITY"
     }
   },
