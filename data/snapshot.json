@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-09T00:45:06Z",
+  "updated_at": "2026-04-09T00:49:07Z",
   "equity": 48976.76,
   "daily_pnl": 0.0,
   "halted": false,
@@ -532,71 +532,31 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 25027.25,
-      "atr": 5.803571428571429,
-      "adx": 11.449558634687405,
-      "rsi": 54.912235333697765,
+      "price": 25020.25,
+      "atr": 5.464285714285714,
+      "adx": 13.321042661453808,
+      "rsi": 47.99743028133079,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6816.0,
-      "atr": 1.3214285714285714,
-      "adx": 16.798329194338404,
-      "rsi": 56.660360315245,
+      "price": 6813.75,
+      "atr": 1.1964285714285714,
+      "adx": 16.540398833039475,
+      "rsi": 47.66255322282447,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2634.5,
-      "atr": 0.7928571428571038,
-      "adx": 30.151975954823104,
-      "rsi": 59.58912350833193,
+      "price": 2633.3,
+      "atr": 0.7500000000000325,
+      "adx": 24.877006448322465,
+      "rsi": 50.87869022724877,
       "group": "EQUITY"
-    },
-    "MGCM6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 4741.8,
-      "atr": 2.36428571428574,
-      "adx": 24.56204176240068,
-      "rsi": 65.47492486090965,
-      "group": "METALS"
-    },
-    "SILM6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 245.75,
-      "atr": 0.12321428571428125,
-      "adx": 19.507391383496238,
-      "rsi": 47.075615081236535,
-      "group": "METALS"
-    },
-    "MHGJ6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 2188.5,
-      "atr": 2.25,
-      "adx": 15.269111681543952,
-      "rsi": 43.96569225598528,
-      "group": "METALS"
-    },
-    "MCLK6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 97.16,
-      "atr": 0.08357142857142971,
-      "adx": 12.383520509302473,
-      "rsi": 57.631964657171224,
-      "group": "ENERGY"
     }
   },
   "model": {
