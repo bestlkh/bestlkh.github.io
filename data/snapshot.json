@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-09T21:06:01Z",
+  "updated_at": "2026-04-09T21:11:03Z",
   "equity": 47859.36,
   "daily_pnl": -1106.2,
   "halted": true,
@@ -594,10 +594,10 @@
       "in_trade": false,
       "trades_today": 1,
       "halted": true,
-      "price": 6860.25,
+      "price": 6860.75,
       "atr": 1.1785714285714286,
       "adx": 16.87663130364898,
-      "rsi": 46.751956660180504,
+      "rsi": 49.39438360961543,
       "group": "EQUITY"
     },
     "M2KM6": {
