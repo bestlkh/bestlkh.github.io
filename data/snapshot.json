@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-10T14:40:52Z",
+  "updated_at": "2026-04-10T14:45:54Z",
   "equity": 47695.36,
   "daily_pnl": -67.5,
   "halted": false,
@@ -550,30 +550,30 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 25345.0,
-      "atr": 14.625,
-      "adx": 19.48678769048903,
-      "rsi": 57.46326534227004,
+      "price": 25343.25,
+      "atr": 15.142857142857142,
+      "adx": 20.011073537527018,
+      "rsi": 55.62939313106907,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 6876.5,
+      "price": 6874.75,
       "atr": 2.625,
-      "adx": 22.06528217096062,
-      "rsi": 57.615051866303304,
+      "adx": 22.06357237798766,
+      "rsi": 52.24305906438307,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2653.0,
-      "atr": 1.5571428571429027,
-      "adx": 13.987990736675139,
-      "rsi": 55.80008796418908,
+      "price": 2650.8,
+      "atr": 1.5285714285714675,
+      "adx": 13.107150698667468,
+      "rsi": 47.32795203746368,
       "group": "EQUITY"
     }
   },
