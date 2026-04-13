@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-13T09:22:20Z",
+  "updated_at": "2026-04-13T09:25:08Z",
   "equity": 156002.2,
   "daily_pnl": 0.0,
   "halted": false,
@@ -27,71 +27,31 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 25122.25,
-      "atr": 4.517857142857143,
-      "adx": 26.51103557927235,
-      "rsi": 62.314804763714,
+      "price": 25119.0,
+      "atr": 3.732142857142857,
+      "adx": 25.566347949059853,
+      "rsi": 55.97204370497717,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 6818.25,
-      "atr": 1.125,
-      "adx": 26.40747186981063,
-      "rsi": 63.16002399061043,
+      "price": 6817.5,
+      "atr": 0.875,
+      "adx": 25.83121969049854,
+      "rsi": 57.525110594011316,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2620.2,
-      "atr": 0.6214285714285909,
-      "adx": 19.960342897318533,
-      "rsi": 56.587025591527244,
+      "price": 2619.5,
+      "atr": 0.549999999999987,
+      "adx": 19.043488925736614,
+      "rsi": 50.806965277818826,
       "group": "EQUITY"
-    },
-    "MGCM6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 4739.9,
-      "atr": 2.557142857143,
-      "adx": 22.305250688008382,
-      "rsi": 38.775951354941625,
-      "group": "METALS"
-    },
-    "SILM6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 249.075,
-      "atr": 0.12678571428571672,
-      "adx": 18.1672428804162,
-      "rsi": 48.4537867787581,
-      "group": "METALS"
-    },
-    "MHGJ6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 2194.5,
-      "atr": 1.8214285714285714,
-      "adx": 15.39454526017874,
-      "rsi": 57.05083166259775,
-      "group": "METALS"
-    },
-    "MCLK6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 104.46,
-      "atr": 0.0857142857142849,
-      "adx": 12.871925204900966,
-      "rsi": 50.387770307511325,
-      "group": "ENERGY"
     }
   },
   "model": {
