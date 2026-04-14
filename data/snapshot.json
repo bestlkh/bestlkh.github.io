@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-14T21:12:23Z",
+  "updated_at": "2026-04-14T21:17:25Z",
   "equity": 152870.2,
   "daily_pnl": 0.0,
   "halted": false,
@@ -77,10 +77,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2316.0,
+      "price": 2316.5,
       "atr": 1.7142857142857142,
       "adx": 13.960511749971273,
-      "rsi": 40.775830643248625,
+      "rsi": 41.92110378705997,
       "group": "METALS"
     },
     "MCLK6": {
