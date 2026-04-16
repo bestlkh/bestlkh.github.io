@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-04-16T13:50:43Z",
+  "updated_at": "2026-04-16T13:50:52Z",
   "equity": 149827.2,
-  "daily_pnl": -157.4,
+  "daily_pnl": -183.8,
   "halted": false,
   "rth": true,
   "ws_connected": true,
@@ -10,21 +10,8 @@
   "market_closed": false,
   "strategy_version": "v3.1-PRAC",
   "ml_version": "live",
-  "in_trade": true,
-  "open_positions": [
-    {
-      "symbol": "MESM6",
-      "side": "LONG",
-      "contracts": 1,
-      "entry_price": 7065.25,
-      "current_price": 7065.5,
-      "unrealized_pnl": 1.25,
-      "sl_price": 7060.0,
-      "tp_price": 7075.75,
-      "phase": "Ph8_SD_BAND",
-      "entry_time": "2026-04-16T09:50:40.822162-04:00"
-    }
-  ],
+  "in_trade": false,
+  "open_positions": [],
   "todays_trades": [
     {
       "symbol": "MGCM6",
@@ -93,14 +80,31 @@
       "sl_price": 2727.6,
       "tp_price": 2717.2,
       "signal_type": ""
+    },
+    {
+      "symbol": "MESM6",
+      "side": "LONG",
+      "contracts": 1,
+      "entry_price": 7065.25,
+      "exit_price": 7065.0,
+      "pnl": -26.4,
+      "r_multiple": null,
+      "ml_prob": null,
+      "phase": "HF_MR",
+      "entry_time": "2026-04-16T09:50:52.834688-04:00",
+      "exit_time": "2026-04-16T09:50:52.834688-04:00",
+      "exit_reason": "VWAP_thesis_fail",
+      "sl_price": 7060.0,
+      "tp_price": 7075.75,
+      "signal_type": ""
     }
   ],
   "trade_stats": {
     "wins": 1,
-    "losses": 3,
-    "wr": 0.25,
-    "net_pnl": -157.4,
-    "profit_factor": 0.051,
+    "losses": 4,
+    "wr": 0.2,
+    "net_pnl": -183.8,
+    "profit_factor": 0.044,
     "avg_r": 0.0
   },
   "prev_sessions": [
@@ -136,70 +140,70 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 26361.5,
-      "atr": 27.732142857142858,
-      "adx": 11.39445842259666,
-      "rsi": 42.70901423994088,
+      "price": 26357.75,
+      "atr": 27.767857142857142,
+      "adx": 11.422080659883294,
+      "rsi": 41.86408377202518,
       "group": "EQUITY"
     },
     "MESM6": {
-      "in_trade": true,
+      "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 7065.5,
-      "atr": 3.482142857142857,
-      "adx": 15.505835794586318,
-      "rsi": 42.57199513669204,
+      "price": 7064.75,
+      "atr": 3.5357142857142856,
+      "adx": 15.69596213778968,
+      "rsi": 41.073078212664015,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 2,
       "halted": false,
-      "price": 2727.4,
-      "atr": 2.7357142857142986,
+      "price": 2726.8,
+      "atr": 2.7571428571428833,
       "adx": 16.27131148331339,
-      "rsi": 50.37177002190978,
+      "rsi": 48.79318453816887,
       "group": "EQUITY"
     },
     "MGCM6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 4834.4,
-      "atr": 3.8142857142856235,
+      "price": 4833.6,
+      "atr": 3.8714285714284284,
       "adx": 15.918798998261328,
-      "rsi": 40.63717024092906,
+      "rsi": 39.36143397388518,
       "group": "METALS"
     },
     "SILM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 249.85,
+      "price": 249.8,
       "atr": 0.2535714285714233,
       "adx": 31.1981800539153,
-      "rsi": 28.100875810336078,
+      "rsi": 27.353947730428374,
       "group": "METALS"
     },
     "MHGJ6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2334.0,
-      "atr": 2.3214285714285716,
-      "adx": 25.619657032017525,
-      "rsi": 31.569131806387006,
+      "price": 2333.5,
+      "atr": 2.357142857142857,
+      "adx": 25.734018507648873,
+      "rsi": 30.82086639378639,
       "group": "METALS"
     },
     "MCLK6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 92.93,
+      "price": 92.97,
       "atr": 0.14785714285714338,
       "adx": 29.414512930868813,
-      "rsi": 70.61795632385727,
+      "rsi": 71.58491523064008,
       "group": "ENERGY"
     }
   },
@@ -265,7 +269,7 @@
     ],
     "sharpe": 19.442,
     "promoted_at": "2026-03-10T21:48:57.840473-04:00",
-    "live_trades": 35,
+    "live_trades": 36,
     "min_live_trades": 200,
     "observe_only": true,
     "v9": {
