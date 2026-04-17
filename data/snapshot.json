@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-17T22:35:28Z",
+  "updated_at": "2026-04-17T22:40:29Z",
   "equity": 147946.24,
   "daily_pnl": 0.0,
   "halted": false,
@@ -2300,89 +2300,72 @@
         "tested": false
       },
       {
-        "id": "hyp_20260408_agent0",
-        "type": "feature_engineer",
-        "description": "Audit live feature pipeline for look-ahead leaks or stale/delayed feature values vs backtest computation",
-        "evidence": "81% backtest WR \u2192 ~0% live WR is too extreme for market regime alone; a single look-ahead feature (e.g. VWAP using full-bar close instead of pre-signal snapshot, or macro bar joined on future timestamp) would fully explain the collapse",
+        "id": "hyp_20260417_agent0",
+        "type": "param_search",
+        "description": "Verify live execution side matches model prediction direction before any other tuning",
+        "evidence": "0% WR across all signals on 6 trades is statistically near-impossible (~1.5%) for a model with backtest AUC 0.7521 \u2014 strongly suggests sign flip or side inversion in execution layer",
         "proposed_change": {
-          "param_change": "Add logging to dump raw feature vectors at signal_time in live, then replay same timestamps through backtest pipeline and diff every column; flag any feature with >1% RMSE divergence"
+          "param_change": "Add execution audit: log predicted_direction vs order_side vs fill_side for every trade; compare to v5 baseline trade log"
         },
         "priority": 1,
-        "experiment_type": "feature_engineer",
+        "experiment_type": "param_search",
         "params": {},
-        "hypothesis": "Audit live feature pipeline for look-ahead leaks or stale/delayed feature values vs backtest computation",
-        "created_at": "2026-04-08T22:40:56.078Z",
+        "hypothesis": "Verify live execution side matches model prediction direction before any other tuning",
+        "created_at": "2026-04-17T22:36:14.181Z",
         "status": "queued",
         "source": "agent_discussion",
-        "expected_metric": "If leak found and fixed, WR should recover toward 55-65% OOS baseline; this is binary \u2014 either parity holds or it doesn't"
+        "expected_metric": "If flip confirmed and corrected: WR 0% -> ~55-62% (matches backtest)"
       },
       {
-        "id": "hyp_20260408_agent1",
-        "type": "feature_engineer",
-        "description": "Verify merge_asof timestamp alignment: macro bars are UTC, signals are ET \u2014 check that timezone conversion in live path matches backtest exactly",
-        "evidence": "MEMORY.md explicitly warns 'Macro bars use UTC timezone \u2014 convert to ET before merge_asof' and bars have datetime64[us] vs signal datetime64[ns] mismatch; a tz-naive merge_asof in live would shift macro features by 4-5 hours, producing nonsense inputs",
+        "id": "hyp_20260417_agent1",
+        "type": "param_search",
+        "description": "Confirm v6 model artifact integrity by reproducing predictions on a known historical sample",
+        "evidence": "Meta-LGB AUC 0.7521 in research vs 0% live WR \u2014 gap implicates either wrong model file loaded, feature pipeline drift, or stale calibration",
         "proposed_change": {
-          "param_change": "Log pre-merge and post-merge timestamps for macro features in live; compare against backtest replay; add explicit tz assertion guards before every merge_asof call"
+          "param_change": "Run v6 inference on last 30 days of feature_matrix_all_signals.parquet; compare predicted probs to backtest record at same timestamps"
         },
         "priority": 2,
-        "experiment_type": "feature_engineer",
+        "experiment_type": "param_search",
         "params": {},
-        "hypothesis": "Verify merge_asof timestamp alignment: macro bars are UTC, signals are ET \u2014 check that timezone conversion in live path matches backtest exactly",
-        "created_at": "2026-04-08T22:40:56.078Z",
+        "hypothesis": "Confirm v6 model artifact integrity by reproducing predictions on a known historical sample",
+        "created_at": "2026-04-17T22:36:14.181Z",
         "status": "queued",
         "source": "agent_discussion",
-        "expected_metric": "If misaligned, fixing restores macro feature validity \u2014 expected +5-10% WR recovery given 28 engineered features include macro"
+        "expected_metric": "Prediction-vs-backtest correlation should be >0.99; anything lower isolates the regression"
       },
       {
-        "id": "hyp_20260408_agent2",
+        "id": "hyp_20260417_agent2",
         "type": "feature_engineer",
-        "description": "Check that CatBoost/XGB model inference receives int-typed categoricals and float32 feature matrix identical to training schema",
-        "evidence": "MEMORY.md warns 'CatBoost needs DataFrame with int-typed categoricals (numpy float32 arrays fail with cat_features)'; if live path passes raw numpy or wrong dtypes, CatBoost predictions degrade silently to ~random",
+        "description": "Audit feature pipeline for macro bar timezone and microstructure feature alignment in live vs training",
+        "evidence": "Macro bars (ZN/ZT/ZB/DX) use UTC and require ET conversion; bars dt is us-precision while signal_time is ns \u2014 known footgun documented in MEMORY",
         "proposed_change": {
-          "param_change": "Add dtype assertion at model.predict() call site: verify DataFrame dtypes match training schema exactly; log prediction distribution (mean, std, histogram) to detect if outputs are degenerate"
+          "param_change": "Add per-feature live-vs-training distribution check (mean/std/null-rate) at startup; fail loud on >2 sigma drift"
         },
         "priority": 3,
         "experiment_type": "feature_engineer",
         "params": {},
-        "hypothesis": "Check that CatBoost/XGB model inference receives int-typed categoricals and float32 feature matrix identical to training schema",
-        "created_at": "2026-04-08T22:40:56.078Z",
+        "hypothesis": "Audit feature pipeline for macro bar timezone and microstructure feature alignment in live vs training",
+        "created_at": "2026-04-17T22:36:14.181Z",
         "status": "queued",
         "source": "agent_discussion",
-        "expected_metric": "If dtype mismatch exists, fixing it restores per-type model predictions; meta-LGB output should shift from ~0.5 to bimodal distribution matching OOS"
+        "expected_metric": "Identifies which of 50 features are corrupted; partial fix likely recovers 30-50% of AUC gap"
       },
       {
-        "id": "hyp_20260408_agent3",
+        "id": "hyp_20260417_agent3",
         "type": "param_search",
-        "description": "Run full OOS walk-forward on 2026-04-07 market data using backtest pipeline to establish true expected WR for that session",
-        "evidence": "N=18 live trades is too small to distinguish model failure from bad session; need ground-truth WR for that exact session computed via the trusted backtest path to isolate pipeline bug vs market regime",
+        "description": "Re-measure per-signal and per-session performance only after model integrity is confirmed",
+        "evidence": "n=2 per signal and n=6 total is too small to mask signals or filter sessions; current 0% WR is dominated by systemic bug not signal/session quality",
         "proposed_change": {
-          "param_change": "Replay 2026-04-07 through offline backtest pipeline; compare predicted probabilities and trade outcomes against live log; any divergence in predicted_proba confirms pipeline bug per H1-H3"
+          "param_change": "Defer signal_mask and time_filter experiments; collect >=100 trades on fixed model before any selective filtering"
         },
         "priority": 4,
         "experiment_type": "param_search",
         "params": {},
-        "hypothesis": "Run full OOS walk-forward on 2026-04-07 market data using backtest pipeline to establish true expected WR for that session",
-        "created_at": "2026-04-08T22:40:56.078Z",
+        "hypothesis": "Re-measure per-signal and per-session performance only after model integrity is confirmed",
+        "created_at": "2026-04-17T22:36:14.181Z",
         "status": "queued",
         "source": "agent_discussion",
-        "expected_metric": "Establishes baseline: if backtest shows 60%+ WR on same session, confirms live pipeline bug; if backtest also shows 0%, confirms regime/model issue"
-      },
-      {
-        "id": "hyp_20260408_agent4",
-        "type": "feature_engineer",
-        "description": "Validate that bar data ingested live has no gaps, duplicates, or off-by-one row shifts compared to historical bars for the same timestamps",
-        "evidence": "Live bars from Databento stream vs historical download may have different row alignment, fill policies, or timestamp semantics (ts_event vs ts_recv); searchsorted on misaligned int64 timestamps would silently return wrong rows",
-        "proposed_change": {
-          "param_change": "Compare live-ingested bars for 2026-04-07 against historical parquet for same session; check row count, timestamp continuity, and OHLCV values at 10 random timestamps"
-        },
-        "priority": 5,
-        "experiment_type": "feature_engineer",
-        "params": {},
-        "hypothesis": "Validate that bar data ingested live has no gaps, duplicates, or off-by-one row shifts compared to historical bars for the same timestamps",
-        "created_at": "2026-04-08T22:40:56.078Z",
-        "status": "queued",
-        "source": "agent_discussion",
-        "expected_metric": "If bar data diverges, all downstream features are corrupted; fixing restores feature validity across all 50 features"
+        "expected_metric": "Prevents premature optimization; preserves statistical power for real tuning"
       }
     ],
     "morning_summary": "{'generated_at': '2026-04-08T18:18:34.763712-04:00', 'experiments_run': 117, 'experiments_completed': 105, 'experiments_failed': 0, 'architecture_proposals': [{'id': 'exp_20260407_e22f2d', 'description': 'Feature Add experiment'}, {'id': 'exp_20260407_b6fd44', 'description': 'Feature Add experiment'}, {'id': 'exp_20260407_014ffa', 'description': 'Feature Add experiment'}, {'id': 'exp_20260407_8bfca9', 'description': 'Feature Add experiment'}, {'id': 'exp_20260407_82ee89', 'description': 'Feature Add experiment'}, {'id': 'exp_20260407_37cfa4', 'description': 'Feature Add experiment'}, {'id': 'exp_20260407_fee8dd', 'description': 'Feature Add experiment'}, {'id': 'exp_20260407_ac4043', 'description': 'Feature Add experiment'}, {'id': 'exp_20260408_0f06c1', 'description': 'Feature Add experiment'}, {'id': 'exp_20260408_a53fdd', 'description': 'Feature Add experiment'}, {'id': 'exp_20260408_076f18', 'description': 'Feature Add experiment'}, {'id': 'exp_20260408_b38dc4', 'description': 'Feature Add experiment'}], 'best_result': {'id': 'exp_20260407_595026', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.6...', 'metrics': {'wr': 0.7773, 'pf': 14.182, 'sharpe': 22.728, 'net_pnl': 1225563.25, 'max_dd': -766.7, 'trades_per_day': 347.6, 'auc': 0.7861, 'n_trades': 76129}}, 'promoted': False, 'promoted_experiment': None, 'champion': {'version': 'v6+exp_20260304_5caf4e+exp_20260310_b1b69c', 'metrics': {'wr': 0.8178, 'pf': 18.802, 'sharpe': 19.442, 'net_pnl': 233124.19, 'max_dd': -389.55, 'trades_per_day': 302.7, 'auc': 0.8018, 'n_trades': 13317}}, 'top_3': [{'id': 'exp_20260407_595026', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.6...', 'metrics': {'wr': 0.7773, 'pf': 14.182, 'sharpe': 22.728, 'net_pnl': 1225563.25, 'max_dd': -766.7, 'trades_per_day': 347.6, 'auc': 0.7861, 'n_trades': 76129}}, {'id': 'exp_20260407_bbbc8e', 'description': 'Grid search: tp_mult=2.5, sl_mult=0.75, max_hold=10, threshold_long=0.65...', 'metrics': {'wr': 0.7976, 'pf': 13.457, 'sharpe': 20.783, 'net_pnl': 892856.8, 'max_dd': -798.68, 'trades_per_day': 296.2, 'auc': 0.7861, 'n_trades': 64875}}, {'id': 'exp_20260407_884dca', 'description': 'Grid search: tp_mult=3.0, sl_mult=0.75, max_hold=10, threshold_long=0.6...', 'metrics': {'wr': 0.7607, 'pf': 12.978, 'sharpe': 23.971, 'net_pnl': 1363584.43, 'max_dd': -1057.34, 'trades_per_day': 394.7, 'auc': 0.7861, 'n_trades': 86434}}], 'worst_3': [{'id': 'exp_20260407_325bd3', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=15, threshold_long=0.5...', 'metrics': {'wr': 0.7427, 'pf': 3.472, 'sharpe': 19.85, 'net_pnl': 586259.08, 'max_dd': -2132.79, 'trades_per_day': 452.1, 'auc': 0.7861, 'n_trades': 99002}}, {'id': 'exp_20260407_5c1fae', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=15, threshold_long=0.45...', 'metrics': {'wr': 0.7125, 'pf': 2.9, 'sharpe': 19.267, 'net_pnl': 593987.67, 'max_dd': -2517.53, 'trades_per_day': 512.2, 'auc': 0.7861, 'n_trades': 112172}}, {'id': 'exp_20260408_6e0833', 'description': 'Grid search: tp_mult=1.5, sl_mult=1.25, max_hold=10, threshold_long=0.55...', 'metrics': {'wr': 0.6965, 'pf': 2.817, 'sharpe': 19.43, 'net_pnl': 624950.88, 'max_dd': -2742.11, 'trades_per_day': 551.5, 'auc': 0.7861, 'n_trades': 120768}}], 'all_time_stats': {'total_experiments': 1843, 'completed': 1475, 'promoted': 6, 'promotion_rate': 0.0041, 'best_pf': 18.802, 'best_sharpe': 27.987, 'best_wr': 0.8331}, 'daily_trading': {'pnl': -1021.62, 'trades': 1}, 'live_labels': {'total': 32, 'wr': 0.156, 'by_type': {'1': {'n': 18, 'wr': 0.278}, '27': {'n': 2, 'wr': 0.0}, '2': {'n': 4, 'wr': 0.0}, '11': {'n': 1, 'wr': 0.0}, '4': {'n': 7, 'wr': 0.0}}}, 'suggested_hypotheses': ['High TP mult (>=2.5) PF=8.39 >> low TP (<=1.5) PF=4.32 \u2014 explore even higher TP'], 'next_version': 'v7', 'next_version_planned_experiments': 0, 'recommended_architecture_change': None, 'research_summary': '56 trades over last 7d: WR=23% PF=0.71 | Best: unknown (33%) | Worst: MOMENTUM (0%) | 10 hypotheses generated', 'signal_analysis': {'1': {'n': 18, 'wr': 0.2778, 'pf': 0.289, 'name': 'ORB'}, '27': {'n': 2, 'wr': 0.0, 'pf': 0.0, 'name': 'TYPE_27'}, '2': {'n': 4, 'wr': 0.0, 'pf': 0.0, 'name': 'VWAP_TREND'}, '11': {'n': 1, 'wr': 0.0, 'pf': 0.0, 'name': 'TYPE_11'}, '4': {'n': 7, 'wr': 0.0, 'pf': 0.0, 'name': 'MOMENTUM'}, 'unknown': {'n': 24, 'wr': 0.3333, 'pf': 0.843, 'name': 'unknown'}}, 'worst_performing_type': 'MOMENTUM: WR=0%', 'best_performing_type': 'unknown: WR=33%', 'top_hypotheses': [{'id': 'hyp_20260408_S1', 'type': 'threshold_adjustment', 'description': 'Signal type ORB (type 1) has low WR=28% (n=18). Increase ML threshold for this type, or consider masking it in the current regime.', 'priority': 1, 'evidence': 'ORB: WR=28% n=18 PF=0.29'}, {'id': 'hyp_20260408_S4', 'type': 'threshold_adjustment', 'description': 'Signal type MOMENTUM (type 4) has low WR=0% (n=7). Increase ML threshold for this type, or consider masking it in the current regime.', 'priority': 1, 'evidence': 'MOMENTUM: WR=0% n=7 PF=0.00'}, {'id': 'hyp_20260408_Sunknown', 'type': 'threshold_adjustment', 'description': 'Signal type unknown (type unknown) has low WR=33% (n=24). Increase ML threshold for this type, or consider masking it in the current regime.', 'priority': 1, 'evidence': 'unknown: WR=33% n=24 PF=0.84'}, {'id': 'hyp_20260408_TIME1', 'type': 'risk_param', 'description': 'TIME_EXIT trades have low WR (36%, n=11). Reduce max hold time to avoid holding losers too long, or add momentum-based exit trigger.', 'priority': 2, 'evidence': 'TIME_EXIT trades: WR=36% (n=11)'}, {'id': 'hyp_20260408_TPRE', 'type': 'time_filter', 'description': 'Trades during pre_market (00:00-09:30 ET) have poor WR=36% (n=14). Add time blackout for this window.', 'priority': 2, 'evidence': 'pre_market: WR=36% n=14 PF=0.12'}], 'v8_training': {'version': 'v8', 'parent': 'v7', 'status': 'complete', 'auc': 0.6336, 'wr': 0.6249, 'pf': 1.666, 'completed_types': 19, 'skipped_types': 0, 'live_labels_used': 32, 'training_time_min': 1.1, 'per_type_results': {'1': {}, '2': {}, '4': {}, '7': {}, '8': {}, '9': {}, '10': {}, '11': {}, '12': {}, '13': {}, '14': {}, '15': {}, '16': {}, '18': {}, '19': {}, '20': {}, '21': {}, '26': {}, '27': {}}, 'gpu': {'lgb': 'gpu', 'xgb': 'cuda', 'cb': 'GPU', 'torch': True}, 'arch_proposals_applied': [\"Experiment(id='exp_20260408_0f06c1', description='Feature Add experiment', hypothesis='Live WR 15.6% below expected 91.8% \u2014 tighten threshold to 0.75', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-04-08T18:15:39.628770-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260408_a53fdd', description='Feature Add experiment', hypothesis='Type 1 live WR 27.8% < 40% \u2014 mask it', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-04-08T18:15:39.628797-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260408_076f18', description='Feature Add experiment', hypothesis='Type 4 live WR 0.0% < 40% \u2014 mask it', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-04-08T18:15:39.628812-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\", \"Experiment(id='exp_20260408_b38dc4', description='Feature Add experiment', hypothesis='Estimated live PF 0.37 \u2014 try tighter SL (0.7x) and wider TP (2.5x)', params={'tp_mult': 3.0, 'sl_mult': 1.0, 'max_hold': 20, 'threshold_long': 0.5, 'threshold_short': 0.5, 'regime_filter': None, 'instruments': 'all'}, status='pending_retrain', result={'skipped': 'architecture_proposal', 'description': 'Feature Add experiment'}, created_at='2026-04-08T18:15:39.628824-04:00', completed_at='', promoted=False, is_architecture_proposal=True)\"], 'trained_at': '2026-04-08T15:18:29'}}",
