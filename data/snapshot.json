@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-17T13:49:32Z",
+  "updated_at": "2026-04-17T13:49:35Z",
   "equity": 149380.48,
   "daily_pnl": -1082.11,
   "halted": false,
@@ -17,8 +17,8 @@
       "side": "LONG",
       "contracts": 2,
       "entry_price": 7128.0,
-      "current_price": 7127.25,
-      "unrealized_pnl": -7.5,
+      "current_price": 7128.0,
+      "unrealized_pnl": 0.0,
       "sl_price": 7119.75,
       "tp_price": 7144.75,
       "phase": "Ph8_MACD_FLIP",
@@ -26,15 +26,15 @@
     },
     {
       "symbol": "M2KM6",
-      "side": "LONG",
+      "side": "SHORT",
       "contracts": 3,
-      "entry_price": null,
-      "current_price": 2766.0,
-      "unrealized_pnl": 0.0,
-      "sl_price": null,
-      "tp_price": null,
+      "entry_price": 2766.0,
+      "current_price": 2766.1,
+      "unrealized_pnl": -1.5,
+      "sl_price": 2770.7,
+      "tp_price": 2756.6,
       "phase": "Ph8_TRIANGLE",
-      "entry_time": "2026-04-17T13:49:32Z"
+      "entry_time": "2026-04-17T09:49:32.559943-04:00"
     }
   ],
   "todays_trades": [
@@ -225,50 +225,50 @@
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 26683.25,
+      "price": 26686.25,
       "atr": 29.875,
       "adx": 28.23831861481803,
-      "rsi": 45.043854395301075,
+      "rsi": 45.98759559388979,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": true,
       "trades_today": 2,
       "halted": false,
-      "price": 7127.25,
+      "price": 7128.0,
       "atr": 5.571428571428571,
       "adx": 19.648300009537216,
-      "rsi": 46.60559188210507,
+      "rsi": 47.73690860354362,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": true,
       "trades_today": 2,
       "halted": false,
-      "price": 2766.0,
+      "price": 2766.1,
       "atr": 3.7428571428571495,
       "adx": 21.98384473609975,
-      "rsi": 42.28308809127919,
+      "rsi": 42.4582821964182,
       "group": "EQUITY"
     },
     "MGCM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 4886.2,
+      "price": 4887.2,
       "atr": 6.978571428571546,
       "adx": 17.8037982437361,
-      "rsi": 52.400749706687726,
+      "rsi": 53.3489051875893,
       "group": "METALS"
     },
     "SILM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 247.75,
+      "price": 247.775,
       "atr": 0.20892857142857427,
       "adx": 10.051840278815023,
-      "rsi": 53.541088929408026,
+      "rsi": 54.222587715913505,
       "group": "METALS"
     },
     "MHGJ6": {
