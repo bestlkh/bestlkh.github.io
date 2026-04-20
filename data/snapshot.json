@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-04-20T13:48:24Z",
+  "updated_at": "2026-04-20T13:48:27Z",
   "equity": 147946.24,
-  "daily_pnl": 0.0,
+  "daily_pnl": 22.2,
   "halted": false,
   "rth": true,
   "ws_connected": true,
@@ -10,28 +10,33 @@
   "market_closed": false,
   "strategy_version": "v3.1-PRAC",
   "ml_version": "live",
-  "in_trade": true,
-  "open_positions": [
+  "in_trade": false,
+  "open_positions": [],
+  "todays_trades": [
     {
       "symbol": "MESM6",
       "side": "SHORT",
       "contracts": 2,
       "entry_price": 7152.5,
-      "current_price": 7152.25,
-      "unrealized_pnl": 2.5,
+      "exit_price": 7152.0,
+      "pnl": 22.2,
+      "r_multiple": null,
+      "ml_prob": null,
+      "phase": "HF_MR",
+      "entry_time": "2026-04-20T09:48:27.585402-04:00",
+      "exit_time": "2026-04-20T09:48:27.585402-04:00",
+      "exit_reason": "VWAP_thesis_fail",
       "sl_price": 7158.25,
       "tp_price": 7141.0,
-      "phase": "Ph8_SD_BAND",
-      "entry_time": "2026-04-20T09:48:21.236027-04:00"
+      "signal_type": ""
     }
   ],
-  "todays_trades": [],
   "trade_stats": {
-    "wins": 0,
+    "wins": 1,
     "losses": 0,
-    "wr": 0.0,
-    "net_pnl": 0,
-    "profit_factor": 0.0,
+    "wr": 1.0,
+    "net_pnl": 22.2,
+    "profit_factor": 2220.0,
     "avg_r": 0.0
   },
   "prev_sessions": [
@@ -289,40 +294,40 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 26762.25,
+      "price": 26758.5,
       "atr": 23.267857142857142,
       "adx": 20.739751648524997,
-      "rsi": 48.42375438687023,
+      "rsi": 46.72743266837451,
       "group": "EQUITY"
     },
     "MESM6": {
-      "in_trade": true,
+      "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 7152.25,
+      "price": 7151.75,
       "atr": 3.857142857142857,
       "adx": 28.50332957340341,
-      "rsi": 63.01502160936322,
+      "rsi": 62.084124208828584,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2786.4,
+      "price": 2785.8,
       "atr": 2.578571428571422,
       "adx": 35.68364938404264,
-      "rsi": 67.67019833479966,
+      "rsi": 66.5348564585762,
       "group": "EQUITY"
     },
     "MGCM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 4844.3,
+      "price": 4842.9,
       "atr": 3.0142857142855712,
       "adx": 26.672546214175185,
-      "rsi": 59.66548499526333,
+      "rsi": 56.87389924027274,
       "group": "METALS"
     },
     "SILM6": {
@@ -408,7 +413,7 @@
     ],
     "sharpe": 19.442,
     "promoted_at": "2026-03-10T21:48:57.840473-04:00",
-    "live_trades": 40,
+    "live_trades": 41,
     "min_live_trades": 200,
     "observe_only": true,
     "v9": {
