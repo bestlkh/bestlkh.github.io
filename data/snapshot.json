@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-20T20:59:38Z",
+  "updated_at": "2026-04-20T21:04:39Z",
   "equity": 148004.64,
   "daily_pnl": 75.2,
   "halted": false,
@@ -328,10 +328,10 @@
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 26778.5,
+      "price": 26774.25,
       "atr": 6.803571428571429,
       "adx": 14.723160914883087,
-      "rsi": 52.27441895384389,
+      "rsi": 48.12186237145684,
       "group": "EQUITY"
     },
     "MESM6": {
@@ -339,8 +339,8 @@
       "trades_today": 2,
       "halted": false,
       "price": 7152.0,
-      "atr": 1.4285714285714286,
-      "adx": 20.922430211333086,
+      "atr": 1.4464285714285714,
+      "adx": 21.07197348139199,
       "rsi": 44.363199717874785,
       "group": "EQUITY"
     },
@@ -358,10 +358,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 4841.6,
+      "price": 4841.0,
       "atr": 1.2142857142856494,
       "adx": 35.341132722781865,
-      "rsi": 65.40983734343274,
+      "rsi": 62.535863739785654,
       "group": "METALS"
     },
     "SILM6": {
