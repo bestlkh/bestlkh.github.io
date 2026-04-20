@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-04-20T21:04:39Z",
+  "updated_at": "2026-04-20T21:09:41Z",
   "equity": 148004.64,
   "daily_pnl": 75.2,
   "halted": false,
   "rth": false,
-  "ws_connected": true,
+  "ws_connected": false,
   "dry_run": false,
   "session_type": "OFF_HOURS",
   "market_closed": false,
@@ -348,10 +348,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2807.2,
-      "atr": 0.6928571428570974,
-      "adx": 28.0063204653924,
-      "rsi": 51.66307780534349,
+      "price": 2807.6,
+      "atr": 0.699999999999948,
+      "adx": 28.14296563429331,
+      "rsi": 55.380951528045955,
       "group": "EQUITY"
     },
     "MGCM6": {
@@ -368,10 +368,10 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 246.175,
+      "price": 246.15,
       "atr": 0.12321428571428734,
       "adx": 11.517634606980923,
-      "rsi": 54.77887453312997,
+      "rsi": 53.45855620391303,
       "group": "METALS"
     },
     "MHGJ6": {
