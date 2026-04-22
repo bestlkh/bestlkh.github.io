@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-22T13:49:26Z",
+  "updated_at": "2026-04-22T13:49:39Z",
   "equity": 149621.02,
   "daily_pnl": -197.11,
   "halted": false,
@@ -17,8 +17,8 @@
       "side": "SHORT",
       "contracts": 1,
       "entry_price": 26831.5,
-      "current_price": 26827.5,
-      "unrealized_pnl": 8.0,
+      "current_price": 26830.5,
+      "unrealized_pnl": 2.0,
       "sl_price": 26855.75,
       "tp_price": 26783.0,
       "phase": "Ph8_BB_SQUEEZE",
@@ -473,20 +473,20 @@
       "in_trade": true,
       "trades_today": 2,
       "halted": false,
-      "price": 26827.5,
+      "price": 26830.5,
       "atr": 19.428571428571427,
       "adx": 23.640654395605225,
-      "rsi": 40.909743027807146,
+      "rsi": 42.005028325548594,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 7144.25,
+      "price": 7144.75,
       "atr": 4.035714285714286,
       "adx": 27.862855755271692,
-      "rsi": 44.99419807197186,
+      "rsi": 45.84947761446111,
       "group": "EQUITY"
     },
     "M2KM6": {
