@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-22T21:04:55Z",
+  "updated_at": "2026-04-22T21:09:57Z",
   "equity": 148271.78,
   "daily_pnl": -278.08,
   "halted": false,
@@ -533,10 +533,10 @@
       "in_trade": false,
       "trades_today": 3,
       "halted": false,
-      "price": 27106.0,
+      "price": 27106.5,
       "atr": 4.267857142857143,
       "adx": 20.35976952459934,
-      "rsi": 59.5711923568583,
+      "rsi": 60.61324826264302,
       "group": "EQUITY"
     },
     "MESM6": {
