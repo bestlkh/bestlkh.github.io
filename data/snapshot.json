@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-22T07:24:33Z",
+  "updated_at": "2026-04-22T07:25:59Z",
   "equity": 151036.44,
   "daily_pnl": 0.0,
   "halted": false,
@@ -396,61 +396,31 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 26841.0,
-      "atr": 5.589285714285714,
-      "adx": 15.545985055227161,
-      "rsi": 56.32366999757817,
+      "price": 26847.0,
+      "atr": 5.892857142857143,
+      "adx": 16.840955730188014,
+      "rsi": 62.76802309354154,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 7143.0,
-      "atr": 1.4464285714285714,
-      "adx": 20.07136739937258,
-      "rsi": 53.89536506752612,
+      "price": 7144.25,
+      "atr": 1.4642857142857142,
+      "adx": 20.51905579744052,
+      "rsi": 59.510741206280095,
       "group": "EQUITY"
     },
     "M2KM6": {
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 2802.0,
-      "atr": 0.821428571428539,
-      "adx": 19.86805559490797,
-      "rsi": 48.89556627135569,
+      "price": 2802.8,
+      "atr": 0.8714285714285259,
+      "adx": 20.570874729144403,
+      "rsi": 53.72503729618233,
       "group": "EQUITY"
-    },
-    "MGCM6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 4782.6,
-      "atr": 1.9214285714284804,
-      "adx": 19.007317228081238,
-      "rsi": 43.302645320554205,
-      "group": "METALS"
-    },
-    "SILM6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 243.5,
-      "atr": 0.176785714285722,
-      "adx": 54.51933206804315,
-      "rsi": 31.256799375445894,
-      "group": "METALS"
-    },
-    "MHGJ6": {
-      "in_trade": false,
-      "trades_today": 0,
-      "halted": false,
-      "price": 2389.5,
-      "atr": 2.0714285714285716,
-      "adx": 12.55321809018046,
-      "rsi": 39.76385579652962,
-      "group": "METALS"
     }
   },
   "model": {
