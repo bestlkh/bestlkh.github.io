@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-04-22T13:46:47Z",
+  "updated_at": "2026-04-22T13:46:59Z",
   "equity": 151036.44,
-  "daily_pnl": 0.0,
+  "daily_pnl": -14.61,
   "halted": false,
   "rth": true,
   "ws_connected": true,
@@ -17,32 +17,38 @@
       "side": "LONG",
       "contracts": 2,
       "entry_price": 7150.0,
-      "current_price": 7152.5,
-      "unrealized_pnl": 25.0,
+      "current_price": 7152.0,
+      "unrealized_pnl": 20.0,
       "sl_price": 7144.25,
       "tp_price": 7161.5,
       "phase": "Ph8_MACD_FLIP",
       "entry_time": "2026-04-22T09:46:27.107004-04:00"
-    },
+    }
+  ],
+  "todays_trades": [
     {
       "symbol": "M2KM6",
       "side": "LONG",
       "contracts": 3,
       "entry_price": 2805.5,
-      "current_price": 2805.5,
-      "unrealized_pnl": 0.0,
+      "exit_price": 2804.6,
+      "pnl": -14.61,
+      "r_multiple": null,
+      "ml_prob": null,
+      "phase": "MOMENTUM",
+      "entry_time": "2026-04-22T09:46:59.767026-04:00",
+      "exit_time": "2026-04-22T09:46:59.767026-04:00",
+      "exit_reason": "VWAP_thesis_fail",
       "sl_price": 2801.1,
       "tp_price": 2814.4,
-      "phase": "Ph8_ATR_BREAKOUT",
-      "entry_time": "2026-04-22T09:46:44.505528-04:00"
+      "signal_type": ""
     }
   ],
-  "todays_trades": [],
   "trade_stats": {
     "wins": 0,
-    "losses": 0,
+    "losses": 1,
     "wr": 0.0,
-    "net_pnl": 0,
+    "net_pnl": -14.61,
     "profit_factor": 0.0,
     "avg_r": 0.0
   },
@@ -421,30 +427,30 @@
       "in_trade": false,
       "trades_today": 0,
       "halted": false,
-      "price": 26866.25,
+      "price": 26866.0,
       "atr": 20.089285714285715,
       "adx": 25.67366967810427,
-      "rsi": 60.77696739071993,
+      "rsi": 60.67109008952896,
       "group": "EQUITY"
     },
     "MESM6": {
       "in_trade": true,
       "trades_today": 1,
       "halted": false,
-      "price": 7152.5,
+      "price": 7152.0,
       "atr": 3.982142857142857,
       "adx": 28.830953022381255,
-      "rsi": 63.1621922174568,
+      "rsi": 62.3864530329317,
       "group": "EQUITY"
     },
     "M2KM6": {
-      "in_trade": true,
+      "in_trade": false,
       "trades_today": 1,
       "halted": false,
-      "price": 2805.5,
+      "price": 2804.6,
       "atr": 3.549999999999922,
       "adx": 37.02791972629853,
-      "rsi": 56.31602697632876,
+      "rsi": 54.3996053646117,
       "group": "EQUITY"
     }
   },
@@ -510,7 +516,7 @@
     ],
     "sharpe": 19.442,
     "promoted_at": "2026-03-10T21:48:57.840473-04:00",
-    "live_trades": 43,
+    "live_trades": 44,
     "min_live_trades": 200,
     "observe_only": true,
     "v9": {
