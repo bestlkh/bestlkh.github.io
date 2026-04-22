@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-04-22T21:14:58Z",
+  "updated_at": "2026-04-22T21:20:00Z",
   "equity": 148271.78,
   "daily_pnl": -278.08,
   "halted": false,
   "rth": false,
-  "ws_connected": true,
+  "ws_connected": false,
   "dry_run": false,
   "session_type": "OFF_HOURS",
   "market_closed": false,
