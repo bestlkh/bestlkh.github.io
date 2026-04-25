@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-04-25T19:25:36Z",
+  "updated_at": "2026-04-25T19:30:37Z",
   "equity": 146542.5,
   "daily_pnl": 0.0,
   "halted": false,
-  "rth": true,
+  "rth": false,
   "ws_connected": true,
   "dry_run": false,
   "session_type": "MARKET_CLOSED",
